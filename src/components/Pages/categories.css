@@ -1,0 +1,29 @@
+img{
+    height: 400px;
+    width: 343px;
+    border-radius: 10px;
+}
+
+.menShirts{
+    gap: 44px;
+}
+
+
+.data{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 34px;
+}
+
+.description{
+    width: 343px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: start;
+}
+
+.NoData{
+    margin: auto;
+}

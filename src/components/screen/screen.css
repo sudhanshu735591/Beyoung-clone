@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+}
+
+
+.login{
+    background-color: black;
+    color: white;
+    padding: 7px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 700;
+    font-size: 12px;
+    
+}
+
+.login-signup{
+    display: flex;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.text{
+    margin-right: 38%;
+}

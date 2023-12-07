@@ -1,0 +1,19 @@
+.cart{
+    color: #fff;
+    padding: 15px 50px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    background: #51cccc;
+    font-size: 14px;
+    border: none;
+    margin-top: 33px;
+}
+
+.buy{
+    background-color: yellow;
+    color: black;
+    padding: 15px 90px;
+
+}

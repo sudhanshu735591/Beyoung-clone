@@ -1,0 +1,47 @@
+.footerDetails{
+    display: flex;
+    background-color: black;
+    color: yellow;
+    border: 2px solid;
+    justify-content: space-around;
+    padding: 36px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.helpSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.need_help{
+    margin-top: 20px;
+    color: white;
+    font-weight: 600;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-left: 53px;
+}
+
+.about{
+    margin-left: 20px;
+}
+
+
+.location{
+    margin-right: 70%;
+}
+
+.helpSection{
+    font-size: 20px;
+    color: #F8EA54;
+    font-weight: 600;
+}
+

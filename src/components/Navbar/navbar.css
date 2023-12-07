@@ -1,0 +1,70 @@
+.sections{
+    font-weight: bold;
+    font-size: 23px;
+    margin-left: 178px;
+}
+
+.section_tag{
+    display: flex;
+    margin-top: 13px;
+}
+
+.list ul li{
+    list-style-type: none;
+    flex-direction: row;
+    font-weight:600;
+}
+
+.list ul{
+    display: flex;
+    gap: 49px;
+    flex-wrap: wrap;
+
+}
+
+.list{
+    margin-left: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.listData{
+  display: none;
+}
+
+.men:hover{
+    background-color: yellow;
+    cursor: pointer;
+
+    .listData{
+        display: block;
+        background-color: white;
+        height: 40%;
+        width: 73%;
+        position: absolute;
+        top: 100px;
+        left: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        padding: 44px;
+        gap: 20px;
+        flex-wrap: wrap;
+        position: fixed;
+    }
+}
+
+.listData:hover{
+    display: block;
+}
+
+
+.li_tshirt{
+    margin-top: 20px;
+}
+
+.weardata:hover{
+    color: yellow;
+}

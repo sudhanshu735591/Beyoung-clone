@@ -1,0 +1,248 @@
+.Menimage{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.menimg{
+    height: 581px;
+    width: 470px;
+    border-radius: 10px;
+}
+
+.ImageData{
+    display: flex;
+    gap: 13px;
+    margin: 56px 32px;
+}
+
+
+.brand{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 52px;
+}
+
+.urban{
+    color: rgba(0,0,0,0.4);
+    font-weight: 400;
+}
+
+.taxes{
+    color: rgba(0,0,0,0.4);
+
+}
+
+
+.sand{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.price{
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 20px;
+}
+.taxes{
+    font-weight: bold;
+}
+
+.colorBox {
+    height: 40px;
+    width: 40px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+
+.colorBoxData {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.black{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: 17px;
+}
+
+.color{
+    margin-right: 20px;
+}
+
+.size{
+    display: flex;
+    flex-direction: column;
+    margin-top: 21px;
+}
+
+.allSize{
+    display: flex;
+    gap: 17px;
+    padding: 10px;
+}
+
+.sizeText{
+    margin-right: 290px;
+}
+
+.quantity{
+    display: flex;
+    gap: 13px;
+    margin-top: 20px;
+}
+
+select{
+    border-radius: 2px;
+    width: 100%;
+    font-weight: 500;
+    padding: 11px 22px;
+    font-size: 16px;
+    color: #000;
+    background: #fff;
+
+}
+
+.circle{
+    display: inline-block;
+    height: 47px;
+    width: 47px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 45px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+}
+.button{
+    display: flex;
+    gap: 20px;
+}
+
+.pincode{
+    border: 2px solid #ddd;
+    width: 517px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 20px;
+    gap: 9px;
+}
+
+.text{
+    display: flex;
+    font-weight: 600;
+}
+
+.delivery{
+    margin-top: 20px;
+}
+
+input{
+    padding: 7px 10px;
+    padding-right: 80px;
+    border: 2px solid #ddd;
+}
+
+.logo{
+    display: flex;
+    gap: 10px;
+}
+.logoImage{
+    height: 30px;
+    width: 30px;
+}
+
+
+.product_details{
+    display: flex;
+    margin-left: 149px;
+    font-weight: 600;
+    font-size: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.product_highlights{
+    border: 2px solid;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f5f5f5;
+    border: none;
+}
+
+.febric{
+    display: flex;
+    gap: 64px;
+    font-weight: normal;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.highlights{
+    font-size: 15px;
+    display: flex;
+
+}
+
+.febText{
+    font-weight: 600;
+}
+
+
+.boxDeatails{
+    display: flex;
+    gap: 47px;
+    flex-wrap: wrap;
+}
+
+.textDescription{
+    font-size: 20px;
+}
+
+.product_description{
+    border: 2px solid;
+    padding: 9px 11px 0px 19px;
+    margin: 20px;
+    background-color: #f5f5f5;
+    border: none;
+}
+
+.product_text{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.listCotton {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 7px;
+    font-weight: normal;
+}
+
+.sideImage{
+    height: 100px;
+    width: 78px;
+    margin-left: 140px;
+}
+
+.sideImageBox{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loopKnit{
+    width:190px;
+    font-size:10px;
+    line-height: 2vh;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 20px;
+}
