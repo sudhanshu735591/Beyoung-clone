@@ -45,14 +45,6 @@
 
 .highondemand{
     padding-left: 31px;
+    margin-right: 11px;
 }
 
-.imageData{
-    display: flex;
-    overflow: scroll;
-    width: 93%;
-    margin: auto;
-    gap: 20px;
-    padding-left: 20px;
-    cursor: pointer;
-}

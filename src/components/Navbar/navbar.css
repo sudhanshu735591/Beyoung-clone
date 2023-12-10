@@ -18,8 +18,6 @@
 .list ul{
     display: flex;
     gap: 49px;
-    flex-wrap: wrap;
-
 }
 
 .list{

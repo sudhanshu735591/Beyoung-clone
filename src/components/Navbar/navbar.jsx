@@ -23,7 +23,7 @@ function Navbar(){
                                                         return(
                                                             <ul>
                                                                 <li className="weardata">
-                                                                    <NavLink to = {(`/categories?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
+                                                                    <NavLink to = {(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
                                                                         {val.name}
                                                                    </NavLink>
                                                                 </li>

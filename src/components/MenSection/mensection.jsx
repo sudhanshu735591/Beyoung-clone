@@ -4,6 +4,8 @@ import "./mensection.css";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import GenderSection from "../GenderSection/gendersection";
+import Tshirts_Categories from "../MenTshirtCategories/menTshirtsCategories";
+
 
 function Mensection(){
     let [data, setData] = useState([]);
@@ -11,7 +13,7 @@ function Mensection(){
 
     const fetchApi = async()=>{
       try{
-        const apiUrl = ` https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?filter={"subCategory":"tshirt"}`;
+        const apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?filter={"subCategory":"tshirt"}`;
         let resData = await fetch(apiUrl , {
             method: 'GET',
             headers : {
@@ -27,6 +29,7 @@ function Mensection(){
       }
     }
 
+
     useEffect(()=>{
         fetchApi();
     },[]);
@@ -36,8 +39,8 @@ function Mensection(){
    
     return(
       <div>
-        <GenderSection data = {data} gender = "FOR MEN" shirts = "T-SHIRTS" demand = "High On Demand"/>
-        <GenderSection data = {data} gender = "FOR WOMEN" />
+        <GenderSection category = {Tshirts_Categories}  gender = "FOR MEN" shirts = "T-SHIRTS" demand = "High On Demand"/>
+        
       </div>
 
     )

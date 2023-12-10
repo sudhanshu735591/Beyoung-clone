@@ -1,0 +1,12 @@
+.womenImage{
+    height: 300px;
+    width: 200px;
+}
+
+.womenData{
+    display: flex;
+    overflow: auto;
+    margin-top: 30px;
+    gap: 20px;
+    margin-left: 50px;
+}

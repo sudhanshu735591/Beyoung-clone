@@ -5,6 +5,7 @@ import Navbar from "./Navbar/navbar";
 import { Route, Routes } from "react-router-dom";
 import Categories from "./Pages/categories";
 import ImageDetails from "./ImageDetails/imagedetails";
+import CategorizedSection from "./CategorizedData/category";
 
 
 
@@ -13,8 +14,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path = "/" element = {<Home/>}/>
-        <Route path = "/categories" element = {<Categories/>}/>
+        {/* <Route path = "/categories" element = {<Categories/>}/> */}
         <Route path = "/imageDetails/:id" element = {<ImageDetails/>}/>
+        <Route path = "/categorized" element = {<CategorizedSection/>}/>
+
       </Routes>
     </div>
   );

@@ -48,7 +48,6 @@ function ImageDetails() {
             <Trackorder />
             <Navbar />
 
-
             {
                 <div className="ImageData">
                     <div className="sideImageBox">
@@ -91,10 +90,6 @@ function ImageDetails() {
                                         )
                                     })
                                 }
-                                {/* <div className="circle">M</div>
-                                <div className="circle">L</div>
-                                <div className="circle">XL</div> */}
-
                             </div>
                         </div>
 

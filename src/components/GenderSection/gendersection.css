@@ -17,42 +17,51 @@
     margin: auto;
 }
 
-.demand{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    padding-left: 14px;
-}
-
-.displayImage{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    gap: 60rem;
-}
-
-
-.tshirt{
-    font-weight: 600;
-    font-size: 22px;
-    border-left: 4px solid yellow;
-}
-
-.viewall{
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.highondemand{
-    padding-left: 31px;
-}
 
 .imageData{
     display: flex;
+    margin-left: 71px;
+}
+
+.imageCategories{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sideImageData{
+    height: 187px;
+    width: 170px;
+    margin-left: 18px;
+}
+
+.tshirtText{
+    position: relative;
+    bottom: 31px;
+    color: black;
+}
+
+.tshirt1{
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+    border-left: 4px solid yellow;
+}
+
+.bottomBox{
+    display: flex;
+    gap: 33px;
     overflow: scroll;
-    width: 93%;
-    margin: auto;
-    gap: 20px;
-    padding-left: 20px;
-    cursor: pointer;
+    margin-left: 66px;
+}
+
+
+.bottomWear{
+    height: 300px;
+    width: 200px;
+}
+
+.bottoWearText{
+    margin-top: -33px;
 }

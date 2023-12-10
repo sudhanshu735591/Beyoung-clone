@@ -8,13 +8,17 @@ import Home from "../screen/screen";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
 
+
 function Categories() {
+
     const [myData, setMyData] = useState([]);
 
     const fetchApi = async (search, filter) => {
         console.log("search", search);
+        
         try {
             let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?search=${search}&filter=${filter}`;
+            console.log("api is",apiUrl);
 
             let data = await fetch(apiUrl, {
                 method: 'GET',
@@ -32,17 +36,19 @@ function Categories() {
     }
 
     const [searchParamms] = useSearchParams();
+    // console.log("search",searchParamms.get("search"),"filter", searchParamms.get("filter"));
 
     useEffect(() => {
         fetchApi(searchParamms.get("search"), searchParamms.get("filter"));
+
     }, [searchParamms]);
 
 
     return (
         <div className="menShirts">
-            <Topbanner />
-            <Trackorder />
-            <Navbar />
+            <Topbanner/>
+            <Trackorder/>
+            <Navbar/>
 
             <div className="data">
                 {
