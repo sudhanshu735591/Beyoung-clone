@@ -68,6 +68,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    position: relative;
 }
 
 .typeSolid{
@@ -106,4 +107,18 @@
     font-size: 12px;
     margin-top: -52px;
     font-weight: 400;
+}
+
+.fa-heart{
+    position: absolute;
+    right: 9px;
+    top: 11px;
+    height: 20px;
+    width: 20px;
+    border: 2px solid white;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -29,9 +29,9 @@ function WomenSection(props){
     return(
         <div>
             <div className="mensection">{gender}</div>
-            <div className="arrowSlider">
+            {/* <div className="arrowSlider">
             <i class="fa-solid fa-angle-up"></i>
-            </div>
+            </div> */}
 
 
             <div className="womenData">
