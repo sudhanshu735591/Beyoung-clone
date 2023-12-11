@@ -29,10 +29,15 @@ function WomenSection(props){
     return(
         <div>
             <div className="mensection">{gender}</div>
+            <div className="arrowSlider">
+            <i class="fa-solid fa-angle-up"></i>
+            </div>
+
 
             <div className="womenData">
                {
                 womenData.data && womenData.data.map((val)=>{
+
                     return(
                         <img className="womenImage" src={val.displayImage} alt="Image"/>
                     )

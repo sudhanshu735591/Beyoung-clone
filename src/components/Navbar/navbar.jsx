@@ -7,8 +7,9 @@ import { Link, NavLink, Outlet, json } from "react-router-dom";
 function Navbar(){
     return(
         <div className="section_tag">
-            <span className="sections">BEYOUNG.</span>
+
             <section className="list">
+                <span className="sections">BEYOUNG.</span>
                 <ul>
                     <li className="men">MEN
                         {

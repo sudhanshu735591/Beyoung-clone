@@ -8,10 +8,9 @@
     color: white;
     padding: 7px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     font-weight: 700;
     font-size: 12px;
-    
 }
 
 .login-signup{

@@ -68,7 +68,6 @@ function GenderSection(props) {
        </div>
 
        <WomenSection gender = "WOMEN"/>
-       
     </div>
   )
 }

@@ -3,7 +3,7 @@ import Navbar from "../Navbar/navbar";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
 import "./category.css";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function CategorizedSection(){
 
@@ -93,9 +93,13 @@ function CategorizedSection(){
                         <div className="fetchedImage">
                             {
                                 myData && myData.map((val)=>{
+                                    console.log("valllll isss", val);
                                     return(
                                         <div className="imageSection">
-                                            <img className="fetchedImageData" src= {val.displayImage}/>
+                                            <Link to={`/imageDetails/${val._id}`}>
+                                                <img className="fetchedImageData" src= {val.displayImage}/>
+                                                <i class="fa-regular fa-heart"></i>
+                                            </Link>
                                             <p className="typeText">{val.brand}</p>
                                             <p className="typeSolid">{val.category}</p>
                                             <p className="price">₹ {val.price}</p>

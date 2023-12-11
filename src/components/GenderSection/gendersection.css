@@ -1,13 +1,11 @@
 .mensection{
-    margin-top: 60px;
-    align-items: center;
     background: linear-gradient(90deg, rgba(248, 235, 39, 0.00) 0%, #F8EB27 48.11%, rgba(248, 235, 39, 0.00) 100%);
-    width: 100%;
-    justify-content: center;
+    width: 80%;
     color: #000;
     font-size: 25px;
     font-weight: 600;
     padding: 15px 0px;
+    margin: 20px auto;
 }
 
 .parentDiv{
@@ -53,7 +51,8 @@
     display: flex;
     gap: 33px;
     overflow: scroll;
-    margin-left: 66px;
+    width: 76%;
+    margin: auto;
 }
 
 
