@@ -2,7 +2,7 @@
     background: linear-gradient(90deg, rgba(248, 235, 39, 0.00) 0%, #F8EB27 48.11%, rgba(248, 235, 39, 0.00) 100%);
     width: 80%;
     color: #000;
-    font-size: 25px;
+    font-size: 19px;
     font-weight: 600;
     padding: 15px 0px;
     margin: 20px auto;
@@ -18,7 +18,8 @@
 
 .imageData{
     display: flex;
-    margin-left: 71px;
+    justify-content: center;
+    align-items: center;
 }
 
 .imageCategories{
@@ -28,8 +29,8 @@
 
 .sideImageData{
     height: 187px;
-    width: 170px;
-    margin-left: 18px;
+    width: 153px;
+    margin-left: 16px;
 }
 
 .tshirtText{
@@ -40,7 +41,7 @@
 
 .tshirt1{
     font-weight: 600;
-    font-size: 20px;
+    font-size: 14px;
     display: flex;
     justify-content: flex-end;
     align-items: start;
@@ -51,7 +52,7 @@
     display: flex;
     gap: 33px;
     overflow: scroll;
-    width: 76%;
+    width: 60%;
     margin: auto;
 }
 
@@ -63,4 +64,61 @@
 
 .bottoWearText{
     margin-top: -33px;
+}
+
+.flex{
+    width: 49rem;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.flex2{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    overflow: scroll;
+}
+
+
+.flex2::-webkit-scrollbar {
+    display: none;
+}
+
+
+.high1{
+    margin-right: -28px;
+}
+
+
+.nextArrow{
+    height: 20px;
+    width: 20px;
+    background-color: aliceblue;
+    position: absolute;
+    top: 180px;
+    color: black;
+    transform: rotateZ(91deg);
+}
+
+.fa-angle{
+    position: relative;
+    top: 181px;
+    left: -22px;
+    background: white;
+    height: 19px;
+    display: flex;
+    align-items: center;
+    width: 15px;
+    transform: rotate(267deg);
+}
+
+.rightArrow{
+    width: 24px;
+    background-color: white;
+    position: relative;
+    right: 20px;
+    bottom: 14px;
+    color: black;
+    transform: rotate(269deg);
 }

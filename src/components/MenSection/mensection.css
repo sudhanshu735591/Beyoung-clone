@@ -26,15 +26,15 @@
 
 .displayImage{
     display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    gap: 30rem;
+    justify-content: space-evenly;
+    margin-top: 26px;
+    gap: 23rem;
 }
 
 
 .tshirt{
     font-weight: 600;
-    font-size: 22px;
+    font-size: 15px;
     border-left: 4px solid yellow;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .highondemand{
-    padding-left: 31px;
-    margin-right: 11px;
+    padding-left: 17px;
+    margin-right: -48px;
 }
 
