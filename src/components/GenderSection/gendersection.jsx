@@ -16,7 +16,7 @@ function GenderSection(props) {
     const newScrollPosition = scrollPosition + scrollAmount;
     setScrollPosition(newScrollPosition);
     containerref.current.scrollLeft = newScrollPosition;
-    
+
   }
 
 
@@ -32,7 +32,7 @@ function GenderSection(props) {
           <div className="tshirt">{shirts}</div>
           <div className="highondemand">{demand}</div>
         </div>
-        <div className="viewall">View All</div>
+        <div className="viewall">View More..</div>
       </div>
 
       <div className="imageData">
