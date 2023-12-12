@@ -32,7 +32,7 @@ function GenderSection(props) {
           <div className="tshirt">{shirts}</div>
           <div className="highondemand">{demand}</div>
         </div>
-        <div className="viewall">View More..</div>
+        <div className="viewall">View All</div>
       </div>
 
       <div className="imageData">
