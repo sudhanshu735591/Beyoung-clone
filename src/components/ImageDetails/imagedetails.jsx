@@ -11,15 +11,15 @@ import Footer from "../Footer/footer";
 function ImageDetails() {
     const [myData, setMyData] = useState({});
     const [addCart, setAddCart] = useState(true);
-    const [myColor, setMyColor] = useState("black")
+    let [clickIndex, setClickIndex] = useState(null);
 
     let { id } = useParams();
 
     let [size , setSize] = useState("");
 
-    function sizeHandler(e){
+    function sizeHandler(e, index){
         setSize(e.target.innerHTML);
-        setMyColor("lightBlue")
+        setClickIndex(index);
     }
 
     function addToCartHandler(){
@@ -49,11 +49,9 @@ function ImageDetails() {
 
     const [searchParamms] = useSearchParams();
 
-
     useEffect(() => {
         fetchApi();
     }, []);
-
 
     return (
         <div>
@@ -77,7 +75,6 @@ function ImageDetails() {
                         <img className="menimg" src={myData.displayImage} />
                     </div>
 
-
                     <div className="brand">
                         <p className="sand">{myData.name}</p>
                         <p className="urban">Urban Shirts</p>
@@ -96,11 +93,12 @@ function ImageDetails() {
                             <p className="sizeText">SIZE</p>
                             <div className="allSize">
                                 {
-                                    myData.size && myData.size.map((val) => {
+                                    myData.size && myData.size.map((val, index) => {
                                         return (
-                                            <div style={{border:`2px solid ${myColor}`}} onClick = {(e)=>sizeHandler(e)} className="circle">{val}</div>
+                                            <div style={{border:`2px solid ${index===clickIndex?"lightBlue":"black"}`}} onClick = {(e)=>sizeHandler(e, index)} className="circle">{val}</div>
+                                            
                                         )
-                                    })
+                                    })      
                                 }
 
                             </div>
@@ -192,7 +190,6 @@ function ImageDetails() {
                     </div>
                 </div>
             </div>
-
             <div>
                 <Footer />
             </div>
