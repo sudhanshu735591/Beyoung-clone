@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Categories from "./Pages/categories";
 import ImageDetails from "./ImageDetails/imagedetails";
 import CategorizedSection from "./CategorizedData/category";
+import CheckOut from "../CheckOut/checkOut";
 
 
 
@@ -16,6 +17,7 @@ function App() {
         <Route path = "/" element = {<Home/>}/>
         <Route path = "/imageDetails/:id" element = {<ImageDetails/>}/>
         <Route path = "/categorized" element = {<CategorizedSection/>}/>
+        <Route path = "/checkout" element = {<CheckOut/>}/>
 
       </Routes>
     </div>

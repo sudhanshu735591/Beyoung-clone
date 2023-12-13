@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
 import "./imageDetails.css";
 import Button from "../button/button";
 import Footer from "../Footer/footer";
+// import { useHistory } from 'react-router-dom';
+
 
 
 function ImageDetails() {
@@ -15,6 +17,10 @@ function ImageDetails() {
 
     let { id } = useParams();
 
+    let navigate = useNavigate();
+    console.log("navigate", navigate);
+
+
     let [size , setSize] = useState("");
 
     function sizeHandler(e, index){
@@ -23,7 +29,7 @@ function ImageDetails() {
     }
 
     function addToCartHandler(){
-        {!size && setAddCart(false)};
+        {!size ? setAddCart(false):navigate("/checkout")};
     }
 
     const fetchApi = async () => {
@@ -116,7 +122,6 @@ function ImageDetails() {
 
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
-                          
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
 
