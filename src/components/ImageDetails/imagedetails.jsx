@@ -10,8 +10,19 @@ import Footer from "../Footer/footer";
 
 function ImageDetails() {
     const [myData, setMyData] = useState({});
+    const [addCart, setAddCart] = useState(true);
 
     let { id } = useParams();
+
+    let [size , setSize] = useState("");
+
+    function sizeHandler(e){
+        setSize(e.target.innerHTML);
+    }
+
+    function addToCartHandler(){
+        {!size && setAddCart(false)};
+    }
 
     const fetchApi = async () => {
         try {
@@ -81,16 +92,17 @@ function ImageDetails() {
 
                         <div className="size">
                             <p className="sizeText">SIZE</p>
-
                             <div className="allSize">
                                 {
                                     myData.size && myData.size.map((val) => {
                                         return (
-                                            <div className="circle">{val}</div>
+                                            <div onClick = {(e)=>sizeHandler(e)} className="circle">{val}</div>
                                         )
                                     })
                                 }
+
                             </div>
+                            {!size && !addCart && <p>Please select a size</p>}
                         </div>
 
                         <div className="quantity">
@@ -103,7 +115,8 @@ function ImageDetails() {
                         </div>
 
                         <div className="button">
-                            <Button text="Add to Cart" className="cart" />
+                            <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
+                          
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
 

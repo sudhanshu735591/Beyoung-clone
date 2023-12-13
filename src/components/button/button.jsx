@@ -2,10 +2,10 @@
 import "./button.css";
 
 function Button(props)  {
-    let {text, className} = props;
+    let {text, className, onClick} = props;
     
     return(
-        <button className={className}>{text}</button>
+        <button onClick={onClick} className={className}>{text}</button>
     )
 }
 

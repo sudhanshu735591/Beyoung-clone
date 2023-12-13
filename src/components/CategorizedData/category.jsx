@@ -45,7 +45,6 @@ function CategorizedSection(){
   
     const [searchParamms] = useSearchParams();
     
-    
     useEffect(() => {
         fetchApi(searchParamms.get("search"), searchParamms.get("filter"));
     }, [searchParamms]);
