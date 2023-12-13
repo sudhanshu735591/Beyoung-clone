@@ -44,6 +44,8 @@ function WomenSection(props){
                 })
                }
             </div>
+       {/* <img src="https://www.beyoung.in/api/catalog/homepage-3-10/bbimages/new/Bhuvan-strip-banner-desktop.jpg"/> */}
+
         </div>
     )
 }

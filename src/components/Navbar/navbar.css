@@ -7,8 +7,9 @@
 .section_tag{
     display: flex;
     margin-top: 13px;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-right: 18%;
+    position: relative;
 }
 
 .list ul li{
@@ -56,10 +57,7 @@
         position: fixed;
     }
 }
-/* 
-.listData:er{
-    display: block;
-} */
+
 
 
 .li_tshirt{
@@ -70,3 +68,8 @@
     color: yellow;
 }
 
+.cartSearch{
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}

@@ -12,9 +12,12 @@ function CategorizedSection(){
     let [show, setShow] = useState(true);
     let [showSize, setShowSize] = useState(true);
 
+    
+
     function onArrowClick(){
         show?setShow(false):setShow(true);
     }
+
 
     const fetchApi = async (search, filter) => {
         console.log("search", search);
@@ -41,6 +44,7 @@ function CategorizedSection(){
     }
   
     const [searchParamms] = useSearchParams();
+    
     
     useEffect(() => {
         fetchApi(searchParamms.get("search"), searchParamms.get("filter"));

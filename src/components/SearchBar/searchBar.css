@@ -1,0 +1,32 @@
+.searchBox{
+    position: absolute;
+    top: 41px;
+    right: 11%;
+    border: none;
+    background-color: white;
+    height: 45px;
+    width: 256px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.searchInput{
+    height: 17px;
+    padding: 3px;
+
+}
+
+.searchButton{
+    background-color: black;
+    color: white;
+    height: 25px;
+}
+
+.childSearch{
+    height: 40px;
+    width: 181px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
