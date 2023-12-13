@@ -11,6 +11,7 @@ import Footer from "../Footer/footer";
 function ImageDetails() {
     const [myData, setMyData] = useState({});
     const [addCart, setAddCart] = useState(true);
+    const [myColor, setMyColor] = useState("black")
 
     let { id } = useParams();
 
@@ -18,6 +19,7 @@ function ImageDetails() {
 
     function sizeHandler(e){
         setSize(e.target.innerHTML);
+        setMyColor("lightBlue")
     }
 
     function addToCartHandler(){
@@ -96,7 +98,7 @@ function ImageDetails() {
                                 {
                                     myData.size && myData.size.map((val) => {
                                         return (
-                                            <div onClick = {(e)=>sizeHandler(e)} className="circle">{val}</div>
+                                            <div style={{border:`2px solid ${myColor}`}} onClick = {(e)=>sizeHandler(e)} className="circle">{val}</div>
                                         )
                                     })
                                 }
