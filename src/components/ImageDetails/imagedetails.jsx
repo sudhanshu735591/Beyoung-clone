@@ -106,9 +106,10 @@ function ImageDetails() {
                                         )
                                     })      
                                 }
+                                
 
                             </div>
-                            {!size && !addCart && <p>Please select a size</p>}
+                            {!size && !addCart && <p style={{color:"red"}}>Please select a size</p>}
                         </div>
 
                         <div className="quantity">

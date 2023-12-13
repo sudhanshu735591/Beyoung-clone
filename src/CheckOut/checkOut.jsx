@@ -1,18 +1,38 @@
 
-function CheckOut(){
-    return(
-        <div>
-            <div>
-                <div>
-                    hiiiiii data
+import "./checkout.css"
+
+function CheckOut() {
+    return (
+        <div className="checkoutSection">
+            <div className="checkoutNav">
+                <div className="checkoutText">BEYOUNG.</div>
+                <div className="checkoutPayText">100% SECURE PAYMENT</div>
+            </div>
+
+            <div className="checks">
+                <div className="circleBox">
+                    <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Cart.png" /></div>
+                    <div className="checkOutText">My Cart</div>
                 </div>
 
-                <div></div>
+                <div className="circleBox">
+                    <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Location-Outline.png" /></div>
+                    <div className="checkOutText">Address</div>
+                </div>
 
+                <div className="circleBox">
+                    <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Payment-outline.png"/></div>
+                    <div className="checkOutText">dejndej</div>
+                </div>
             </div>
 
 
-            <div></div>
+            <div>
+                <div>
+                    <img src=""/>
+                </div>
+                <div></div>
+            </div>
         </div>
     )
 }
