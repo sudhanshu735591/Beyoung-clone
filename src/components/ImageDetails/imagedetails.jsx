@@ -6,14 +6,12 @@ import Trackorder from "../Trackorder/trackorder";
 import "./imageDetails.css";
 import Button from "../button/button";
 import Footer from "../Footer/footer";
-// import { useHistory } from 'react-router-dom';
-
-
 
 function ImageDetails() {
     const [myData, setMyData] = useState({});
     const [addCart, setAddCart] = useState(true);
     let [clickIndex, setClickIndex] = useState(null);
+    let [count, setCount] = useState(0);
 
     let { id } = useParams();
 
@@ -28,9 +26,19 @@ function ImageDetails() {
         setClickIndex(index);
     }
 
+
+
+
+
     function addToCartHandler(){
         {!size ? setAddCart(false):navigate("/checkout")};
+        setCount(count+1);
     }
+
+
+
+
+    
 
     const fetchApi = async () => {
         try {
@@ -64,7 +72,6 @@ function ImageDetails() {
             <Topbanner />
             <Trackorder />
             <Navbar />
-
             {
                 <div className="ImageData">
                     <div className="sideImageBox">
@@ -106,7 +113,6 @@ function ImageDetails() {
                                         )
                                     })      
                                 }
-                                
 
                             </div>
                             {!size && !addCart && <p style={{color:"red"}}>Please select a size</p>}
@@ -121,10 +127,37 @@ function ImageDetails() {
                             </select>
                         </div>
 
+
+
+
+
+
+
+
+
+
+
+
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         <div className="delivery">
                             <div className="text">DELIVERY OPTIONS</div>
@@ -190,7 +223,7 @@ function ImageDetails() {
                         <p className="product_text">Product Description</p>
 
                         <div className="loopKnit">
-                        LoopKnit Cotton is made using the finest quality yarns that make the t-shirt ultra-soft and durable. The knitting technique helps you stay cool when it?s warm and warm when it?s cool. It?s a tear-resistant flexible fabric that stretches along with you and thus making it Smart clothing for Every season.
+                            LoopKnit Cotton is made using the finest quality yarns that make the t-shirt ultra-soft and durable. The knitting technique helps you stay cool when it?s warm and warm when it?s cool. It?s a tear-resistant flexible fabric that stretches along with you and thus making it Smart clothing for Every season.
                         </div>
 
                     </div>

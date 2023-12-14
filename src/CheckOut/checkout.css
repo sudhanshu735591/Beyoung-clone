@@ -75,3 +75,63 @@
     z-index: 0;
     width: 22%;
 } */
+
+
+.sectionImageBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkOutSection{
+    padding: 0px 9px;
+}
+
+.checkOutDetailsSection{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.checkOutTextDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.checkOutColor{
+    display: flex;
+    align-items: center;
+    gap: 107px;
+}
+
+.checkOut{
+    display: flex;
+    align-items: inherit;
+    justify-content: center;
+    gap: 41px;
+    flex-wrap: wrap;
+}
+
+
+
+
+.checkOutPrice_Text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 11px;
+}
+
+.DetailsSec{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.detailsandnumber{
+    display: flex;
+    gap: 131px;
+}

@@ -73,3 +73,20 @@
     gap: 22px;
     align-items: center;
 }
+
+.addToCart{
+    position: relative;
+}
+
+.addToNumber{
+    position: absolute;
+    left: 17px;
+    bottom: 16px;
+    background: yellow;
+    height: 12px;
+    width: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}

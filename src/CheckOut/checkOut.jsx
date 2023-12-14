@@ -1,4 +1,5 @@
 
+import Button from "../components/button/button"
 import "./checkout.css"
 
 function CheckOut() {
@@ -22,19 +23,94 @@ function CheckOut() {
 
                 <div className="circleBox">
                     <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Payment-outline.png"/></div>
-                    <div className="checkOutText">dejndej</div>
+                    <div className="checkOutText">Payment</div>
                 </div>
             </div>
 
 
-            <div>
-                <div>
-                    <img src=""/>
+            <div className="checkOut">
+                <div className="checkOutDetailsSection">
+                    <div className="sectionImageBox">
+                        <div>
+                            <img style={{height:"150px", width:"100px"}} src="https://www.beyoung.in/api/cache/catalog/products/new_full_sleeves_14_10_2022/light_grey_oversized_full_sleeves_t-shirt_for_men_base_30_11_2023_290x387.jpg"/>
+                        </div>
+
+                        {/* Quantity section */}
+                        <div className="sectionTag">
+                            <select className="checkOutSection">
+                                <option>Qty: 1</option>
+                                <option>Qty: 2</option>
+                                <option>Qty: 3</option>
+                                <option>Qty: 4</option>
+                                <option>Qty: 5</option>
+                                <option>Qty: 6</option>
+                                <option>Qty: 7</option>
+                                <option>Qty: 8</option>
+                                <option>Qty: 9</option>
+                                <option>Qty: 10</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    {/* Light Grey Oversized Full Sleeves T-shirt For Men section */}
+                    <div className="checkOutTextDetails">
+                        <h5>Light Grey Oversized Full Sleeves T-shirt For Men</h5>
+                        <p>Oversized T-Shirts</p>
+                        <h4>₹699</h4>
+                        <div className="checkOutColor">
+                            <h5>Color : Light Grey</h5>
+                            <p>Size : M</p>
+                        </div>
+                    </div>
                 </div>
-                <div></div>
+
+
+
+                {/* for Offer and benifit section */}
+                <div className="checkOutPrice_Text">
+                    <div style={{borderBottom:"1px solid"}}>
+                        <h3>PRICE DETAILS (1 items)</h3>
+                    </div>
+
+                    {/* MRP section */}
+                    <div className="detailsandnumber">
+                        <div className="DetailsSec">
+                            <p>Total MRP (Inc. of Taxes)</p>
+                            <p>Beyoung Discount</p>
+                            <p>Shipping</p>
+                            <p>Cart Total</p>
+                        </div>
+
+                        <div className="priceNum">
+                            <div>
+                            <p>₹5250</p>
+                            <p>₹5250</p>
+                            <p>₹5250</p>
+                            <p>₹5250</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div style={{display:"flex",gap: "207px"}}>
+                        <div>
+                        Total Amount
+                        </div>
+                        <div>
+                        ₹2097
+                        </div>
+                    </div>
+
+                    <div>
+                        <Button className="checkOutButton" text="CHECKOUT SECURELY"/>
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
 
 export default CheckOut
+
