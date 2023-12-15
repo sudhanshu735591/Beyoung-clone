@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./navbar.css";
-import DirectionStack from "../meterial_ui/mui";
 import MenData from "../MenData/mendata";
-import { Link, NavLink, Outlet, json, useNavigate } from "react-router-dom";
+import { NavLink,  useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/searchBar";
 import UserContext from "../../ContextApi/UserContext";
 import { createPortal } from "react-dom";

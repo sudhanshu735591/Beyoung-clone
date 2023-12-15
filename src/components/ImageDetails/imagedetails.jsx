@@ -6,13 +6,11 @@ import Trackorder from "../Trackorder/trackorder";
 import "./imageDetails.css";
 import Button from "../button/button";
 import Footer from "../Footer/footer";
-import UserContext from "../../ContextApi/UserContext";
 
 function ImageDetails() {
     const [myData, setMyData] = useState({});
     const [addCart, setAddCart] = useState(true);
     let [clickIndex, setClickIndex] = useState(null);
-    let [count, setCount] = useState(1);
     let { id } = useParams();
     let [size , setSize] = useState("");
 
@@ -43,28 +41,16 @@ function ImageDetails() {
         }
     }
 
-    // const [searchParamms] = useSearchParams();
-
     useEffect(() => {
         fetchApi();
     }, []);
     
-    const {setUser, setMyApi} = useContext(UserContext);
-
-    
-
     function addToCartHandler(){
         if(!size){
             setAddCart(false);
             setAddCart(false);
         }
-        else{
-            setCount(count+1);
-            setUser(count);
-            setMyApi(myData);
-        }
     }
-
     return (
         <div>
             <Topbanner />
@@ -81,7 +67,6 @@ function ImageDetails() {
                             })
                         }
                     </div>
-
                     <div className="Menimage">
                         <img className="menimg" src={myData.displayImage} />
                     </div>
@@ -98,7 +83,6 @@ function ImageDetails() {
                                 <p>{myData.color}</p>
                             </div>
                         </div>
-
 
                         <div className="size">
                             <p className="sizeText">SIZE</p>
@@ -125,13 +109,10 @@ function ImageDetails() {
                             </select>
                         </div>
 
-
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
-
-
 
                         <div className="delivery">
                             <div className="text">DELIVERY OPTIONS</div>
@@ -152,7 +133,6 @@ function ImageDetails() {
                 </div>
             }
 
-
             <div className="product_details">
                 <div>Product Details</div>
                 <div className="boxDeatails">
@@ -164,7 +144,6 @@ function ImageDetails() {
                             <div>Loop Knit Cotton</div>
                         </div>
 
-
                         <div className="febric">
                             <div className="febText">Neck Type</div>
                             <div>Mock-neck</div>
@@ -174,7 +153,6 @@ function ImageDetails() {
                             <div className="febText">Pattern</div>
                             <div>Solid</div>
                         </div>
-
 
                         <div className="febric">
                             <div className="febText">Shoulder</div>
@@ -195,11 +173,9 @@ function ImageDetails() {
 
                     <div className="product_description">
                         <p className="product_text">Product Description</p>
-
                         <div className="loopKnit">
                             LoopKnit Cotton is made using the finest quality yarns that make the t-shirt ultra-soft and durable. The knitting technique helps you stay cool when it?s warm and warm when it?s cool. It?s a tear-resistant flexible fabric that stretches along with you and thus making it Smart clothing for Every season.
                         </div>
-
                     </div>
                 </div>
             </div>
