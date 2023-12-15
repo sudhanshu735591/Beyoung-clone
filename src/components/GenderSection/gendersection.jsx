@@ -34,17 +34,6 @@ function GenderSection(props) {
         <div className="viewall">View All</div>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
       <div className="imageData">
         <div className="flex"  >
           <div className="flex1">
@@ -80,37 +69,6 @@ function GenderSection(props) {
           <i  class="fa-solid fa-angle-down"></i>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       <div className="displayImage">

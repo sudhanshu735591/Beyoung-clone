@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import Topbanner from "../TopBanner/topbanner";
@@ -6,19 +6,14 @@ import Trackorder from "../Trackorder/trackorder";
 import "./imageDetails.css";
 import Button from "../button/button";
 import Footer from "../Footer/footer";
+import UserContext from "../../ContextApi/UserContext";
 
 function ImageDetails() {
     const [myData, setMyData] = useState({});
     const [addCart, setAddCart] = useState(true);
     let [clickIndex, setClickIndex] = useState(null);
-    let [count, setCount] = useState(0);
-
+    let [count, setCount] = useState(1);
     let { id } = useParams();
-
-    let navigate = useNavigate();
-    console.log("navigate", navigate);
-
-
     let [size , setSize] = useState("");
 
     function sizeHandler(e, index){
@@ -26,19 +21,6 @@ function ImageDetails() {
         setClickIndex(index);
     }
 
-
-
-
-
-    function addToCartHandler(){
-        {!size ? setAddCart(false):navigate("/checkout")};
-        setCount(count+1);
-    }
-
-
-
-
-    
 
     const fetchApi = async () => {
         try {
@@ -61,11 +43,27 @@ function ImageDetails() {
         }
     }
 
-    const [searchParamms] = useSearchParams();
+    // const [searchParamms] = useSearchParams();
 
     useEffect(() => {
         fetchApi();
     }, []);
+    
+    const {setUser, setMyApi} = useContext(UserContext);
+
+    
+
+    function addToCartHandler(){
+        if(!size){
+            setAddCart(false);
+            setAddCart(false);
+        }
+        else{
+            setCount(count+1);
+            setUser(count);
+            setMyApi(myData);
+        }
+    }
 
     return (
         <div>
@@ -128,34 +126,10 @@ function ImageDetails() {
                         </div>
 
 
-
-
-
-
-
-
-
-
-
-
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,8 +1,14 @@
 
+import { useContext } from "react"
 import Button from "../components/button/button"
 import "./checkout.css"
+import UserContext from "../ContextApi/UserContext"
 
 function CheckOut() {
+    const {myApi} = useContext(UserContext);
+
+
+
     return (
         <div className="checkoutSection">
             <div className="checkoutNav">
@@ -32,7 +38,7 @@ function CheckOut() {
                 <div className="checkOutDetailsSection">
                     <div className="sectionImageBox">
                         <div>
-                            <img style={{height:"150px", width:"100px"}} src="https://www.beyoung.in/api/cache/catalog/products/new_full_sleeves_14_10_2022/light_grey_oversized_full_sleeves_t-shirt_for_men_base_30_11_2023_290x387.jpg"/>
+                            <img style={{height:"150px", width:"100px"}} alt="image" src={myApi && myApi.images[0]}/>
                         </div>
 
                         {/* Quantity section */}
@@ -50,20 +56,19 @@ function CheckOut() {
                                 <option>Qty: 10</option>
                             </select>
                         </div>
-
                     </div>
 
 
                     {/* Light Grey Oversized Full Sleeves T-shirt For Men section */}
-                    <div className="checkOutTextDetails">
-                        <h5>Light Grey Oversized Full Sleeves T-shirt For Men</h5>
+                    {myApi && <div className="checkOutTextDetails">
+                        <h5>{myApi.name}</h5>
                         <p>Oversized T-Shirts</p>
-                        <h4>₹699</h4>
+                        <h4>₹ {myApi.price}</h4>
                         <div className="checkOutColor">
-                            <h5>Color : Light Grey</h5>
+                            <h5>Color : {myApi.color}</h5>
                             <p>Size : M</p>
                         </div>
-                    </div>
+                    </div>}
                 </div>
 
 
@@ -78,17 +83,12 @@ function CheckOut() {
                     <div className="detailsandnumber">
                         <div className="DetailsSec">
                             <p>Total MRP (Inc. of Taxes)</p>
-                            <p>Beyoung Discount</p>
-                            <p>Shipping</p>
-                            <p>Cart Total</p>
                         </div>
 
                         <div className="priceNum">
                             <div>
-                            <p>₹5250</p>
-                            <p>₹5250</p>
-                            <p>₹5250</p>
-                            <p>₹5250</p>
+                            <p>₹ {myApi && myApi.price}</p>
+                           
                             </div>
                         </div>
                     </div>
@@ -96,10 +96,10 @@ function CheckOut() {
 
                     <div style={{display:"flex",gap: "207px"}}>
                         <div>
-                        Total Amount
+                            Total Amount
                         </div>
                         <div>
-                        ₹2097
+                            {myApi && myApi.price}
                         </div>
                     </div>
 

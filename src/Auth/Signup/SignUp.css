@@ -1,0 +1,29 @@
+.signUpBox{
+    padding: 73px;
+}
+
+.signUpImage{
+    height: 200px;
+    width: 250px;
+}
+
+.SignupPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.loginContainer{
+    gap: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SignupButton{
+    padding: 6px 104px;
+    background: blue;
+    color: white;
+    border-radius: 8px;
+}
