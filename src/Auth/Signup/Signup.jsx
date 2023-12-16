@@ -26,6 +26,13 @@ export default function SignUpPage({ showModal, onClose }) {
     const [email, setEmail] = React.useState("");
     let [error , setError] = React.useState("");
 
+    let [loginSucces, setLoginSucces] = React.useState("");
+
+    const [loginEmail, setLoginEmail] = React.useState("");
+    const [loginPassword, setLoginPasswword] = React.useState("");
+
+    const [loginMessage, setLoginMessage] = React.useState("");
+
     let [text, setText] = React.useState("or Signup");
 
     const fetchApi = async()=>{
@@ -48,10 +55,11 @@ export default function SignUpPage({ showModal, onClose }) {
             let res = await data.json();
 
             if(res.message){
-                setError(res.message)
+                setError(res.message);
             }
             else{
-                setError("Data Submitted Successfully !!");
+                setError("Data Submitted Successfully !! Login Please");
+                
             }
             
             console.log("error is ", res.message);
@@ -64,14 +72,51 @@ export default function SignUpPage({ showModal, onClose }) {
         }
     }
 
+
+    const fetchLogin = async ()=>{
+        let data = await fetch(" https://academics.newtonschool.co/api/v1/user/login", {
+            method:"POST",
+            headers:{
+                "projectID": "zx5u429ht9oj",
+                "Content-Type": "application/json",
+            },
+
+            body:JSON.stringify({
+                "email":loginEmail,
+                "password": loginPassword,
+                "appType" : "ecommerce"
+            })
+        })
+
+        let res = await data.json();
+        console.log("Success Message", res);
+        if(res.message){
+            setLoginMessage(res.message);
+        }
+        else{
+            setLoginMessage("Login Successful !!")
+        }
+    }
+
+    const handleLoginClick= (e)=>{
+        e.preventDefault();
+        fetchLogin();
+    }
+
+
     const handleButtonClick = (e)=>{
         e.preventDefault();
         fetchApi();
+        setPassword("");
+        setUserName("");
+        setEmail("");
     }
 
 
     const handleLoginText = (e)=>{
         setText(e.target.innerText);
+        setLoginEmail("");
+        setLoginPasswword("");
     } 
 
     const handleSignText = (e)=>{
@@ -104,18 +149,19 @@ export default function SignUpPage({ showModal, onClose }) {
                                     text==="Signup"?
                                     <form onSubmit={handleButtonClick}>
                                         <div className="SignupPage">
-                                            <input type="text" placeholder="Enter Username" onChange={(e)=>setUserName(e.target.value)}/>
-                                            <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)}/>
-                                            <input type="email" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}/>
+                                            <input required type="text" placeholder="Enter Username" value={username} onChange={(e)=>setUserName(e.target.value)}/>
+                                            <input required type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                                            <input required type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                                             <button className="SignupButton">Submit</button>
                                         
                                             <p style={{color:"green", fontSize:"13px"}}>{error}</p>
                                         </div>
-                                    </form>: <form onSubmit={handleButtonClick}>
+                                    </form>: <form onClick={handleLoginClick}>
                                         <div className="SignupPage">
-                                            <input type="text" placeholder="Enter Username" onChange={(e)=>setUserName(e.target.value)}/>
-                                            <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)}/>
+                                            <input required type="email" placeholder="Enter Email" onChange={(e)=>setLoginEmail(e.target.value)}/>
+                                            <input required type="password" placeholder="Enter Password" onChange={(e)=>setLoginPasswword(e.target.value)}/>
                                             <button className="SignupButton">Submit</button>
+                                            <p style={{color:"green"}}>{loginMessage}</p>
                                         </div>
                                     </form>
                                 }
@@ -127,3 +173,4 @@ export default function SignUpPage({ showModal, onClose }) {
         </div>
     );
 }
+

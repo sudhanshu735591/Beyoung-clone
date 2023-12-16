@@ -25,6 +25,7 @@
     background: blue;
     color: white;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .loginSignUp{
