@@ -10,8 +10,6 @@ import SignUp from "../../Auth/Signup/Signup";
 function Navbar(){
 
     let [search, setSearch] = useState(false);
-    let navigate = useNavigate();
-
 
     function onHandleClick(){
       setSearch(search?false:true);
@@ -31,7 +29,6 @@ function Navbar(){
     const handleClose = ()=>{
         setShowModal(false);
     }
-
 
     return(
         <div className="section_tag">
@@ -101,8 +98,6 @@ function Navbar(){
                     <li>NEW ARRIVALS</li>
                    
                 </ul>
-
-            
             </section>
 
             <div className="cartSearch">
@@ -116,6 +111,7 @@ function Navbar(){
             </div>
 
             {showModal && createPortal(<SignUp showModal = {showModal} onClose = {handleClose}/>,  document.body)}
+            
         </div>
 
         

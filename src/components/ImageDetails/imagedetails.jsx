@@ -6,6 +6,8 @@ import Trackorder from "../Trackorder/trackorder";
 import "./imageDetails.css";
 import Button from "../button/button";
 import Footer from "../Footer/footer";
+import SignUp from "../../Auth/Signup/Signup";
+import { createPortal } from "react-dom";
 
 function ImageDetails() {
     const [myData, setMyData] = useState({});
@@ -13,6 +15,18 @@ function ImageDetails() {
     let [clickIndex, setClickIndex] = useState(null);
     let { id } = useParams();
     let [size , setSize] = useState("");
+
+    const[showModal, setShowModal] = useState(false);
+
+    // function handleCartClick(){
+    //     setShowModal(true);
+    //     console.log("Showmodal is", showModal);
+    // }
+
+    const handleClose = ()=>{
+        setShowModal(false);
+    }
+
 
     function sizeHandler(e, index){
         setSize(e.target.innerHTML);
@@ -50,7 +64,10 @@ function ImageDetails() {
             setAddCart(false);
             setAddCart(false);
         }
+
+        setShowModal(true);
     }
+    
     return (
         <div>
             <Topbanner />
@@ -109,10 +126,27 @@ function ImageDetails() {
                             </select>
                         </div>
 
+
+
+
+
+
+
+
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
+
+
+
+
+
+
+
+
+
+
 
                         <div className="delivery">
                             <div className="text">DELIVERY OPTIONS</div>
@@ -182,6 +216,9 @@ function ImageDetails() {
             <div>
                 <Footer />
             </div>
+
+            {showModal && createPortal(<SignUp showModal = {showModal} onClose = {handleClose}/>,  document.body)}
+
         </div>
     )
 }
