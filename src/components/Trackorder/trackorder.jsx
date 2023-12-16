@@ -1,5 +1,5 @@
 import Login from "../Login/login";
-import Signup from "../Signup/signup";
+import Signup from "../Signup/signupText";
 
 function Trackorder(){
     return(

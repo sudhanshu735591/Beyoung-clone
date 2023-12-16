@@ -1,9 +1,7 @@
 import "./SignUp.css";
 import { createPortal } from "react-dom";
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
@@ -14,12 +12,11 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper' ,
-    border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    // p: 4,
 };
 
-export default function SignUp({ showModal, onClose }) {
+export default function SignUpPage({ showModal, onClose }) {
 
     const handleClose = () => {
         onClose();
@@ -28,31 +25,48 @@ export default function SignUp({ showModal, onClose }) {
     const [username, setUserName] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [email, setEmail] = React.useState("");
-
-
-    const handleButtonClick = ()=>{}
+    let [error , setError] = React.useState("");
 
     const fetchApi = async()=>{
-        let data = await fetch("https://academics.newtonschool.co/api/v1/user/signup", {
+        try{
+            let data = await fetch("https://academics.newtonschool.co/api/v1/user/signup", {
             method :"POST",
             headers:{
                 "projectID": "zx5u429ht9oj",
+                "Content-Type": "application/json",
             },
-            body:{
-                username:username,
-                password : password,
-                email :email,
-            }
+
+            body:JSON.stringify({
+                "name":username,
+                "password": password,
+                "email" :email,
+                "appType" : "ecommerce"
+            })
         })
 
-        let res = await data.json();
-        console.log("signup fetch", res);
+            let res = await data.json();
+
+            if(res.message){
+                setError(res.message)
+            }
+            else{
+                setError("Data Submitted Successfully !!");
+            }
+            
+            console.log("error is ", res.message);
+            console.log("eres is ", res);
+
+        }
+
+        catch(error){
+            console.log(error);
+        }
     }
 
-
-    React.useEffect(()=>{
+    const handleButtonClick = (e)=>{
+        e.preventDefault();
         fetchApi();
-    },[])
+    }
 
     return (
         <div>
@@ -71,14 +85,18 @@ export default function SignUp({ showModal, onClose }) {
                             <div className="loginContainer">
                                 <div>Login or SignUp</div>
 
-                              <form onSubmit={handleButtonClick}>
-                                <div className="SignupPage">
-                                    <input type="text" placeholder="Enter Username" onChange={(e)=>setUserName(e.target.value)}/>
-                                    <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)}/>
-                                    <input type="email" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}/>
-                                    <button className="SignupButton">Submit</button>
-                                </div>
-                              </form>
+                                <form onSubmit={handleButtonClick}>
+                                    <div className="SignupPage">
+                                        <input type="text" placeholder="Enter Username" onChange={(e)=>setUserName(e.target.value)}/>
+                                        <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)}/>
+                                        <input type="email" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}/>
+                                        <button className="SignupButton">Submit</button>
+                                        <p>Already SignUp !! 
+                                            <span> Login </span>
+                                        </p>
+                                        <p style={{color:"green", fontSize:"13px"}}>{error}</p>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </Typography>

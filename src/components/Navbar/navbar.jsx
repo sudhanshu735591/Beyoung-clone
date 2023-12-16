@@ -5,7 +5,7 @@ import { NavLink,  useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/searchBar";
 import UserContext from "../../ContextApi/UserContext";
 import { createPortal } from "react-dom";
-import SignUp from "../../Auth/Signup/Signup";
+import SignUpPage from "../../Auth/Signup/Signup";
 
 function Navbar(){
 
@@ -110,7 +110,7 @@ function Navbar(){
                 </div>
             </div>
 
-            {showModal && createPortal(<SignUp showModal = {showModal} onClose = {handleClose}/>,  document.body)}
+            {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
             
         </div>
 

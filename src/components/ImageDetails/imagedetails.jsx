@@ -18,21 +18,15 @@ function ImageDetails() {
 
     const[showModal, setShowModal] = useState(false);
 
-    // function handleCartClick(){
-    //     setShowModal(true);
-    //     console.log("Showmodal is", showModal);
-    // }
-
+    
     const handleClose = ()=>{
         setShowModal(false);
     }
-
 
     function sizeHandler(e, index){
         setSize(e.target.innerHTML);
         setClickIndex(index);
     }
-
 
     const fetchApi = async () => {
         try {
@@ -126,27 +120,10 @@ function ImageDetails() {
                             </select>
                         </div>
 
-
-
-
-
-
-
-
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
-
-
-
-
-
-
-
-
-
-
 
                         <div className="delivery">
                             <div className="text">DELIVERY OPTIONS</div>

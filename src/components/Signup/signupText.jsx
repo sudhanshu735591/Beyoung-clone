@@ -1,12 +1,10 @@
-import { createPortal } from "react-dom";
-import "./login.css";
-import SignUpPage from "../../Auth/Signup/Signup";
 import { useState } from "react";
+import SignUpPage from "../../Auth/Signup/Signup";
+import { createPortal } from "react-dom";
 
+function Signup(){
 
-function Login(){
-
-    const[showModal, setShowModal] =  useState(false);
+    const[showModal, setShowModal] = useState(false);
 
     function handleCartClick(){
         setShowModal(true);
@@ -15,15 +13,13 @@ function Login(){
     const handleClose = ()=>{
         setShowModal(false);
     }
-
-   
     return(
         <div>
-            <div style={{cursor:"pointer"}} onClick={handleCartClick}> LOG IN |</div>
+            <div style={{cursor:"pointer"}} onClick={handleCartClick}> SIGN UP </div>
             {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
+
         </div>
     )
 }
 
-
-export default Login;
+export default Signup;
