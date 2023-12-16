@@ -13,7 +13,6 @@ const style = {
     width: 400,
     bgcolor: 'background.paper' ,
     boxShadow: 24,
-    // p: 4,
 };
 
 export default function SignUpPage({ showModal, onClose }) {
@@ -26,6 +25,8 @@ export default function SignUpPage({ showModal, onClose }) {
     const [password, setPassword] = React.useState("");
     const [email, setEmail] = React.useState("");
     let [error , setError] = React.useState("");
+
+    let [text, setText] = React.useState("or Signup");
 
     const fetchApi = async()=>{
         try{
@@ -68,6 +69,15 @@ export default function SignUpPage({ showModal, onClose }) {
         fetchApi();
     }
 
+
+    const handleLoginText = (e)=>{
+        setText(e.target.innerText);
+    } 
+
+    const handleSignText = (e)=>{
+        setText(e.target.innerText);
+    } 
+
     return (
         <div>
             <Modal
@@ -83,20 +93,32 @@ export default function SignUpPage({ showModal, onClose }) {
                                 <img className="signUpImage" src="https://www.beyoung.in/images/login-and-signup-image.jpg" />
                             </div>
                             <div className="loginContainer">
-                                <div>Login or SignUp</div>
+                                
+                                <div className="loginSignUp">
+                                    <div onClick={handleLoginText}>Login</div>
+                                    <div style={{color:"black", textDecoration:"none", cursor:"auto"}}>or</div>
+                                    <div onClick={handleSignText}> Signup</div>
+                                </div>
 
-                                <form onSubmit={handleButtonClick}>
-                                    <div className="SignupPage">
-                                        <input type="text" placeholder="Enter Username" onChange={(e)=>setUserName(e.target.value)}/>
-                                        <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)}/>
-                                        <input type="email" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}/>
-                                        <button className="SignupButton">Submit</button>
-                                        <p>Already SignUp !! 
-                                            <span> Login </span>
-                                        </p>
-                                        <p style={{color:"green", fontSize:"13px"}}>{error}</p>
-                                    </div>
-                                </form>
+                                {
+                                    text==="Signup"?
+                                    <form onSubmit={handleButtonClick}>
+                                        <div className="SignupPage">
+                                            <input type="text" placeholder="Enter Username" onChange={(e)=>setUserName(e.target.value)}/>
+                                            <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)}/>
+                                            <input type="email" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}/>
+                                            <button className="SignupButton">Submit</button>
+                                        
+                                            <p style={{color:"green", fontSize:"13px"}}>{error}</p>
+                                        </div>
+                                    </form>: <form onSubmit={handleButtonClick}>
+                                        <div className="SignupPage">
+                                            <input type="text" placeholder="Enter Username" onChange={(e)=>setUserName(e.target.value)}/>
+                                            <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)}/>
+                                            <button className="SignupButton">Submit</button>
+                                        </div>
+                                    </form>
+                                }
                             </div>
                         </div>
                     </Typography>

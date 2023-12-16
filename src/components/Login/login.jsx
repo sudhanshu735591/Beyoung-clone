@@ -5,22 +5,10 @@ import { useState } from "react";
 
 
 function Login(){
-
-    const[showModal, setShowModal] =  useState(false);
-
-    function handleCartClick(){
-        setShowModal(true);
-    }
-
-    const handleClose = ()=>{
-        setShowModal(false);
-    }
-
    
     return(
         <div>
-            <div style={{cursor:"pointer"}} onClick={handleCartClick}> LOG IN |</div>
-            {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
+            <div style={{cursor:"pointer"}}> LOG IN |</div>
         </div>
     )
 }

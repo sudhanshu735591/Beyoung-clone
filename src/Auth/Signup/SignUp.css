@@ -26,3 +26,16 @@
     color: white;
     border-radius: 8px;
 }
+
+.loginSignUp{
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+}
+
+.loginSignUp :hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
