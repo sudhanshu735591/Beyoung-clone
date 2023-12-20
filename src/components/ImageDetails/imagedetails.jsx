@@ -67,24 +67,22 @@ function ImageDetails() {
 
     const {token} = useContext(UserContext);
 
-
-
     const addToCart = async()=>{
-        await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${id}`,{
+        console.log("my id is", id);
+        let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${id}`,{
             method:"PATCH",
             headers:{
                 "Authorization":`Bearer ${token}`,
-                "projectID":"zx5u429ht9oj",
+                "projectID":"zx5u42 9ht9oj",
                 "Content-Type": "application/json",
             }
         })
 
+        let res = await data.json();
 
-        setCartCount(cartCount)
-
-
-        // let res = await data.json();
-
+        setCartCount(res.results);
+        console.log("added Data length is", res.data.items);
+        localStorage.setItem("data", JSON.stringify(res.data.items));
     }
     
     function addToCartHandler(){
@@ -97,8 +95,7 @@ function ImageDetails() {
         }
         
         else{
-           {clothSize &&  addToCart()}
-
+           {clothSize && addToCart()}
         }
     }
     
@@ -112,7 +109,7 @@ function ImageDetails() {
                 <div className="ImageData">
                     <div className="sideImageBox">
                         {myData.images &&
-                            myData.images.map((val) => {
+                            myData.images?.map((val) => {
                                 return (
                                     <img className="sideImage" src={val} />
                                 )

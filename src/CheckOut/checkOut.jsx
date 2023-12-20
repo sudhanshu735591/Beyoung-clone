@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import Button from "../components/button/button"
 import "./checkout.css"
 import UserContext from "../ContextApi/UserContext"
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 
 function CheckOut() {
 
@@ -41,7 +41,9 @@ function CheckOut() {
 
             let res = await data.json();
             setdata(res.data.items);
-            setCartCount(res.data.items.length);      
+            setCartCount(res.data.items.length); 
+            // localStorage.setItem(data);
+                             
         }
 
         catch(error){
@@ -68,7 +70,16 @@ function CheckOut() {
 
             let res = await data.json();
             setdata(res.data.items);
+
             console.log("res.data.item", res.data.items);
+            if (localStorage.getItem(val)!== null) {
+                console.log("not null");
+                // localStorage.removeItem(val);
+                // console.log("Item with key '" + keyToDelete + "' deleted from localStorage");
+            }
+            else{
+                console.log("null");
+            }
         }
 
         catch(error){

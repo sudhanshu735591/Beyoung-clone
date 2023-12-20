@@ -15,6 +15,8 @@ const UserContextProvider = ({children})=>{
 
     const [token, setToken] = useState("");
 
+    const [imageDetailsSectionOption, setImageDetailsSectionOption] = useState();
+
 
 
     return(
@@ -25,6 +27,7 @@ const UserContextProvider = ({children})=>{
             cartCount, setCartCount,
             clothSize, setClothSize,
             token, setToken,
+            imageDetailsSectionOption, setImageDetailsSectionOption,
         } }>
             
         {children}
