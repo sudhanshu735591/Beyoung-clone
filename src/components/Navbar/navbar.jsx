@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./navbar.css";
 import MenData from "../MenData/mendata";
-import { NavLink,  useNavigate } from "react-router-dom";
+import { NavLink,  Navigate,  useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/searchBar";
 import UserContext from "../../ContextApi/UserContext";
 import { createPortal } from "react-dom";
@@ -9,7 +9,17 @@ import SignUpPage from "../../Auth/Signup/Signup";
 
 function Navbar(){
 
+    
+
     let [search, setSearch] = useState(false);
+
+    const {successMessage} = useContext(UserContext);
+
+
+    // const {setCartCount} = useContext(UserContext);
+
+    const {cartCount} = useContext(UserContext);
+
 
     function onHandleClick(){
       setSearch(search?false:true);
@@ -21,8 +31,19 @@ function Navbar(){
 
     const[showModal, setShowModal] = useState(false);
 
+    const navigate = useNavigate();
+
+
     function handleCartClick(){
-        setShowModal(true);
+        
+        if(!successMessage){
+            setShowModal(true);
+        }
+
+        else{
+            setShowModal(false);
+            navigate("/checkout")
+        }
         console.log("Showmodal is", showModal);
     }
 
@@ -96,7 +117,6 @@ function Navbar(){
                     <li>BB K FAVORITES</li>
                     <li>WINTER WEARS</li>
                     <li>NEW ARRIVALS</li>
-                   
                 </ul>
             </section>
 
@@ -105,16 +125,13 @@ function Navbar(){
                 <SearchBar search = {search} />
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 8.06253C22 15.0874 12.0004 21 12.0004 21C12.0004 21 2 15 2 8.07677C2 5.25003 4.22222 3.00003 7 3.00003C9.77778 3.00003 12 6.37503 12 6.37503C12 6.37503 14.2222 3.00003 17 3.00003C19.7778 3.00003 22 5.25003 22 8.06253Z" stroke="black" stroke-width="1.5" stroke-linecap="round"></path></svg>
                 <div className="addToCart">
-                    {user && <div className="addToNumber">{user}</div>}
+                    {cartCount>0 && <div className="addToNumber">{cartCount}</div>}
                     <svg style={{cursor:"pointer"}} onClick={handleCartClick} width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3L5.5 3L6 5M6 5L8 13M6 5H21L19 13H8M8 13H7.5C6.67157 13 6 13.6716 6 14.5C6 15.3284 6.67157 16 7.5 16H19M19 20C19 20.5523 18.5523 21 18 21C17.4477 21 17 20.5523 17 20C17 19.4477 17.4477 19 18 19C18.5523 19 19 19.4477 19 20ZM9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20Z" stroke="black" stroke-width="1.5" stroke-linecap="round"></path></svg>
                 </div>
             </div>
 
             {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
-            
         </div>
-
-        
     )
 }
 

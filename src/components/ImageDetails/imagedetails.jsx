@@ -8,23 +8,31 @@ import Button from "../button/button";
 import Footer from "../Footer/footer";
 import SignUp from "../../Auth/Signup/Signup";
 import { createPortal } from "react-dom";
+import UserContext from "../../ContextApi/UserContext";
 
 function ImageDetails() {
     const [myData, setMyData] = useState({});
     const [addCart, setAddCart] = useState(true);
     let [clickIndex, setClickIndex] = useState(null);
     let { id } = useParams();
-    let [size , setSize] = useState("");
 
-    const[showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const {successMessage} = useContext(UserContext);
 
-    
+    const {setCartCount} = useContext(UserContext);
+
+    const {cartCount} = useContext(UserContext);
+
+    const {setClothSize, clothSize} = useContext(UserContext);
+
+    const {setMyApi} = useContext(UserContext);
+
     const handleClose = ()=>{
         setShowModal(false);
     }
 
     function sizeHandler(e, index){
-        setSize(e.target.innerHTML);
+        setClothSize(e.target.innerHTML);
         setClickIndex(index);
     }
 
@@ -42,6 +50,7 @@ function ImageDetails() {
             let res = await api.json();
             console.log("response is", res.data);
             setMyData(res.data);
+            setMyApi(res.data);
         }
 
         catch (error) {
@@ -51,17 +60,49 @@ function ImageDetails() {
 
     useEffect(() => {
         fetchApi();
+        setClothSize("");
+        setAddCart(true);
+        
     }, []);
+
+    const {token} = useContext(UserContext);
+
+
+
+    const addToCart = async()=>{
+        await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${id}`,{
+            method:"PATCH",
+            headers:{
+                "Authorization":`Bearer ${token}`,
+                "projectID":"zx5u429ht9oj",
+                "Content-Type": "application/json",
+            }
+        })
+
+
+        setCartCount(cartCount)
+
+
+        // let res = await data.json();
+
+    }
     
     function addToCartHandler(){
-        if(!size){
-            setAddCart(false);
+        if(!clothSize){
             setAddCart(false);
         }
 
-        setShowModal(true);
+        if(!successMessage){    
+            setShowModal(true);
+        }
+        
+        else{
+           {clothSize &&  addToCart()}
+
+        }
     }
     
+
     return (
         <div>
             <Topbanner />
@@ -108,7 +149,7 @@ function ImageDetails() {
                                 }
 
                             </div>
-                            {!size && !addCart && <p style={{color:"red"}}>Please select a size</p>}
+                            {!clothSize && !addCart && <p style={{color:"red"}}>Please select a size</p>}
                         </div>
 
                         <div className="quantity">
@@ -120,10 +161,33 @@ function ImageDetails() {
                             </select>
                         </div>
 
+
+
+
+
+
+
+
+
+
+
+
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
                         <div className="delivery">
                             <div className="text">DELIVERY OPTIONS</div>
@@ -195,7 +259,6 @@ function ImageDetails() {
             </div>
 
             {showModal && createPortal(<SignUp showModal = {showModal} onClose = {handleClose}/>,  document.body)}
-
         </div>
     )
 }

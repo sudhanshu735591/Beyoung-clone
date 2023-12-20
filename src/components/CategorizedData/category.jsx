@@ -12,8 +12,6 @@ function CategorizedSection(){
     let [show, setShow] = useState(true);
     let [showSize, setShowSize] = useState(true);
 
-    
-
     function onArrowClick(){
         show?setShow(false):setShow(true);
     }
@@ -24,9 +22,7 @@ function CategorizedSection(){
         
         try {
             let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?search=${search}&filter=${filter}`;
-            console.log("my url is ", apiUrl);
-            console.log("api is data",apiUrl);
-  
+            console.log(apiUrl,"dkdekek");
             let data = await fetch(apiUrl, {
                 method: 'GET',
                 headers: {
@@ -36,7 +32,6 @@ function CategorizedSection(){
   
             let res = await data.json();
             setMyData(res.data);
-            console.log("allllll", myData);
         }
         catch (error) {
             console.log(error);
@@ -96,7 +91,6 @@ function CategorizedSection(){
                         <div className="fetchedImage">
                             {
                                 myData && myData.map((val)=>{
-                                    console.log("valllll isss", val);
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
@@ -120,19 +114,3 @@ function CategorizedSection(){
 
 export default CategorizedSection;
 
-
-
-// <div className="filter">
-// <div>FILTER</div>
-// <div>
-//     <p>JOGGERS</p>
-//     <p>JOGGERS</p>
-
-
-// </div>
-// </div>
-
-// <div className="colorArrow">
-// <p>COLOR</p>
-// <img className="arrow  " src="https://www.beyoung.in/desktop/images/category/arrow.svg"/>
-// </div>

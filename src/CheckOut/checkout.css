@@ -54,6 +54,15 @@
     margin-top: 0px;
 }
 
+
+.checkOut{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    gap: 41px;
+    flex-wrap: wrap;
+}
+
 .checkOutText{
     color: #000;
     text-align: center;
@@ -66,72 +75,79 @@
     margin-top: 5px;
 }
 
-/* .shopping-step:after {
-    content: "";
-    position: absolute;
-    border-bottom: 1px solid #cbcbcb;
-    left: 669px;
-    top: 114px;
-    z-index: 0;
-    width: 22%;
-} */
+.wishlistContainer{
+    display: flex;
+    margin-top: 15px;
+    border-top: 1px solid #cfc4c4;
+    width: 100%;
+    padding-left: 6px;
+    padding-top: 9px;
+    justify-content: space-around;
+}
 
+.checkoutBox{
+    display: flex;
+    padding: 10px;
+    border: 2px solid #cfc4c4;
+    border-radius: 7px;
 
-.sectionImageBox{
+}
+
+.innerOptionBox{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 6px;
 }
 
-.checkOutSection{
-    padding: 0px 9px;
-}
-
-.checkOutDetailsSection{
+.innerCheckOut{
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 12px;
 }
 
-.checkOutTextDetails{
+.productBox{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 9px;
-}
-
-.checkOutColor{
-    display: flex;
-    align-items: center;
-    gap: 107px;
-}
-
-.checkOut{
-    display: flex;
-    align-items: inherit;
-    justify-content: center;
     gap: 41px;
-    flex-wrap: wrap;
+
 }
 
+.priceSection{
+    display: flex;
+}
 
+.innerCheckOutBox{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detailsandnumber{
+    display: flex;
+    justify-content: space-around;
+}
+
+.checkOutDetailsBox{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 
 
 .checkOutPrice_Text{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: start;
-    gap: 11px;
+    gap: 20px;
 }
 
-.DetailsSec{
+.amountDetails{
+    display: flex;
+    gap: 62%;
+    font-weight: 600;
+}
+
+.amountDetailsBox{
     display: flex;
     flex-direction: column;
-    align-items: start;
-}
-
-.detailsandnumber{
-    display: flex;
-    gap: 131px;
+    gap: 20px;
 }

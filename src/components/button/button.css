@@ -30,3 +30,10 @@
     border: none;
     cursor: pointer;
 }
+
+.wishListButton{
+    background: white;
+    border: none;
+    color: grey;
+    cursor: pointer;
+}

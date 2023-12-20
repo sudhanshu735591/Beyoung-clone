@@ -1,9 +1,11 @@
 import "./SignUp.css";
-import { createPortal } from "react-dom";
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import UserContext from "../../ContextApi/UserContext";
+import { Navigate, useHistory } from "react-router-dom";
+// import { useHistory } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -16,7 +18,6 @@ const style = {
 };
 
 export default function SignUpPage({ showModal, onClose }) {
-
     const handleClose = () => {
         onClose();
     }
@@ -26,12 +27,20 @@ export default function SignUpPage({ showModal, onClose }) {
     const [email, setEmail] = React.useState("");
     let [error , setError] = React.useState("");
 
-    let [loginSucces, setLoginSucces] = React.useState("");
-
     const [loginEmail, setLoginEmail] = React.useState("");
     const [loginPassword, setLoginPasswword] = React.useState("");
 
     const [loginMessage, setLoginMessage] = React.useState("");
+
+    const {setSuccessMessage} = React.useContext(UserContext);
+
+    const {successMessage} = React.useContext(UserContext);
+
+
+    const {setToken} = React.useContext(UserContext);
+
+    // const [loginMessage] = React.useContext(UserContext); 
+
 
     let [text, setText] = React.useState("or Signup");
 
@@ -94,7 +103,16 @@ export default function SignUpPage({ showModal, onClose }) {
             setLoginMessage(res.message);
         }
         else{
+            // setLoginSuccess("success");
             setLoginMessage("Login Successful !!")
+            console.log("res.status", res.status);
+            
+        }
+
+        if(res.status==="success"){
+            setSuccessMessage(true);
+            console.log("successMessage", successMessage);
+            setToken(res.token);
         }
     }
 
@@ -125,7 +143,10 @@ export default function SignUpPage({ showModal, onClose }) {
 
     return (
         <div>
-            <Modal
+            {
+                !successMessage?
+
+                <Modal
                 open={showModal}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
@@ -169,7 +190,11 @@ export default function SignUpPage({ showModal, onClose }) {
                         </div>
                     </Typography>
                 </Box>
-            </Modal>
+            </Modal>: null
+            }
+
+          
+            
         </div>
     );
 }

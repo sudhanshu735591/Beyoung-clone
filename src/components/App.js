@@ -19,7 +19,7 @@ function App() {
         <Route path = "/imageDetails/:id" element = {<ImageDetails/>}/>
         <Route path = "/categorized" element = {<CategorizedSection/>}/>
         {/* <Route path = "/signup" element = {<SignUp/>}/> */}
-
+        <Route path="/checkout" element = {<CheckOut/>}/>
       </Routes>
     </div>
   );
