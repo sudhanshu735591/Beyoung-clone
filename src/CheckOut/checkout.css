@@ -151,3 +151,33 @@
     flex-direction: column;
     gap: 20px;
 }
+
+.wishListDataIter{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.wishListImage{
+    height: 200px;
+    width: 150px;
+}
+
+.wishListDetails{
+    display: flex ;
+    flex-direction: column;
+    align-items: start;
+}
+
+.wishListText{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 3px;
+}
+
+.wishListParentText{
+    text-decoration: underline;
+    padding: 15px;
+
+}
