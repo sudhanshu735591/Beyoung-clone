@@ -71,14 +71,24 @@ function CheckOut() {
             let res = await data.json();
             setdata(res.data.items);
 
-            console.log("res.data.item", res.data.items);
-            if (localStorage.getItem(val)!== null) {
-                console.log("not null");
-                // localStorage.removeItem(val);
-                // console.log("Item with key '" + keyToDelete + "' deleted from localStorage");
-            }
-            else{
-                console.log("null");
+
+            if (localStorage.getItem("data")!== null) {
+                let currentData = JSON.parse(localStorage.getItem("data"));
+                let index ;
+
+                for(let i = 0; i<currentData.length; i++){
+                   if(currentData[i].product._id===val){
+                    index = i;
+                   }
+
+                   else{
+                    console.log("no data");
+                   }
+                } 
+
+                currentData.splice(index, 1);
+                localStorage.removeItem("data");
+                localStorage.setItem("data", JSON.stringify(currentData));
             }
         }
 
@@ -108,8 +118,6 @@ function CheckOut() {
         let res = await data.json();
 
         setWishListData(res);
-
-        console.log("wishlist",res)
 
     }
 

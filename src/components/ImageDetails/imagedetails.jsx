@@ -78,10 +78,9 @@ function ImageDetails() {
             }
         })
 
-        let res = await data.json();
+        let res = await data?.json();
 
         setCartCount(res.results);
-        console.log("added Data length is", res.data.items);
         localStorage.setItem("data", JSON.stringify(res.data.items));
     }
     
