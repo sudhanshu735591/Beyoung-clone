@@ -11,10 +11,7 @@ function CheckOut() {
 
     const { setCartCount } = useContext(UserContext);
 
-
     const [data, setdata] = useState("");
-
-    const [wishListData, setWishListData] = useState([]);
 
     const [wishlistDataIter, setWishListDataIter] = useState([]);
 
@@ -115,18 +112,16 @@ function CheckOut() {
                 "productId": val,
             }),
         });
-
-
         let res = await data?.json();
 
-        console.log("wishlist", res);
+        wishListIter()
 
     }
 
 
     const wishListIter = async () => {
         const data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist`, {
-            method: "Get",
+            method: "GET",
 
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -135,10 +130,23 @@ function CheckOut() {
         });
 
         let res = await data.json();
-
-        // setWishListData(res);    
-        console.log("wishlist", res.data.items);
         setWishListDataIter(res.data.items);
+    }
+
+    const deleteWishList = async(id)=>{
+        console.log("delete id", id);
+        let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`,{
+            method: "DELETE",
+
+            headers: {  
+                'Authorization': `Bearer ${token}`,
+                'projectID': 'zx5u429ht9oj',
+            },
+        })
+
+        let res = await data.json();
+
+        wishListIter();
     }
 
 
@@ -282,10 +290,12 @@ function CheckOut() {
                     </div>
 
 
-                    <div className="wishListBox">
-                        <div className="wishListParentText">Add from wishlist</div>
+                    {wishlistDataIter.length>0 &&<div className="wishListBox">
+                    <div className="wishListParentText">Add from wishlist</div>
+
                         
                         <div className="wishListDataIter">
+
                             {
                                 wishlistDataIter && wishlistDataIter.map((val)=>{
                                     return(
@@ -297,14 +307,14 @@ function CheckOut() {
                                             <div className="wishListText"> 
                                                 <p>Clothes Category Data</p>
                                                 <p style={{fontWeight:"600"}}>{`₹${val.products.price} (0% OFF)`}</p>
-                                                <Button className= "wishListAddButton" text = "+Add"></Button>
+                                                <Button onClick = {()=>deleteWishList(val.products._id)} className= "wishListAddButton" text = "Delete"></Button>
                                             </div>
                                         </div>
                                     )
                                 })
                             }
                         </div>
-                    </div>
+                    </div>}
 
 
                 </div> : <p>No Data Found</p>

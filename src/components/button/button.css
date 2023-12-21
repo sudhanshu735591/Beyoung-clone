@@ -43,4 +43,5 @@
     color: rgb(142, 142, 248);
     background-color: white;
     border: 2px solid rgb(255, 233, 233);
+    cursor: pointer;
 }
