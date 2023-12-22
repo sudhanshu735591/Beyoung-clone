@@ -45,3 +45,29 @@
     border: 2px solid rgb(255, 233, 233);
     cursor: pointer;
 }
+
+
+.wishListLogOutButton{
+    padding: 8px 63px;
+    background: #feeb00;
+    border: none;
+    border-radius: 6px;
+}
+
+.catImage{
+    height: 100px;
+    width: 200px;
+}
+
+.favCart{
+    background: #d9d9d9;
+    text-transform: capitalize;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 127px;
+    height: 35px;
+    margin-top: 7px;
+}

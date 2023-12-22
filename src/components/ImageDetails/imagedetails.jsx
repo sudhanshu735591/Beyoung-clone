@@ -80,9 +80,9 @@ function ImageDetails() {
 
         let res = await data?.json();
 
-        setCartCount(res.results);
-        localStorage.setItem("data", JSON.stringify(res.data.items));
-    }
+        setCartCount(res?.results);
+        localStorage.setItem("data", JSON.stringify(res.data?.items));
+    }   
     
     function addToCartHandler(){
         if(!clothSize){

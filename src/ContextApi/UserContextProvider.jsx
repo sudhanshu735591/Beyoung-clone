@@ -17,6 +17,8 @@ const UserContextProvider = ({children})=>{
 
     const [imageDetailsSectionOption, setImageDetailsSectionOption] = useState();
 
+    const [wishListData, setWishListData] = useState([])
+
 
 
     return(
@@ -28,6 +30,7 @@ const UserContextProvider = ({children})=>{
             clothSize, setClothSize,
             token, setToken,
             imageDetailsSectionOption, setImageDetailsSectionOption,
+            wishListData, setWishListData,
         } }>
             
         {children}

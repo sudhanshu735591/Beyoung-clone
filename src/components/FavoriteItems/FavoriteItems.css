@@ -1,0 +1,112 @@
+.my-account-profile{
+    padding: 20px 20px;
+    text-align: center;
+    width: 163px;
+    height: 151px;
+    background: #d5d5d5;
+}
+
+.account_navigation{
+    display: flex;
+    margin: 36px 20%;
+    gap: 48px;
+    width: 55%;
+}
+
+.nameLogo{
+    border: 2px solid black;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    color: white;
+    background: black;
+    padding: 23px;
+    font-size: 64px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nameSection{
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+.favoriteYoungster{
+    margin-top: 15px;
+    color: #bb9999;
+}
+
+.wishListOrder{
+    padding: 20px 0px;
+}
+
+
+.wishListUl{
+    list-style-type: none;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d4d5d5;
+
+}
+
+
+.wishListtext{
+    padding: 13px;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.ll{
+    display: flex;
+}
+
+
+.wishListLogOut{
+    margin: 26px 0px;
+}
+
+
+.catImage {
+    height: 167px;
+    width: 131px;
+}
+
+.crossCircle{
+    border-radius: 50%;
+    position: absolute;
+    right: 1%;
+    top: 0%;
+    background: rgba(255,255,255,0.7);
+    border: none;
+    cursor: pointer;
+    padding: 1px 7px;
+}
+
+.imageDatawishList{
+    position: relative;
+}
+
+.xText{
+    display: block;
+    color: #222;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.aboutTextData{
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+

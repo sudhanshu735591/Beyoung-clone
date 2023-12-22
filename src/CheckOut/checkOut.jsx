@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from "react"
 import Button from "../components/button/button"
 import "./checkout.css"
 import UserContext from "../ContextApi/UserContext"
-import { json, useParams } from "react-router-dom";
 
 function CheckOut() {
 
@@ -14,6 +13,8 @@ function CheckOut() {
     const [data, setdata] = useState("");
 
     const [wishlistDataIter, setWishListDataIter] = useState([]);
+
+    const {setWishListData} = useContext(UserContext);
 
 
     let sum = 0;
@@ -39,8 +40,8 @@ function CheckOut() {
             });
 
             let res = await data.json();
-            setdata(res.data.items);
-            setCartCount(res.data.items.length);
+            setdata(res.data?.items);
+            setCartCount(res?.data?.items?.length);
         }
 
         catch (error) {
@@ -54,7 +55,6 @@ function CheckOut() {
 
 
     const deleteItem = async (val) => {
-
         try {
             let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${val}`, {
                 method: "DELETE",
@@ -67,7 +67,6 @@ function CheckOut() {
 
             let res = await data.json();
             setdata(res.data.items);
-
 
             if (localStorage.getItem("data") !== null) {
                 let currentData = JSON.parse(localStorage.getItem("data"));
@@ -93,9 +92,6 @@ function CheckOut() {
             console.log(error);
         }
     }
-
-
-
 
     const wishListItem = async (val) => {
 
@@ -130,7 +126,10 @@ function CheckOut() {
         });
 
         let res = await data.json();
-        setWishListDataIter(res.data.items);
+        
+        setWishListDataIter(res.data?.items);
+        setWishListData(res.data?.items);
+        localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
     }
 
     const deleteWishList = async(id)=>{
@@ -145,10 +144,8 @@ function CheckOut() {
         })
 
         let res = await data.json();
-
         wishListIter();
     }
-
 
     useEffect(() => {
         fetchCheckOut();
