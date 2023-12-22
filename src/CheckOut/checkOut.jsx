@@ -23,7 +23,7 @@ function CheckOut() {
 
     const handleSelectedItem = (e) => {
         setSelectedItem(e.target.value);
-        console.log(e.target.value);
+
     }
 
 
@@ -40,7 +40,6 @@ function CheckOut() {
             });
 
             let res = await data.json();
-            console.log("All Item", res.data.items);
 
             setdata(res.data?.items);
             setCartCount(res?.data?.items?.length);
@@ -77,10 +76,6 @@ function CheckOut() {
                 for (let i = 0; i < currentData.length; i++) {
                     if (currentData[i].product._id === val) {
                         index = i;
-                    }
-
-                    else {
-                        console.log("no data");
                     }
                 }
 
@@ -139,7 +134,6 @@ function CheckOut() {
 
 
     const deleteWishList = async(id)=>{
-        console.log("delete id", id);
         let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`,{
             method: "DELETE",
             headers: {  
@@ -196,6 +190,7 @@ function CheckOut() {
                                                         <div className="innerOptionBox">
                                                             <img style={{ height: "116px", width: "84px" }} alt="image" className="" src={val.product.displayImage} />
                                                             <select onChange={handleSelectedItem}>
+                                                                <option>Select</option>
                                                                 <option>1</option>
                                                                 <option>2</option>
                                                                 <option>3</option>

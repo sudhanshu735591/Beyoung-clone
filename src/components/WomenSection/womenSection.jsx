@@ -19,7 +19,6 @@ function WomenSection(props){
             }
         });
         let res = await resData.json();
-        console.log("resssssssssssss", res);
         setWoemnData(res);
     }
 

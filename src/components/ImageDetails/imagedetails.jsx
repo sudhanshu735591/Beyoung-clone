@@ -45,7 +45,6 @@ function ImageDetails() {
             });
 
             let res = await api.json();
-            console.log("response is", res.data);
             setMyData(res.data);
             setMyApi(res.data);
         }
@@ -74,10 +73,11 @@ function ImageDetails() {
                     "Content-Type": "application/json",
                 },
 
-                Body:{
+
+                body:JSON.stringify({
                     "quantity" : `${selectChange}`,
                     "size" : `${clothSize}`
-                }
+                })
     
                 
             })
@@ -85,7 +85,6 @@ function ImageDetails() {
             let res = await data?.json();
     
             setCartCount(res?.results);
-            console.log("response add data is", res.status);
             {res.status!=="fail" ? localStorage.setItem("data", JSON.stringify(res.data?.items)): alert("Data already exist")};
         }
         catch(error){
@@ -103,7 +102,7 @@ function ImageDetails() {
         }
         
         else{
-           {clothSize && selectChange && addToCart()}
+           {clothSize && selectChange && addToCart() && alert("Data added Successfully")}
         }
     }
     
@@ -161,6 +160,7 @@ function ImageDetails() {
                         <div className="quantity">
                             <div>QTY:</div>
                             <select onChange={(e)=>setSelectChange(e.target.value)}>
+                                <option>Select</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>

@@ -47,7 +47,6 @@ function FavoriteItems(){
 
                {
                 wishData.map((val)=>{
-                    console.log(val);
                     return(
                         <div className="imageWishListCategory">
                             <div className="imageDatawishList">

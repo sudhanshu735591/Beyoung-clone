@@ -18,11 +18,9 @@ function CategorizedSection(){
 
 
     const fetchApi = async (search, filter) => {
-        console.log("search", search);
         
         try {
             let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?search=${search}&filter=${filter}`;
-            console.log(apiUrl,"dkdekek");
             let data = await fetch(apiUrl, {
                 method: 'GET',
                 headers: {
