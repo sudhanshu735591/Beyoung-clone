@@ -18,14 +18,11 @@ function ImageDetails() {
 
     const [showModal, setShowModal] = useState(false);
     const {successMessage} = useContext(UserContext);
-
     const {setCartCount} = useContext(UserContext);
-
-    const {cartCount} = useContext(UserContext);
-
     const {setClothSize, clothSize} = useContext(UserContext);
-
     const {setMyApi} = useContext(UserContext);
+
+    const [selectChange, setSelectChange] = useState();
 
     const handleClose = ()=>{
         setShowModal(false);
@@ -68,24 +65,36 @@ function ImageDetails() {
     const {token} = useContext(UserContext);
 
     const addToCart = async()=>{
-        console.log("my id is", id);
-        let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${id}`,{
-            method:"PATCH",
-            headers:{
-                "Authorization":`Bearer ${token}`,
-                "projectID":"zx5u42 9ht9oj",
-                "Content-Type": "application/json",
-            }
-        })
+        try{
+            let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${id}`,{
+                method:"PATCH",
+                headers:{
+                    "Authorization":`Bearer ${token}`,
+                    "projectID":"zx5u42 9ht9oj",
+                    "Content-Type": "application/json",
+                },
 
-        let res = await data?.json();
-
-        setCartCount(res?.results);
-        localStorage.setItem("data", JSON.stringify(res.data?.items));
+                Body:{
+                    "quantity" : `${selectChange}`,
+                    "size" : `${clothSize}`
+                }
+    
+                
+            })
+    
+            let res = await data?.json();
+    
+            setCartCount(res?.results);
+            console.log("response add data is", res.status);
+            {res.status!=="fail" ? localStorage.setItem("data", JSON.stringify(res.data?.items)): alert("Data already exist")};
+        }
+        catch(error){
+            console.log(error);
+        }
     }   
     
     function addToCartHandler(){
-        if(!clothSize){
+        if(!clothSize || !selectChange){
             setAddCart(false);
         }
 
@@ -94,7 +103,7 @@ function ImageDetails() {
         }
         
         else{
-           {clothSize && addToCart()}
+           {clothSize && selectChange && addToCart()}
         }
     }
     
@@ -146,16 +155,29 @@ function ImageDetails() {
 
                             </div>
                             {!clothSize && !addCart && <p style={{color:"red"}}>Please select a size</p>}
+
                         </div>
 
                         <div className="quantity">
                             <div>QTY:</div>
-                            <select>
+                            <select onChange={(e)=>setSelectChange(e.target.value)}>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
                             </select>
+
+
                         </div>
+
+                        {!selectChange && !addCart && <p style={{color:"red"}}>Please select a size</p>}
+
 
 
 

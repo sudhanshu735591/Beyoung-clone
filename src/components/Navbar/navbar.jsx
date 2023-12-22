@@ -21,7 +21,6 @@ function Navbar(){
 
     const { user } = useContext(UserContext);
 
-    console.log("contxt", user);
 
     const[showModal, setShowModal] = useState(false);
 

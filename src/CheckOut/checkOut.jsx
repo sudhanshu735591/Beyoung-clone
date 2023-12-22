@@ -40,6 +40,8 @@ function CheckOut() {
             });
 
             let res = await data.json();
+            console.log("All Item", res.data.items);
+
             setdata(res.data?.items);
             setCartCount(res?.data?.items?.length);
         }
@@ -126,17 +128,20 @@ function CheckOut() {
         });
 
         let res = await data.json();
+
+
+    
         
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
         localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
     }
 
+
     const deleteWishList = async(id)=>{
         console.log("delete id", id);
         let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`,{
             method: "DELETE",
-
             headers: {  
                 'Authorization': `Bearer ${token}`,
                 'projectID': 'zx5u429ht9oj',
@@ -320,6 +325,6 @@ function CheckOut() {
     )
 }
 
-export default CheckOut
+export default CheckOut;
 
 

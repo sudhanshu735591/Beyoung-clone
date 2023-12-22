@@ -8,12 +8,7 @@ import UserContext from "../../ContextApi/UserContext";
 
 function FavoriteItems(){
 
-    const {wishListData} = useContext(UserContext);
-    // const [wishData, setWishData] = useState([]);
-
     let wishData = JSON.parse(localStorage.getItem("WishListData"));
-
-    console.log("wishList", wishData);
 
     return(
         <div>
@@ -63,7 +58,7 @@ function FavoriteItems(){
                                         <div className="tShirtTextWishList"><p style={{fontSize:"10px"}}>Clothes Categories</p></div>
                                     </div>
         
-                                    <div>
+                                        <div>
                                         <div style={{fontSize:"14px"}}>₹ {val.products.price}</div>
                                         <Button text = "Add To Cart" className = "favCart"/>
                                     </div>

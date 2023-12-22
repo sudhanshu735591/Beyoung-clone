@@ -17,7 +17,11 @@ const UserContextProvider = ({children})=>{
 
     const [imageDetailsSectionOption, setImageDetailsSectionOption] = useState();
 
-    const [wishListData, setWishListData] = useState([])
+    const [wishListData, setWishListData] = useState([]);
+
+    
+
+
 
 
 
