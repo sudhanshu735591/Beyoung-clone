@@ -12,10 +12,17 @@ function CategorizedSection(){
     let [show, setShow] = useState(true);
     let [showSize, setShowSize] = useState(true);
 
+    let [selectedCircle, setSelectedCircle] = useState("");
+
     function onArrowClick(){
         show?setShow(false):setShow(true);
     }
 
+
+    function checkColor(e){
+        setSelectedCircle(e);
+        console.log(e,"collrr");    
+    }
 
     const fetchApi = async (search, filter) => {
         
@@ -62,7 +69,7 @@ function CategorizedSection(){
                     <div className="flexCircle">
                         {myData && myData.map((val)=>{
                             return(
-                                <div style={{backgroundColor:val.color, display:show?"block":"none"}} className="circleData"></div>
+                                <div onClick={()=>checkColor(val.color)} style={{backgroundColor:val.color, display:show?"block":"none"}} className="circleData"></div>
                             )
                         })}                      
                     </div>
@@ -88,6 +95,21 @@ function CategorizedSection(){
                         <div>TSHIRTS</div>
                         <div className="fetchedImage">
                             {
+                                selectedCircle? myData && myData.map((val)=>{
+                                    if(val.color===selectedCircle){
+                                        return(
+                                        <div className="imageSection">
+                                            <Link to={`/imageDetails/${val._id}`}>
+                                                <img className="fetchedImageData" src= {val.displayImage}/>
+                                                <i class="fa-regular fa-heart"></i>
+                                            </Link>
+                                            <p className="typeText">{val.brand}</p>
+                                            <p className="typeSolid">{val.category}</p>
+                                            <p className="price">₹ {val.price}</p>
+                                        </div>
+                                    )
+                                    }
+                                }): 
                                 myData && myData.map((val)=>{
                                     return(
                                         <div className="imageSection">
