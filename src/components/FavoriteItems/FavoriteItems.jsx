@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Navbar from "../Navbar/navbar";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
@@ -8,7 +8,22 @@ import UserContext from "../../ContextApi/UserContext";
 
 function FavoriteItems(){
 
-    let wishData = JSON.parse(localStorage.getItem("WishListData"));
+
+    const [wishData, setWishData] = useState([]);
+
+
+    useEffect(()=>{
+        if(localStorage.getItem("WishListData")!=undefined){
+            setWishData(JSON.parse(localStorage.getItem("WishListData")));
+        }
+
+        else{
+            console.log("No data");
+        }
+    },[])
+
+
+    
 
     return(
         <div>
@@ -46,7 +61,7 @@ function FavoriteItems(){
                 </div>
 
                {
-                wishData.map((val)=>{
+                wishData.length && wishData.map((val)=>{
                     return(
                         <div className="imageWishListCategory">
                             <div className="imageDatawishList">

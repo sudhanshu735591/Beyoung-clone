@@ -41,7 +41,6 @@ function Navbar(){
     }
 
     const handleClose = ()=>{
-        
         setShowModal(false);
     }
 

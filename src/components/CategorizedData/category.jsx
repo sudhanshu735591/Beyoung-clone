@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Navbar from "../Navbar/navbar";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
 import "./category.css";
 import { Link, useSearchParams } from "react-router-dom";
+import UserContext from "../../ContextApi/UserContext";
 
 function CategorizedSection(){
 
@@ -13,6 +14,7 @@ function CategorizedSection(){
     let [showSize, setShowSize] = useState(true);
 
     let [selectedCircle, setSelectedCircle] = useState("");
+
 
     function onArrowClick(){
         show?setShow(false):setShow(true);
@@ -43,11 +45,38 @@ function CategorizedSection(){
         }
     }
   
+
+
+
+
+    const menViewAllDataFunc = async ()=>{
+        let data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/clothes/products",{
+            headers:{
+                projectID: "zx5u429ht9oj",
+            }
+        });
+
+        console.log("mean", data);  
+
+        let res = await data.json();
+        setMyData(res?.data);
+        console.log("meanValue", res);
+    }
+
     const [searchParamms] = useSearchParams();
+
+    
+
+    
     
     useEffect(() => {
         fetchApi(searchParamms.get("search"), searchParamms.get("filter"));
     }, [searchParamms]);
+
+
+    useEffect(()=>{
+        menViewAllDataFunc();
+    },[])
   
     
     return(
@@ -101,8 +130,9 @@ function CategorizedSection(){
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
                                                 <img className="fetchedImageData" src= {val.displayImage}/>
-                                                <i class="fa-regular fa-heart"></i>
                                             </Link>
+                                            <i class="fa-regular fa-heart"></i>
+
                                             <p className="typeText">{val.brand}</p>
                                             <p className="typeSolid">{val.category}</p>
                                             <p className="price">₹ {val.price}</p>

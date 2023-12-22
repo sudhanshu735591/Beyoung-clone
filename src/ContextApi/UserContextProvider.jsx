@@ -19,10 +19,10 @@ const UserContextProvider = ({children})=>{
 
     const [wishListData, setWishListData] = useState([]);
 
-    
+    const [menViewAllData, setMenViewAllData] = useState(false);
 
 
-
+ 
 
 
     return(
@@ -35,6 +35,7 @@ const UserContextProvider = ({children})=>{
             token, setToken,
             imageDetailsSectionOption, setImageDetailsSectionOption,
             wishListData, setWishListData,
+            menViewAllData, setMenViewAllData,
         } }>
             
         {children}

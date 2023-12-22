@@ -1,25 +1,23 @@
-import { Link, json, useSearchParams } from "react-router-dom";
+import { Link, json, useNavigate, useSearchParams } from "react-router-dom";
 import "./gendersection.css";
 import Tshirts_Categories from "../MenTshirtCategories/menTshirtsCategories";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import BottomWear from "../MensBottomWear/mensBottomWear";
 import WomenSection from "../WomenSection/womenSection";
 import Slider from "react-slick";
+import UserContext from "../../ContextApi/UserContext";
 
 function GenderSection(props) {
   let {category, gender, shirts, demand } = props;
 
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500,
-    rows: 2,
-    slidesPerRow: 2
-  };
+  const {setMenViewAllData} = useContext(UserContext);
 
+  const navigate = useNavigate()
+
+  function checkClicked(e){
+    console.log("yes clicked");
+    navigate("/categorized");
+  }
 
   return (
     <div className="parentDiv">
@@ -31,7 +29,7 @@ function GenderSection(props) {
           <div className="tshirt">{shirts}</div>
           <div className="highondemand">{demand}</div>
         </div>
-        <div className="viewall">View All</div>
+        <div onClick={checkClicked} className="viewall">View All</div>
       </div>
 
       <div className="imageData">

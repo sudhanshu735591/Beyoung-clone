@@ -41,6 +41,8 @@
 .viewall{
     text-decoration: underline;
     cursor: pointer;
+    height: 20px;
+
 }
 
 .highondemand{

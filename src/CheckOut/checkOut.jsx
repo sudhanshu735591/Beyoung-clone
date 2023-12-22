@@ -28,6 +28,7 @@ function CheckOut() {
 
 
 
+
     const fetchCheckOut = async () => {
         try {
             let data = await fetch(" https://academics.newtonschool.co/api/v1/ecommerce/cart", {
@@ -124,8 +125,7 @@ function CheckOut() {
 
         let res = await data.json();
 
-
-    
+        console.log("checkOut res", res);
         
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
