@@ -10,6 +10,7 @@
     justify-content: space-evenly;
     margin-right: 18%;
     position: relative;
+    flex-wrap: wrap;
 }
 
 .list ul li{

@@ -72,10 +72,10 @@ function GenderSection(props) {
 
       <div className="displayImage">
         <div className="demand">
-          <div className="tshirt1">BOTTOMWEAR</div>
+          <div className="tshirt1">CATEGORIES</div>
           <div className="highondemand high1">{demand}</div>
         </div>
-        <div className="viewall">View All</div>
+        <div className="viewall"></div>
       </div>
 
 
@@ -86,7 +86,7 @@ function GenderSection(props) {
               <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
                 <div>
                   <img className="bottomWear" src = {val.img}/>
-                  <p className="bottoWearText">{val.name}</p>
+                    <p className="bottoWearText">{val.name}</p>
                 </div>
               </Link>
             )
@@ -95,6 +95,11 @@ function GenderSection(props) {
        </div>
 
        <WomenSection gender = "WOMEN"/>
+
+
+       <div>
+        <img className="wardrobeImage" src="https://www.beyoung.in/api/catalog/homepage-3-10/bbimages/new/Bhuvan-strip-banner-desktop.jpg"/>
+       </div>
     </div>
   )
 }

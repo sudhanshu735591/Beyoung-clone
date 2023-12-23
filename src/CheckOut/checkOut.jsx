@@ -1,8 +1,7 @@
-
 import { useContext, useEffect, useState } from "react"
 import Button from "../components/button/button"
 import "./checkout.css"
-import UserContext from "../ContextApi/UserContext"
+import UserContext from "../ContextApi/UserContext";
 
 function CheckOut() {
 
@@ -25,9 +24,6 @@ function CheckOut() {
         setSelectedItem(e.target.value);
 
     }
-
-
-
 
     const fetchCheckOut = async () => {
         try {

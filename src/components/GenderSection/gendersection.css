@@ -11,7 +11,7 @@
 .parentDiv{
     display: flex;
     flex-direction: column;
-    width: 87%;
+    max-width: 85%;
     margin: auto;
 }
 
@@ -43,9 +43,9 @@
     font-weight: 600;
     font-size: 14px;
     display: flex;
-    justify-content: flex-end;
     align-items: start;
     border-left: 4px solid yellow;
+    padding: 0px 11px;
 }
 
 .bottomBox{
@@ -58,13 +58,10 @@
 
 
 .bottomWear{
-    height: 300px;
+    height: 242px;
     width: 200px;
 }
 
-.bottoWearText{
-    margin-top: -33px;
-}
 
 .flex{
     width: 49rem;
@@ -121,4 +118,26 @@
     bottom: 14px;
     color: black;
     transform: rotate(269deg);
+}
+
+.bottoWearText{
+    color: black;
+    text-transform: capitalize;
+    background: #ddd6d6;
+    margin: -4px 0px;
+    border-radius: 5px;
+}
+
+.bottomContainer{
+    background: aquamarine;
+    margin-top: -4px;
+    width: 190px;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.wardrobeImage{
+    width: 102%;
+    height: 23vh;
+    margin-top: 28px;
 }
