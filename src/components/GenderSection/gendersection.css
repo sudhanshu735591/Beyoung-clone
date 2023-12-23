@@ -115,7 +115,7 @@
 
 .rightArrow{
     width: 24px;
-    background-color: white;
+    background-color: white !important;
     position: relative;
     right: 20px;
     bottom: 14px;

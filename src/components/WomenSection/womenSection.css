@@ -3,28 +3,38 @@
     width: 200px;
 }
 
-/* 
 
-.womenData{
-    display: flex;
-    overflow: auto;
-    margin-top: 30px;
-    gap: 20px;
-    width: 63%;
-    margin: auto;
-} */
-
-/* .arrowSlider{
-    height: 40px;
-    width: 40px;
-    border: 2px solid;
-    border-radius: 50%;
-    position: absolute;
-    margin-top: 168px;
-    margin-left: 28px;
-} */
 
 .slider{
     margin: auto;
     width: 59%;
+}
+
+.slick-prev:before {
+    content: '←';
+    color: black !important;
+}
+
+
+
+.slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0 !important;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+}
+
+.womenSectionFlex{
+    display: flex;
+    overflow: scroll;
+    gap: 10px;
+    overflow-y: hidden;
+    
+
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
