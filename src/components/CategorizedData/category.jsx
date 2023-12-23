@@ -15,6 +15,8 @@ function CategorizedSection(){
 
     let [selectedCircle, setSelectedCircle] = useState("");
 
+    let {menViewAllData, setMenViewAllData} = useContext(UserContext);
+
 
     function onArrowClick(){
         show?setShow(false):setShow(true);
@@ -66,16 +68,16 @@ function CategorizedSection(){
     const [searchParamms] = useSearchParams();
 
     
-
-    
-    
     useEffect(() => {
         fetchApi(searchParamms.get("search"), searchParamms.get("filter"));
     }, [searchParamms]);
 
 
     useEffect(()=>{
-        menViewAllDataFunc();
+        if(menViewAllData){
+            menViewAllDataFunc();
+            setMenViewAllData(false);
+        }
     },[])
   
     

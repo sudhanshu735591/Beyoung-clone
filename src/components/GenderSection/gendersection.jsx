@@ -17,6 +17,7 @@ function GenderSection(props) {
   function checkClicked(e){
     console.log("yes clicked");
     navigate("/categorized");
+    setMenViewAllData(true);
   }
 
   return (

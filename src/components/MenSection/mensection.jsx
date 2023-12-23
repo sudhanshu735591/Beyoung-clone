@@ -34,16 +34,11 @@ function Mensection(){
         fetchApi();
     },[]);
 
-
-    
    
     return(
       <div>
-        
         <GenderSection category = {Tshirts_Categories}  gender = "FOR MEN" shirts = "T-SHIRTS" demand = "High On Demand"/>
-        
       </div>
-
     )
 }
 
