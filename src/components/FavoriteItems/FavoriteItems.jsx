@@ -10,7 +10,16 @@ function FavoriteItems(){
 
 
     const [wishData, setWishData] = useState([]);
+    const { token } = useContext(UserContext);
 
+
+    // const {wishListCartData, setWishListCardData} = useContext(UserContext);
+
+
+    // function onClickHandler(val){
+    //     setWishListCardData(val);
+    //     console.log("val data is", val);
+    // }
 
     useEffect(()=>{
         if(localStorage.getItem("WishListData")!=undefined){
@@ -62,6 +71,7 @@ function FavoriteItems(){
 
                {
                 wishData.length && wishData.map((val)=>{
+                    console.log("vallll", val);
                     return(
                         <div className="imageWishListCategory">
                             <div className="imageDatawishList">
@@ -74,7 +84,7 @@ function FavoriteItems(){
         
                                         <div>
                                         <div style={{fontSize:"14px"}}>₹ {val.products.price}</div>
-                                        <Button text = "Add To Cart" className = "favCart"/>
+                                        <Button onClick = {()=>wishListItem(val.products._id)} text = "Add To Cart" className = "favCart"/>
                                     </div>
         
                                 </div>

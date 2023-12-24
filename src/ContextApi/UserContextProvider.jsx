@@ -21,8 +21,9 @@ const UserContextProvider = ({children})=>{
 
     const [menViewAllData, setMenViewAllData] = useState(false);
 
+    const [selectItem, setSelectedItem] = useState("");
 
- 
+    const [wishListCartData, setWishListCardData] = useState("");
 
 
     return(
@@ -36,6 +37,8 @@ const UserContextProvider = ({children})=>{
             imageDetailsSectionOption, setImageDetailsSectionOption,
             wishListData, setWishListData,
             menViewAllData, setMenViewAllData,
+            selectItem, setSelectedItem,
+            wishListCartData, setWishListCardData
         } }>
             
         {children}

@@ -15,15 +15,37 @@ function CheckOut() {
 
     const {setWishListData} = useContext(UserContext);
 
+    const {selectItem,setSelectedItem} = useContext(UserContext);
+
 
     let sum = 0;
 
     let item = 0;
 
-    const handleSelectedItem = (e) => {
-        setSelectedItem(e.target.value);
+    const handleSelectedItem = (e, val) => {
+        const newQuantity = parseInt(e.target.value);
+    
+        // Update the quantity of the specific item in the data state
+        setdata((prevData) => {
+            const newData = prevData.map((item) => {
+                if (item.product._id === val._id) {
+                    // Update the quantity of the selected item
+                    return {
+                        ...item,
+                        quantity: newQuantity,
+                    };
+                }
+                console.log("prevData", item)
 
-    }
+                return item;
+            });
+            return newData;
+        });
+    };
+
+    useEffect(() => {
+        console.log("selected number", selectItem);
+    }, [selectItem]);
 
     const fetchCheckOut = async () => {
         try {
@@ -185,7 +207,7 @@ function CheckOut() {
                                                     <div>
                                                         <div className="innerOptionBox">
                                                             <img style={{ height: "116px", width: "84px" }} alt="image" className="" src={val.product.displayImage} />
-                                                            <select onChange={handleSelectedItem}>
+                                                            <select onChange={(e)=>handleSelectedItem(e, val.product)}>
                                                                 <option>Select</option>
                                                                 <option>1</option>
                                                                 <option>2</option>
@@ -207,6 +229,8 @@ function CheckOut() {
                                                         <div style={{ fontWeight: "700" }}>
                                                             {`₹ ${parseInt(val.product.price * val.quantity)}`}
                                                         </div>
+
+                                                        
 
                                                         <div>
                                                             <div>{val.product.color}</div>
@@ -244,7 +268,8 @@ function CheckOut() {
                                     <div>Total MRP (Inc. of Taxes)</div>
 
                                     {
-                                        sum = data.reduce((acc, val) => acc + parseInt(val.product.price * val.quantity), 0)
+                                        !selectItem ? sum = data.reduce((acc, val) => acc + parseInt(val.product.price * val.quantity), 0):
+                                        sum = data.reduce((acc, val) => acc + parseInt(val.product.price * selectItem),0)
                                     }
 
                                 </div>
@@ -319,3 +344,12 @@ function CheckOut() {
 export default CheckOut;
 
 
+
+
+
+
+// loader
+// https://cdn.dribbble.com/users/1626465/screenshots/4617986/media/b09265705b58f46795126fa8c0221867.gif
+
+
+// Problem--- How can i manage the select option for checkOut because it is not updating the data

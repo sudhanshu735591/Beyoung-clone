@@ -24,6 +24,14 @@ function ImageDetails() {
 
     const [selectChange, setSelectChange] = useState();
 
+    // const {selectItem,setSelectedItem} = useContext(UserContext);
+
+    // useEffect(()=>{
+    //     setSelectChange(selectItem);
+    //     console.log("selectedItemsss", selectItem);
+    // },[])
+
+
     const handleClose = ()=>{
         setShowModal(false);
     }
