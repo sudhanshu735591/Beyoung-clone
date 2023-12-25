@@ -11,6 +11,7 @@ import SignUpPage from "../../Auth/Signup/Signup";
 
 function FavoriteItems(){
 
+    const { token } = useContext(UserContext);
 
     const [wishData, setWishData] = useState([]);
 
@@ -19,7 +20,6 @@ function FavoriteItems(){
     const [clickCart, setClickCart] = useState(false);
 
     const[showModal, setShowModal] = useState(false);
-
 
     const [clickId, setClickId] = useState("");
 
@@ -45,11 +45,26 @@ function FavoriteItems(){
         }
     }
 
+    const deleteWishList = async(id)=>{
+        let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`,{
+            method: "DELETE",
+            headers: {  
+                'Authorization': `Bearer ${token}`,
+                'projectID': 'zx5u429ht9oj',
+            },
+        })
+
+        setWishData((prevWishData)=>prevWishData.filter(item=>item.products._id!=id));
+    }
+
+   
 
     function wishListItem(val){
+
         if(!successMessage){
             setShowModal(true);
         }
+
         else{
             setShowModal(false);
             setClickCart(true);
@@ -70,20 +85,17 @@ function FavoriteItems(){
     }
 
 
-
-
     useEffect(()=>{
+
         if(localStorage.getItem("WishListData")!=undefined){
             setWishData(JSON.parse(localStorage.getItem("WishListData")));
         }
-
+ 
         else{
             console.log("No data");
         }
     },[])
 
-
-    
 
     return(
         <div>
@@ -125,7 +137,7 @@ function FavoriteItems(){
                     return(
                         <div className="imageWishListCategory">
                             <div className="imageDatawishList">
-                                <div className="crossCircle"><a className="xText">x</a></div>
+                                <div onClick={()=>deleteWishList(val.products._id)} className="crossCircle"><a className="xText">x</a></div>
                                 <img className="catImage" src={val.products.displayImage}/>
                                 <div className="aboutTextData">
                                     <div>
@@ -143,10 +155,6 @@ function FavoriteItems(){
                 })
                }
 
-               
-
-
-               {/* {createPortal(<BasicModal open = {clickCart}/>)} */}
             {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
 
             {!showModal && setClickCart && createPortal(<BasicModal clickCart = {clickCart} onClose = {handleCloseModel} setClickId={clickId} size = {size}/>, document.body)}

@@ -70,10 +70,6 @@ export default function BasicModal({ clickCart, onClose, setClickId , size}) {
         }
     }
 
-
-
-
-
     return (
         <div>
             <Modal
@@ -97,11 +93,6 @@ export default function BasicModal({ clickCart, onClose, setClickId , size}) {
                                     </div>
                                 }
                             </div>
-
-
-                           
-
-
 
                             <div className='textBoxDetails'>
                                 <div className='dropDown' style={{fontSize:"10px"}}>Quantity

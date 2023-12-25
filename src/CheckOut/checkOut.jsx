@@ -139,8 +139,6 @@ function CheckOut() {
 
         let res = await data.json();
 
-        console.log("checkOut res", res);
-        
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
         localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
@@ -347,5 +345,3 @@ export default CheckOut;
 // loader
 // https://cdn.dribbble.com/users/1626465/screenshots/4617986/media/b09265705b58f46795126fa8c0221867.gif
 
-
-// Problem--- How can i manage the select option for checkOut because it is not updating the data
