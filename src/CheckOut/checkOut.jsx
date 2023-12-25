@@ -15,7 +15,7 @@ function CheckOut() {
 
     const {setWishListData} = useContext(UserContext);
 
-    const {selectItem,setSelectedItem} = useContext(UserContext);
+    const {selectItem} = useContext(UserContext);
 
 
     let sum = 0;
@@ -23,30 +23,26 @@ function CheckOut() {
     let item = 0;
 
     const handleSelectedItem = (e, val) => {
-        const newQuantity = parseInt(e.target.value);
-    
-        // Update the quantity of the specific item in the data state
-        setdata((prevData) => {
-            const newData = prevData.map((item) => {
-                if (item.product._id === val._id) {
-                    // Update the quantity of the selected item
-                    return {
-                        ...item,
-                        quantity: newQuantity,
-                    };
-                }
-                console.log("prevData", item)
 
+        const newQuantity = parseInt(e.target.value);
+
+        setdata((prevData)=>{
+            const newData = prevData.map((item)=>{
+                if(item.product._id===val._id){
+                    return{
+                        ...item,
+                        quantity :newQuantity,
+                    }
+                }
                 return item;
             });
             return newData;
-        });
+        })
+
+    
     };
 
-    useEffect(() => {
-        console.log("selected number", selectItem);
-    }, [selectItem]);
-
+  
     const fetchCheckOut = async () => {
         try {
             let data = await fetch(" https://academics.newtonschool.co/api/v1/ecommerce/cart", {

@@ -39,9 +39,6 @@ export default function SignUpPage({ showModal, onClose }) {
 
     const {setToken} = React.useContext(UserContext);
 
-    // const [loginMessage] = React.useContext(UserContext); 
-
-
     let [text, setText] = React.useState("or Signup");
 
     const fetchApi = async()=>{

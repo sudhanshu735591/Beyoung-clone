@@ -5,21 +5,72 @@ import Trackorder from "../Trackorder/trackorder";
 import Button from "../button/button";
 import "./FavoriteItems.css";
 import UserContext from "../../ContextApi/UserContext";
+import BasicModal from "../Modal/addToCartModal";
+import { createPortal } from "react-dom";
+import SignUpPage from "../../Auth/Signup/Signup";
 
 function FavoriteItems(){
 
 
     const [wishData, setWishData] = useState([]);
-    const { token } = useContext(UserContext);
+
+    const {successMessage} = useContext(UserContext);
+
+    const [clickCart, setClickCart] = useState(false);
+
+    const[showModal, setShowModal] = useState(false);
 
 
-    // const {wishListCartData, setWishListCardData} = useContext(UserContext);
+    const [clickId, setClickId] = useState("");
+
+    const [size, setSize] = useState();
+
+    const fetchApi = async () => {
+        try {
+            let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/product/${clickId._id}`;
+
+            let api = await fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    "projectID": "zx5u429ht9oj",
+                }
+            });
+
+            let res = await api.json();
+            setSize(res.data?.size);
+        }
+
+        catch (error) {
+            console.log("error is", error);
+        }
+    }
 
 
-    // function onClickHandler(val){
-    //     setWishListCardData(val);
-    //     console.log("val data is", val);
-    // }
+    function wishListItem(val){
+        if(!successMessage){
+            setShowModal(true);
+        }
+        else{
+            setShowModal(false);
+            setClickCart(true);
+            setClickId(val);
+        }
+        fetchApi();
+    }
+
+
+
+    function handleClose(){
+        setShowModal(false);
+    }
+
+
+    function handleCloseModel(){
+        setClickCart(false);
+    }
+
+
+
 
     useEffect(()=>{
         if(localStorage.getItem("WishListData")!=undefined){
@@ -71,7 +122,6 @@ function FavoriteItems(){
 
                {
                 wishData.length && wishData.map((val)=>{
-                    console.log("vallll", val);
                     return(
                         <div className="imageWishListCategory">
                             <div className="imageDatawishList">
@@ -84,9 +134,8 @@ function FavoriteItems(){
         
                                         <div>
                                         <div style={{fontSize:"14px"}}>₹ {val.products.price}</div>
-                                        <Button onClick = {()=>wishListItem(val.products._id)} text = "Add To Cart" className = "favCart"/>
+                                        <Button onClick = {()=>wishListItem(val.products)} text = "Add To Cart" className = "favCart"/>
                                     </div>
-        
                                 </div>
                             </div>
                         </div>
@@ -94,6 +143,13 @@ function FavoriteItems(){
                 })
                }
 
+               
+
+
+               {/* {createPortal(<BasicModal open = {clickCart}/>)} */}
+            {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
+
+            {!showModal && setClickCart && createPortal(<BasicModal clickCart = {clickCart} onClose = {handleCloseModel} setClickId={clickId} size = {size}/>, document.body)}
                 
             </div>
         </div>

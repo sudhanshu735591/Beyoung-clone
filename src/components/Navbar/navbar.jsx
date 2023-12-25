@@ -37,7 +37,6 @@ function Navbar(){
             setShowModal(false);
             navigate("/checkout")
         }
-        console.log("Showmodal is", showModal);
     }
 
     const handleClose = ()=>{

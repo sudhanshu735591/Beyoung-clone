@@ -1,0 +1,68 @@
+.modelBox{
+    display: flex;
+    justify-content: center;
+    width: 117%;
+    margin: -27px;
+    flex-direction: column;
+}
+
+.modelImage{
+    height: 125px;
+    width: 100px;
+    border-radius: 0;
+}
+
+.modelDetails{
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.modeltextbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.textData{
+    font-size: 13px;
+    color: #222;
+    font-weight: 500;
+}
+
+.dropDownBox{
+    
+    margin-top: 14px;
+}
+
+.optionTextBox{
+    display: flex;
+}
+
+.textColor{
+    font-size: 11px;
+}
+
+.optionValue{
+    padding: 5px;
+    width: 106%;
+    font-size: 13px;
+    color: #222;
+    border-radius: 4px;
+    padding-right: 25px!important;
+    padding-left: 10px!important;
+}
+
+
+.textBoxDetails{
+    display: flex;
+    gap: 15px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.favaddbutton{
+    margin: auto;
+    margin-top: 20px;
+}

@@ -24,13 +24,6 @@ function ImageDetails() {
 
     const [selectChange, setSelectChange] = useState();
 
-    // const {selectItem,setSelectedItem} = useContext(UserContext);
-
-    // useEffect(()=>{
-    //     setSelectChange(selectItem);
-    //     console.log("selectedItemsss", selectItem);
-    // },[])
-
 
     const handleClose = ()=>{
         setShowModal(false);
@@ -55,6 +48,7 @@ function ImageDetails() {
             let res = await api.json();
             setMyData(res.data);
             setMyApi(res.data);
+            console.log("res data", res.data);
         }
 
         catch (error) {
@@ -91,6 +85,8 @@ function ImageDetails() {
             })
     
             let res = await data?.json();
+
+            console.log("response is", res);
     
             setCartCount(res?.results);
             {res.status!=="fail" ? localStorage.setItem("data", JSON.stringify(res.data?.items)): alert("Data already exist")};
@@ -155,7 +151,6 @@ function ImageDetails() {
                                     myData.size && myData.size.map((val, index) => {
                                         return (
                                             <div style={{border:`2px solid ${index===clickIndex?"lightBlue":"black"}`}} onClick = {(e)=>sizeHandler(e, index)} className="circle">{val}</div>
-                                            
                                         )
                                     })      
                                 }
@@ -180,40 +175,14 @@ function ImageDetails() {
                                 <option>9</option>
                                 <option>10</option>
                             </select>
-
-
                         </div>
 
                         {!selectChange && !addCart && <p style={{color:"red"}}>Please select a size</p>}
-
-
-
-
-
-
-
-
-
-
-
-
 
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
                             <Button text="BUY NOW" className="cart buy" />
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
                         <div className="delivery">
                             <div className="text">DELIVERY OPTIONS</div>
