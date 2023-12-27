@@ -43,8 +43,10 @@ export default function SignUpPage({ showModal, onClose }) {
 
     const fetchApi = async()=>{
         try{
+            
             let data = await fetch("https://academics.newtonschool.co/api/v1/user/signup", {
             method :"POST",
+
             headers:{
                 "projectID": "zx5u429ht9oj",
                 "Content-Type": "application/json",
@@ -65,19 +67,13 @@ export default function SignUpPage({ showModal, onClose }) {
             }
             else{
                 setError("Data Submitted Successfully !! Login Please");
-                
             }
-            
-            console.log("error is ", res.message);
-            console.log("eres is ", res);
-
         }
 
         catch(error){
             console.log(error);
         }
     }
-
 
     const fetchLogin = async ()=>{
         let data = await fetch(" https://academics.newtonschool.co/api/v1/user/login", {
@@ -179,6 +175,7 @@ export default function SignUpPage({ showModal, onClose }) {
                                             <input required type="email" placeholder="Enter Email" onChange={(e)=>setLoginEmail(e.target.value)}/>
                                             <input required type="password" placeholder="Enter Password" onChange={(e)=>setLoginPasswword(e.target.value)}/>
                                             <button className="SignupButton">Submit</button>
+                                            {/* <p>Forget Password</p> */}
                                             <p style={{color:"green"}}>{loginMessage}</p>
                                         </div>
                                     </form>

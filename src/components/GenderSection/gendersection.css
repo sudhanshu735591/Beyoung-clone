@@ -17,9 +17,16 @@
 
 
 .imageData{
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid; */
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 49rem;
+    padding: 10px;
+    position: relative;
 }
 
 .imageCategories{
@@ -68,10 +75,12 @@
 
 
 .flex{
-    width: 49rem;
-    display: flex;
-    position: relative;
-    justify-content: center;
+    overflow: scroll;
+    height: 400px;
+    width: 29vw;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr)
 }
 
 .flex2{
@@ -115,13 +124,15 @@
 }
 
 .rightArrow{
-    width: 24px;
-    background-color: white !important;
-    position: relative;
-    right: 20px;
-    bottom: 14px;
+       width: 16px;
+    background-color: white;
+    position: absolute;
+    top: 187px;
     color: black;
+    -webkit-transform: rotate(269deg);
     transform: rotate(269deg);
+    height: 24px;
+    right: 1%;
 }
 
 .bottoWearText{
@@ -148,4 +159,18 @@
     width: 102%;
     height: 23vh;
     margin-top: 28px;
+}
+
+
+.flex3{
+    height: 163px;
+    width: 169px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.largeImage{
+    display: flex;
+    margin-bottom: 19px;
 }

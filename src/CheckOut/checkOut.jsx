@@ -120,6 +120,7 @@ function CheckOut() {
                 "productId": val,
             }),
         });
+        
         let res = await data?.json();
 
         wishListIter()

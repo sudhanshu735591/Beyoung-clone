@@ -33,41 +33,77 @@ function GenderSection(props) {
         <div onClick={checkClicked} className="viewall">View All</div>
       </div>
 
-      <div className="imageData">
-        <div className="flex"  >
-          <div className="flex1">
-            <Link>
-              <div 
-              className="nextArrow">
-                <i class="fa-solid fa-angle-down"></i>
-              </div>
-              <img style={{border:"none"}} src={Tshirts_Categories.t_Shirts.img}/>
-            </Link>
-          </div>
 
-          
-          <div className="flex2">
-            {
-              category && category.t_Shirts.list.map((val)=>{
-                return(
-                  <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
-                    <div className="flex3">
-                      
-                      <img  className="sideImageData" src = {val.img}/>
-                      <p className="tshirtText">{val.name}</p>
-                    </div>
-                  </Link>
-                )
-              })
-            }
-          </div>
-        </div> 
-         <div 
-       
-        className="rightArrow">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div className="imageData">
+        <div className="largeImage">
+          <img style={{border:"none", height:"382px"}} src={Tshirts_Categories.t_Shirts.img}/>
+        </div>
+
+
+        <div className="rightArrow">
           <i  class="fa-solid fa-angle-down"></i>
         </div>
-      </div>
+
+        <div className="flex">
+          {
+            category && category.t_Shirts.list.map((val)=>{
+              return(
+                <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
+                  <div className="flex3">
+                    <img  className="sideImageData" src = {val.img}/>
+                    <p className="tshirtText">{val.name}</p>
+                  </div>
+                </Link>
+              )
+            })
+          }
+          
+        </div>
+    </div>
+
+
+
+
+
+
+
+      
 
 
       <div className="displayImage">
