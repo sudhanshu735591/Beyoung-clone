@@ -92,3 +92,19 @@
     border-radius: 50%;
 }
 
+.addtonumWishList{
+    position: absolute;
+    left: 42px;
+    bottom: 0px;
+    border-radius: 50%;
+    height: 17px;
+    width: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: yellow;
+}
+
+.addToWishList{
+    position: relative;
+}

@@ -15,7 +15,7 @@ function Signup(){
     }
     return(
         <div>
-            <div style={{cursor:"pointer"}} onClick={handleCartClick}> SIGN UP </div>
+            <div style={{cursor:"pointer"}} onClick={handleCartClick}> LOGIN | SIGN UP </div>
             {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
 
         </div>

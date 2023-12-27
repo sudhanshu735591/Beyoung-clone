@@ -1,4 +1,3 @@
-import Login from "../Login/login";
 import Signup from "../Signup/signupText";
 
 function Trackorder(){
@@ -6,7 +5,6 @@ function Trackorder(){
     <div className="login">
         <div className="text">TRACK YOUR ORDER</div>
         <div className="login-signup">  
-            <Login/>
             <Signup/>
         </div>
     </div>
