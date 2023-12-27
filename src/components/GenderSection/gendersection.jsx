@@ -12,14 +12,40 @@ function GenderSection(props) {
 
   const {setMenViewAllData} = useContext(UserContext);
 
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const [flag, setFlag] = useState(true);
+
+  const imageWidth = 500;
+
   const navigate = useNavigate()
 
   function checkClicked(e){
     console.log("yes clicked");
     navigate("/categorized");
     setMenViewAllData(true);
+
   }
 
+
+
+
+  const scrollContainer = ()=>{
+    console.log("scrollPosition", scrollPosition);
+    setScrollPosition((prevPosition) => (prevPosition + 220) % imageWidth);
+    setFlag(false);
+  }
+
+
+  const scrollRight = ()=>{
+    setScrollPosition((prevPosition) => (prevPosition - 220) % imageWidth);
+    setFlag(true);
+  }
+
+
+
+  
   return (
     <div className="parentDiv">
 
@@ -66,8 +92,7 @@ function GenderSection(props) {
 
 
 
-
-
+     
 
 
     <div className="imageData">
@@ -76,8 +101,14 @@ function GenderSection(props) {
         </div>
 
 
-        <div className="rightArrow">
-          <i  class="fa-solid fa-angle-down"></i>
+        <div className="leftArrow" onClick={flag ? null : ()=>scrollRight(-29)}>
+          <i class="fa-solid fa-angle-down"></i>
+      </div>
+
+
+
+        <div onClick={!flag ? null : ()=>scrollContainer(29)} className="rightArrow">
+          <i class="fa-solid fa-angle-down"></i>
         </div>
 
         <div className="flex">
@@ -85,8 +116,8 @@ function GenderSection(props) {
             category && category.t_Shirts.list.map((val)=>{
               return(
                 <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
-                  <div className="flex3">
-                    <img  className="sideImageData" src = {val.img}/>
+                  <div style={{transform: `translateX(-${scrollPosition}px) rotate(360deg)` }} className="flex3">
+                    <img className="sideImageData" src = {val.img}/>
                     <p className="tshirtText">{val.name}</p>
                   </div>
                 </Link>
