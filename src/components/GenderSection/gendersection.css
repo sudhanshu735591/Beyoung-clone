@@ -39,6 +39,12 @@
     position: relative;
     bottom: 31px;
     color: black;
+    font-size: 10px;
+    margin: 12px;
+    display: flex;
+    text-transform: capitalize;
+    border-left: 3px solid rgb(224, 224, 10);
+    margin-right: 46px;
 }
 
 .tshirt1{
@@ -70,7 +76,7 @@
 
 
 .flex{
-    overflow: scroll;
+    overflow: hidden;
     height: 400px;
     width: 29vw;
     display: grid;

@@ -135,8 +135,8 @@ function Navbar(){
                     {
                         <div className="addtonumWishList">
                             {
-                                localStorage.getItem("WishListData")!==null ? JSON.parse(localStorage.getItem("WishListData")).length: <div></div>
-                            }
+                                localStorage.getItem("WishListData") && localStorage.getItem("WishListData")!==null ? JSON.parse(localStorage.getItem("WishListData")).length: null
+                            } 
                         </div>
                     }
                 </div>

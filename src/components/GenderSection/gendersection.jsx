@@ -60,38 +60,6 @@ function GenderSection(props) {
       </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
      
 
 
@@ -128,12 +96,6 @@ function GenderSection(props) {
         </div>
     </div>
 
-
-
-
-
-
-
       
 
 
@@ -147,6 +109,9 @@ function GenderSection(props) {
 
 
        <div className="bottomBox">
+        {/* <div className="rightArrow">
+          <i class="fa-solid fa-angle-down"></i>
+        </div> */}
         {
           BottomWear.bottom.map((val)=>{
             return(
