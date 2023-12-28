@@ -58,9 +58,9 @@
 
 .bottomBox{
     display: flex;
-    gap: 33px;
-    overflow: scroll;
-    width: 60%;
+    gap: 13px;
+    overflow: hidden;
+    width: 59%;
     margin: auto;
 }
 
@@ -172,6 +172,10 @@
     transition: transform 0.5s ease;
 }
 
+.bottomBoxWear{
+    transition: transform 0.5s ease;
+}
+
 .largeImage{
     display: flex;
     margin-bottom: 19px;
@@ -183,4 +187,25 @@
     right: 97%;
     background: white;
     transform: rotate(90deg);
+}
+
+.BottomLeftArrow{
+    position: relative;
+    top: 122px;
+    height: 20px;
+    background: white;
+    transform: rotate(89deg);
+    cursor: pointer;
+    z-index: 1;
+    left: 26px;
+}
+
+.BottomRightArrow{
+    position: absolute;
+    right: 376px;
+    margin: 118px 11px;
+    border: 2p solid;
+    background: white;
+    transform: rotate(269deg);
+    cursor: pointer;
 }

@@ -12,12 +12,15 @@ function GenderSection(props) {
 
   const {setMenViewAllData} = useContext(UserContext);
 
-
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const [bottomScrollPosition, setBottomScrollPosition] = useState(0);
 
   const [flag, setFlag] = useState(true);
 
   const imageWidth = 500;
+
+  const bottomImageWidth = 2540;
 
   const navigate = useNavigate()
 
@@ -41,6 +44,16 @@ function GenderSection(props) {
   const scrollRight = ()=>{
     setScrollPosition((prevPosition) => (prevPosition - 220) % imageWidth);
     setFlag(true);
+  }
+
+
+  function bottomLeftArrow(){
+    console.log("click");
+    setBottomScrollPosition((prevPosition) => (prevPosition + 220) % bottomImageWidth)
+  }
+
+  function bottomRightArrow(){
+    setBottomScrollPosition((prevPosition) => (prevPosition - 220) % bottomImageWidth)
   }
 
 
@@ -71,7 +84,7 @@ function GenderSection(props) {
 
         <div className="leftArrow" onClick={flag ? null : ()=>scrollRight(-29)}>
           <i class="fa-solid fa-angle-down"></i>
-      </div>
+        </div>
 
 
 
@@ -109,14 +122,15 @@ function GenderSection(props) {
 
 
        <div className="bottomBox">
-        {/* <div className="rightArrow">
+        <div className="BottomLeftArrow" onClick={()=>bottomRightArrow(-29)}>
           <i class="fa-solid fa-angle-down"></i>
-        </div> */}
+        </div>
+
         {
           BottomWear.bottom.map((val)=>{
             return(
               <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
-                <div>
+                <div className="bottomBoxWear" style={{transform: `translateX(-${bottomScrollPosition}px) rotate(360deg)`}}>
                   <img className="bottomWear" src = {val.img}/>
                     <p className="bottoWearText">{val.name}</p>
                 </div>
@@ -124,10 +138,20 @@ function GenderSection(props) {
             )
           })
         }
-       </div>
+
+
+
+
+
+
+        
+
+        <div className="BottomRightArrow" onClick={()=>bottomLeftArrow(29)}>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+      </div>
 
        <WomenSection gender = "WOMEN"/>
-
 
        <div>
         <img className="wardrobeImage" src="https://www.beyoung.in/api/catalog/homepage-3-10/bbimages/new/Bhuvan-strip-banner-desktop.jpg"/>
