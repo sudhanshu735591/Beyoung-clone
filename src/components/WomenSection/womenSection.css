@@ -1,5 +1,5 @@
 .womenImage{
-    height: 190px;
+    height: 240px;
     width: 200px;
 }
 
@@ -37,4 +37,12 @@
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.womenText{
+    border: 2px solid;
+    display: flex;
+    position: absolute;
+    width: 193px;
+    margin: -4px 3px;
 }

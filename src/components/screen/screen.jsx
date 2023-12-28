@@ -1,8 +1,6 @@
 import Banner from "../Banner/banner";
-import Login from "../Login/login";
 import Mensection from "../MenSection/mensection";
 import Navbar from "../Navbar/navbar";
-import Signup from "../Signup/signupText";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
 import "./screen.css";
@@ -17,6 +15,9 @@ function Home(){
             <div>
                 <Banner/>
                 <Mensection/>
+                <div>
+                    <img className="wardrobeImage" src="https://www.beyoung.in/api/catalog/homepage-3-10/bbimages/new/Bhuvan-strip-banner-desktop.jpg"/>
+                </div>
             </div>
         </div>
     )

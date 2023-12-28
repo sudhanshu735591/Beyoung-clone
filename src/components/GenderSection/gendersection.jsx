@@ -140,12 +140,6 @@ function GenderSection(props) {
         }
 
 
-
-
-
-
-        
-
         <div className="BottomRightArrow" onClick={()=>bottomLeftArrow(29)}>
           <i class="fa-solid fa-angle-down"></i>
         </div>
@@ -153,9 +147,7 @@ function GenderSection(props) {
 
        <WomenSection gender = "WOMEN"/>
 
-       <div>
-        <img className="wardrobeImage" src="https://www.beyoung.in/api/catalog/homepage-3-10/bbimages/new/Bhuvan-strip-banner-desktop.jpg"/>
-       </div>
+      
     </div>
   )
 }

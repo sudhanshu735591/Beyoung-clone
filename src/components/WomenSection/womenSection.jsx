@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./womenSection.css";
+import { NavLink } from "react-router-dom";
 
 
 function WomenSection(props) {
@@ -32,11 +33,17 @@ function WomenSection(props) {
           <div className="womenSectionFlex">
           {womenData.data &&
               womenData.data.map((val, index) => (
-                <div className="card" key={index}>
-                  <img className="womenImage" src={val.displayImage} alt="Image" />
+                val.displayImage && <div className="card" key={index}>
+                  <div>
+                    <NavLink to = {(`/categories?search=${JSON.stringify("Joggers")}&filter=${JSON.stringify("Joggers")}`)}>
+                      <img className="womenImage" src={val.displayImage} alt="Image" />
+                      <p>{val.name}</p>
+                    </NavLink>
+                  </div>
                 </div>
               ))}
           </div>
+
         </div>
       </div>
     </div>
