@@ -1,5 +1,6 @@
 import Banner from "../Banner/banner";
 import BestSeller from "../BestSeller/BestSeller";
+import Footer from "../Footer/footer";
 import GenderBanner from "../GenderBanner/genderBanner";
 import Login from "../Login/login";
 import Mensection from "../MenSection/mensection";
@@ -35,6 +36,7 @@ function Home(){
             </div>
 
             <BestSeller/>
+            <Footer/>
         </div>
     )
 }

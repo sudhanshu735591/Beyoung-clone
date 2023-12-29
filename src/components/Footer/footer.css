@@ -2,9 +2,9 @@
     display: flex;
     background-color: black;
     color: yellow;
-    border: 2px solid;
     justify-content: space-around;
     padding: 36px;
+    margin-top: 5%;
 }
 
 ul{
@@ -12,22 +12,21 @@ ul{
 }
 
 .helpSection{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
+    font-size: 16px;
+    color: #F8EA54;
+    font-weight: 600;
+    margin-right: 24px;
 }
 
 .need_help{
-    margin-top: 20px;
+    margin-top: 10px;
     color: white;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 23px;
     display: flex;
     flex-direction: column;
     align-items: baseline;
-    margin-left: 53px;
+    font-size: 13px;
 }
 
 .about{
@@ -39,9 +38,12 @@ ul{
     margin-right: 70%;
 }
 
-.helpSection{
-    font-size: 20px;
-    color: #F8EA54;
-    font-weight: 600;
-}
 
+
+
+.detailsBox{
+    display: flex;
+    width: 65%;
+    margin-left: 150px;
+    justify-content: space-between;
+}
