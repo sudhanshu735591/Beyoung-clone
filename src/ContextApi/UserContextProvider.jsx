@@ -25,6 +25,8 @@ const UserContextProvider = ({children})=>{
 
     const [wishListCartData, setWishListCardData] = useState("");
 
+    const [bestSellerData, setBestSellerData] = useState("");
+
 
     return(
         <UserContext.Provider value={ {
@@ -38,7 +40,8 @@ const UserContextProvider = ({children})=>{
             wishListData, setWishListData,
             menViewAllData, setMenViewAllData,
             selectItem, setSelectedItem,
-            wishListCartData, setWishListCardData
+            wishListCartData, setWishListCardData,
+            bestSellerData, setBestSellerData
         } }>
             
         {children}

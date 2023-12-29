@@ -1,27 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./womenSection.css";
 import { NavLink } from "react-router-dom";
-
+import Women_Tshirts_Categories from "../WomenData/WomenData";
 
 function WomenSection(props) {
   let { gender } = props;
-  let [womenData, setWomenData] = useState([]);
 
-  const fetchAPI = async () => {
-    let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?filter={"gender":"Women"}`;
-    let resData = await fetch(apiUrl, {
-      method: "GET",
-      headers: {
-        projectID: "zx5u429ht9oj",
-      },
-    });
-    let res = await resData.json();
-    setWomenData(res);
-  };
-
-  useEffect(() => {
-    fetchAPI();
-  }, []);
 
   
   return (
@@ -31,13 +15,14 @@ function WomenSection(props) {
 
         <div className="slider">
           <div className="womenSectionFlex">
-          {womenData.data &&
-              womenData.data.map((val, index) => (
-                val.displayImage && <div className="card" key={index}>
+          {Women_Tshirts_Categories.t_Shirts.list &&
+              Women_Tshirts_Categories.t_Shirts.list.map((val, index) => (
+                <div className="card" key={index}>
                   <div>
-                    <NavLink to = {(`/categories?search=${JSON.stringify("Joggers")}&filter=${JSON.stringify("Joggers")}`)}>
-                      <img className="womenImage" src={val.displayImage} alt="Image" />
-                      <p>{val.name}</p>
+                    {/* <NavLink to = {(`/categories?search=${JSON.stringify({"name":"jogger"})}&filter=${JSON.stringify({ subCategory: "jogger",})}`)}> */}
+                    <NavLink to = {(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
+                      <img className="womenImage" src={val.img} alt="Image" />
+                      <p className="womenTextData">{val.name}</p>
                     </NavLink>
                   </div>
                 </div>

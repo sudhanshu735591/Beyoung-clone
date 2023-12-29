@@ -3,8 +3,6 @@ import { Link, useSearchParams } from "react-router-dom";
 
 import "./categories.css"
 import Navbar from "../Navbar/navbar";
-import Login from "../Login/login";
-import Home from "../screen/screen";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
 

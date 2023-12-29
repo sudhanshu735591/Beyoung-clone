@@ -1,5 +1,4 @@
-import "./gendersection.css";
-
+// import "./gendersection.css";
 
 function GenderBanner(props) {
     const {gender, shirts, demand} = props;

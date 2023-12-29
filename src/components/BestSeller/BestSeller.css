@@ -1,0 +1,48 @@
+.bestSellerBox{
+    width: 49%;
+    margin: auto;
+    display: flex;
+    overflow: scroll;
+    gap: 20px;
+}
+
+.bestImage{
+    height: 240px;
+    width: 200px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+
+
+.bestSellerTextBox{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: -4px;
+    padding-left: 10px;
+}
+
+.dataBest{
+    border: 2px solid rgb(205, 190, 190);
+    border-radius: 15px;
+}
+
+.sellerTag{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.subCategory{
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+.sellerprice{
+    color: rgba(0, 0, 0, 0.8) !important;
+    font-weight: 600;
+    font-size: 14px;
+}

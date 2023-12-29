@@ -1,10 +1,9 @@
-import { Link, json, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./gendersection.css";
 import Tshirts_Categories from "../MenTshirtCategories/menTshirtsCategories";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import BottomWear from "../MensBottomWear/mensBottomWear";
 import WomenSection from "../WomenSection/womenSection";
-import Slider from "react-slick";
 import UserContext from "../../ContextApi/UserContext";
 
 function GenderSection(props) {
@@ -25,13 +24,10 @@ function GenderSection(props) {
   const navigate = useNavigate()
 
   function checkClicked(e){
-    console.log("yes clicked");
     navigate("/categorized");
     setMenViewAllData(true);
 
   }
-
-
 
 
   const scrollContainer = ()=>{
@@ -56,8 +52,6 @@ function GenderSection(props) {
     setBottomScrollPosition((prevPosition) => (prevPosition - 220) % bottomImageWidth)
   }
 
-
-
   
   return (
     <div className="parentDiv">
@@ -72,10 +66,6 @@ function GenderSection(props) {
         <div onClick={checkClicked} className="viewall">View All</div>
       </div>
 
-
-     
-
-
     <div className="imageData">
         <div className="largeImage">
           <img style={{border:"none", height:"382px"}} src={Tshirts_Categories.t_Shirts.img}/>
@@ -86,8 +76,6 @@ function GenderSection(props) {
           <i class="fa-solid fa-angle-down"></i>
         </div>
 
-
-
         <div onClick={!flag ? null : ()=>scrollContainer(29)} className="rightArrow">
           <i class="fa-solid fa-angle-down"></i>
         </div>
@@ -97,7 +85,7 @@ function GenderSection(props) {
             category && category.t_Shirts.list.map((val)=>{
               return(
                 <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
-                  <div style={{transform: `translateX(-${scrollPosition}px) rotate(360deg)` }} className="flex3">
+                  <div style={{transform: `translateX(-${scrollPosition}px)`}} className="flex3">
                     <img className="sideImageData" src = {val.img}/>
                     <p className="tshirtText">{val.name}</p>
                   </div>
@@ -108,8 +96,6 @@ function GenderSection(props) {
           
         </div>
     </div>
-
-      
 
 
       <div className="displayImage">
@@ -146,8 +132,7 @@ function GenderSection(props) {
       </div>
 
        <WomenSection gender = "WOMEN"/>
-
-      
+       
     </div>
   )
 }
@@ -155,103 +140,3 @@ function GenderSection(props) {
 
 export default GenderSection;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- {/* <div className="flex"  >
-          <div className="flex1">
-            <Link>
-              <div 
-              className="nextArrow">
-                <i class="fa-solid fa-angle-down"></i>
-              </div>
-              <img style={{border:"none"}} src={Tshirts_Categories.t_Shirts.img}/>
-            </Link>
-          </div>
-
-          
-          <div className="flex2">
-            {
-              category && category.t_Shirts.list.map((val)=>{
-                return(
-                  <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
-                    <div className="flex3">
-                      
-                      <img  className="sideImageData" src = {val.img}/>
-                      <p className="tshirtText">{val.name}</p>
-                    </div>
-                  </Link>
-                )
-              })
-            }
-          </div>
-        </div> 
-         <div 
-       
-        className="rightArrow">
-          <i  class="fa-solid fa-angle-down"></i>
-        </div> */}

@@ -1,13 +1,13 @@
 .womenImage{
-    height: 240px;
-    width: 200px;
+    height: 191px;
+    width: 187px;
 }
 
 
 
 .slider{
     margin: auto;
-    width: 59%;
+    width: 55%;
 }
 
 .slick-prev:before {
@@ -45,4 +45,10 @@
     position: absolute;
     width: 193px;
     margin: -4px 3px;
+}
+
+.womenTextData{
+    margin-top: -32px;
+    font-size: 12px;
+    margin-right: 74px;
 }

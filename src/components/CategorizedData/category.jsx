@@ -32,16 +32,19 @@ function CategorizedSection(){
         
         try {
             let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?search=${search}&filter=${filter}`;
+            console.log("filter", apiUrl);
+
             let data = await fetch(apiUrl, {
                 method: 'GET',
                 headers: {
                     projectID: "zx5u429ht9oj",
                 }
             });
-  
+            
             let res = await data.json();
             setMyData(res.data);
         }
+
         catch (error) {
             console.log(error);
         }
