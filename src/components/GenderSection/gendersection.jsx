@@ -26,7 +26,6 @@ function GenderSection(props) {
   function checkClicked(e){
     navigate("/categorized");
     setMenViewAllData(true);
-
   }
 
 

@@ -19,7 +19,6 @@
 
 .allDetails{
     display: flex;
-    align-items: center;
     margin: 28px 183px;
     gap: 33px;
 }

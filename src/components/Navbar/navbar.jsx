@@ -13,7 +13,6 @@ function Navbar(){
 
     const {successMessage} = useContext(UserContext);
 
-    // const {cartCount} = useContext(UserContext);
     const {token} = useContext(UserContext);
 
 
@@ -21,28 +20,32 @@ function Navbar(){
       setSearch(search?false:true);
     }
 
-    const { user } = useContext(UserContext);
+    // const { user } = useContext(UserContext);
 
-    const ref = useRef(0)
+    // const ref = useRef(0)
 
 
     const[showModal, setShowModal] = useState(false);
 
     const navigate = useNavigate();
 
-        const handleScroll = () => {
-          const mydataElement = document.getElementById('listData');
-    
-          if (window.scrollY >= 30.20000076293945) {            
-            mydataElement.style.top = '30px';
-          } 
-          else{
-            mydataElement.style.top = '77px';
+    const handleScroll = () => {
+       try{
+        const mydataElement = document.getElementById('listData');
 
-          }
-      
+        if (window.scrollY >= 30.20000076293945) {            
+            mydataElement.style.top = '30px';
+        } 
+        else{
+            mydataElement.style.top = '77px';
         }
-        window.addEventListener('scroll', handleScroll);
+       }
+       catch(error){
+        console.log(error);
+       }
+    
+    }
+    window.addEventListener('scroll', handleScroll);
 
 
 
@@ -151,7 +154,7 @@ function Navbar(){
 
                 <div className="addToWishList">
                     {
-                        <div className="addtonumWishList" style={{background: !successMessage ? "white": !localStorage.getItem("WishListData") || localStorage.getItem("WishListData")===null  ? "white":"yellow"}}>
+                        <div className="addtonumWishList" style={{background: !successMessage ? "transparent": !localStorage.getItem("WishListData") || localStorage.getItem("WishListData")===null  ? "transparent":"yellow"}}>
                             {
                                 localStorage.getItem("WishListData") && token ? JSON.parse(localStorage.getItem("WishListData")).length: null
                             } 
@@ -166,7 +169,6 @@ function Navbar(){
                         localStorage.getItem("data")!==null && token ? JSON.parse(localStorage.getItem("data")).length: <div></div>
                     }
                 </div>}
-
 
                     <svg style={{cursor:"pointer"}} onClick={handleCartClick} width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3L5.5 3L6 5M6 5L8 13M6 5H21L19 13H8M8 13H7.5C6.67157 13 6 13.6716 6 14.5C6 15.3284 6.67157 16 7.5 16H19M19 20C19 20.5523 18.5523 21 18 21C17.4477 21 17 20.5523 17 20C17 19.4477 17.4477 19 18 19C18.5523 19 19 19.4477 19 20ZM9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20Z" stroke="black" stroke-width="1.5" stroke-linecap="round"></path></svg>
                 </div>
