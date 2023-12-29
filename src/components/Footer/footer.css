@@ -47,3 +47,19 @@ ul{
     margin-left: 150px;
     justify-content: space-between;
 }
+
+.playStoreBox{
+    margin-top: 15px;
+}
+
+.playStoreText{
+    color: yellow;
+    display: flex;
+}
+
+
+.imagePlayStore{
+    height: 42px;
+    width: 132px;
+    border-radius: 2px;
+}

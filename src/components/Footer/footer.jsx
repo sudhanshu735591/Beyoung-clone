@@ -54,6 +54,24 @@ function Footer() {
                     <div>support@beyoung.in</div>
                     <div>Eklingpura Chouraha, Ahmedabad Main Road</div>
                     <div>(NH 8- Near Mahadev Hotel) Udaipur, India- 313002</div>
+
+                    <div className="playStoreBox">
+                        <div className="playStoreText">DOWNLOAD THE APP</div>
+                        <div className="playStoreImageBox" style={{display:"flex" , gap:"10px"}}>
+                            <div>
+                                <a href="https://play.google.com/store/apps/details?id=com.beyoungapp&referrer=utm_source%3Dwebsite%26utm_medium%3Dfooter%26anid%3Dadmob">
+                                <img className="imagePlayStore" src="https://www.beyoung.in/api/catalog/footer/11Play-Store-footer.png"/>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="https://apps.apple.com/in/app/beyoung/id1665513310?utm_source=website&utm_medium=Footer+ios">
+                                    <img className="imagePlayStore" src="https://www.beyoung.in/api/catalog/footer/12App-Store-footer.png"/>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>
