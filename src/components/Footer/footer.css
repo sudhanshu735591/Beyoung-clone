@@ -5,6 +5,7 @@
     justify-content: space-around;
     padding: 36px;
     margin-top: 5%;
+    flex-direction: column;
 }
 
 ul{
@@ -44,8 +45,9 @@ ul{
 .detailsBox{
     display: flex;
     width: 65%;
-    margin-left: 150px;
+    margin:auto;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .playStoreBox{
@@ -62,4 +64,103 @@ ul{
     height: 42px;
     width: 132px;
     border-radius: 2px;
+}
+
+
+
+.borderWhite{
+    border: 1px solid white;
+    width: 63%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.arrowBox{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.textBottomBox{
+    width: 58%;
+    margin: auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+}
+
+.textBoxSite{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 10px;
+}
+
+.descriptionBox{
+    margin: 5px -2px;
+}
+
+.clothingBoxContainer{
+    display: flex;
+    width: 52%;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+
+
+.descriptionofcloth{
+    position: relative;
+    left: 41%;
+    width: 75%;
+    margin-top: 11px;
+    font-size: 11px;
+    color: white;
+}
+
+.paymentBox{
+    display: flex;
+    width: 61%;
+    position: relative;
+    left: 21%;
+    margin-top: 20px;
+    font-weight: 700;
+    color: white;
+    font-size: 15px;
+}
+
+.childPayment{
+    display: flex;
+    width: 91%;
+    justify-content: space-around;
+    position: relative;
+    right: 9%;
+    flex-wrap: wrap;
+}
+
+.friendtext{
+    border-left: 2px solid;
+    padding-left: 15px;
+    height: 73px;
+}
+
+.paymentText{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+
+.Footerlogo{
+    height: 20px;
+    width: 20px;
+    border-radius: 0px;
+    margin-top: 20px;
+}
+
+.logoList{
+    display: flex;
+    justify-content: space-around;
+    gap:10px
 }
