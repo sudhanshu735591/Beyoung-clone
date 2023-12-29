@@ -20,6 +20,11 @@ function Navbar(){
       setSearch(search?false:true);
     }
 
+
+    function handleLogoClick(){
+        navigate("/");
+    }
+
     // const { user } = useContext(UserContext);
 
     // const ref = useRef(0)
@@ -34,10 +39,10 @@ function Navbar(){
         const mydataElement = document.getElementById('listData');
 
         if (window.scrollY >= 30.20000076293945) {            
-            mydataElement.style.top = '30px';
+            mydataElement.style.top = '33px';
         } 
         else{
-            mydataElement.style.top = '77px';
+            mydataElement.style.top = '76px';
         }
        }
        catch(error){
@@ -81,7 +86,7 @@ function Navbar(){
     return(
         <div className="section_tag">
             <div className="list">
-                <span className="sections">BEYOUNG.</span>
+                <span style={{cursor:"pointer"}} onClick={handleLogoClick} className="sections">BEYOUNG.</span>
                 <ul>
                     <li className="men">MEN
                         {
