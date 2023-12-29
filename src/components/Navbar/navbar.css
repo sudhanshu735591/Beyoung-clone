@@ -1,16 +1,17 @@
 .sections{
     font-weight: bold;
     font-size: 17px;
-    margin-left: 178px;
 }
 
 .section_tag{
     display: flex;
-    margin-top: 13px;
-    justify-content: space-evenly;
-    margin-right: 18%;
-    position: relative;
+    gap: 52px;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    padding: 12px;
+    z-index: 1;
 }
 
 .list ul li{
@@ -26,7 +27,7 @@
 }
 
 .list{
-    margin-left: 29px;
+    margin-left: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +36,19 @@
 
 .listData{
   display: none;
+  /* background-color: white;
+    height: 40%;
+    width: 73%;
+    position: absolute;
+    top: 90px;
+    left: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 44px;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: fixed; */
 }
 
 .men:hover{
@@ -71,7 +85,7 @@
 
 .cartSearch{
     display: flex;
-    gap: 22px;
+    gap: 8px;
     align-items: center;
 }
 

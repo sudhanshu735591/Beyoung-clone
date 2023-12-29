@@ -8,6 +8,7 @@ import UserContext from "../../ContextApi/UserContext";
 import BasicModal from "../Modal/addToCartModal";
 import { createPortal } from "react-dom";
 import SignUpPage from "../../Auth/Signup/Signup";
+import Footer from "../Footer/footer";
 
 function FavoriteItems(){
 
@@ -160,6 +161,8 @@ function FavoriteItems(){
             {!showModal && setClickCart && createPortal(<BasicModal clickCart = {clickCart} onClose = {handleCloseModel} setClickId={clickId} size = {size}/>, document.body)}
                 
             </div>
+
+            <Footer/>
         </div>
     )
 }

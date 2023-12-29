@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import MenData from "../MenData/mendata";
 import { NavLink,  Navigate,  useNavigate } from "react-router-dom";
@@ -23,10 +23,28 @@ function Navbar(){
 
     const { user } = useContext(UserContext);
 
+    const ref = useRef(0)
+
 
     const[showModal, setShowModal] = useState(false);
 
     const navigate = useNavigate();
+
+        const handleScroll = () => {
+          const mydataElement = document.getElementById('listData');
+    
+          if (window.scrollY >= 30.20000076293945) {
+            console.log('yes');
+            mydataElement.style.top = '30px';
+          } 
+          else{
+            mydataElement.style.top = '100px';
+
+          }
+      
+        }
+        window.addEventListener('scroll', handleScroll);
+
 
 
     function handleCartClick(){
@@ -60,12 +78,12 @@ function Navbar(){
  
     return(
         <div className="section_tag">
-            <section className="list">
+            <div className="list">
                 <span className="sections">BEYOUNG.</span>
                 <ul>
                     <li className="men">MEN
                         {
-                            <div className="listData">
+                            <div className="listData" id="listData">
                                 {
                                     Object.keys(MenData).map((key)=>{
                                         return(
@@ -93,7 +111,7 @@ function Navbar(){
                     </li>
                     <li className="men">WOMEN
                         {
-                            <div className="listData">
+                            <div className="listData" id="listData">
                                 {
                                     Object.keys(MenData).map((key)=>{
                                         return(
@@ -125,7 +143,7 @@ function Navbar(){
                     <li>WINTER WEARS</li>
                     <li>NEW ARRIVALS</li>
                 </ul>
-            </section>
+            </div>
             
 
             <div className="cartSearch">

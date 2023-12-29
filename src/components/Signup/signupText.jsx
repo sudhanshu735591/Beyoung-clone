@@ -26,7 +26,7 @@ function Signup(){
 
     return(
         <div>
-            {!successMessage && !token ? <div style={{cursor:"pointer"}} onClick={handleCartClick}> LOGIN | SIGN UP </div>:<div style={{cursor:"pointer"}} onClick={Logout} className="logout">LOGOUT</div>}
+            {!successMessage && !token ? <div style={{cursor:"pointer", fontSize:"10px"}} onClick={handleCartClick}> LOGIN | SIGN UP </div>:<div style={{cursor:"pointer"}} onClick={Logout} className="logout">LOGOUT</div>}
             {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
         </div>
     )
