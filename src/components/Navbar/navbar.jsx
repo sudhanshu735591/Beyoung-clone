@@ -33,9 +33,7 @@ function Navbar(){
         const handleScroll = () => {
           const mydataElement = document.getElementById('listData');
     
-          if (window.scrollY >= 30.20000076293945) {
-            console.log('yes');
-            mydataElement.style.top = '30px';
+          if (window.scrollY >= 30.20000076293945) {            mydataElement.style.top = '30px';
           } 
           else{
             mydataElement.style.top = '100px';
