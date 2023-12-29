@@ -37,18 +37,20 @@
 .listData{
   display: none;
   /* background-color: white;
-    height: 40%;
-    width: 73%;
-    position: absolute;
-    top: 90px;
-    left: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    padding: 44px;
-    gap: 20px;
-    flex-wrap: wrap;
-    position: fixed; */
+  border: 2px solid;
+  top: 100px;
+  height: 40%;
+  width: 45%;
+  position: absolute;
+  top: 90px;
+  left: 376px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 44px;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: fixed; */
 }
 
 .men:hover{
@@ -59,10 +61,10 @@
         display: block;
         background-color: white;
         height: 40%;
-        width: 73%;
+        width: 45%;
         position: absolute;
-        top: 90px;
-        left: 180px;
+        top:77px;
+        left: 376px;
         display: flex;
         flex-direction: column;
         align-items: baseline;
