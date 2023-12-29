@@ -3,12 +3,11 @@
     width: 187px;
 }
 
-
-
 .slider{
     margin: auto;
     width: 55%;
 }
+
 
 .slick-prev:before {
     content: '←';

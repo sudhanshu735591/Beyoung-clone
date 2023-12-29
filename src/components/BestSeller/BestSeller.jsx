@@ -1,13 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../../ContextApi/UserContext";
-
 import "./BestSeller.css"
-
-
+import { Link } from "react-router-dom";
 
 function BestSeller(){
-
-    const {setBestSellerData} = useContext(UserContext);
 
     const [myData, setMyData] = useState([]);
 
@@ -37,12 +33,14 @@ function BestSeller(){
                     return(
                         <div className="bestSellerDescriptionBox">
                             <div className="dataBest">
+                                <Link to={`/imageDetails/${val._id}`}>
                                 <div><img className="bestImage" src={val.displayImage}/></div>
                                 <div className="bestSellerTextBox">
                                     <div className="sellerTag">{val.sellerTag}</div>
                                     <div className="subCategory">{val.subCategory}</div>
                                     <div className="sellerprice">{`₹ ${val.price}`}</div>
                                 </div>
+                                </Link>
                             </div>
                         </div>
                     )

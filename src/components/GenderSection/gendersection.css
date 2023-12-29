@@ -1,6 +1,6 @@
 .mensection{
     background: linear-gradient(90deg, rgba(248, 235, 39, 0.00) 0%, #F8EB27 48.11%, rgba(248, 235, 39, 0.00) 100%);
-    width: 67%;
+    width: 63%;
     color: #000;
     font-size: 19px;
     font-weight: 600;
@@ -142,7 +142,7 @@
     background: #ddd6d6;
     margin: -4px 0px;
     border-radius: 1px;
-    padding: 5px 15px;
+    padding: 11px 8px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 10px;
     display: flex;
