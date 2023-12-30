@@ -26,6 +26,8 @@ function CategorizedSection(){
 
     const [highTolowChecked, setHighTolowChecked] = useState(false);
 
+    const [sortFlag, setSortFlag] = useState(false);
+
     function onArrowClick(){
         show?setShow(false):setShow(true);
     }
@@ -34,6 +36,10 @@ function CategorizedSection(){
         setChangeSizeSelect(e.target.innerText);
 
         console.log(e.target.innerText);
+    }
+
+    function sortedArrowClick(){
+        setSortFlag(!sortFlag);
     }
 
 
@@ -62,7 +68,12 @@ function CategorizedSection(){
         else{
            setMyData(duplicateData);
         }
+     
         
+    },[isChecked]);
+
+    useEffect(()=>{
+           
         if(highTolowChecked){
             const sortedData = [...myData].sort((a,b)=>{
                 return b.price-a.price;
@@ -73,12 +84,7 @@ function CategorizedSection(){
         else{
            setMyData(duplicateData);
         }
-        
-    },[isChecked || highTolowChecked]);
-
-    // function highToLow([{
-    //    ]setHighPrice(true);
-    // }
+    },[highTolowChecked])
 
 
     
@@ -179,14 +185,13 @@ function CategorizedSection(){
                         <p>5XL</p>
                     </div>
 
-
                     <div className="sizeSection">
                         <div>PRICE</div>
-                        <img className="arrow" src="https://www.beyoung.in/desktop/images/category/arrow.svg"/>
+                        <img onClick={sortedArrowClick} className="arrow" src="https://www.beyoung.in/desktop/images/category/arrow.svg"/>
                     </div>
 
                     <div className="sizeDetails" style={{display:showSize?"block":"none", cursor:"pointer"}}>
-                       <div className="priceSectionData">
+                       <div style={{display: sortFlag?"none":"block"}} className="priceSectionData">
                             <div className="PriceSection">
                                 <input onChange={lowToHigh} checked={isChecked} id="lowToHigh" type="checkbox"/>
                                 <p>Price : Low to High</p>
