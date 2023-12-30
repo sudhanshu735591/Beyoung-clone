@@ -87,6 +87,10 @@ function CategorizedSection(){
             <Navbar />
 
             <div>
+                <img style={{width:"100%"}} src="https://www.beyoung.in/api/catalog/products/banner_desktop/oversize-category-banner-desktop-view_19_10_2023.jpg"/>
+            </div>
+
+            <div>
             {myData ? <div className="allDetails">
                 <div className="filter">
                     <div>FILTER</div>
@@ -149,7 +153,9 @@ function CategorizedSection(){
                                                 <img className="fetchedImageData" src= {val.displayImage}/>
                                                 <i class="fa-regular fa-heart"></i>
                                             </Link>
-                                            <p className="typeText">{val.brand}</p>
+                                            <p className="typeText" style={{textTransform:"capitalize"}}>{
+                                                val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
+                                            }</p>
                                             <p className="typeSolid">{val.category}</p>
                                             <p className="price">₹ {val.price}</p>
                                         </div>
