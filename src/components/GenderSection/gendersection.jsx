@@ -23,7 +23,7 @@ function GenderSection(props) {
 
   const navigate = useNavigate()
 
-  function checkClicked(e){
+  function checkClicked(){
     navigate("/categorized");
     setMenViewAllData(true);
   }

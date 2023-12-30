@@ -52,9 +52,6 @@ function CategorizedSection(){
     }
   
 
-
-
-
     const menViewAllDataFunc = async ()=>{
         let data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/clothes/products",{
             headers:{
@@ -62,11 +59,9 @@ function CategorizedSection(){
             }
         });
 
-        console.log("mean", data);  
 
         let res = await data.json();
         setMyData(res?.data);
-        console.log("meanValue", res);
     }
 
     const [searchParamms] = useSearchParams();

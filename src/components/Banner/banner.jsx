@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Banner.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 function Banner(){
@@ -12,10 +12,13 @@ function Banner(){
     // }
     return(
             <div className="imageBanner"> 
-
-                <img  className="img" src="https://www.beyoung.in/api/catalog/homepage-28-11/main-banner/SHIRT-BANNER-DESKTOP-VIEW.jpg"/>
+                <NavLink to = {(`/categorized?search={"name":"shirt"}&filter={"subCategory":"shirt"}`)}>
+                    <img className="img" src="https://www.beyoung.in/api/catalog/homepage-28-11/main-banner/SHIRT-BANNER-DESKTOP-VIEW.jpg"/>
+                </NavLink>
                 <img className="img" style={{marginTop:"20px" , width:"70%"}} src="https://beyoung.in/api/catalog/homepage-5-dec/desktop/desktop-free-shipping11.png"/>
-                <img className="img" style={{marginTop:"30px" , width:"70%"}} src="https://www.beyoung.in/api/catalog/homepage-5-dec/desktop/Combo-banner-view-22.jpg"/>
+                <NavLink to = {(`/categorized?search={"name":"kurta"}&filter={"subCategory":"kurta"}`)}>
+                    <img className="img" style={{marginTop:"30px" , width:"70%"}} src="https://www.beyoung.in/api/catalog/homepage-5-dec/desktop/Combo-banner-view-22.jpg"/>
+                </NavLink>
             </div>
     )
 }
