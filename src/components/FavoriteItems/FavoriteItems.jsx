@@ -46,6 +46,24 @@ function FavoriteItems(){
         }
     }
 
+    
+            const wishListIter = async () => {
+                const data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist`, {
+                    method: "GET",
+
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'projectID': 'zx5u429ht9oj',
+                    },
+                });
+
+                let res = await data.json();
+
+            
+                localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
+            }
+
+
     const deleteWishList = async(id)=>{
         let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`,{
             method: "DELETE",
@@ -55,7 +73,9 @@ function FavoriteItems(){
             },
         })
 
+
         setWishData((prevWishData)=>prevWishData.filter(item=>item.products._id!=id));
+        wishListIter();
     }
 
    
@@ -134,7 +154,7 @@ function FavoriteItems(){
                 </div>
 
                {
-                wishData.length && wishData.map((val)=>{
+                wishData.length ? wishData.map((val)=>{
                     return(
                         <div className="imageWishListCategory">
                             <div className="imageDatawishList">
@@ -153,7 +173,10 @@ function FavoriteItems(){
                             </div>
                         </div>
                     )
-                })
+                }):
+                <div>
+                    <img className="NoDataImage" src="https://www.beyoung.in/images/common/EMPTY-WISHLIST-PAGE.jpg"/>
+                </div>
                }
 
             {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
