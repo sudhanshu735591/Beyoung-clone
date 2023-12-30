@@ -11,6 +11,8 @@ function CategorizedSection(){
 
     const [myData, setMyData] = useState([]);
 
+    const [duplicateData, setDuplicateData] = useState([]);
+
     let [show, setShow] = useState(true);
     let [showSize, setShowSize] = useState(true);
 
@@ -18,16 +20,68 @@ function CategorizedSection(){
 
     let {menViewAllData, setMenViewAllData} = useContext(UserContext);
 
+    const [changeSizeSelect, setChangeSizeSelect] = useState("");
+
+    const [isChecked, setChecked] = useState(false);
+
+    const [highTolowChecked, setHighTolowChecked] = useState(false);
 
     function onArrowClick(){
         show?setShow(false):setShow(true);
     }
 
+    function changeSizeText(e){
+        setChangeSizeSelect(e.target.innerText);
+
+        console.log(e.target.innerText);
+    }
+
 
     function checkColor(e){
         setSelectedCircle(e);
-        console.log(e,"collrr");    
     }
+
+    function lowToHigh(){
+        setChecked(!isChecked);
+    }
+
+    function highToLow(){
+        setHighTolowChecked(!highTolowChecked)
+    }
+
+    useEffect(()=>{
+        
+        if(isChecked){
+            const sortedData = [...myData].sort((a,b)=>{
+                return a.price-b.price;
+            })
+
+            setMyData(sortedData);
+        }
+
+        else{
+           setMyData(duplicateData);
+        }
+        
+        if(highTolowChecked){
+            const sortedData = [...myData].sort((a,b)=>{
+                return b.price-a.price;
+            });
+            setMyData(sortedData);
+        }
+
+        else{
+           setMyData(duplicateData);
+        }
+        
+    },[isChecked || highTolowChecked]);
+
+    // function highToLow([{
+    //    ]setHighPrice(true);
+    // }
+
+
+    
 
     const fetchApi = async (search, filter) => {
         
@@ -44,6 +98,7 @@ function CategorizedSection(){
             
             let res = await data.json();
             setMyData(res.data);
+            setDuplicateData(res.data);
         }
 
         catch (error) {
@@ -114,7 +169,7 @@ function CategorizedSection(){
                         <img onClick={()=>showSize?setShowSize(false):setShowSize(true)} className="arrow" src="https://www.beyoung.in/desktop/images/category/arrow.svg"/>
                     </div>
 
-                    <div className="sizeDetails" style={{display:showSize?"block":"none"}}>
+                    <div onClick={changeSizeText} className="sizeDetails" style={{display:showSize?"block":"none", cursor:"pointer"}}>
                         <p>S</p>
                         <p>M</p>
                         <p>L</p>
@@ -123,6 +178,27 @@ function CategorizedSection(){
                         <p>4XL</p>
                         <p>5XL</p>
                     </div>
+
+
+                    <div className="sizeSection">
+                        <div>PRICE</div>
+                        <img className="arrow" src="https://www.beyoung.in/desktop/images/category/arrow.svg"/>
+                    </div>
+
+                    <div className="sizeDetails" style={{display:showSize?"block":"none", cursor:"pointer"}}>
+                       <div className="priceSectionData">
+                            <div className="PriceSection">
+                                <input onChange={lowToHigh} checked={isChecked} id="lowToHigh" type="checkbox"/>
+                                <p>Price : Low to High</p>
+                            </div>
+                            <div className="PriceSection">
+                                <input onChange={highToLow} checked= {highTolowChecked} id="highToLow" type="checkbox"/>
+                                <p>Price : High to Low</p>
+                            </div>
+                       </div>
+                    </div>
+
+
                 </div>
 
                 <div className="allClothes">
@@ -139,14 +215,69 @@ function CategorizedSection(){
                                             </Link>
                                             <i class="fa-regular fa-heart"></i>
 
-                                            <p className="typeText">{val.brand}</p>
+                                            <p className="typeText">{
+                                                val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
+                                            }</p>
+
                                             <p className="typeSolid">{val.category}</p>
                                             <p className="price">₹ {val.price}</p>
                                         </div>
                                     )
                                     }
                                 }): 
+                                changeSizeSelect? myData && myData.map((val)=>{
+                                    if(val.size===changeSizeSelect){
+                                        return(
+                                        <div className="imageSection">
+                                            <Link to={`/imageDetails/${val._id}`}>
+                                                <img className="fetchedImageData" src= {val.displayImage}/>
+                                            </Link>
+                                            <i class="fa-regular fa-heart"></i>
+
+                                            <p className="typeText">{
+                                                val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
+                                            }</p>
+
+                                            <p className="typeSolid">{val.category}</p>
+                                            <p className="price">₹ {val.price}</p>
+                                        </div>
+                                    )
+                                    }
+                                }):
+                                isChecked ? myData && myData.map((val)=>{
+                                    console.log("Enter  inside");
+                                    return(
+                                        <div className="imageSection">
+                                            <Link to={`/imageDetails/${val._id}`}>
+                                                <img className="fetchedImageData" src= {val.displayImage}/>
+                                                <i class="fa-regular fa-heart"></i>
+                                            </Link>
+                                            <p className="typeText" style={{textTransform:"capitalize"}}>{
+                                                val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
+                                            }</p>
+                                            <p className="typeSolid">{val.category}</p>
+                                            <p className="price">₹ {val.price}</p>
+                                        </div>
+                                    )
+                                }):
+                                !isChecked ? myData && myData.map((val)=>{
+                                    console.log("Enter not  inside");
+                                    return(
+                                        <div className="imageSection">
+                                            <Link to={`/imageDetails/${val._id}`}>
+                                                <img className="fetchedImageData" src= {val.displayImage}/>
+                                                <i class="fa-regular fa-heart"></i>
+                                            </Link>
+                                            <p className="typeText" style={{textTransform:"capitalize"}}>{
+                                                val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
+                                            }</p>
+                                            <p className="typeSolid">{val.category}</p>
+                                            <p className="price">₹ {val.price}</p>
+                                        </div>
+                                    )
+                                }):
                                 myData && myData.map((val)=>{
+                                    console.log("normal data", val);
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
@@ -174,4 +305,18 @@ function CategorizedSection(){
 
 
 export default CategorizedSection;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

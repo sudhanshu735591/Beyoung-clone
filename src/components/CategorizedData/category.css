@@ -100,7 +100,7 @@
 .sizeSection{
     display: flex;
     align-items: center;
-    gap: 188px;
+    gap: 56px;
 
 }
 
@@ -122,4 +122,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.PriceSection{
+    display: flex;
+    gap: 1px;
+}
+
+.priceSectionData{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
