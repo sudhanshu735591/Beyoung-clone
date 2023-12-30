@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar/searchBar";
 import UserContext from "../../ContextApi/UserContext";
 import { createPortal } from "react-dom";
 import SignUpPage from "../../Auth/Signup/Signup";
+import WomenDataObj from "../WomenDataObj/WomenDataObj";
 
 function Navbar(){
 
@@ -116,16 +117,16 @@ function Navbar(){
                         {
                             <div className="listData" id="listData">
                                 {
-                                    Object.keys(MenData).map((key)=>{
+                                    Object.keys(WomenDataObj).map((key)=>{
                                         return(
                                             <div>
                                                 <h4>{key}</h4>
                                                 {
-                                                    MenData[key].list.map((val)=>{
+                                                    WomenDataObj[key].list.map((val)=>{
                                                         return(
                                                             <ul>
                                                                 <li className="weardata">
-                                                                    <NavLink to = {(`/categories?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
+                                                                    <NavLink to = {(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
                                                                         {val.name}
                                                                    </NavLink>
                                                                 </li>

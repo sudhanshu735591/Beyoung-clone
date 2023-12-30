@@ -7,9 +7,6 @@ function Banner(){
 
     const navigate = useNavigate();
 
-    // function onHandleClick(){
-    //     navigate("/categorized");
-    // }
     return(
             <div className="imageBanner"> 
                 <NavLink to = {(`/categorized?search={"name":"shirt"}&filter={"subCategory":"shirt"}`)}>
