@@ -1,0 +1,27 @@
+.fa-bars{
+    height: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburgerNav{
+    display: none;
+}
+
+@media screen and (max-width:626px){
+    .fa-bars{
+        display: block;
+    }
+
+    .hamburgerBox{
+        display: flex;
+        align-items: baseline;
+    }
+    .hamburgerNav{
+        display:flex;
+    }
+    
+}
+
+
+

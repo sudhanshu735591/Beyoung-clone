@@ -14,6 +14,7 @@ function CategorizedSection(){
     const [duplicateData, setDuplicateData] = useState([]);
 
     let [show, setShow] = useState(true);
+    
     let [showSize, setShowSize] = useState(true);
 
     let [selectedCircle, setSelectedCircle] = useState("");
@@ -250,7 +251,6 @@ function CategorizedSection(){
                                     }
                                 }):
                                 isChecked ? myData && myData.map((val)=>{
-                                    console.log("Enter  inside");
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>

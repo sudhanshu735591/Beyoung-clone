@@ -67,7 +67,7 @@ function GenderSection(props) {
 
     <div className="imageData">
         <div className="largeImage">
-          <img style={{border:"none", height:"382px"}} src={Tshirts_Categories.t_Shirts.img}/>
+          <img className="largeImageData" src={Tshirts_Categories.t_Shirts.img}/>
         </div>
 
 
@@ -94,6 +94,8 @@ function GenderSection(props) {
           }
           
         </div>
+
+        
     </div>
 
 

@@ -7,6 +7,7 @@ import UserContext from "../../ContextApi/UserContext";
 import { createPortal } from "react-dom";
 import SignUpPage from "../../Auth/Signup/Signup";
 import WomenDataObj from "../WomenDataObj/WomenDataObj";
+import Hamburger from "../Hamburger/hamburger";
 
 function Navbar(){
 
@@ -82,6 +83,8 @@ function Navbar(){
  
     return(
         <div className="section_tag">
+            {/* <Hamburger/> */}
+
             <div className="list">
                 <span style={{cursor:"pointer"}} onClick={handleLogoClick} className="sections">BEYOUNG.</span>
                 <ul>

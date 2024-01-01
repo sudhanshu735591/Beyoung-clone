@@ -9,10 +9,12 @@
 }
 
 .parentDiv{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     max-width: 85%;
-    margin: auto;
+    margin: auto; */
+    max-width: 1032px;
+    margin: 0 auto;
 }
 
 
@@ -208,4 +210,49 @@
     background: white;
     transform: rotate(269deg);
     cursor: pointer;
+}
+
+.largeImageData{
+    border: none;
+    height: 382px;
+}
+
+
+@media screen and (max-width:413px) {
+    .imageData{
+        overflow: scroll;
+    }
+
+    .leftArrow{
+        display: none;
+    }
+
+    .rightArrow{
+        display: none;
+    }
+
+    .flex{
+        display: flex;
+        overflow: scroll;
+        width: 90vw;
+    }
+    .largeImageData{
+      display: none;
+
+    }
+
+    .sideImageData {
+        height: 187px;
+        width: 122px;
+        margin-left: 0px;
+    }
+
+    .flex3{
+        width: 135px;
+    }
+
+    .tshirtText{
+        margin-right: 0px;
+    }
+
 }

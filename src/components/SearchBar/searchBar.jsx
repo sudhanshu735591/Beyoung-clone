@@ -41,6 +41,3 @@ function SearchBar(props){
 }
 
 export default SearchBar;
-
-// categorized?search={"name":"jeans"}&filter={"subCategory":"jeans"}
-// categorized?search="{name:jeans}"&filter="jeans"

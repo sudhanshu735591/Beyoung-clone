@@ -10,6 +10,24 @@
     padding: 15px 0px;
 }
 
+@media screen and (max-width:413px) {
+    .mensection{
+        width: 100%;
+    }
+
+    .displayImage{
+        position: relative;
+        right: 23px;
+        width: 100%;
+    }
+
+    .viewall{
+      display: flex;
+      position: relative;
+      left: 70px;
+    }
+}
+
 .parentDiv{
     display: flex;
     flex-direction: column;
@@ -18,17 +36,21 @@
 }
 
 .demand{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     padding: 20px;
-    padding-left: 14px;
+    padding-left: 14px; */
+    margin-left: 12%;
 }
 
 .displayImage{
-    display: flex;
-    justify-content: space-evenly;
+    /* display: flex;
     margin-top: 26px;
-    gap: 23rem;
+    margin: auto;
+    justify-content: space-between; */
+    display: flex;
+    margin-top: 26px;
+    justify-content: space-between;
 }
 
 
@@ -42,7 +64,7 @@
     text-decoration: underline;
     cursor: pointer;
     height: 20px;
-
+    margin-right: 12%;
 }
 
 .highondemand{

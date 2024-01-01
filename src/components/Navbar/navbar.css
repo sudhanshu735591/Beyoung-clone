@@ -27,7 +27,7 @@
 }
 
 .list{
-    margin-left: 25%;
+    margin-left: 17%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,4 +122,20 @@
 
 .addToWishList{
     position: relative;
+}
+
+@media screen and (max-width:626px){
+    .list {
+        display: none;
+    }
+
+    .cartSearch{
+        display: flex;
+    }
+
+    .section_tag{
+        display: flex;
+        justify-content: space-between;
+    }
+   
 }

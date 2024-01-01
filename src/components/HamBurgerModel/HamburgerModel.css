@@ -1,0 +1,78 @@
+.hammodelList{
+    background-color: yellow;
+    position: relative;
+    bottom: 30px;
+    right: 29px;
+    padding: 20px;
+    font-weight: 800;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    width: 104%;
+    align-items: center;
+}
+
+
+
+.hamModelMen{
+    margin-top: 42px;
+}
+
+
+.hamModelWomen{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modelMen{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hamburgerul{
+    padding: 0px;
+}
+
+.lihamburger{
+    border-bottom: 2px solid rgb(234, 231, 231);
+    padding: 19px 0px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.hamburgerArrow{
+    height: 20px;
+    width: 20px;
+    transform: rotate(90deg);
+}
+
+.childCategoryList{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ulChildContainer{
+    padding: 0px;
+}
+
+.lidata{
+    border-bottom: 1px solid #f1dede;
+    font-size: 10px;
+    padding: 13px;
+}
+
+.wearData{
+    font-size: 13px;
+}
+
+
+.menTextHamburger{
+    border-bottom: 7px solid yellow;
+    width: 174px;
+}
+
