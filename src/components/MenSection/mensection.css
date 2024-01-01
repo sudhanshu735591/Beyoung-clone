@@ -10,7 +10,7 @@
     padding: 15px 0px;
 }
 
-@media screen and (max-width:413px) {
+@media screen and (max-width:592px) {
     .mensection{
         width: 100%;
     }
@@ -21,10 +21,28 @@
         width: 100%;
     }
 
-    .viewall{
-      display: flex;
-      position: relative;
-      left: 70px;
+    .viewall {
+        display: flex;
+        position: relative;
+        left: 86%;
+        bottom: 20px;
+    }
+
+    .demand {
+        position: absolute;
+        right: 56%;
+        bottom: 3px;
+    }
+
+    
+/* 
+    .dataBest {
+        position: relative;
+        top: 20px;
+    } */
+
+    .bestSellerBox {
+        margin: 15px auto;
     }
 }
 
