@@ -265,7 +265,6 @@
         display: flex;
         overflow: scroll;
         width: 90vw;
-        border: 2px solid;
         height: 22vh;
     }
 
