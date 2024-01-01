@@ -83,7 +83,7 @@ function Navbar(){
  
     return(
         <div className="section_tag">
-            {/* <Hamburger/> */}
+            <Hamburger/>
 
             <div className="list">
                 <span style={{cursor:"pointer"}} onClick={handleLogoClick} className="sections">BEYOUNG.</span>
