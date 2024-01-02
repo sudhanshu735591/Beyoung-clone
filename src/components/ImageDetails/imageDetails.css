@@ -260,3 +260,35 @@ input {
         border-radius: 10px;
     }
 }
+
+
+
+@media screen and (max-width:360px){
+    .menimg {
+        height: 100px;
+        width: 100px;
+        border-radius: 10px;
+    }
+
+    .sideImageBox {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: 246px;
+        overflow: scroll;
+    }
+
+    .menimg {
+        height: 216px;
+        width: 180px;
+        border-radius: 10px;
+    }
+
+    .buy {
+        background-color: yellow;
+        color: black;
+        padding: 2px 35px;
+    }
+
+    
+}

@@ -204,13 +204,7 @@ function ImageDetails() {
                 </div>
             }
 
-            <div className="product_details">
-                <div>Product Details</div>
-                <div className="boxDeatails">
-
-                    
-                </div>
-            </div>
+          
             <div>
                 <Footer />
             </div>

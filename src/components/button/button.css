@@ -21,6 +21,18 @@
     padding: 15px 90px;
 }
 
+@media screen and (max-width:441px){
+    .buy{
+        background-color: yellow;
+        color: black;
+        padding: 2px 60px;
+    }
+
+    .pincode {
+        width: 339px;
+    }
+}
+
 .checkOutButton{
     background: #51cbcc;
     padding: 15px 97px;
@@ -88,4 +100,19 @@
     border: none;
     border-radius: 5px;
     font-size: 10px;
+}
+
+@media screen and (max-width:360px){
+    .cart{
+        padding: 15px 25px;
+    }
+    .buy{
+        .buy {
+            padding: 2px 35px;
+        }
+    }
+
+    .pincode {
+        width: 283px;
+    }
 }
