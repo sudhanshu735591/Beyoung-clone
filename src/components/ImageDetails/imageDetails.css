@@ -230,6 +230,7 @@ input {
 .sideImage{
     height: 100px;
     width: 78px;
+    cursor: pointer;
 }
 
 .sideImageBox{
