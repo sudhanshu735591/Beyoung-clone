@@ -114,7 +114,7 @@ function ImageDetails() {
     const navigate = useNavigate();
 
     function buyNowHandler(){
-        navigate("/checkout")
+        {successMessage ? navigate("/checkout") : setShowModal(true)};
     }
     
 
