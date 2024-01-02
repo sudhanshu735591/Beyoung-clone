@@ -253,5 +253,10 @@ input {
 }
 
 
-
-
+@media screen and (max-width:441px){
+    .menimg {
+        height: 494px;
+        width: 283px;
+        border-radius: 10px;
+    }
+}
