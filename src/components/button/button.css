@@ -8,7 +8,11 @@
     background: #51cccc;
     font-size: 14px;
     border: none;
-    margin-top: 33px;
+    margin-top: 16px;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .buy{

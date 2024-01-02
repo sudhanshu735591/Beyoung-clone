@@ -5,7 +5,7 @@
 
 .menimg{
     height: 494px;
-    width: 371px;
+    width: 318px;
     border-radius: 10px;
 }
 
@@ -14,6 +14,8 @@
     gap: 13px;
     justify-content: center;
     margin-top: 20px;
+    margin-left: 7%;
+    flex-wrap: wrap;
 }
 
 
@@ -21,7 +23,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin-left: 52px;
+    margin-left: 10px;
 }
 
 .urban{
@@ -31,23 +33,23 @@
 
 .taxes{
     color: rgba(0,0,0,0.4);
+    font-weight: bold;
+    font-size: 10px;
 
 }
 
 
 .sand{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 12px;
 }
 
 .price{
-    margin-top: 5%;
+    margin-top: 2%;
     font-weight: bold;
     font-size: 20px;
 }
-.taxes{
-    font-weight: bold;
-}
+
 
 .colorBox {
     height: 40px;
@@ -69,27 +71,28 @@
     gap: 10px;
     display: flex;
     align-items: center;
-    margin-left: 17px;
 }
 
 .color{
     margin-right: 69px;
+    font-size: 10px;
 }
 
 .size{
     display: flex;
     flex-direction: column;
-    margin-top: 21px;
+    margin-top: 11px;
 }
 
 .allSize{
     display: flex;
-    gap: 17px;
-    padding: 10px;
+    gap: 6px;
+    margin-top: 8px;
 }
 
 .sizeText{
     margin-right: 290px;
+    font-size: 11px;
 }
 
 .quantity{
@@ -99,26 +102,22 @@
 }
 
 select{
-    border-radius: 2px;
-    width: 100%;
-    font-weight: 500;
-    padding: 0px 22px;
-    font-size: 16px;
+    padding: 6px;
     color: #000;
     background: #fff;
-
+    border: 1px solid #e8d7d7
 }
 
 .circle{
-    display: inline-block;
-    height: 47px;
-    width: 47px;
-    text-align: center;
+    height: 33px;
+    width: 33px;
     font-size: 13px;
-    line-height: 45px;
-    margin-right: 5px;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 .button{
     display: flex;
@@ -127,12 +126,13 @@ select{
 
 .pincode{
     border: 2px solid #ddd;
-    width: 517px;
+    width: 396px;
     display: flex;
     flex-direction: column;
     align-items: baseline;
-    padding: 20px;
     gap: 9px;
+    padding-left: 7px;
+    padding-top: 7px;
 }
 
 .text{
@@ -144,9 +144,9 @@ select{
     margin-top: 20px;
 }
 
-input{
-    padding: 7px 10px;
-    padding-right: 80px;
+input {
+    padding: 4px 10px;
+    padding-right: 65px;
     border: 2px solid #ddd;
 }
 
@@ -162,9 +162,9 @@ input{
 
 .product_details{
     display: flex;
-    margin-left: 149px;
+    margin-left: 385px;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 19px;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -250,3 +250,7 @@ input{
     text-align: left;
     margin-top: 20px;
 }
+
+
+
+

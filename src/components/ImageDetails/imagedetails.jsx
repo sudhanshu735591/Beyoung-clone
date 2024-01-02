@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
@@ -15,13 +15,11 @@ function ImageDetails() {
     const [addCart, setAddCart] = useState(true);
     let [clickIndex, setClickIndex] = useState(null);
     let { id } = useParams();
-
     const [showModal, setShowModal] = useState(false);
     const {successMessage} = useContext(UserContext);
     const {setCartCount} = useContext(UserContext);
     const {setClothSize, clothSize} = useContext(UserContext);
     const {setMyApi} = useContext(UserContext);
-
     const [selectChange, setSelectChange] = useState();
 
 
@@ -80,13 +78,9 @@ function ImageDetails() {
                     "quantity" : `${selectChange}`,
                     "size" : `${clothSize}`
                 })
-    
-                
             })
     
             let res = await data?.json();
-
-            console.log("response is", res);
     
             setCartCount(res?.results);
             {res.status!=="fail" ? localStorage.setItem("data", JSON.stringify(res.data?.items)): alert("Data already exist")};
@@ -134,8 +128,9 @@ function ImageDetails() {
                             })
                         }
                     </div>
+
                     <div className="Menimage">
-                        <img className="menimg" src={imageDetails? imageDetails:myData.displayImage} />
+                        <img className="menimg" src={imageDetails? imageDetails:myData.displayImage}/>
                     </div>
 
                     <div className="brand">
@@ -157,20 +152,19 @@ function ImageDetails() {
                                 {
                                     myData.size && myData.size.map((val, index) => {
                                         return (
-                                            <div style={{border:`2px solid ${index===clickIndex?"lightBlue":"black"}`}} onClick = {(e)=>sizeHandler(e, index)} className="circle">{val}</div>
+                                            <div style={{border:`2px solid ${index===clickIndex?"lightBlue":"#dedada"}`}} onClick = {(e)=>sizeHandler(e, index)} className="circle">{val}</div>
                                         )
                                     })      
                                 }
 
                             </div>
-                            {!clothSize && !addCart && <p style={{color:"red"}}>Please select a size</p>}
+                            {!clothSize && !addCart && <p style={{color:"red", paddingRight:"160px"}}>Please select a Quantity</p>}
 
                         </div>
 
                         <div className="quantity">
-                            <div>QTY:</div>
+                            <div style={{fontSize:"12px"}}>QTY:</div>
                             <select onChange={(e)=>setSelectChange(e.target.value)}>
-                                <option>Select</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -184,7 +178,7 @@ function ImageDetails() {
                             </select>
                         </div>
 
-                        {!selectChange && !addCart && <p style={{color:"red"}}>Please select a size</p>}
+                        {!selectChange && !addCart && <p style={{color:"red", paddingRight:"160px"}}>Please select a size</p>}
 
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
@@ -194,7 +188,7 @@ function ImageDetails() {
                         <div className="delivery">
                             <div className="text">DELIVERY OPTIONS</div>
                             <div className="pincode">
-                                <div>Enter your Pincode to check the delivery time and free pick up options</div>
+                                <div style={{fontSize:"10px"}}>Enter your Pincode to check the delivery time and free pick up options</div>
                                 <input type="text" placeholder="Enter Pincode" />
                                 <div className="logo">
                                     <img className="logoImage" src="https://www.beyoung.in/desktop/images/product-details-2/cod.jpg" />
@@ -214,46 +208,7 @@ function ImageDetails() {
                 <div>Product Details</div>
                 <div className="boxDeatails">
 
-                    <div className="product_highlights">
-                        <div className="highlights">Product Highlights</div>
-                        <div className="febric">
-                            <div className="febText">Fabric</div>
-                            <div>Loop Knit Cotton</div>
-                        </div>
-
-                        <div className="febric">
-                            <div className="febText">Neck Type</div>
-                            <div>Mock-neck</div>
-                        </div>
-
-                        <div className="febric">
-                            <div className="febText">Pattern</div>
-                            <div>Solid</div>
-                        </div>
-
-                        <div className="febric">
-                            <div className="febText">Shoulder</div>
-                            <div>Drop Shoulder</div>
-                        </div>
-
-                        <div className="febric">
-                            <div className="febText">Fit</div>
-                            <div>Oversized Fit</div>
-                        </div>
-
-                        <div className="febric">
-                            <div className="febText">Style</div>
-                            <div>Everyday Wear</div>
-                        </div>
-                    </div>
-
-
-                    <div className="product_description">
-                        <p className="product_text">Product Description</p>
-                        <div className="loopKnit">
-                            LoopKnit Cotton is made using the finest quality yarns that make the t-shirt ultra-soft and durable. The knitting technique helps you stay cool when it?s warm and warm when it?s cool. It?s a tear-resistant flexible fabric that stretches along with you and thus making it Smart clothing for Every season.
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div>
