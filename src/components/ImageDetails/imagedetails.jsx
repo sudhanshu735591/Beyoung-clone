@@ -109,6 +109,13 @@ function ImageDetails() {
            {clothSize && selectChange && addToCart() && alert("Data added Successfully")}
         }
     }
+
+    const [imageDetails, setImageDetails] = useState("");
+
+    function handleImageData(val){
+        console.log("image data is", val);
+        setImageDetails(val);
+    }
     
 
     return (
@@ -122,13 +129,13 @@ function ImageDetails() {
                         {myData.images &&
                             myData.images?.map((val) => {
                                 return (
-                                    <img className="sideImage" src={val} />
+                                    <img className="sideImage" src={val} onClick={()=>handleImageData(val)}/>
                                 )
                             })
                         }
                     </div>
                     <div className="Menimage">
-                        <img className="menimg" src={myData.displayImage} />
+                        <img className="menimg" src={imageDetails? imageDetails:myData.displayImage} />
                     </div>
 
                     <div className="brand">
