@@ -139,3 +139,68 @@
     }
    
 }
+
+
+
+
+@media screen and (min-width:992px) and (max-width:1196px){
+    .list {
+        margin-left: 9%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .men:hover{
+        background-color: yellow;
+        cursor: pointer;
+    
+        .listData{
+           
+            left:250px;
+            
+        }
+    }
+}
+
+
+@media screen and (min-width:768px) and (max-width:992px) {
+    .list{
+        margin-left: -3%;
+    }   
+
+    .allDetails {
+        display: flex;
+        margin: 28px 109px;
+        gap: 33px;
+        width: 70%;
+    }
+
+    .hamburgerBox{
+        display: block;
+    }
+
+    .section_tag{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+
+@media screen and (min-width:576px) and (max-width:768px) {
+    .hamburgerBox{
+        display: block;
+    }
+
+    .section_tag{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .list{
+        display: none;
+    }
+
+}

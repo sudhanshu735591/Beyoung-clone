@@ -152,7 +152,7 @@ function CategorizedSection(){
                 <img style={{width:"100%"}} src="https://www.beyoung.in/api/catalog/products/banner_desktop/oversize-category-banner-desktop-view_19_10_2023.jpg"/>
             </div>
 
-            <div>
+            <div className="allDetailsCatbox">
             {myData ? <div className="allDetails">
                 <div className="filter">
                     <div>FILTER</div>
