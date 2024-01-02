@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import Topbanner from "../TopBanner/topbanner";
 import Trackorder from "../Trackorder/trackorder";
@@ -110,6 +110,12 @@ function ImageDetails() {
         console.log("image data is", val);
         setImageDetails(val);
     }
+
+    const navigate = useNavigate();
+
+    function buyNowHandler(){
+        navigate("/checkout")
+    }
     
 
     return (
@@ -182,7 +188,7 @@ function ImageDetails() {
 
                         <div className="button">
                             <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
-                            <Button text="BUY NOW" className="cart buy" />
+                            <Button onClick={buyNowHandler} text="BUY NOW" className="cart buy" />
                         </div>
 
                         <div className="delivery">

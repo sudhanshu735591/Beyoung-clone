@@ -193,5 +193,27 @@
         width: 85px;
     }
 
+    .css-1hqe24l {
+        width: 307px;    
+    }
+
     
+}
+@media screen and (max-width:401px){
+    img {
+        height: 170px;
+        width: 343px;
+        border-radius: 10px;
+    }
+
+    .allDetails {
+        display: flex;
+        margin: 28px 21px;
+        gap: 103px;
+    }
+
+    .fetchedImage {
+      display: grid;
+
+    }
 }
