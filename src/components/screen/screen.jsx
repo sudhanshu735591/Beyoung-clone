@@ -29,7 +29,7 @@ function Home(){
 
 
             <div className="displayImage">
-                <div className="demand" style={{alignItems : "start", paddingLeft:"85px"}}>
+                <div className="demand" style={{alignItems : "start", paddingLeft:"186px"}}>
                     <div className="tshirt1">BESTSELLER</div>
                 </div>
                 <div className="viewall"></div>

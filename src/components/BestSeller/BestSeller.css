@@ -1,6 +1,6 @@
 .bestSellerBox{
-    width: 49%;
-    margin: auto;
+    width: 51%;
+    margin: 20px auto;
     display: flex;
     overflow: scroll;
     gap: 20px;

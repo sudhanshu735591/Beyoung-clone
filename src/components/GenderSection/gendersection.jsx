@@ -58,7 +58,7 @@ function GenderSection(props) {
       <div className="mensection">{gender}</div>
 
       <div className="displayImage">
-        <div className="demand">
+        <div className="demand" >
           <div className="tshirt">{shirts}</div>
           <div className="highondemand">{demand}</div>
         </div>
@@ -100,7 +100,7 @@ function GenderSection(props) {
 
 
       <div className="displayImage">
-        <div className="demand">
+        <div className="demand" >
           <div className="tshirt1">CATEGORIES</div>
           <div className="highondemand high1">{demand}</div>
         </div>
