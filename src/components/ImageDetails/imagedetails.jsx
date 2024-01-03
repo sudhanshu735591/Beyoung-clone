@@ -25,6 +25,8 @@ function ImageDetails() {
     const {selectChange,setSelectChange} = useContext(UserContext);
     const {addressData, setAddressData} = useContext(UserContext);
 
+    const [loader, setLoader] = useState(false);
+
 
 
     const handleClose = ()=>{
@@ -38,6 +40,7 @@ function ImageDetails() {
 
     const fetchApi = async () => {
         try {
+            setLoader(true);
             let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/product/${id}`;
 
             let api = await fetch(apiUrl, {
@@ -51,6 +54,7 @@ function ImageDetails() {
             setMyData(res.data);
             setMyApi(res.data);
             setAddressData(res.data);
+            setLoader(false);
         }
 
         catch (error) {
@@ -137,14 +141,14 @@ function ImageDetails() {
                         {myData.images &&
                             myData.images?.map((val) => {
                                 return (
-                                    <img className="sideImage" src={val} onClick={()=>handleImageData(val)}/>
+                                    <img className="sideImage" src={loader?"https://www.beyoung.in/beyoung-loader.gif":val} onClick={()=>handleImageData(val)}/>
                                 )
                             })
                         }
                     </div>
 
                     <div className="Menimage">
-                        <img className="menimg" src={imageDetails? imageDetails:myData.displayImage}/>
+                        <img className="menimg" src={loader?"https://www.beyoung.in/beyoung-loader.gif":imageDetails? imageDetails:myData.displayImage}/>
                     </div>
 
                     <div className="brand">

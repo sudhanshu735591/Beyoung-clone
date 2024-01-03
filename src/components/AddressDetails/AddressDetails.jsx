@@ -4,6 +4,7 @@ import Button from "../button/button";
 
 import "./AddressDetails.css";
 import UserContext from "../../ContextApi/UserContext";
+import CheckOutBar from "../../CheckOut/CheckOutBar/CheckOutBar";
 
 function AddressDetails(){
     // const {selectItem, setSelectedItem} = useContext(UserContext);
@@ -16,6 +17,7 @@ function AddressDetails(){
     return(
         <>
         <CheckOutNav/>
+        <CheckOutBar/>
         
         <div className="AddressDetailsBox">
             <div className="addressandofferBox">

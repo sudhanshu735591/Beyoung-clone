@@ -29,13 +29,14 @@ function CategorizedSection(){
 
     const [sortFlag, setSortFlag] = useState(false);
 
+    const [loader, setLoader] = useState(false);
+
     function onArrowClick(){
         show?setShow(false):setShow(true);
     }
 
     function changeSizeText(e){
         setChangeSizeSelect(e.target.innerText);
-
         console.log(e.target.innerText);
     }
 
@@ -93,6 +94,7 @@ function CategorizedSection(){
     const fetchApi = async (search, filter) => {
         
         try {
+            setLoader(true);
             let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?search=${search}&filter=${filter}`;
             console.log("filter", apiUrl);
 
@@ -106,6 +108,7 @@ function CategorizedSection(){
             let res = await data.json();
             setMyData(res.data);
             setDuplicateData(res.data);
+            setLoader(false);
         }
 
         catch (error) {
@@ -269,7 +272,7 @@ function CategorizedSection(){
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
-                                                <img className="fetchedImageData" src= {val.displayImage}/>
+                                                <img className="fetchedImageData" src= {loader?"https://www.beyoung.in/beyoung-loader.gif":val.displayImage}/>
                                                 <i class="fa-regular fa-heart"></i>
                                             </Link>
                                             <p className="typeText" style={{textTransform:"capitalize"}}>{
@@ -281,7 +284,6 @@ function CategorizedSection(){
                                     )
                                 }):
                                 myData && myData.map((val)=>{
-                                    console.log("normal data", val);
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
