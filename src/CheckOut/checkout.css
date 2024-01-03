@@ -61,6 +61,7 @@
     justify-content: center;
     gap: 41px;
     flex-wrap: wrap;
+    background: #f6f3f3;
 }
 
 .checkOutText{
@@ -79,18 +80,18 @@
     display: flex;
     margin-top: 15px;
     border-top: 1px solid #cfc4c4;
-    width: 100%;
     padding-left: 6px;
     padding-top: 9px;
     justify-content: space-around;
 }
 
-.checkoutBox{
+.checkoutBox {
     display: flex;
     padding: 10px;
     border: 2px solid #cfc4c4;
     border-radius: 7px;
-
+    position: relative;
+    background-color: white;
 }
 
 .innerOptionBox{
@@ -120,6 +121,15 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 32%;
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    left: 6%;
+}
+
+.childCheckOutBox{
+    width: 100%;
 }
 
 .detailsandnumber{
@@ -138,11 +148,15 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    position: relative;
+    left: 4%;
+    background-color: white;
+    padding:20px;
 }
 
 .amountDetails{
     display: flex;
-    gap: 62%;
+    justify-content: space-between;
     font-weight: 600;
 }
 

@@ -159,8 +159,8 @@ function Navbar(){
 
                 <div className="addToWishList">
                     {
-                        <div className="addtonumWishList" style={{background:!successMessage || !JSON.parse(localStorage.getItem("WishListData"))? "transparent":"yellow"}}>
-                             {/* style={{background: !successMessage ? "transparent": !JSON.parse(localStorage.getItem("WishListData")).length>0 ? "transparent":"yellow"}} */}
+                        <div className="addtonumWishList" style={{background:!successMessage || !JSON.parse(localStorage.getItem("WishListData")) || JSON.parse(localStorage.getItem("WishListData")).length===0 ? "transparent":"yellow"}}>
+                            {/* style={{background: !successMessage ? "transparent": !JSON.parse(localStorage.getItem("WishListData")).length>0 ? "transparent":"yellow"}} */}
                             {
                                 localStorage.getItem("WishListData")!=null && token && JSON.parse(localStorage.getItem("WishListData")).length>0 ? JSON.parse(localStorage.getItem("WishListData")).length: null
                             } 
@@ -173,7 +173,7 @@ function Navbar(){
                 <div className="addToCart">
                     {/* style={{background:!successMessage ? "transparent": !JSON.parse(localStorage.getItem("data")).length>0? "transparent":"yellow"}} */}
                     {<div className="addToNumber" style={{background:!successMessage || !JSON.parse(localStorage.getItem("data"))? "transparent":"yellow"}} >{
-                        localStorage.getItem("data")!==null && token && JSON.parse(localStorage.getItem("data")).length>0 && token ? JSON.parse(localStorage.getItem("data")).length: <div></div>
+                        localStorage.getItem("data")!==null && token && JSON.parse(localStorage.getItem("data")).length>0 ? JSON.parse(localStorage.getItem("data")).length: <div></div>
                     }
                 </div>}
 

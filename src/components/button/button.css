@@ -52,6 +52,8 @@
     border: none;
     color: grey;
     cursor: pointer;
+    position: relative;
+    right: 11%;
 }
 
 .wishListAddButton{

@@ -266,7 +266,6 @@ function CategorizedSection(){
                                     )
                                 }):
                                 !isChecked ? myData && myData.map((val)=>{
-                                    console.log("Enter not  inside");
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>

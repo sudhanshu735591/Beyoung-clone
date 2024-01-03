@@ -122,6 +122,7 @@ function CheckOut() {
         });
         
         let res = await data?.json();
+        console.log("res data data is", res);
 
         wishListIter()
 
@@ -197,7 +198,7 @@ function CheckOut() {
                                 data && data.map((val) => {
                                     return (
                                         <div className="checkoutBox">
-                                            <div>
+                                            <div className="childCheckOutBox">
                                                 <div className="innerCheckOut">
                                                     <div>
                                                         <div className="innerOptionBox">
@@ -238,9 +239,9 @@ function CheckOut() {
                                                     </div>
                                                 </div>
 
-                                                <div className="wishlistContainer" style={{ display: "flex", gap: "203px" }}>
+                                                <div className="wishlistContainer">
                                                     <Button text="Remove" className="wishListButton" onClick={() => deleteItem(val.product._id)} />
-                                                    <div style={{ border: "1px solid #cfc4c4" }}></div>
+                                                    <div style={{ border: "1px solid #cfc4c4", position:"relative", right:"31%" }}></div>
                                                     <Button text="Wishlist" className="wishListButton" onClick={() => wishListItem(val.product._id)} />
                                                 </div>
                                             </div>
