@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react"
 import Button from "../components/button/button"
 import "./checkout.css"
 import UserContext from "../ContextApi/UserContext";
+import CheckOutNav from "./CheckOutNavBar/CheckOutNav";
+import { useNavigate } from "react-router-dom";
 
 function CheckOut() {
 
@@ -9,13 +11,17 @@ function CheckOut() {
 
     const { setCartCount } = useContext(UserContext);
 
-    const [data, setdata] = useState("");
+    const [data, setdata] = useState(0);
 
     const [wishlistDataIter, setWishListDataIter] = useState([]);
 
     const {setWishListData} = useContext(UserContext);
 
-    const {selectItem} = useContext(UserContext);
+    const {selectItem, setSelectedItem} = useContext(UserContext);
+
+    const {selectChange,setSelectChange} = useContext(UserContext);
+
+    // const [sum, setSum] = useState();
 
 
     let sum = 0;
@@ -23,6 +29,10 @@ function CheckOut() {
     let item = 0;
 
     const handleSelectedItem = (e, val) => {
+        console.log("newData", e.target.value);
+        setSelectChange(e.target.value);
+        setSelectedItem(e.target.value);
+
 
         const newQuantity = parseInt(e.target.value);
 
@@ -160,6 +170,14 @@ function CheckOut() {
         wishListIter();
     }
 
+
+    const navigate = useNavigate();
+
+
+    function checkOutHandler(){
+        navigate("/address");
+    }
+
     useEffect(() => {
         fetchCheckOut();
         wishListIter();
@@ -169,33 +187,12 @@ function CheckOut() {
         <div className="checkoutSection">
             {
                 data ? <div className="checkoutSection">
-                    <div className="checkoutNav">
-                        <div className="checkoutText">BEYOUNG.</div>
-                        <div className="checkoutPayText">100% SECURE PAYMENT</div>
-                    </div>
-
-                    <div className="checks">
-                        <div className="circleBox">
-                            <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Cart.png" /></div>
-                            <div className="checkOutText">My Cart</div>
-                        </div>
-
-                        <div className="circleBox">
-                            <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Location-Outline.png" /></div>
-                            <div className="checkOutText">Address</div>
-                        </div>
-
-                        <div className="circleBox">
-                            <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Payment-outline.png" /></div>
-                            <div className="checkOutText">Payment</div>
-                        </div>
-                    </div>
-
-
+                    <CheckOutNav/>
                     <div className="checkOut">
                         <div className="innerCheckOutBox">
                             {
                                 data && data.map((val) => {
+                                    console.log("val.quantity", val);
                                     return (
                                         <div className="checkoutBox">
                                             <div className="childCheckOutBox">
@@ -226,8 +223,6 @@ function CheckOut() {
                                                             {`₹ ${parseInt(val.product.price * val.quantity)}`}
                                                         </div>
 
-                                                        
-
                                                         <div>
                                                             <div>{val.product.color}</div>
                                                             <div>
@@ -254,8 +249,7 @@ function CheckOut() {
 
                         <div className="checkOutPrice_Text">
                             <div style={{ borderBottom: "1px solid" }}>
-
-                                <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
+                                <h3>PRICE DETAILS  ({selectChange? selectChange :item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
                             </div>
 
 
@@ -264,7 +258,7 @@ function CheckOut() {
                                     <div>Total MRP (Inc. of Taxes)</div>
 
                                     {
-                                        !selectItem ? sum = data.reduce((acc, val) => acc + parseInt(val.product.price * val.quantity), 0):
+                                        !selectItem ?  sum = data.reduce((acc, val) => acc + parseInt(val.product.price * val.quantity), 0):
                                         sum = data.reduce((acc, val) => acc + parseInt(val.product.price * selectItem),0)
                                     }
 
@@ -298,7 +292,7 @@ function CheckOut() {
                                     <div>Total amount</div>
                                     <div>{sum}</div>
                                 </div>
-                                <Button className="checkOutButton" text="CHECKOUT SECURELY" />
+                                <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
                             </div>
                         </div>
                     </div>

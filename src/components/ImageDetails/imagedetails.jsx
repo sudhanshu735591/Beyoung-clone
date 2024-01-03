@@ -20,7 +20,10 @@ function ImageDetails() {
     const {setCartCount} = useContext(UserContext);
     const {setClothSize, clothSize} = useContext(UserContext);
     const {setMyApi} = useContext(UserContext);
-    const [selectChange, setSelectChange] = useState();
+    // const [selectChange, setSelectChange] = useState();
+
+    const {selectChange,setSelectChange} = useContext(UserContext);
+
 
 
     const handleClose = ()=>{
@@ -46,7 +49,6 @@ function ImageDetails() {
             let res = await api.json();
             setMyData(res.data);
             setMyApi(res.data);
-            console.log("res data", res.data);
         }
 
         catch (error) {

@@ -1,0 +1,137 @@
+.AddressDetailsBox{
+    display: flex;
+    justify-content: center;
+    background-color: #f7f7f7;
+
+}
+
+.addressandofferBox{
+    display: flex;
+    gap: 15px;
+    background-color: #f7f7f7;
+    flex-wrap: wrap;
+}
+
+.priceText{
+    font-weight: 600;
+    border-bottom: 2px solid #f5eeee;
+    display: flex;
+    padding-bottom: 9px;
+}
+
+.offerSection{
+    width: 25vw;
+    background-color: white;
+
+}
+
+.addressBox{
+    background-color: white;
+    padding: 20px;
+    position: relative;
+    
+}
+
+.addresstext{
+    display: flex;
+    font-weight: 600;
+}
+
+.formDetails{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.emailandphone{
+    display: flex;
+    gap: 10px;
+}
+
+.nameandlastname{
+    display: flex;
+    gap: 10px;
+}
+
+.pincodeandvillage{
+    display: flex;
+    gap: 10px;
+}
+
+.cityandstate{
+    display: flex;
+    gap: 10px;
+}
+
+.address{
+    display: flex;
+}
+
+.addressInput{
+    display: flex;
+    width: 85%
+}
+
+.priceDetails{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.text_price{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.beyoungDiscount{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+
+}
+
+.shipingSection{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.cartTotalSection{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.MRPsection{
+    margin-top: 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.totalAmount{
+    padding: 15px;
+}
+
+.textPriceBox{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.SavedBox{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.totalSavedText{
+    background: #4caf50;
+    width: 100%;
+    color: white;
+    padding: 4px;
+    font-size: 10px;
+}
+

@@ -25,6 +25,9 @@ const UserContextProvider = ({children})=>{
 
     const [wishListCartData, setWishListCardData] = useState("");
 
+    const [selectChange, setSelectChange] = useState();
+
+
 
 
     return(
@@ -40,6 +43,7 @@ const UserContextProvider = ({children})=>{
             menViewAllData, setMenViewAllData,
             selectItem, setSelectedItem,
             wishListCartData, setWishListCardData,
+            selectChange, setSelectChange,
         } }>
             
         {children}
