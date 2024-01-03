@@ -1,3 +1,4 @@
+import CheckOutBar from "../CheckOutBar/CheckOutBar";
 
 
 function CheckOutNav() {
@@ -8,7 +9,7 @@ function CheckOutNav() {
                 <div className="checkoutPayText">100% SECURE PAYMENT</div>
             </div>
 
-            <div className="checks">
+            {/* <div className="checks">
                 <div className="circleBox">
                     <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Cart.png" /></div>
                     <div className="checkOutText">My Cart</div>
@@ -23,7 +24,7 @@ function CheckOutNav() {
                     <div className="checkoutCircle"><img style={{ height: "20px", width: "20px" }} src="https://www.beyoung.in/mobile/images/home/new/Payment-outline.png" /></div>
                     <div className="checkOutText">Payment</div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

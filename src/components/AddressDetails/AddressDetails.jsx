@@ -1,9 +1,18 @@
+import { useContext } from "react";
 import CheckOutNav from "../../CheckOut/CheckOutNavBar/CheckOutNav";
 import Button from "../button/button";
 
 import "./AddressDetails.css";
+import UserContext from "../../ContextApi/UserContext";
 
 function AddressDetails(){
+    // const {selectItem, setSelectedItem} = useContext(UserContext);
+    const {selectChange,setSelectChange} = useContext(UserContext);
+
+    const {addressData, setAddressData} = useContext(UserContext);
+
+    console.log("addressData", addressData);
+
     return(
         <>
         <CheckOutNav/>
@@ -52,7 +61,7 @@ function AddressDetails(){
 
                 <div className="offerSection">
                     <div className="priceDetails">
-                        <div className="priceText">Price Details( 5 items)</div>
+                        <div className="priceText">Price Details( {selectChange} items)</div>
                         <div className="MRPsection">
                             <div className="text_price">
                                 <div className="TotalMRPText">Total MRP (Inc. of Taxes)</div>

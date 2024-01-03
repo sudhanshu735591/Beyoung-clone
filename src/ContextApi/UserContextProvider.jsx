@@ -27,6 +27,8 @@ const UserContextProvider = ({children})=>{
 
     const [selectChange, setSelectChange] = useState();
 
+    const [addressData, setAddressData] = useState();
+
 
 
 
@@ -44,6 +46,7 @@ const UserContextProvider = ({children})=>{
             selectItem, setSelectedItem,
             wishListCartData, setWishListCardData,
             selectChange, setSelectChange,
+            addressData, setAddressData,
         } }>
             
         {children}

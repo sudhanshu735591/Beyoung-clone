@@ -23,6 +23,7 @@ function ImageDetails() {
     // const [selectChange, setSelectChange] = useState();
 
     const {selectChange,setSelectChange} = useContext(UserContext);
+    const {addressData, setAddressData} = useContext(UserContext);
 
 
 
@@ -49,6 +50,7 @@ function ImageDetails() {
             let res = await api.json();
             setMyData(res.data);
             setMyApi(res.data);
+            setAddressData(res.data);
         }
 
         catch (error) {
@@ -60,6 +62,7 @@ function ImageDetails() {
         fetchApi();
         setClothSize("");
         setAddCart(true);
+        console.log("imageDetailssection", selectChange);
         
     }, []);
 
@@ -83,8 +86,11 @@ function ImageDetails() {
             })
     
             let res = await data?.json();
+
+            console.log("response is", res);
     
             setCartCount(res?.results);
+            console.log("res?.results", res?.results);
             {res.status!=="fail" ? localStorage.setItem("data", JSON.stringify(res.data?.items)): alert("Data already exist")};
         }
         catch(error){

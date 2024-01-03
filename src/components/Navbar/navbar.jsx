@@ -160,7 +160,6 @@ function Navbar(){
                 <div className="addToWishList">
                     {
                         <div className="addtonumWishList" style={{background:!successMessage || !JSON.parse(localStorage.getItem("WishListData")) || JSON.parse(localStorage.getItem("WishListData")).length===0 ? "transparent":"yellow"}}>
-                            {/* style={{background: !successMessage ? "transparent": !JSON.parse(localStorage.getItem("WishListData")).length>0 ? "transparent":"yellow"}} */}
                             {
                                 localStorage.getItem("WishListData")!=null && token && JSON.parse(localStorage.getItem("WishListData")).length>0 ? JSON.parse(localStorage.getItem("WishListData")).length: null
                             } 
@@ -171,8 +170,7 @@ function Navbar(){
                 <svg onClick={handleWishList} width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 8.06253C22 15.0874 12.0004 21 12.0004 21C12.0004 21 2 15 2 8.07677C2 5.25003 4.22222 3.00003 7 3.00003C9.77778 3.00003 12 6.37503 12 6.37503C12 6.37503 14.2222 3.00003 17 3.00003C19.7778 3.00003 22 5.25003 22 8.06253Z" stroke="black" stroke-width="1.5" stroke-linecap="round"></path></svg>
 
                 <div className="addToCart">
-                    {/* style={{background:!successMessage ? "transparent": !JSON.parse(localStorage.getItem("data")).length>0? "transparent":"yellow"}} */}
-                    {<div className="addToNumber" style={{background:!successMessage || !JSON.parse(localStorage.getItem("data"))? "transparent":"yellow"}} >{
+                    {<div className="addToNumber" style={{background:!successMessage || !JSON.parse(localStorage.getItem("data")) || !JSON.parse(localStorage.getItem("data")).length>0? "transparent":"yellow"}} >{
                         localStorage.getItem("data")!==null && token && JSON.parse(localStorage.getItem("data")).length>0 ? JSON.parse(localStorage.getItem("data")).length: <div></div>
                     }
                 </div>}

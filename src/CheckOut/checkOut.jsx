@@ -4,6 +4,7 @@ import "./checkout.css"
 import UserContext from "../ContextApi/UserContext";
 import CheckOutNav from "./CheckOutNavBar/CheckOutNav";
 import { useNavigate } from "react-router-dom";
+import CheckOutBar from "./CheckOutBar/CheckOutBar";
 
 function CheckOut() {
 
@@ -21,20 +22,14 @@ function CheckOut() {
 
     const {selectChange,setSelectChange} = useContext(UserContext);
 
-    // const [sum, setSum] = useState();
-
-
     let sum = 0;
 
     let item = 0;
 
     const handleSelectedItem = (e, val) => {
-        console.log("newData", e.target.value);
-        setSelectChange(e.target.value);
-        setSelectedItem(e.target.value);
-
-
         const newQuantity = parseInt(e.target.value);
+        setSelectChange(e.target.value);
+        console.log("checkoutsection after change", e.target.value);
 
         setdata((prevData)=>{
             const newData = prevData.map((item)=>{
@@ -46,6 +41,10 @@ function CheckOut() {
                 }
                 return item;
             });
+
+            // setAddressData(newData);
+            console.log("new", newData);
+
             return newData;
         })
 
@@ -67,6 +66,7 @@ function CheckOut() {
             let res = await data.json();
 
             setdata(res.data?.items);
+            console.log("data current is", res.data?.items);
             setCartCount(res?.data?.items?.length);
         }
 
@@ -77,6 +77,8 @@ function CheckOut() {
 
     useEffect(() => {
         fetchCheckOut();
+        
+
     }, [])
 
 
@@ -186,13 +188,13 @@ function CheckOut() {
     return (
         <div className="checkoutSection">
             {
-                data ? <div className="checkoutSection">
+                data.length>0 ? <div className="checkoutSection">
                     <CheckOutNav/>
+                    <CheckOutBar/>
                     <div className="checkOut">
                         <div className="innerCheckOutBox">
                             {
                                 data && data.map((val) => {
-                                    console.log("val.quantity", val);
                                     return (
                                         <div className="checkoutBox">
                                             <div className="childCheckOutBox">
@@ -249,7 +251,7 @@ function CheckOut() {
 
                         <div className="checkOutPrice_Text">
                             <div style={{ borderBottom: "1px solid" }}>
-                                <h3>PRICE DETAILS  ({selectChange? selectChange :item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
+                                <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
                             </div>
 
 
@@ -325,7 +327,11 @@ function CheckOut() {
                     </div>}
 
 
-                </div> : <p>No Data Found</p>
+                </div> :<div>
+                    <CheckOutNav/>
+
+                    <img src="https://www.beyoung.in/desktop/images/checkout/EMPTY%20CARTORDER%20PAGE..png"/>
+                </div>
             }
         </div>
     )
