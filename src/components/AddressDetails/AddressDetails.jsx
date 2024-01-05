@@ -8,11 +8,8 @@ import CheckOutBar from "../../CheckOut/CheckOutBar/CheckOutBar";
 
 function AddressDetails(){
     // const {selectItem, setSelectedItem} = useContext(UserContext);
-    const {selectChange,setSelectChange} = useContext(UserContext);
-
-    const {addressData, setAddressData} = useContext(UserContext);
-
-    console.log("addressData", addressData);
+    const {selectChange} = useContext(UserContext);
+    console.log("selectChange", selectChange);
 
     return(
         <>

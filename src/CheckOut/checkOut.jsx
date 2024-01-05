@@ -28,8 +28,7 @@ function CheckOut() {
 
     const handleSelectedItem = (e, val) => {
         const newQuantity = parseInt(e.target.value);
-        setSelectChange(e.target.value);
-        console.log("checkoutsection after change", e.target.value);
+        // setSelectChange(e.target.value);
 
         setdata((prevData)=>{
             const newData = prevData.map((item)=>{
@@ -41,9 +40,6 @@ function CheckOut() {
                 }
                 return item;
             });
-
-            // setAddressData(newData);
-            console.log("new", newData);
 
             return newData;
         })
@@ -155,6 +151,7 @@ function CheckOut() {
 
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
+        console.log("WishListData",localStorage.getItem("WishListData"));
         localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
     }
 
@@ -188,7 +185,7 @@ function CheckOut() {
     return (
         <div className="checkoutSection">
             {
-                data.length>0 ? <div className="checkoutSection">
+                data && data.length>0 ? <div className="checkoutSection">
                     <CheckOutNav/>
                     <CheckOutBar/>
                     <div className="checkOut">
@@ -252,8 +249,8 @@ function CheckOut() {
                         <div className="checkOutPrice_Text">
                             <div style={{ borderBottom: "1px solid" }}>
                                 <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
+                                {setSelectChange(item)}
                             </div>
-
 
                             <div className="detailsandnumber">
                                 <div className="checkOutDetailsBox">

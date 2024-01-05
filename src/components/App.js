@@ -23,7 +23,6 @@ function App() {
         <Route path="/checkout" element = {<CheckOut/>}/>
         <Route path="/wishlist" element= {<FavoriteItems/>}/>
         <Route path="/address" element= {<AddressDetails/>}/>
-
       </Routes>
     </div>
   );
