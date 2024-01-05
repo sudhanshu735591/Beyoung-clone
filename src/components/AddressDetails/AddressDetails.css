@@ -135,3 +135,10 @@
     font-size: 10px;
 }
 
+.errorMsg{
+    color: red;
+    /* border: 2px solid; */
+    display: flex;
+    position: relative;
+    bottom: 12px;
+}

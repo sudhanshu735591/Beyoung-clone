@@ -23,7 +23,7 @@ function ImageDetails() {
     // const [selectChange, setSelectChange] = useState();
 
     const {selectChange,setSelectChange} = useContext(UserContext);
-    const {addressData, setAddressData} = useContext(UserContext);
+    const {setAddressData} = useContext(UserContext);
 
     const [loader, setLoader] = useState(false);
     console.log("imageDetailssection", selectChange);

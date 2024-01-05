@@ -22,6 +22,8 @@ function CheckOut() {
 
     const {selectChange,setSelectChange} = useContext(UserContext);
 
+    const {globalPrice, setGlobalPrice} = useContext(UserContext);
+
     let sum = 0;
 
     let item = 0;
@@ -259,6 +261,10 @@ function CheckOut() {
                                     {
                                         !selectItem ?  sum = data.reduce((acc, val) => acc + parseInt(val.product.price * val.quantity), 0):
                                         sum = data.reduce((acc, val) => acc + parseInt(val.product.price * selectItem),0)
+
+                                    }
+                                    {
+                                        setGlobalPrice(sum)
                                     }
 
                                 </div>

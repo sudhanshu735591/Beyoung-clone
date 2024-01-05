@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CheckOutNav from "../../CheckOut/CheckOutNavBar/CheckOutNav";
 import Button from "../button/button";
 
@@ -7,9 +7,72 @@ import UserContext from "../../ContextApi/UserContext";
 import CheckOutBar from "../../CheckOut/CheckOutBar/CheckOutBar";
 
 function AddressDetails(){
-    // const {selectItem, setSelectedItem} = useContext(UserContext);
     const {selectChange} = useContext(UserContext);
-    console.log("selectChange", selectChange);
+    const {globalPrice} = useContext(UserContext);
+
+    const [formData, setFormData] = useState({
+        FirstName : "",
+        LastName : "",
+        Email:"",
+        Phone:"",
+        PinCode:"",
+        Town :"",
+        City:"",
+        State:"",
+        Address:"",
+    })
+
+    const [error, setError] = useState({
+        FirstName : "",
+        LastName : "",
+        Email:"",
+        Phone:"",
+        PinCode:"",
+        Town :"",
+        City:"",
+        State:"",
+        Address:"",
+    });
+
+    const handleChange = (e)=>{
+        const {name, value} = e.target;
+    
+        setFormData((prevData)=>({
+            ...prevData,
+            [name]:value,
+        }))
+
+        setError((prevError)=>({
+            ...prevError,
+            [name]:"",
+        }))
+    }
+
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+
+        const newError = {};
+        Object.entries(formData).forEach(([key, value])=>{
+            if(value.trim()===""){
+                newError[key] = `${key} is required`;
+            }
+        })
+
+        if(Object.keys(newError).length>0){
+            setError(newError);
+        }
+        
+        else{
+            alert("submit")
+        }
+    }
+
+
+
+
+
+
 
     return(
         <>
@@ -18,38 +81,41 @@ function AddressDetails(){
         
         <div className="AddressDetailsBox">
             <div className="addressandofferBox">
+                <form onSubmit={handleSubmit} style={{display:"flex"}}>
                 <div className="addressBox">
                     <div className="addresstext">Delivery Address</div>
 
                     <div className="formDetails">
-                       <div className="nameandlastname">
-                            <input type="text" placeholder="First Name*"/>
-                            <input type="text" placeholder="Last Name*"/>
-                       </div>
+                        <div className="nameandlastname">
+                            <input style={{border: error.FirstName?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.FirstName} name="FirstName" type="text" placeholder="First Name*"/>
+                            <input style={{border: error.LastName?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.LastName} name="LastName" type="text" placeholder="Last Name*"/>
+                        </div>
 
-                       <div className="emailandphone">
-                            <input type="Email" placeholder="Email*"/>
+                        <div className="emailandphone">
+                            <input style={{border: error.Email?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Email} name="Email" type="Email" placeholder="Email*"/>
                             <div className="countryCodeBox">
                                 <div className="countrybox">
                                     <div className="CountryCode"></div>
-                                    <input type="number" placeholder="Phone*"/>
+                                    <input style={{border: error.Phone?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Phone} name="Phone" type="number" placeholder="Phone*"/>
                                 </div>
                             </div>
-                       </div>
-
-
-                        <div className="pincodeandvillage">
-                            <input type="number" placeholder="PIN CODE*"/>
-                            <input type="text" placeholder="TOWN/VILLAGE*"/>
                         </div>
 
+                        <div className="pincodeandvillage">
+                            <div >
+                                <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.PinCode} name="PinCode" type="number" placeholder="PIN CODE*"/>
+                            </div>
+                            <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Town} name="Town" type="text" placeholder="TOWN/VILLAGE*"/>
+                        </div>
+                        {error.PinCode && <div className="errorMsg" style={{ color: 'red' }}>Pincode</div>}
+
                         <div className="cityandstate">
-                            <input type="text" placeholder="City/District*"/>
-                            <input type="text" placeholder="State*"/>
+                            <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.City} name="City" type="text" placeholder="City/District*"/>
+                            <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.State} name="State" type="text" placeholder="State*"/>
                         </div>
 
                         <div className="address">
-                            <input className="addressInput" type="text" placeholder="Address(House No. Building Street Area)*"/>
+                            <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} className="addressInput" value={formData.Address} name="Address" type="text" placeholder="Address(House No. Building Street Area)*"/>
                         </div>
                     </div>
                 </div>
@@ -64,12 +130,12 @@ function AddressDetails(){
                         <div className="MRPsection">
                             <div className="text_price">
                                 <div className="TotalMRPText">Total MRP (Inc. of Taxes)</div>
-                                <div className="Price">₹8750</div>
+                                <div className="Price">₹ {globalPrice}</div>
                             </div>
 
                             <div className="beyoungDiscount">
                                 <div className="TotalMRPText">Beyoung Discount</div>
-                                <div className="Price">- ₹5255</div>
+                                <div className="Price">- ₹0</div>
                             </div>
 
                             <div className="shipingSection">
@@ -79,7 +145,7 @@ function AddressDetails(){
 
                             <div className="cartTotalSection">
                                 <div className="cartTotal">Cart Total</div>
-                                <div className="Price">₹3495</div>
+                                <div className="Price">₹ {globalPrice}</div>
                             </div>
                         </div>
                     </div>
@@ -88,18 +154,20 @@ function AddressDetails(){
                     <div className="totalAmount">
                         <div className="textPriceBox">
                             <div className="totalText">TOTAL AMOUNT</div>
-                            <div className="priceTotal">₹3495</div>
+                            <div className="priceTotal">₹ {globalPrice}</div>
                         </div>
 
                         <div className="SavedBox">
-                            <div className="totalSavedText">You Saved ₹5255 on this order</div>
+                            <div className="totalSavedText">You Saved ₹0 on this order</div>
                         </div>
 
                         <div className="CheckoutBoxSecurely">
                             <Button text ="CHECKOUT SECURELY" className="checkOutSecurelyButton"/>
                         </div>
+
                     </div>
                 </div>
+                </form>
             </div>
         </div>
         </>

@@ -29,6 +29,7 @@ const UserContextProvider = ({children})=>{
 
     const [addressData, setAddressData] = useState();
 
+    const [globalPrice, setGlobalPrice] = useState();
 
 
 
@@ -47,6 +48,7 @@ const UserContextProvider = ({children})=>{
             wishListCartData, setWishListCardData,
             selectChange, setSelectChange,
             addressData, setAddressData,
+            globalPrice, setGlobalPrice
         } }>
             
         {children}
