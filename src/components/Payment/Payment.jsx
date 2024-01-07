@@ -13,7 +13,7 @@ function Payment(){
                 <div className="paymentOption">
                     <div className="selectPayment">
                         <ul>
-                            <li>
+                            <li className="paymentli">
                                 <div className="sectiontext">
                                     <input type="radio"/>
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/form/paytm-icon-mobile.png"/>
@@ -23,7 +23,7 @@ function Payment(){
 
 
 
-                            <li>
+                            <li className="paymentli">
                                 <div className="sectiontext">
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/form/card-cradit.png"/>
                                     <p className="paywithpaytm">Debit/Credit Card</p>
@@ -32,7 +32,7 @@ function Payment(){
 
 
 
-                            <li>
+                            <li className="paymentli">
                                 <div className="sectiontext">
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/form/upi.png"/>
                                     <div className="upisection">
@@ -43,7 +43,7 @@ function Payment(){
                             </li>
 
 
-                            <li>
+                            <li className="paymentli">
                                 <div className="sectiontext">
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/form/wallet.png"/>
                                     <div className="upisection">
@@ -53,7 +53,7 @@ function Payment(){
                                 </div>
                             </li>
 
-                            <li>
+                            <li className="paymentli">
                                 <div className="sectiontext">
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/payment/netbanking.png"/>
                                     <div className="upisection">
@@ -65,7 +65,7 @@ function Payment(){
 
 
 
-                            <li>
+                            <li className="paymentli">
                                 <div className="sectiontext">
                                     <input type="radio"/>
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/form/cash.svg"/>
