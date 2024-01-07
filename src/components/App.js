@@ -10,6 +10,7 @@ import CheckOut from "../CheckOut/checkOut";
 import SignUp from "../Auth/Signup/Signup";
 import FavoriteItems from "./FavoriteItems/FavoriteItems";
 import AddressDetails from "./AddressDetails/AddressDetails";
+import Payment from "./Payment/Payment";
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/checkout" element = {<CheckOut/>}/>
         <Route path="/wishlist" element= {<FavoriteItems/>}/>
         <Route path="/address" element= {<AddressDetails/>}/>
+        <Route path="/payment" element= {<Payment/>}/>
       </Routes>
     </div>
   );

@@ -1,14 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import CheckOutNav from "../../CheckOut/CheckOutNavBar/CheckOutNav";
 import Button from "../button/button";
 
 import "./AddressDetails.css";
 import UserContext from "../../ContextApi/UserContext";
 import CheckOutBar from "../../CheckOut/CheckOutBar/CheckOutBar";
+import { useNavigate } from "react-router-dom";
 
 function AddressDetails(){
+
     const {selectChange} = useContext(UserContext);
     const {globalPrice} = useContext(UserContext);
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         FirstName : "",
@@ -64,14 +68,9 @@ function AddressDetails(){
         }
         
         else{
-            alert("submit")
+            navigate("/payment");
         }
     }
-
-
-
-
-
 
 
     return(
@@ -164,7 +163,6 @@ function AddressDetails(){
                         <div className="CheckoutBoxSecurely">
                             <Button text ="CHECKOUT SECURELY" className="checkOutSecurelyButton"/>
                         </div>
-
                     </div>
                 </div>
                 </form>
