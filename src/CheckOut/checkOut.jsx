@@ -150,11 +150,12 @@ function CheckOut() {
         });
 
         let res = await data.json();
+        console.log("checkOut response", res);
 
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
-        console.log("WishListData",localStorage.getItem("WishListData"));
-        localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
+        // console.log("WishListData",localStorage.getItem("WishListData"));
+        {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
     }
 
 
