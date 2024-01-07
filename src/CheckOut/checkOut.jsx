@@ -24,6 +24,8 @@ function CheckOut() {
 
     const {globalPrice, setGlobalPrice} = useContext(UserContext);
 
+    const [loader, setLoader] = useState(false);
+
     let sum = 0;
 
     let item = 0;
@@ -140,6 +142,7 @@ function CheckOut() {
 
 
     const wishListIter = async () => {
+        setLoader(true);
         const data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist`, {
             method: "GET",
 
@@ -156,6 +159,7 @@ function CheckOut() {
         setWishListData(res.data?.items);
         // console.log("WishListData",localStorage.getItem("WishListData"));
         {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
+        setLoader(false);
     }
 
 
@@ -187,156 +191,160 @@ function CheckOut() {
 
     return (
         <div className="checkoutSection">
-            {
-                data && data.length>0 ? <div className="checkoutSection">
-                    <CheckOutNav/>
-                    <CheckOutBar/>
-                    <div className="checkOut">
-                        <div className="innerCheckOutBox">
-                            {
-                                data && data.map((val) => {
-                                    return (
-                                        <div className="checkoutBox">
-                                            <div className="childCheckOutBox">
-                                                <div className="innerCheckOut">
-                                                    <div>
-                                                        <div className="innerOptionBox">
-                                                            <img style={{ height: "116px", width: "84px" }} alt="image" className="" src={val.product.displayImage} />
-                                                            <select onChange={(e)=>handleSelectedItem(e, val.product)}>
-                                                                <option>Select</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                                <option>6</option>
-                                                                <option>7</option>
-                                                                <option>8</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="productBox">
-                                                        <div style={{ fontWeight: "700", fontSize: "10px" }}>
-                                                            {val.product.name}
-                                                        </div>
-
-                                                        <div style={{ fontWeight: "700" }}>
-                                                            {`₹ ${parseInt(val.product.price * val.quantity)}`}
-                                                        </div>
-
-                                                        <div>
-                                                            <div>{val.product.color}</div>
-                                                            <div>
-                                                                {`Size : ${val.size}`}
-                                                            </div>
-                                                        </div>
-
-
+           {loader?<img src="https://www.beyoung.in/beyoung-loader.gif"/>:
+           
+           
+            data && data.length>0 ? <div className="checkoutSection">
+                <CheckOutNav/>
+                <CheckOutBar/>
+                <div className="checkOut">
+                    <div className="innerCheckOutBox">
+                        {
+                            data && data.map((val) => {
+                                return (
+                                    <div className="checkoutBox">
+                                        <div className="childCheckOutBox">
+                                            <div className="innerCheckOut">
+                                                <div>
+                                                    <div className="innerOptionBox">
+                                                        <img style={{ height: "116px", width: "84px" }} alt="image" className="" src={val.product.displayImage} />
+                                                        <select onChange={(e)=>handleSelectedItem(e, val.product)}>
+                                                            <option>Select</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                            <option>6</option>
+                                                            <option>7</option>
+                                                            <option>8</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
-                                                <div className="wishlistContainer">
-                                                    <Button text="Remove" className="wishListButton" onClick={() => deleteItem(val.product._id)} />
-                                                    <div style={{ border: "1px solid #cfc4c4", position:"relative", right:"31%" }}></div>
-                                                    <Button text="Wishlist" className="wishListButton" onClick={() => wishListItem(val.product._id)} />
+                                                <div className="productBox">
+                                                    <div style={{ fontWeight: "700", fontSize: "10px" }}>
+                                                        {val.product.name}
+                                                    </div>
+
+                                                    <div style={{ fontWeight: "700" }}>
+                                                        {`₹ ${parseInt(val.product.price * val.quantity)}`}
+                                                    </div>
+
+                                                    <div>
+                                                        <div>{val.product.color}</div>
+                                                        <div>
+                                                            {`Size : ${val.size}`}
+                                                        </div>
+                                                    </div>
+
+
                                                 </div>
                                             </div>
+
+                                            <div className="wishlistContainer">
+                                                <Button text="Remove" className="wishListButton" onClick={() => deleteItem(val.product._id)} />
+                                                <div style={{ border: "1px solid #cfc4c4", position:"relative", right:"31%" }}></div>
+                                                <Button text="Wishlist" className="wishListButton" onClick={() => wishListItem(val.product._id)} />
+                                            </div>
                                         </div>
-                                    )
-                                })
-                            }
-                        </div>
-
-
-                        <div className="checkOutPrice_Text">
-                            <div style={{ borderBottom: "1px solid" }}>
-                                <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
-                                {setSelectChange(item)}
-                            </div>
-
-                            <div className="detailsandnumber">
-                                <div className="checkOutDetailsBox">
-                                    <div>Total MRP (Inc. of Taxes)</div>
-
-                                    {
-                                        !selectItem ?  sum = data.reduce((acc, val) => acc + parseInt(val.product.price * val.quantity), 0):
-                                        sum = data.reduce((acc, val) => acc + parseInt(val.product.price * selectItem),0)
-
-                                    }
-                                    {
-                                        setGlobalPrice(sum)
-                                    }
-
-                                </div>
-                            </div>
-
-
-                            <div className="detailsandnumber">
-                                <div className="checkOutDetailsBox">
-                                    <div>Beyoung Discount</div>
-                                    <div>0</div>
-                                </div>
-                            </div>
-
-                            <div className="detailsandnumber">
-                                <div className="checkOutDetailsBox">
-                                    <div>Shipping</div>
-                                    <div>Free</div>
-                                </div>
-                            </div>
-
-                            <div className="detailsandnumber">
-                                <div className="checkOutDetailsBox">
-                                    <div>Cart Total</div>
-                                    <div>{sum}</div>
-                                </div>
-                            </div>
-
-                            <div className="amountDetailsBox">
-                                <div className="amountDetails">
-                                    <div>Total amount</div>
-                                    <div>{sum}</div>
-                                </div>
-                                <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
-                            </div>
-                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
 
 
-                    {wishlistDataIter.length>0 &&<div className="wishListBox">
-                    <div className="wishListParentText">Add from wishlist</div>
-
-                        
-                        <div className="wishListDataIter">
-
-                            {
-                                wishlistDataIter && wishlistDataIter.map((val)=>{
-                                    return(
-                                        <div className="wishListDetails">
-                                            <div className="wishListImage">
-                                                <img className="wishListImage" src = {val.products.displayImage}/>
-                                            </div>
-
-                                            <div className="wishListText"> 
-                                                <p>Clothes Category Data</p>
-                                                <p style={{fontWeight:"600"}}>{`₹${val.products.price} (0% OFF)`}</p>
-                                                <Button onClick = {()=>deleteWishList(val.products._id)} className= "wishListAddButton" text = "Delete"></Button>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
+                    <div className="checkOutPrice_Text">
+                        <div style={{ borderBottom: "1px solid" }}>
+                            <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
+                            {setSelectChange(item)}
                         </div>
-                    </div>}
+
+                        <div className="detailsandnumber">
+                            <div className="checkOutDetailsBox">
+                                <div>Total MRP (Inc. of Taxes)</div>
+
+                                {
+                                    !selectItem ?  sum = data.reduce((acc, val) => acc + parseInt(val.product.price * val.quantity), 0):
+                                    sum = data.reduce((acc, val) => acc + parseInt(val.product.price * selectItem),0)
+
+                                }
+                                {
+                                    setGlobalPrice(sum)
+                                }
+
+                            </div>
+                        </div>
 
 
-                </div> :<div>
-                    <CheckOutNav/>
+                        <div className="detailsandnumber">
+                            <div className="checkOutDetailsBox">
+                                <div>Beyoung Discount</div>
+                                <div>0</div>
+                            </div>
+                        </div>
 
-                    <img src="https://www.beyoung.in/desktop/images/checkout/EMPTY%20CARTORDER%20PAGE..png"/>
+                        <div className="detailsandnumber">
+                            <div className="checkOutDetailsBox">
+                                <div>Shipping</div>
+                                <div>Free</div>
+                            </div>
+                        </div>
+
+                        <div className="detailsandnumber">
+                            <div className="checkOutDetailsBox">
+                                <div>Cart Total</div>
+                                <div>{sum}</div>
+                            </div>
+                        </div>
+
+                        <div className="amountDetailsBox">
+                            <div className="amountDetails">
+                                <div>Total amount</div>
+                                <div>{sum}</div>
+                            </div>
+                            <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
+                        </div>
+                    </div>
                 </div>
-            }
+
+
+                {wishlistDataIter.length>0 &&<div className="wishListBox">
+                <div className="wishListParentText">Add from wishlist</div>
+
+                    
+                    <div className="wishListDataIter">
+
+                        {
+                            wishlistDataIter && wishlistDataIter.map((val)=>{
+                                return(
+                                    <div className="wishListDetails">
+                                        <div className="wishListImage">
+                                            <img className="wishListImage" src = {val.products.displayImage}/>
+                                        </div>
+
+                                        <div className="wishListText"> 
+                                            <p>Clothes Category Data</p>
+                                            <p style={{fontWeight:"600"}}>{`₹${val.products.price} (0% OFF)`}</p>
+                                            <Button onClick = {()=>deleteWishList(val.products._id)} className= "wishListAddButton" text = "Delete"></Button>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>}
+
+
+            </div> :<div>
+                <CheckOutNav/>
+
+                <img src="https://www.beyoung.in/desktop/images/checkout/EMPTY%20CARTORDER%20PAGE..png"/>
+            </div>
+        
+           
+           }
         </div>
     )
 }
