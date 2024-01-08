@@ -3,7 +3,7 @@ import "./DebitCart.css";
 
 function DebitCard(){
     return (
-        
+        <div></div>
     )
 }
 
