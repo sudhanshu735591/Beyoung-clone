@@ -1,9 +1,21 @@
+import { useState } from "react";
 import CheckOutBar from "../../CheckOut/CheckOutBar/CheckOutBar";
 import CheckOutNav from "../../CheckOut/CheckOutNavBar/CheckOutNav";
 import "./Payment.css";
+import Paytm from "./Paytm/Paytm";
 
 
 function Payment(){
+
+    const [text, setText] = useState("");
+    const [flag, setFlag] = useState(false);
+
+    function onHandleClick(e){
+        console.log(e.target.innerText);
+        setText(e.target.innerText);
+    }
+
+
     return(
         <div>
             <CheckOutNav/>
@@ -13,17 +25,17 @@ function Payment(){
                 <div className="paymentOption">
                     <div className="selectPayment">
                         <ul>
-                            <li className="paymentli">
+                            <li onClick={onHandleClick} className="paymentli">
                                 <div className="sectiontext">
-                                    <input type="radio"/>
+                                    <input type="radio" onChange={()=>setText("Pay With Paytm")}/>
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/form/paytm-icon-mobile.png"/>
-                                    <p className="paywithpaytm">Pay with Paytm</p>
+                                    <p className="paywithpaytm"  >Pay with Paytm</p>
                                 </div>
                             </li>
 
 
 
-                            <li className="paymentli">
+                            <li onClick={onHandleClick} className="paymentli">
                                 <div className="sectiontext">
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/form/card-cradit.png"/>
                                     <p className="paywithpaytm">Debit/Credit Card</p>
@@ -78,10 +90,16 @@ function Payment(){
                         </ul>
                     </div>
 
-                    <div></div>
+                    <div>
+                       {
+                        <Paytm/>
+                       }
+                    </div>
                 </div>
 
-                <div className="addressSection"></div>
+                <div className="addressSection">
+
+                </div>
             </div>
         </div>
     )

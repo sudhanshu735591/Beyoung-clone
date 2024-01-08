@@ -10,17 +10,17 @@ import { createPortal } from "react-dom";
 import SignUpPage from "../../Auth/Signup/Signup";
 import Footer from "../Footer/footer";
 
-function FavoriteItems(){
+function FavoriteItems() {
 
     const { token } = useContext(UserContext);
 
     const [wishData, setWishData] = useState([]);
 
-    const {successMessage} = useContext(UserContext);
+    const { successMessage } = useContext(UserContext);
 
     const [clickCart, setClickCart] = useState(false);
 
-    const[showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const [clickId, setClickId] = useState("");
 
@@ -46,49 +46,49 @@ function FavoriteItems(){
         }
     }
 
-    
-            const wishListIter = async () => {
-                const data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist`, {
-                    method: "GET",
 
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'projectID': 'zx5u429ht9oj',
-                    },
-                });
+    const wishListIter = async () => {
+        const data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist`, {
+            method: "GET",
 
-                let res = await data.json();
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'projectID': 'zx5u429ht9oj',
+            },
+        });
 
-                console.log("WishListData",localStorage.getItem("WishListData"));
+        let res = await data.json();
 
-            
-                localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
-            }
+        console.log("WishListData", localStorage.getItem("WishListData"));
 
 
-    const deleteWishList = async(id)=>{
-        let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`,{
+        localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
+    }
+
+
+    const deleteWishList = async (id) => {
+        let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`, {
             method: "DELETE",
-            headers: {  
+            headers: {
                 'Authorization': `Bearer ${token}`,
                 'projectID': 'zx5u429ht9oj',
             },
         })
 
 
-        setWishData((prevWishData)=>prevWishData.filter(item=>item.products._id!=id));
+        setWishData((prevWishData) => prevWishData.filter(item => item.products._id != id));
         wishListIter();
     }
 
-   
 
-    function wishListItem(val){
 
-        if(!successMessage){
+    function wishListItem(val) {
+
+        if (!successMessage) {
             setShowModal(true);
         }
 
-        else{
+        else {
             setShowModal(false);
             setClickCart(true);
             setClickId(val);
@@ -98,39 +98,39 @@ function FavoriteItems(){
 
 
 
-    function handleClose(){
+    function handleClose() {
         setShowModal(false);
     }
 
 
-    function handleCloseModel(){
+    function handleCloseModel() {
         setClickCart(false);
     }
 
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        if(localStorage.getItem("WishListData")!=undefined){
+        if (localStorage.getItem("WishListData") != undefined) {
             setWishData(JSON.parse(localStorage.getItem("WishListData")));
         }
- 
-        else{
+
+        else {
             console.log("No data");
         }
-    },[])
+    }, [])
 
 
-    return(
+    return (
         <div>
-            <Topbanner/>
-            <Trackorder/>
-            <Navbar/>
+            <Topbanner />
+            <Trackorder />
+            <Navbar />
 
             <div className="account_navigation">
                 <div>
                     <div className="my-account-profile">
                         <div className="nameLogo">
-                            <div style={{marginBottom:"20px"}}>ss</div>
+                            <div style={{ marginBottom: "20px" }}>ss</div>
                         </div>
                         <div className="nameSection">
                             <div>SUDHANSHU SHEKHAR</div>
@@ -139,7 +139,7 @@ function FavoriteItems(){
                     </div>
 
                     <div className="liContentWishList">
-                        <div className="liContent"> 
+                        <div className="liContent">
                             <ul className="wishListUl">
                                 <li className="wishListtext ll">Order</li>
                                 <li className="wishListtext ll">Address</li>
@@ -148,46 +148,46 @@ function FavoriteItems(){
                                 <li className="wishListtext ll">Coupons</li>
                                 <li className="wishListtext ll">Tickets</li>
                                 <div className="wishListLogOut">
-                                    <Button text = "LOGOUT" className = "wishListLogOutButton"/>
+                                    <Button text="LOGOUT" className="wishListLogOutButton" />
                                 </div>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-               {
-                wishData.length ? wishData.map((val)=>{
-                    return(
-                        <div className="imageWishListCategory">
-                            <div className="imageDatawishList">
-                                <div onClick={()=>deleteWishList(val.products._id)} className="crossCircle"><a className="xText">x</a></div>
-                                <img className="catImage" src={val.products.displayImage}/>
-                                <div className="aboutTextData">
-                                    <div>
-                                        <div className="tShirtTextWishList"><p style={{fontSize:"10px"}}>Clothes Categories</p></div>
-                                    </div>
-        
+                {
+                    wishData.length ? wishData.map((val) => {
+                        return (
+                            <div className="imageWishListCategory">
+                                <div className="imageDatawishList">
+                                    <div onClick={() => deleteWishList(val.products._id)} className="crossCircle"><a className="xText">x</a></div>
+                                    <img className="catImage" src={val.products.displayImage} />
+                                    <div className="aboutTextData">
                                         <div>
-                                        <div style={{fontSize:"14px"}}>₹ {val.products.price}</div>
-                                        <Button onClick = {()=>wishListItem(val.products)} text = "Add To Cart" className = "favCart"/>
+                                            <div className="tShirtTextWishList"><p style={{ fontSize: "10px" }}>Clothes Categories</p></div>
+                                        </div>
+
+                                        <div>
+                                            <div style={{ fontSize: "14px" }}>₹ {val.products.price}</div>
+                                            <Button onClick={() => wishListItem(val.products)} text="Add To Cart" className="favCart" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        )
+                    }) :
+                        <div>
+                            <img className="NoDataImage" src="https://www.beyoung.in/images/common/EMPTY-WISHLIST-PAGE.jpg" />
                         </div>
-                    )
-                }):
-                <div>
-                    <img className="NoDataImage" src="https://www.beyoung.in/images/common/EMPTY-WISHLIST-PAGE.jpg"/>
-                </div>
-               }
+                }
 
-            {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
+                {showModal && createPortal(<SignUpPage showModal={showModal} onClose={handleClose} />, document.body)}
 
-            {!showModal && setClickCart && createPortal(<BasicModal clickCart = {clickCart} onClose = {handleCloseModel} setClickId={clickId} size = {size}/>, document.body)}
-                
+                {!showModal && setClickCart && createPortal(<BasicModal clickCart={clickCart} onClose={handleCloseModel} setClickId={clickId} size={size} />, document.body)}
+
             </div>
 
-            <Footer/>
+            <Footer />
         </div>
     )
 }

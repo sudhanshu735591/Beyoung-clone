@@ -42,11 +42,12 @@
     bottom: 31px;
     color: black;
     font-size: 10px;
-    margin: 12px;
+    margin: 7px;
     display: flex;
     text-transform: capitalize;
     border-left: 3px solid rgb(224, 224, 10);
     margin-right: 46px;
+    padding-left: 6px;
 }
 
 .tshirt1{
@@ -84,7 +85,10 @@
     width: 29vw;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(4, 1fr)
+    grid-template-columns: repeat(4, 1fr);
+    a {
+        text-decoration: none !important;
+    }
 }
 
 .flex2{
@@ -177,6 +181,7 @@
 
 .bottomBoxWear{
     transition: transform 0.5s ease;
+ 
 }
 
 .largeImage{
@@ -239,7 +244,6 @@
         margin-left: 21px;
         margin-top: 20px;
         overflow: scroll;
-        
     }
 
     .BottomLeftArrow{
@@ -298,4 +302,10 @@
         margin-right: 39px;
     }
 
+}
+
+
+
+a:-webkit-any-link {
+    text-decoration: none;
 }

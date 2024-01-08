@@ -83,7 +83,7 @@ function GenderSection(props) {
           {
             category && category.t_Shirts.list.map((val)=>{
               return(
-                <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
+                <Link style={{textDecoration:"none"}} to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
                   <div style={{transform: `translateX(-${scrollPosition}px)`}} className="flex3">
                     <img className="sideImageData" src = {val.img}/>
                     <p className="tshirtText">{val.name}</p>
@@ -119,7 +119,11 @@ function GenderSection(props) {
               <Link to={(`/categorized?search=${JSON.stringify(val.search)}&filter=${JSON.stringify(val.filter)}`)}>
                 <div className="bottomBoxWear" style={{transform: `translateX(-${bottomScrollPosition}px) rotate(360deg)`}}>
                   <img className="bottomWear" src = {val.img}/>
+                  <div className="sideBorderBox">
+                    <div className="sideBorder"></div>
                     <p className="bottoWearText">{val.name}</p>
+
+                  </div>
                 </div>
               </Link>
             )

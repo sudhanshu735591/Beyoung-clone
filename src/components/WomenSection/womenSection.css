@@ -30,7 +30,9 @@
     overflow: scroll;
     gap: 10px;
     overflow-y: hidden;
-    
+    a{
+        text-decoration: none !important;
+    }
 
 }
 
@@ -50,6 +52,7 @@
     margin-top: -29px;
     font-size: 12px;
     margin-right: 60px;
+    color: black;
 }
 
 

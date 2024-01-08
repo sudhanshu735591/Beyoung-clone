@@ -106,6 +106,7 @@ function CategorizedSection(){
             });
             
             let res = await data.json();
+            console.log("res data is", res);
             setMyData(res.data);
             setDuplicateData(res.data);
             setLoader(false);
@@ -187,6 +188,11 @@ function CategorizedSection(){
                         <p>XXL</p>
                         <p>4XL</p>
                         <p>5XL</p>
+                        {/* {
+                            myData && myData.map((val)=>{
+                                console.log("cate", val.size);
+                            })
+                        } */}
                     </div>
 
                     <div className="sizeSection">

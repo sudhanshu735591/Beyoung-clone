@@ -223,7 +223,6 @@ function ImageDetails() {
                 </div>
             }
 
-          
             <div>
                 <Footer />
             </div>
