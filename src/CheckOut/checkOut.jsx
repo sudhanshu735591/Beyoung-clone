@@ -256,7 +256,7 @@ function CheckOut() {
 
 
                     <div className="checkOutPrice_Text">
-                        <div style={{ borderBottom: "1px solid" }}>
+                        <div style={{ borderBottom: "1px solid", display:"flex", fontSize:"12px", padding:"10px 0px" }}>
                             <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
                             {setSelectChange(item)}
                         </div>
@@ -270,6 +270,7 @@ function CheckOut() {
                                     sum = data.reduce((acc, val) => acc + parseInt(val.product.price * selectItem),0)
 
                                 }
+                                
                                 {
                                     setGlobalPrice(sum)
                                 }
@@ -295,14 +296,14 @@ function CheckOut() {
                         <div className="detailsandnumber">
                             <div className="checkOutDetailsBox">
                                 <div>Cart Total</div>
-                                <div>{sum}</div>
+                                <div>₹{sum}</div>
                             </div>
                         </div>
 
                         <div className="amountDetailsBox">
                             <div className="amountDetails">
                                 <div>Total amount</div>
-                                <div>{sum}</div>
+                                <div>₹{sum}</div>
                             </div>
                             <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
                         </div>

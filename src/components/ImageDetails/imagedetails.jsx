@@ -26,10 +26,6 @@ function ImageDetails() {
     const {setAddressData} = useContext(UserContext);
 
     const [loader, setLoader] = useState(false);
-    console.log("imageDetailssection", selectChange);
-
-
-
 
     const handleClose = ()=>{
         setShowModal(false);
@@ -68,6 +64,7 @@ function ImageDetails() {
         fetchApi();
         setClothSize("");
         setAddCart(true);
+        window.scrollTo(0, 0);
         
     }, []);
 

@@ -11,10 +11,13 @@ import SignUp from "../Auth/Signup/Signup";
 import FavoriteItems from "./FavoriteItems/FavoriteItems";
 import AddressDetails from "./AddressDetails/AddressDetails";
 import Payment from "./Payment/Payment";
+import { useEffect } from "react";
 
 
 
 function App() {
+
+  
   return( 
     <div className="App">
       <Routes>

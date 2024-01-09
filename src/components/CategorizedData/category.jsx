@@ -86,7 +86,7 @@ function CategorizedSection(){
         else{
            setMyData(duplicateData);
         }
-    },[highTolowChecked])
+    },[highTolowChecked]);
 
 
     
@@ -96,7 +96,6 @@ function CategorizedSection(){
         try {
             setLoader(true);
             let apiUrl = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?search=${search}&filter=${filter}`;
-            console.log("filter", apiUrl);
 
             let data = await fetch(apiUrl, {
                 method: 'GET',
@@ -106,7 +105,6 @@ function CategorizedSection(){
             });
             
             let res = await data.json();
-            console.log("res data is", res);
             setMyData(res.data);
             setDuplicateData(res.data);
             setLoader(false);
@@ -143,7 +141,15 @@ function CategorizedSection(){
             menViewAllDataFunc();
             setMenViewAllData(false);
         }
+        window.scrollTo(0, 0);
     },[])
+
+
+    function handleHeartClick(e, val){
+        e.stopPropagation();
+
+        localStorage.setItem("WishListData", JSON.stringify(val));
+    }
   
     
     return(
@@ -279,8 +285,8 @@ function CategorizedSection(){
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
                                                 <img className="fetchedImageData" src= {loader?"https://www.beyoung.in/beyoung-loader.gif":val.displayImage}/>
-                                                <i class="fa-regular fa-heart"></i>
                                             </Link>
+                                            <i onClick={(e)=>handleHeartClick(e,val)} class="fa-regular fa-heart"></i>
                                             <p className="typeText" style={{textTransform:"capitalize"}}>{
                                                 val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
                                             }</p>

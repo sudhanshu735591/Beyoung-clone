@@ -59,9 +59,6 @@ function FavoriteItems() {
 
         let res = await data.json();
 
-        console.log("WishListData", localStorage.getItem("WishListData"));
-
-
         localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
     }
 
