@@ -358,6 +358,3 @@ export default CheckOut;
 
 
 
-// loader
-// https://cdn.dribbble.com/users/1626465/screenshots/4617986/media/b09265705b58f46795126fa8c0221867.gif
-

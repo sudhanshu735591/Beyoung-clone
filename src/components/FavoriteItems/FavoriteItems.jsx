@@ -59,7 +59,7 @@ function FavoriteItems() {
 
         let res = await data.json();
 
-        localStorage.setItem("WishListData", JSON.stringify(res.data?.items));
+        {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
     }
 
 
@@ -113,6 +113,7 @@ function FavoriteItems() {
         else {
             console.log("No data");
         }
+
     }, [])
 
 

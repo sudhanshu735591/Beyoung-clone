@@ -51,15 +51,9 @@ function CategorizedSection(){
 
     const [sizeText, setSizeText] = useState("");
 
-
-
-
-
-
     function onArrowClick(){
         show?setShow(false):setShow(true);
     }
-
 
     function changeSizeText(e){
         setSizeText(e.target.innerText);
@@ -75,16 +69,6 @@ function CategorizedSection(){
         setMyData(filterData);
         console.log("filterData", filterData);
     },[sizeText])
-
-    // useEffect(()=>{
-    //     console.log("duplicateData.length",duplicateData.length);
-
-    //     changeSizeText();
-    // },[])
-
-
-
-
 
 
     function sortedArrowClick(){
