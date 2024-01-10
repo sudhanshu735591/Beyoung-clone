@@ -31,6 +31,9 @@ const UserContextProvider = ({children})=>{
 
     const [globalPrice, setGlobalPrice] = useState();
 
+    const [wishlistDataIter, setWishListDataIter] = useState([]);
+
+
 
 
     return(
@@ -48,7 +51,8 @@ const UserContextProvider = ({children})=>{
             wishListCartData, setWishListCardData,
             selectChange, setSelectChange,
             addressData, setAddressData,
-            globalPrice, setGlobalPrice
+            globalPrice, setGlobalPrice,
+            wishlistDataIter, setWishListDataIter
         } }>
             
         {children}

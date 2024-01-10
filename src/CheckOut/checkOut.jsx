@@ -14,7 +14,9 @@ function CheckOut() {
 
     const [data, setdata] = useState(0);
 
-    const [wishlistDataIter, setWishListDataIter] = useState([]);
+    // const [wishlistDataIter, setWishListDataIter] = useState([]);
+
+    const {wishlistDataIter, setWishListDataIter} = useContext(UserContext);
 
     const {setWishListData} = useContext(UserContext);
 
@@ -157,7 +159,6 @@ function CheckOut() {
 
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
-        // console.log("WishListData",localStorage.getItem("WishListData"));
         {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
         setLoader(false);
     }

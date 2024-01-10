@@ -72,7 +72,6 @@ function FavoriteItems() {
             },
         })
 
-
         setWishData((prevWishData) => prevWishData.filter(item => item.products._id != id));
         wishListIter();
     }
@@ -153,7 +152,7 @@ function FavoriteItems() {
                 </div>
 
                 {
-                    wishData.length ? wishData.map((val) => {
+                    wishData && wishData.length ? wishData.map((val) => {
                         return (
                             <div className="imageWishListCategory">
                                 <div className="imageDatawishList">
