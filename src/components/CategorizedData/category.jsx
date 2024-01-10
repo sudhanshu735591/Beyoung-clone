@@ -45,6 +45,8 @@ function CategorizedSection(){
 
     const {successMessage} = useContext(UserContext);
 
+    const [faHeart, setFaHeart] = useState("fa-regular fa-heart")
+
 
 
 
@@ -218,12 +220,18 @@ function CategorizedSection(){
     }
 
 
-    const handleCheckHeart = (val)=>{
+    const handleCheckHeart = (e,val, index)=>{
+        e.preventDefault();
         if(!successMessage){
             setShowModal(true);
         }
         else{
             handleHeartClick(val);
+
+            // const updatedHeart = [...faHeart];
+            // updatedHeart[index] = "fa-solid fa-heart"
+            
+            // setFaHeart(updatedHeart.join(' '));
         }
     }
 
@@ -360,13 +368,13 @@ function CategorizedSection(){
                                         </div>
                                     )
                                 }):
-                                !isChecked ? myData && myData.map((val)=>{
+                                !isChecked ? myData && myData.map((val, index)=>{
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
                                                 <img className="fetchedImageData" src= {loader?"https://www.beyoung.in/beyoung-loader.gif":val.displayImage}/>
                                             </Link>
-                                            <i onClick={(e)=>handleCheckHeart(val)} class="fa-regular fa-heart"></i>
+                                            <i onClick={(e)=>handleCheckHeart(e,val, index)} class={faHeart}></i>
                                             <p className="typeText" style={{textTransform:"capitalize"}}>{
                                                 val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
                                             }</p>
