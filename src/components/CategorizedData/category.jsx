@@ -25,7 +25,7 @@ function CategorizedSection(){
 
     let {menViewAllData, setMenViewAllData} = useContext(UserContext);
 
-    const [changeSizeSelect, setChangeSizeSelect] = useState("");
+    const [changeSizeSelect] = useState("");
 
     const [isChecked, setChecked] = useState(false);
 
@@ -47,11 +47,17 @@ function CategorizedSection(){
 
     const [faHeart, setFaHeart] = useState("fa-regular fa-heart");
 
-    // const [sizetextFlag, setSizeTextFlag] = useState(false);
-
     const [sizeText, setSizeText] = useState("");
 
     const [categoryCloth, setCategoryCloth] = useState("");
+
+    const [colorArr, setColorArr] = useState([]);
+
+    const letters = new Set();
+
+
+    let arr = [];
+
 
     function onArrowClick(){
         show?setShow(false):setShow(true);
@@ -69,7 +75,6 @@ function CategorizedSection(){
         })
 
         setMyData(filterData);
-        console.log("filterData", filterData);
     },[sizeText])
 
 
@@ -122,8 +127,6 @@ function CategorizedSection(){
     },[highTolowChecked]);
 
 
-    
-
     const fetchApi = async (search, filter) => {
         
         try {
@@ -141,8 +144,13 @@ function CategorizedSection(){
             setMyData(res.data);
             setDuplicateData(res.data);
             setLoader(false);
-            console.log("res.category", res.data[0].subCategory);
-            setCategoryCloth(res.data[0].subCategory)
+            setCategoryCloth(res.data[0].subCategory);
+            res?.data.map((val)=>{
+                letters.add(val.color);
+            });
+            {letters && console.log(letters)};
+            setColorArr(Array.from(letters));
+            
         }
 
         catch (error) {
@@ -168,7 +176,6 @@ function CategorizedSection(){
     
     useEffect(() => {
         fetchApi(searchParamms.get("search"), searchParamms.get("filter"));
-        // console.log("searchParamms.get()", searchParamms.get("search").name);
     }, [searchParamms]);
 
 
@@ -198,10 +205,7 @@ function CategorizedSection(){
         });
         
         let res = await data?.json();
-        console.log("res data data is", res);
-
         wishListIter()
-
     }
 
 
@@ -219,7 +223,6 @@ function CategorizedSection(){
         let res = await data.json();
         console.log("checkOut response", res);
 
-        setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
         {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
         setLoader(false);
@@ -230,7 +233,7 @@ function CategorizedSection(){
     }
 
 
-    const handleCheckHeart = (e,val, index)=>{
+    const handleCheckHeart = (e, val)=>{
         e.preventDefault();
         if(!successMessage){
             setShowModal(true);
@@ -241,9 +244,7 @@ function CategorizedSection(){
     }
 
 
-
-
-  
+    
     
     return(
         <div className="filterBox">
@@ -267,11 +268,15 @@ function CategorizedSection(){
                     </div>
 
                     <div className="flexCircle">
-                        {myData && myData.map((val)=>{
-                            return(
-                                <div onClick={()=>checkColor(val.color)} style={{backgroundColor:val.color, display:show?"block":"none"}} className="circleData"></div>
-                            )
-                        })}                      
+                       
+
+                        {
+                            letters && colorArr.map((val)=>{
+                                return(
+                                    <div onClick={()=>checkColor(val)} style={{backgroundColor:val, display:show?"block":"none"}} className="circleData"></div>
+                                )
+                            })
+                        }
                     </div>
 
                     <div className="sizeSection">
@@ -382,22 +387,6 @@ function CategorizedSection(){
                                     )
                                 }):
 
-
-                                // setSizeTextFlag ? alert("hii") &&  myData && myData.map((val, index)=>{
-                                //     return(
-                                //         <div className="imageSection">
-                                //             <Link to={`/imageDetails/${val._id}`}>
-                                //                 <img className="fetchedImageData" src= {loader?"https://www.beyoung.in/beyoung-loader.gif":val.displayImage}/>
-                                //             </Link>
-                                //             <i onClick={(e)=>handleCheckHeart(e, val, index)} class={faHeart}></i>
-                                //             <p className="typeText" style={{textTransform:"capitalize"}}>{
-                                //                 val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
-                                //             }</p>
-                                //             <p className="typeSolid">{val.category}</p>
-                                //             <p className="price">₹ {val.price}</p>
-                                //         </div>
-                                //     )
-                                // }):
 
                                 myData && myData.map((val)=>{
                                     return(
