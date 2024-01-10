@@ -47,9 +47,11 @@ function CategorizedSection(){
 
     const [faHeart, setFaHeart] = useState("fa-regular fa-heart");
 
-    const [sizetextFlag, setSizeTextFlag] = useState(false);
+    // const [sizetextFlag, setSizeTextFlag] = useState(false);
 
     const [sizeText, setSizeText] = useState("");
+
+    const [categoryCloth, setCategoryCloth] = useState("");
 
     function onArrowClick(){
         show?setShow(false):setShow(true);
@@ -139,6 +141,8 @@ function CategorizedSection(){
             setMyData(res.data);
             setDuplicateData(res.data);
             setLoader(false);
+            console.log("res.category", res.data[0].subCategory);
+            setCategoryCloth(res.data[0].subCategory)
         }
 
         catch (error) {
@@ -164,6 +168,7 @@ function CategorizedSection(){
     
     useEffect(() => {
         fetchApi(searchParamms.get("search"), searchParamms.get("filter"));
+        // console.log("searchParamms.get()", searchParamms.get("search").name);
     }, [searchParamms]);
 
 
@@ -305,7 +310,7 @@ function CategorizedSection(){
 
                 <div className="allClothes">
                     <div className="tshirts_images">
-                        <div>TSHIRTS</div>
+                        <div style={{textTransform:"uppercase"}}>{categoryCloth}</div>
                         <div className="fetchedImage">
                             {
                                 selectedCircle? myData && myData.map((val)=>{
