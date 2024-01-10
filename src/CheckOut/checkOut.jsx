@@ -20,16 +20,17 @@ function CheckOut() {
 
     const {setWishListData} = useContext(UserContext);
 
-    const {selectItem, setSelectedItem} = useContext(UserContext);
+    const {selectItem} = useContext(UserContext);
 
-    const {selectChange,setSelectChange} = useContext(UserContext);
+    const {setSelectChange} = useContext(UserContext);
 
-    const {globalPrice, setGlobalPrice} = useContext(UserContext);
+    const {setGlobalPrice} = useContext(UserContext);
 
     const [loader, setLoader] = useState(false);
 
     const {setAddToCartDataLength} = useContext(UserContext);
 
+    const {setWishListDataLength} = useContext(UserContext);
 
     let sum = 0;
 
@@ -101,21 +102,6 @@ function CheckOut() {
             let res = await data.json();
             setAddToCartDataLength(res?.data?.items?.length);
             setdata(res.data.items);
-
-            // if (localStorage.getItem("data") !== null) {
-            //     let currentData = JSON.parse(localStorage.getItem("data"));
-            //     let index;
-
-            //     for (let i = 0; i < currentData.length; i++) {
-            //         if (currentData[i].product._id === val) {
-            //             index = i;
-            //         }
-            //     }
-
-            //     currentData.splice(index, 1);
-            //     localStorage.removeItem("data");
-            //     localStorage.setItem("data", JSON.stringify(currentData));
-            // }
         }
 
         catch (error) {
@@ -158,6 +144,7 @@ function CheckOut() {
 
         let res = await data.json();
 
+        setWishListDataLength(res?.data?.items?.length);
 
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
@@ -176,6 +163,8 @@ function CheckOut() {
         })
 
         let res = await data.json();
+        setWishListDataLength(res?.data?.items?.length);
+
         wishListIter();
     }
 

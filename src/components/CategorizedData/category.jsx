@@ -183,7 +183,7 @@ function CategorizedSection(){
 
 
     useEffect(()=>{
-        
+
         if(menViewAllData){
             menViewAllDataFunc();
             setMenViewAllData(false);
@@ -230,7 +230,7 @@ function CategorizedSection(){
         console.log("checkOut response", res);
 
         setWishListData(res.data?.items);
-        {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
+        // {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
         setLoader(false);
     }
 

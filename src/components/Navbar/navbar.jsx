@@ -19,6 +19,7 @@ function Navbar(){
 
     const {addToCartDataLength} = useContext(UserContext);
 
+    const {wishListDataLength} = useContext(UserContext);
 
     function onHandleClick(){
       setSearch(search?false:true);
@@ -161,9 +162,9 @@ function Navbar(){
 
                 <div className="addToWishList">
                     {
-                        <div className="addtonumWishList" style={{background:!successMessage || !JSON.parse(localStorage.getItem("WishListData")) || JSON.parse(localStorage.getItem("WishListData")).length<=0 ? "transparent":"yellow"}}>
+                        <div className="addtonumWishList" style={{background:!successMessage || !wishListDataLength ? "transparent":"yellow"}}>
                             {
-                                localStorage.getItem("WishListData")!=null && token && JSON.parse(localStorage.getItem("WishListData")).length>0 ? JSON.parse(localStorage.getItem("WishListData")).length: null
+                                token && wishListDataLength?wishListDataLength: null
                             } 
                         </div>
                     }

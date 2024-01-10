@@ -12,11 +12,11 @@ import Footer from "../Footer/footer";
 
 function FavoriteItems() {
 
-    const { token } = useContext(UserContext);
+    const { setToken, token } = useContext(UserContext);
 
     const [wishData, setWishData] = useState([]);
 
-    const { successMessage } = useContext(UserContext);
+    const { setSuccessMessage, successMessage } = useContext(UserContext);
 
     const [clickCart, setClickCart] = useState(false);
 
@@ -25,6 +25,16 @@ function FavoriteItems() {
     const [clickId, setClickId] = useState("");
 
     const [size, setSize] = useState();
+
+    const {setWishListDataLength} = useContext(UserContext);
+
+    function Logout(){
+        setToken("");
+        setSuccessMessage("");
+    }
+
+
+    
 
     const fetchApi = async () => {
         try {
@@ -58,11 +68,13 @@ function FavoriteItems() {
         });
 
         let res = await data.json();
-        console.log("res data is", res);
-        // setAddToCartDataLength()
-
-        {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
+        setWishData(res?.data?.items);
+        
     }
+
+    useEffect(()=>{
+        wishListIter();
+    },[])
 
 
     const deleteWishList = async (id) => {
@@ -73,6 +85,9 @@ function FavoriteItems() {
                 'projectID': 'zx5u429ht9oj',
             },
         })
+        let res = await data.json();
+        console.log("delete", res);
+        setWishListDataLength(res?.data?.items?.length);
 
         setWishData((prevWishData) => prevWishData.filter(item => item.products._id != id));
         wishListIter();
@@ -106,19 +121,6 @@ function FavoriteItems() {
     }
 
 
-    useEffect(() => {
-
-        if (localStorage.getItem("WishListData") != undefined) {
-            setWishData(JSON.parse(localStorage.getItem("WishListData")));
-        }
-
-        else {
-            console.log("No data");
-        }
-
-    }, [])
-
-
     return (
         <div>
             <Topbanner />
@@ -143,11 +145,11 @@ function FavoriteItems() {
                                 <li className="wishListtext ll">Order</li>
                                 <li className="wishListtext ll">Address</li>
                                 <li className="wishListtext ll">Profile</li>
-                                <li className="wishListtext ll">Wishlist</li>
+                                <li className="wishListtext ll Wishlist">Wishlist</li>
                                 <li className="wishListtext ll">Coupons</li>
                                 <li className="wishListtext ll">Tickets</li>
                                 <div className="wishListLogOut">
-                                    <Button text="LOGOUT" className="wishListLogOutButton" />
+                                    <Button onClick={Logout} text="LOGOUT" className="wishListLogOutButton" />
                                 </div>
                             </ul>
                         </div>
