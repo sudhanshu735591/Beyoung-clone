@@ -279,7 +279,6 @@ function CheckOut() {
                             </div>
                         </div>
 
-
                         <div className="detailsandnumber">
                             <div className="checkOutDetailsBox">
                                 <div>Beyoung Discount</div>
@@ -314,10 +313,7 @@ function CheckOut() {
 
                 {wishlistDataIter.length>0 &&<div className="wishListBox">
                 <div className="wishListParentText">Add from wishlist</div>
-
-                    
                     <div className="wishListDataIter">
-
                         {
                             wishlistDataIter && wishlistDataIter.map((val)=>{
                                 return(
@@ -344,8 +340,6 @@ function CheckOut() {
 
                 <img src="https://www.beyoung.in/desktop/images/checkout/EMPTY%20CARTORDER%20PAGE..png"/>
             </div>
-        
-           
            }
         </div>
     )
