@@ -16,7 +16,6 @@ function BestSeller(){
         });
 
         let res = await data.json();
-        console.log("best seller",res.data);
         setMyData(res.data);
     }
 

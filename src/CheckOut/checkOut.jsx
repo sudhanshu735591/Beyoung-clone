@@ -28,6 +28,9 @@ function CheckOut() {
 
     const [loader, setLoader] = useState(false);
 
+    const {setAddToCartDataLength} = useContext(UserContext);
+
+
     let sum = 0;
 
     let item = 0;
@@ -68,8 +71,8 @@ function CheckOut() {
             let res = await data.json();
 
             setdata(res.data?.items);
-            console.log("data current is", res.data?.items);
-            setCartCount(res?.data?.items?.length);
+            // console.log("data current is", res.data?.items);
+            setAddToCartDataLength(res?.data?.items?.length);
         }
 
         catch (error) {
@@ -96,22 +99,23 @@ function CheckOut() {
             });
 
             let res = await data.json();
+            setAddToCartDataLength(res?.data?.items?.length);
             setdata(res.data.items);
 
-            if (localStorage.getItem("data") !== null) {
-                let currentData = JSON.parse(localStorage.getItem("data"));
-                let index;
+            // if (localStorage.getItem("data") !== null) {
+            //     let currentData = JSON.parse(localStorage.getItem("data"));
+            //     let index;
 
-                for (let i = 0; i < currentData.length; i++) {
-                    if (currentData[i].product._id === val) {
-                        index = i;
-                    }
-                }
+            //     for (let i = 0; i < currentData.length; i++) {
+            //         if (currentData[i].product._id === val) {
+            //             index = i;
+            //         }
+            //     }
 
-                currentData.splice(index, 1);
-                localStorage.removeItem("data");
-                localStorage.setItem("data", JSON.stringify(currentData));
-            }
+            //     currentData.splice(index, 1);
+            //     localStorage.removeItem("data");
+            //     localStorage.setItem("data", JSON.stringify(currentData));
+            // }
         }
 
         catch (error) {
@@ -136,8 +140,6 @@ function CheckOut() {
         });
         
         let res = await data?.json();
-        console.log("res data data is", res);
-
         wishListIter()
 
     }
@@ -155,7 +157,7 @@ function CheckOut() {
         });
 
         let res = await data.json();
-        console.log("checkOut response", res);
+
 
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);

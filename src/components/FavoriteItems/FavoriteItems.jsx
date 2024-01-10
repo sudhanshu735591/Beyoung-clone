@@ -58,6 +58,8 @@ function FavoriteItems() {
         });
 
         let res = await data.json();
+        console.log("res data is", res);
+        // setAddToCartDataLength()
 
         {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
     }

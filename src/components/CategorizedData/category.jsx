@@ -56,6 +56,8 @@ function CategorizedSection(){
     const letters = new Set();
 
 
+
+
     let arr = [];
 
 
@@ -145,10 +147,11 @@ function CategorizedSection(){
             setDuplicateData(res.data);
             setLoader(false);
             setCategoryCloth(res.data[0].subCategory);
+
             res?.data.map((val)=>{
                 letters.add(val.color);
             });
-            {letters && console.log(letters)};
+
             setColorArr(Array.from(letters));
             
         }
@@ -180,11 +183,14 @@ function CategorizedSection(){
 
 
     useEffect(()=>{
+        
         if(menViewAllData){
             menViewAllDataFunc();
             setMenViewAllData(false);
         }
+
         window.scrollTo(0, 0);
+
     },[])
 
 
@@ -271,11 +277,11 @@ function CategorizedSection(){
                        
 
                         {
-                            letters && colorArr.map((val)=>{
+                            letters ? colorArr.map((val)=>{
                                 return(
                                     <div onClick={()=>checkColor(val)} style={{backgroundColor:val, display:show?"block":"none"}} className="circleData"></div>
                                 )
-                            })
+                            }):<img src="https://www.beyoung.in/beyoung-loader.gif"/>
                         }
                     </div>
 
