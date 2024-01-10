@@ -45,7 +45,11 @@ function CategorizedSection(){
 
     const {successMessage} = useContext(UserContext);
 
-    const [faHeart, setFaHeart] = useState("fa-regular fa-heart")
+    const [faHeart, setFaHeart] = useState("fa-regular fa-heart");
+
+    const [sizetextFlag, setSizeTextFlag] = useState(false);
+
+    const [sizeText, setSizeText] = useState("");
 
 
 
@@ -56,15 +60,32 @@ function CategorizedSection(){
         show?setShow(false):setShow(true);
     }
 
+
     function changeSizeText(e){
-        setChangeSizeSelect(e.target.innerText);
-        // console.log(e.target.innerText);
-        // console.log("myData", myData.brand);
-        myData.map((val)=>{
-            console.log(val.size);
-        
-        })
+        setSizeText(e.target.innerText);
+       setMyData(duplicateData)
     }
+
+
+    useEffect(()=>{
+        const filterData = myData.filter((val)=>{
+            return val.size.includes(sizeText);
+        })
+
+        setMyData(filterData);
+        console.log("filterData", filterData);
+    },[sizeText])
+
+    // useEffect(()=>{
+    //     console.log("duplicateData.length",duplicateData.length);
+
+    //     changeSizeText();
+    // },[])
+
+
+
+
+
 
     function sortedArrowClick(){
         setSortFlag(!sortFlag);
@@ -227,11 +248,6 @@ function CategorizedSection(){
         }
         else{
             handleHeartClick(val);
-
-            // const updatedHeart = [...faHeart];
-            // updatedHeart[index] = "fa-solid fa-heart"
-            
-            // setFaHeart(updatedHeart.join(' '));
         }
     }
 
@@ -280,13 +296,6 @@ function CategorizedSection(){
                         <p>L</p>
                         <p>XL</p>
                         <p>XXL</p>
-                        <p>4XL</p>
-                        <p>5XL</p>
-                        {/* {
-                            myData && myData.map((val)=>{
-                                console.log("cate", val.size);
-                            })
-                        } */}
                     </div>
 
                     <div className="sizeSection">
@@ -374,7 +383,7 @@ function CategorizedSection(){
                                             <Link to={`/imageDetails/${val._id}`}>
                                                 <img className="fetchedImageData" src= {loader?"https://www.beyoung.in/beyoung-loader.gif":val.displayImage}/>
                                             </Link>
-                                            <i onClick={(e)=>handleCheckHeart(e,val, index)} class={faHeart}></i>
+                                            <i onClick={(e)=>handleCheckHeart(e, val, index)} class={faHeart}></i>
                                             <p className="typeText" style={{textTransform:"capitalize"}}>{
                                                 val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
                                             }</p>
@@ -383,6 +392,24 @@ function CategorizedSection(){
                                         </div>
                                     )
                                 }):
+
+
+                                // setSizeTextFlag ? alert("hii") &&  myData && myData.map((val, index)=>{
+                                //     return(
+                                //         <div className="imageSection">
+                                //             <Link to={`/imageDetails/${val._id}`}>
+                                //                 <img className="fetchedImageData" src= {loader?"https://www.beyoung.in/beyoung-loader.gif":val.displayImage}/>
+                                //             </Link>
+                                //             <i onClick={(e)=>handleCheckHeart(e, val, index)} class={faHeart}></i>
+                                //             <p className="typeText" style={{textTransform:"capitalize"}}>{
+                                //                 val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` :val.brand
+                                //             }</p>
+                                //             <p className="typeSolid">{val.category}</p>
+                                //             <p className="price">₹ {val.price}</p>
+                                //         </div>
+                                //     )
+                                // }):
+
                                 myData && myData.map((val)=>{
                                     return(
                                         <div className="imageSection">
