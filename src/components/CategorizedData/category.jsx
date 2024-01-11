@@ -14,47 +14,25 @@ import { createPortal } from "react-dom";
 function CategorizedSection(){
 
     const [myData, setMyData] = useState([]);
-
     const [duplicateData, setDuplicateData] = useState([]);
-
-    let [show, setShow] = useState(true);
-    
-    let [showSize, setShowSize] = useState(true);
-
-    let [selectedCircle, setSelectedCircle] = useState("");
-
-    let {menViewAllData, setMenViewAllData} = useContext(UserContext);
-
+    const [show, setShow] = useState(true);
+    const [showSize, setShowSize] = useState(true);
+    const [selectedCircle, setSelectedCircle] = useState("");
+    const {menViewAllData, setMenViewAllData} = useContext(UserContext);
     const [changeSizeSelect] = useState("");
-
     const [isChecked, setChecked] = useState(false);
-
     const [highTolowChecked, setHighTolowChecked] = useState(false);
-
     const [sortFlag, setSortFlag] = useState(false);
-
     const [loader, setLoader] = useState(false);
-
     const { token } = useContext(UserContext);
-
-    const {setWishListDataIter} = useContext(UserContext);
-
     const {setWishListData} = useContext(UserContext);
-
     const [showModal, setShowModal] = useState(false);
-
     const {successMessage} = useContext(UserContext);
-
     const [faHeart, setFaHeart] = useState("fa-regular fa-heart");
-
     const [sizeText, setSizeText] = useState("");
-
     const [categoryCloth, setCategoryCloth] = useState("");
-
     const [colorArr, setColorArr] = useState([]);
-
     const [filterData, setFilterData] = useState();
-
     const letters = new Set();
 
     function onArrowClick(){
@@ -62,34 +40,16 @@ function CategorizedSection(){
     }
 
     function changeSizeText(e){
-        console.log(e.target.innerText);
         setSizeText(e.target.innerText);
         const updatedData = myData.filter((val)=>{
             return val.size.includes(e.target.innerText);
         });
-
         setFilterData(updatedData);
-
-        console.log("myData", myData);
     }   
-
-    // useEffect(()=>{
-    //     const updatedData = myData.filter((val)=>{
-    //         return val.size.includes(sizeText);
-    //     });
-
-    //     setFilterData(updatedData);
-
-    //     {filterData && console.log("filterdata", filterData)};
-    //     // setMyData(filterData);
-    //     console.log("myData", myData);
-    // },[sizeText]);
-
 
     function sortedArrowClick(){
         setSortFlag(!sortFlag);
     }
-
 
     function checkColor(e){
         setSelectedCircle(e);
@@ -97,24 +57,28 @@ function CategorizedSection(){
 
     function lowToHigh(){
         setChecked(!isChecked);
+        setHighTolowChecked(false)
+
     }
 
     function highToLow(){
+        setChecked(false);
+
         setHighTolowChecked(!highTolowChecked)
     }
 
     useEffect(()=>{
         
         if(isChecked){
-            const sortedData = [...myData].sort((a,b)=>{
+            const sortedData = [...filterData].sort((a,b)=>{
                 return a.price-b.price;
             })
 
-            setMyData(sortedData);
+            setFilterData(sortedData);
         }
 
         else{
-           setMyData(duplicateData);
+            setFilterData(duplicateData);
         }
      
         
@@ -123,14 +87,14 @@ function CategorizedSection(){
     useEffect(()=>{
            
         if(highTolowChecked){
-            const sortedData = [...myData].sort((a,b)=>{
+            const sortedData = [...filterData].sort((a,b)=>{
                 return b.price-a.price;
             });
-            setMyData(sortedData);
+            setFilterData(sortedData);
         }
 
         else{
-           setMyData(duplicateData);
+            setFilterData(duplicateData);
         }
     },[highTolowChecked]);
 
@@ -234,10 +198,7 @@ function CategorizedSection(){
         });
 
         let res = await data.json();
-        console.log("checkOut response", res);
-
         setWishListData(res.data?.items);
-        // {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
         setLoader(false);
     }
 
