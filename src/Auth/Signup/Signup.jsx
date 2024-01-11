@@ -4,8 +4,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import UserContext from "../../ContextApi/UserContext";
-import { Navigate, useHistory } from "react-router-dom";
-// import { useHistory } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -93,11 +91,15 @@ export default function SignUpPage({ showModal, onClose }) {
         let res = await data.json();
         console.log("Success Message", res);
         if(res.message){
-            setLoginMessage(res.message);
+            setLoginMessage("Wrong email or password !!");
+            setLoginEmail("");
+            setLoginPasswword("");
         }
         else{
             // setLoginSuccess("success");
-            setLoginMessage("Login Successful !!")
+            setLoginMessage("");
+            setLoginEmail("");
+            setLoginMessage("")
             console.log("res.status", res.status);
             
         }
@@ -168,15 +170,15 @@ export default function SignUpPage({ showModal, onClose }) {
                                             <input required type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                                             <button className="SignupButton">Submit</button>
                                         
-                                            <p style={{color:"green", fontSize:"13px"}}>{error}</p>
+                                            <p style={{color:setLoginMessage?"darkRed":"green", fontSize:"13px"}}>{error}</p>
                                         </div>
-                                    </form>: <form onClick={handleLoginClick}>
+                                    </form>: <form onSubmit={handleLoginClick}>
                                         <div className="SignupPage">
-                                            <input required type="email" placeholder="Enter Email" onChange={(e)=>setLoginEmail(e.target.value)}/>
-                                            <input required type="password" placeholder="Enter Password" onChange={(e)=>setLoginPasswword(e.target.value)}/>
+                                            <input required type="email" placeholder="Enter Email" value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)}/>
+                                            <input required type="password" placeholder="Enter Password" value={loginPassword} onChange={(e)=>setLoginPasswword(e.target.value)}/>
                                             <button className="SignupButton">Submit</button>
                                             {/* <p>Forget Password</p> */}
-                                            <p style={{color:"green"}}>{loginMessage}</p>
+                                            <p style={{color:"green", fontSize:"15px"}}>{loginMessage}</p>
                                         </div>
                                     </form>
                                 }

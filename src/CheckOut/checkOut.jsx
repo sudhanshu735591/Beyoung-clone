@@ -9,27 +9,14 @@ import CheckOutBar from "./CheckOutBar/CheckOutBar";
 function CheckOut() {
 
     const { token } = useContext(UserContext);
-
-    const { setCartCount } = useContext(UserContext);
-
     const [data, setdata] = useState(0);
-
-    // const [wishlistDataIter, setWishListDataIter] = useState([]);
-
     const {wishlistDataIter, setWishListDataIter} = useContext(UserContext);
-
     const {setWishListData} = useContext(UserContext);
-
     const {selectItem} = useContext(UserContext);
-
     const {setSelectChange} = useContext(UserContext);
-
     const {setGlobalPrice} = useContext(UserContext);
-
     const [loader, setLoader] = useState(false);
-
     const {setAddToCartDataLength} = useContext(UserContext);
-
     const {setWishListDataLength} = useContext(UserContext);
 
     let sum = 0;
@@ -38,8 +25,6 @@ function CheckOut() {
 
     const handleSelectedItem = (e, val) => {
         const newQuantity = parseInt(e.target.value);
-        // setSelectChange(e.target.value);
-
         setdata((prevData)=>{
             const newData = prevData.map((item)=>{
                 if(item.product._id===val._id){
@@ -50,11 +35,8 @@ function CheckOut() {
                 }
                 return item;
             });
-
             return newData;
         })
-
-    
     };
 
   
@@ -70,9 +52,7 @@ function CheckOut() {
             });
 
             let res = await data.json();
-
             setdata(res.data?.items);
-            // console.log("data current is", res.data?.items);
             setAddToCartDataLength(res?.data?.items?.length);
         }
 
@@ -83,8 +63,6 @@ function CheckOut() {
 
     useEffect(() => {
         fetchCheckOut();
-        
-
     }, [])
 
 
@@ -127,7 +105,6 @@ function CheckOut() {
         
         let res = await data?.json();
         wishListIter()
-
     }
 
 
@@ -143,9 +120,7 @@ function CheckOut() {
         });
 
         let res = await data.json();
-
         setWishListDataLength(res?.data?.items?.length);
-
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
         {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
