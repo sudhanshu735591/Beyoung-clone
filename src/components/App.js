@@ -8,11 +8,7 @@ import FavoriteItems from "./FavoriteItems/FavoriteItems";
 import AddressDetails from "./AddressDetails/AddressDetails";
 import Payment from "./Payment/Payment";
 
-
-
 function App() {
-
-  
   return( 
     <div className="App">
       <Routes>

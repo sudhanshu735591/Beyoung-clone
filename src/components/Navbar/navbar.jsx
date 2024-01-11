@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./navbar.css";
 import MenData from "../MenData/mendata";
 import { NavLink,  json,  useNavigate } from "react-router-dom";
@@ -20,6 +20,8 @@ function Navbar(){
     const {addToCartDataLength} = useContext(UserContext);
 
     const {wishListDataLength} = useContext(UserContext);
+
+   
 
     function onHandleClick(){
       setSearch(search?false:true);

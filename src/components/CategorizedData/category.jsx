@@ -53,31 +53,37 @@ function CategorizedSection(){
 
     const [colorArr, setColorArr] = useState([]);
 
+    const [filterData, setFilterData] = useState();
+
     const letters = new Set();
-
-
-
-
-    let arr = [];
-
 
     function onArrowClick(){
         show?setShow(false):setShow(true);
     }
 
     function changeSizeText(e){
+        console.log(e.target.innerText);
         setSizeText(e.target.innerText);
-       setMyData(duplicateData)
-    }
+        const updatedData = myData.filter((val)=>{
+            return val.size.includes(e.target.innerText);
+        });
 
+        setFilterData(updatedData);
 
-    useEffect(()=>{
-        const filterData = myData.filter((val)=>{
-            return val.size.includes(sizeText);
-        })
+        console.log("myData", myData);
+    }   
 
-        setMyData(filterData);
-    },[sizeText])
+    // useEffect(()=>{
+    //     const updatedData = myData.filter((val)=>{
+    //         return val.size.includes(sizeText);
+    //     });
+
+    //     setFilterData(updatedData);
+
+    //     {filterData && console.log("filterdata", filterData)};
+    //     // setMyData(filterData);
+    //     console.log("myData", myData);
+    // },[sizeText]);
 
 
     function sortedArrowClick(){
@@ -143,8 +149,9 @@ function CategorizedSection(){
             });
             
             let res = await data.json();
-            setMyData(res.data);
-            setDuplicateData(res.data);
+            setMyData(res?.data);
+            setFilterData(res?.data);
+            setDuplicateData(res?.data);
             setLoader(false);
             setCategoryCloth(res.data[0].subCategory);
 
@@ -263,7 +270,7 @@ function CategorizedSection(){
             </div>
 
             <div className="allDetailsCatbox">
-            {myData ? <div className="allDetails">
+            {filterData ? <div className="allDetails">
                 <div className="filter">
                     <div>FILTER</div>
                     <div className="colorArrow">
@@ -324,7 +331,7 @@ function CategorizedSection(){
                         <div style={{textTransform:"uppercase"}}>{categoryCloth}</div>
                         <div className="fetchedImage">
                             {
-                                selectedCircle? myData && myData.map((val)=>{
+                                selectedCircle? filterData && filterData.map((val)=>{
                                     if(val.color===selectedCircle){
                                         return(
                                         <div className="imageSection">
@@ -343,7 +350,9 @@ function CategorizedSection(){
                                     )
                                     }
                                 }): 
-                                changeSizeSelect? myData && myData.map((val)=>{
+
+                               
+                                changeSizeSelect? filterData && filterData.map((val)=>{
                                     if(val.size===changeSizeSelect){
                                         return(
                                         <div className="imageSection">
@@ -362,7 +371,7 @@ function CategorizedSection(){
                                     )
                                     }
                                 }):
-                                isChecked ? myData && myData.map((val)=>{
+                                isChecked ? filterData && filterData.map((val)=>{
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
@@ -377,7 +386,7 @@ function CategorizedSection(){
                                         </div>
                                     )
                                 }):
-                                !isChecked ? myData && myData.map((val, index)=>{
+                                !isChecked ? filterData && filterData.map((val, index)=>{
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
@@ -394,7 +403,7 @@ function CategorizedSection(){
                                 }):
 
 
-                                myData && myData.map((val)=>{
+                                filterData && filterData.map((val)=>{
                                     return(
                                         <div className="imageSection">
                                             <Link to={`/imageDetails/${val._id}`}>
