@@ -15,7 +15,6 @@
     justify-content: center;
 }
 .paymentOption{
-    border: 2px solid;
     display: flex;
     align-items: baseline;
 }

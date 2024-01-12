@@ -1,0 +1,90 @@
+.debitCardBox{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.debitCardChildBox{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.debitcardheading{
+    font-weight: 700;
+}
+
+.debitCardText{
+    font-size: 13px;
+    color: #a3a3a3;
+}
+
+.validity{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: baseline;
+}
+
+.validityText{
+    color: grey;
+    font-size: 12px;
+}
+
+.debitInputmm{
+    width: 26px;
+    padding: 13px;
+    border-radius: 6px;
+}
+
+.debitInputText{
+    width: 26px;
+    padding: 13px;
+    border-radius: 6px;
+}
+
+.cvv{
+    padding: 13px 10px;
+    border-radius: 6px;     
+}
+
+.cardmmyy{
+    display: flex;
+    gap: 15px;
+}
+
+.debitCardNum{
+    padding: 9px 80px;
+    border-radius: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+:-ms-input-placeholder{
+    display: flex;
+    text-align: start;
+}
+
+.debitCardSecured{
+    background: #f4f4f5;
+    padding: 15px 71px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.textper{
+    color: rgba(0, 0, 0, 0.4) !important;
+    font-family: Lato;
+    font-size: 13px !important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase !important;
+}

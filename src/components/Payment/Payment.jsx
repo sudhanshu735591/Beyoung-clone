@@ -3,12 +3,13 @@ import CheckOutBar from "../../CheckOut/CheckOutBar/CheckOutBar";
 import CheckOutNav from "../../CheckOut/CheckOutNavBar/CheckOutNav";
 import "./Payment.css";
 import Paytm from "./Paytm/Paytm";
+import DebitCard from "./DebitCart/DebitCart";
+import Upi from "./UPI/Upi";
 
 
 function Payment(){
 
     const [text, setText] = useState("");
-    const [flag, setFlag] = useState(false);
 
     function onHandleClick(e){
         console.log(e.target.innerText);
@@ -44,7 +45,7 @@ function Payment(){
 
 
 
-                            <li className="paymentli">
+                            <li onClick={onHandleClick} className="paymentli">
                                 <div className="sectiontext">
                                     <img className="paytmImage" src="https://www.beyoung.in/mobile/images/form/upi.png"/>
                                     <div className="upisection">
@@ -91,9 +92,8 @@ function Payment(){
                     </div>
 
                     <div>
-                       {
-                        <Paytm/>
-                       }
+                       {text==="Pay With Paytm" ? <Paytm/> : text==="Debit/Credit Card" ? <DebitCard/>: text==="UPI"? <Upi/>:<Paytm/>}
+                       {/* text==="Debit/Credit Card"? */}
                     </div>
                 </div>
 
