@@ -14,29 +14,36 @@ function AddressDetails(){
 
     const navigate = useNavigate();
 
-    const [formData, setFormData] = useState({
-        FirstName : "",
-        LastName : "",
-        Email:"",
-        Phone:"",
-        PinCode:"",
-        Town :"",
-        City:"",
-        State:"",
-        Address:"",
-    })
 
-    const [error, setError] = useState({
-        FirstName : "",
-        LastName : "",
-        Email:"",
-        Phone:"",
-        PinCode:"",
-        Town :"",
-        City:"",
-        State:"",
-        Address:"",
-    });
+    const {formData, setFormData} = useContext(UserContext);
+
+    const {error, setError} = useContext(UserContext);
+
+
+
+    // const [formData, setFormData] = useState({
+    //     FirstName : "",
+    //     LastName : "",
+    //     Email:"",
+    //     Phone:"",
+    //     PinCode:"",
+    //     Town :"",
+    //     City:"",
+    //     State:"",
+    //     Address:"",
+    // })
+
+    // const [error, setError] = useState({
+    //     FirstName : "",
+    //     LastName : "",
+    //     Email:"",
+    //     Phone:"",
+    //     PinCode:"",
+    //     Town :"",
+    //     City:"",
+    //     State:"",
+    //     Address:"",
+    // });
 
     const handleChange = (e)=>{
         const {name, value} = e.target;
@@ -65,9 +72,12 @@ function AddressDetails(){
 
         if(Object.keys(newError).length>0){
             setError(newError);
+
         }
         
         else{
+            console.log("formData", formData);
+
             navigate("/payment");
         }
     }

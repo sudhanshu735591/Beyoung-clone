@@ -39,6 +39,30 @@ const UserContextProvider = ({children})=>{
 
     const [data, setdata] = useState();
 
+    const [formData, setFormData] = useState({
+        FirstName : "",
+        LastName : "",
+        Email:"",
+        Phone:"",
+        PinCode:"",
+        Town :"",
+        City:"",
+        State:"",
+        Address:"",
+    })
+
+    const [error, setError] = useState({
+        FirstName : "",
+        LastName : "",
+        Email:"",
+        Phone:"",
+        PinCode:"",
+        Town :"",
+        City:"",
+        State:"",
+        Address:"",
+    });
+
 
 
 
@@ -64,7 +88,8 @@ const UserContextProvider = ({children})=>{
             addToCartDataLength, setAddToCartDataLength,
             wishListDataLength, setWishListDataLength,
             data, setdata,
-
+            formData, setFormData,
+            error, setError
         } }>
             
         {children}

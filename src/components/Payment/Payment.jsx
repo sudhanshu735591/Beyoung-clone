@@ -23,6 +23,9 @@ function Payment(){
     const {setGlobalPrice} = useContext(UserContext);
     const navigate = useNavigate();
 
+    const {formData} = useContext(UserContext);
+
+
 
     function checkOutHandler(){
         navigate("/address");
@@ -145,9 +148,9 @@ function Payment(){
 
                     <div className="PaymentDeliveryBox">
                         <div className="paymentDeliveryDetails" style={{padding:"0px  30px"}}>
-                            <div className="deliveryPersonDetails">Deliver To:<span className="deliveryPersonName">Shanu Ss</span></div>
-                            <div className="deliveryAddress">Ballia,Bansdih Ballia, 277202</div>
-                            <div className="deliveryContactDetails">Contact Number: <span className="deliveryContactnumber">7355913935</span></div>
+                            <div className="deliveryPersonDetails">Deliver To:<span className="deliveryPersonName">{` ${formData.FirstName}`}</span></div>
+                            <div className="deliveryAddress">{`${formData.City}, ${formData.Town}, ${formData.PinCode}`}</div>
+                            <div className="deliveryContactDetails">Contact Number: <span className="deliveryContactnumber">{formData.Phone}</span></div>
                         </div>
 
 
