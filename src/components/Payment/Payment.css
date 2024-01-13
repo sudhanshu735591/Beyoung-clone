@@ -17,6 +17,7 @@
 .paymentOption{
     display: flex;
     align-items: baseline;
+    gap: 60px;
 }
 
 .sectiontext{
@@ -50,4 +51,26 @@
     border-right: 4px solid #fff !important;
     border-bottom: 4px solid #fff !important;
     background: #f8f8f8 !important;
+}
+
+.deliveryPersonDetails{
+    display: flex;
+}
+
+.deliveryPersonName{
+    font-weight: 600;
+}
+
+.deliveryAddress{
+    display: flex;
+    color: grey;
+}
+
+.deliveryContactDetails{
+    color: grey;
+    display: flex;
+}
+
+.deliveryContactnumber{
+    font-weight: 600;
 }

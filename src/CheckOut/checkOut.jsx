@@ -5,11 +5,12 @@ import UserContext from "../ContextApi/UserContext";
 import CheckOutNav from "./CheckOutNavBar/CheckOutNav";
 import { useNavigate } from "react-router-dom";
 import CheckOutBar from "./CheckOutBar/CheckOutBar";
+import PriceDetails from "./PriceDetails/PriceDetails";
 
 function CheckOut() {
 
     const { token } = useContext(UserContext);
-    const [data, setdata] = useState(0);
+    const {data, setdata} = useContext(UserContext);
     const {wishlistDataIter, setWishListDataIter} = useContext(UserContext);
     const {setWishListData} = useContext(UserContext);
     const {selectItem} = useContext(UserContext);
@@ -53,6 +54,7 @@ function CheckOut() {
 
             let res = await data.json();
             setdata(res.data?.items);
+            console.log("res.data?.items", res.data?.items);
             setAddToCartDataLength(res?.data?.items?.length);
         }
 
@@ -123,7 +125,7 @@ function CheckOut() {
         setWishListDataLength(res?.data?.items?.length);
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
-        {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
+        // {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
         setLoader(false);
     }
 
@@ -221,8 +223,10 @@ function CheckOut() {
                         }
                     </div>
 
+                    <PriceDetails data={data} selectItem = {selectItem}  setSelectChange = {setSelectChange} setGlobalPrice={setGlobalPrice} checkOutHandler={checkOutHandler}/>
 
-                    <div className="checkOutPrice_Text">
+
+                    {/* <div className="checkOutPrice_Text">
                         <div style={{ borderBottom: "1px solid", display:"flex", fontSize:"12px", padding:"10px 0px" }}>
                             <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
                             {setSelectChange(item)}
@@ -273,7 +277,7 @@ function CheckOut() {
                             </div>
                             <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
 

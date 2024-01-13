@@ -1,0 +1,30 @@
+.walletHeading{
+    display: flex;
+    font-weight: 600;
+}
+
+.walletPaymentText{
+    color: grey;
+    font-size: 12px;
+}
+
+.radioSectionBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.RadioBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.radiowalletsection{
+    display: flex;
+    gap: 20px;
+}
+
+.imagewalletSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
