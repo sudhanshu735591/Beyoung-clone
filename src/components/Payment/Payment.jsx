@@ -13,26 +13,19 @@ import UserContext from "../../ContextApi/UserContext";
 
 function Payment(){
     const { token } = useContext(UserContext);
-    console.log("token",token);
-
     const [text, setText] = useState("");
     const {data, setdata} = useContext(UserContext);
-    
     const {selectItem} = useContext(UserContext);
     const {setSelectChange} = useContext(UserContext);
     const {setGlobalPrice} = useContext(UserContext);
     const navigate = useNavigate();
-
     const {formData} = useContext(UserContext);
-
-
 
     function checkOutHandler(){
         navigate("/address");
     }
 
     function onHandleClick(e){
-        console.log(e.target.innerText);
         setText(e.target.innerText);
     }
 
@@ -52,7 +45,6 @@ function Payment(){
 
             let res = await data.json();
             setdata(res.data?.items);
-            console.log("res.data?.items", res.data?.items);
         }
 
         catch (error) {
@@ -81,8 +73,6 @@ function Payment(){
                                     <p className="paywithpaytm"  >Pay with Paytm</p>
                                 </div>
                             </li>
-
-
 
                             <li onClick={onHandleClick} className="paymentli">
                                 <div className="sectiontext">
@@ -148,14 +138,14 @@ function Payment(){
 
                     <div className="PaymentDeliveryBox">
                         <div className="paymentDeliveryDetails" style={{padding:"0px  30px"}}>
-                            <div className="deliveryPersonDetails">Deliver To:<span className="deliveryPersonName">{` ${formData.FirstName}`}</span></div>
+                            <div className="deliveryPersonDetails">Deliver To: <span className="deliveryPersonName">{` ${formData.FirstName} ${formData.LastName}`}</span></div>
                             <div className="deliveryAddress">{`${formData.City}, ${formData.Town}, ${formData.PinCode}`}</div>
                             <div className="deliveryContactDetails">Contact Number: <span className="deliveryContactnumber">{formData.Phone}</span></div>
                         </div>
 
 
                         <div className="addressSection">
-                           {data &&  <PriceDetails data={data} selectItem = {selectItem}  setSelectChange = {setSelectChange} setGlobalPrice={setGlobalPrice} checkOutHandler={checkOutHandler}/>}
+                           {data && <PriceDetails data={data} selectItem = {selectItem}  setSelectChange = {setSelectChange} setGlobalPrice={setGlobalPrice} checkOutHandler={checkOutHandler}/>}
                         </div>
                     </div>
                 </div>
