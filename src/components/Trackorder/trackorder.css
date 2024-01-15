@@ -9,12 +9,22 @@
     
 }
 
-.text{
-    margin-right: 38%;
+.trackOrderBox{
+    display: flex;
+    width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
 }
 
 .login-signup{
     display: flex;
     gap: 6px;
     font-size: 13px;
+}
+
+.TrackBox{
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
 }

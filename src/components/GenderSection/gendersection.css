@@ -1,11 +1,12 @@
 .mensection{
     background: linear-gradient(90deg, rgba(248, 235, 39, 0.00) 0%, #F8EB27 48.11%, rgba(248, 235, 39, 0.00) 100%);
-    width: 63%;
+    width: 72vw;
     color: #000;
     font-size: 19px;
     font-weight: 600;
-    padding: 15px 0px;
-    margin: 20px auto;
+    padding: 18px 0px;
+    margin: auto;
+    margin-top: 24px;
 }
 
 .parentDiv{
@@ -17,13 +18,18 @@
     margin: 0 auto;
 }
 
+.imageData:nth-child(1){
+    display: flex;
+    width: 52% !important;
+}
+
 
 .imageData{
     display: flex;
-    justify-content: center;
     margin: auto;
     padding: 10px;
     position: relative;
+    /* width: 100%; */
 }
 
 .imageCategories{
@@ -32,22 +38,22 @@
 }
 
 .sideImageData{
-    height: 187px;
-    width: 153px;
-    margin-left: 16px;
+    height: 259px;
+    width: 251px;
+    padding: 0px 15px;
+    border-radius: 23px;
 }
 
 .tshirtText{
     position: relative;
-    bottom: 31px;
+    bottom: 34px;
     color: black;
-    font-size: 10px;
-    margin: 7px;
+    font-size: 18px;
     display: flex;
     text-transform: capitalize;
     border-left: 3px solid rgb(224, 224, 10);
-    margin-right: 46px;
-    padding-left: 6px;
+    left: 26px;
+    padding-left: 10px;
 }
 
 .tshirt1{
@@ -63,33 +69,34 @@
     display: flex;
     gap: 13px;
     overflow: hidden;
-    width: 79%;
-    margin: 20px auto;
+    width: 76vw;
+    margin: 20px;
     position: relative;
+    right: 107px;
 }
 
 
 .bottomWear{
-    height: 242px;
-    width: 200px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    height: 327px;
+    width: 257px;
     color: black;
     text-decoration: none;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
 }
 
-
-.flex{
-    overflow: hidden;
-    height: 400px;
-    width: 29vw;
+.genderTshirtsList{
+ 
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(4, 1fr);
     a {
         text-decoration: none !important;
     }
+
 }
+
+
 
 .flex2{
     display: grid;
@@ -132,16 +139,27 @@
 }
 
 .rightArrow{
-       width: 16px;
     background-color: white;
     position: absolute;
-    top: 187px;
+    top: 263px;
     color: black;
     -webkit-transform: rotate(269deg);
     transform: rotate(269deg);
     height: 24px;
-    right: 1%;
+    right: 8%;
+    height: 32px;
+    z-index: 1;
+    width: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 3px 20px #070707;
+    color: #989090;
+    cursor: pointer;
+    transition: right 0.3s ease;
 }
+
+
 
 .bottoWearText{
     color: black;
@@ -149,10 +167,11 @@
     background: #ddd6d6;
     margin: -4px 0px;
     border-radius: 1px;
-    padding: 11px 8px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 10px;
+    padding: 15px 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
     display: flex;
+
 }
 
 .bottomContainer{
@@ -184,24 +203,32 @@
  
 }
 
-.largeImage{
-    display: flex;
-    margin-bottom: 19px;
-}
 
 .leftArrow{
     position: absolute;
     top: 45%;
-    right: 97%;
-    background: white;
+    right: 1215px;
+    -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
+    background-color: white;
+    height: 28px;
+    z-index: 1;
+    width: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 3px 20px #070707;
+    color: #989090;
+    cursor: pointer;
+    transition: right 0.3s ease;
 }
 
 .BottomLeftArrow{
     position: relative;
-    top: 122px;
+    top: 171px;
     height: 20px;
     background: white;
+    -webkit-transform: rotate(89deg);
     transform: rotate(89deg);
     cursor: pointer;
     z-index: 1;
@@ -215,7 +242,7 @@
     cursor: pointer;
     position: absolute;
     right: 3px;
-    top: 50%;
+    top: 46%;
     height: 20px;
     width: 20px;
 }
@@ -308,4 +335,21 @@
 
 a:-webkit-any-link {
     text-decoration: none;
+}
+
+.LargeImageData{
+    width: 29em;
+    border-radius: 12px;
+    height: 550px;
+}
+
+.GenderSectionImageBox{
+    display: flex;
+}
+
+.genderSectionBoxDetails{
+    position: relative;
+    right: 7%;
+    width: 75vw;
+    overflow: hidden;
 }

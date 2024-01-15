@@ -192,9 +192,10 @@ function CheckOut() {
                                                 </div>
 
                                                 <div className="productBox">
-                                                    <div style={{ fontWeight: "700", fontSize: "10px" }}>
+                                                    <div style={{ fontWeight: "700", fontSize: "15px" }}>
                                                         {val.product.name}
                                                     </div>
+                                                    
 
                                                     <div style={{ fontWeight: "700" }}>
                                                         {`₹ ${parseInt(val.product.price * val.quantity)}`}
@@ -224,60 +225,6 @@ function CheckOut() {
                     </div>
 
                     <PriceDetails data={data} selectItem = {selectItem}  setSelectChange = {setSelectChange} setGlobalPrice={setGlobalPrice} checkOutHandler={checkOutHandler}/>
-
-
-                    {/* <div className="checkOutPrice_Text">
-                        <div style={{ borderBottom: "1px solid", display:"flex", fontSize:"12px", padding:"10px 0px" }}>
-                            <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
-                            {setSelectChange(item)}
-                        </div>
-
-                        <div className="detailsandnumber">
-                            <div className="checkOutDetailsBox">
-                                <div>Total MRP (Inc. of Taxes)</div>
-
-                                {
-                                    !selectItem ?  sum = data.reduce((acc, val) => acc + parseInt(val.product.price * val.quantity), 0):
-                                    sum = data.reduce((acc, val) => acc + parseInt(val.product.price * selectItem),0)
-
-                                }
-                                
-                                {
-                                    setGlobalPrice(sum)
-                                }
-
-                            </div>
-                        </div>
-
-                        <div className="detailsandnumber">
-                            <div className="checkOutDetailsBox">
-                                <div>Beyoung Discount</div>
-                                <div>0</div>
-                            </div>
-                        </div>
-
-                        <div className="detailsandnumber">
-                            <div className="checkOutDetailsBox">
-                                <div>Shipping</div>
-                                <div>Free</div>
-                            </div>
-                        </div>
-
-                        <div className="detailsandnumber">
-                            <div className="checkOutDetailsBox">
-                                <div>Cart Total</div>
-                                <div>₹{sum}</div>
-                            </div>
-                        </div>
-
-                        <div className="amountDetailsBox">
-                            <div className="amountDetails">
-                                <div>Total amount</div>
-                                <div>₹{sum}</div>
-                            </div>
-                            <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
-                        </div>
-                    </div> */}
                 </div>
 
 

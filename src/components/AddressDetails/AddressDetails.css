@@ -17,6 +17,7 @@
     border-bottom: 2px solid #f5eeee;
     display: flex;
     padding-bottom: 9px;
+    font-size: 21px;
 }
 
 .offerSection{
@@ -82,26 +83,26 @@
 .text_price{
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .beyoungDiscount{
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 15px;
 
 }
 
 .shipingSection{
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .cartTotalSection{
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .MRPsection{
@@ -131,7 +132,7 @@
     background: #4caf50;
     width: 100%;
     color: white;
-    padding: 4px;
+    padding: 9px;
     font-size: 10px;
 }
 
@@ -141,4 +142,13 @@
     display: flex;
     position: relative;
     bottom: 12px;
+}
+
+.addressInputBox    {
+    width: 250px;
+    padding: 9px;
+}
+
+.destination{
+    width: 530px;
 }

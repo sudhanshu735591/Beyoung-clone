@@ -20,8 +20,8 @@
 
 .allDetails{
     display: flex;
-    margin: 28px 395px;
-    gap: 33px;
+    gap: 69px;
+    justify-content: center;
 }
 
 .typeText{
@@ -32,8 +32,9 @@
 .colorArrow{
     display: flex;
     align-items: center;
-    gap: 41px;
     margin-top: -41px;
+    width: 119%;
+    justify-content: space-between;
 }
 
 
@@ -53,8 +54,9 @@
 }
 
 .fetchedImageData{
-    height: 241px;
-    width: 172px;
+    height: 391px;
+    width: 285px;
+    border-radius: 10px;
 }
 
 
@@ -79,13 +81,13 @@
 }
 
 .price{
-    font-size: 15px;
+    font-size: 24px;
 }
 
 
 .circleData{
-    height: 13px;
-    width: 13px;
+    height: 30px;
+    width: 30px;
     border: 2px solid;
     border-radius: 50%;
 }
@@ -95,18 +97,20 @@
     margin-top: -47px;
     gap: 6px;
     flex-wrap: wrap;
-    width: 114px;
+    width: 193px;
 }
 
 .sizeSection{
     display: flex;
     align-items: center;
     gap: 56px;
+    width: 188px;
+    justify-content: space-between;
 
 }
 
 .sizeDetails{
-    font-size: 12px;
+    font-size: 15px;
     margin-top: -52px;
     font-weight: 400;
 }
@@ -127,14 +131,15 @@
 
 .PriceSection{
     display: flex;
-    gap: 1px;
+    gap: 9px;
+    margin-top: 10px;
 }
 
-.priceSectionData{
+/* .priceSectionData{
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
+} */
 
 
 
@@ -216,4 +221,10 @@
       display: grid;
 
     }
+}
+
+.filterText{
+    font-size: 21px;
+    color: #4a4444;
+    padding-right: 98px;
 }

@@ -1,8 +1,17 @@
 const Tshirts_Categories = {
     t_Shirts :{
-        img : "https://www.beyoung.in/api/catalog/homepage-3-10/T-shirt-section/new/9.jpg",
+        // img : "https://www.beyoung.in/api/catalog/homepage-3-10/T-shirt-section/new/9.jpg",
 
         list:[
+
+            {
+                img : "https://www.beyoung.in/api/catalog/homepage-3-10/T-shirt-section/new/9.jpg",
+                // name:"Oversized T-Shirts",
+                // search : {name:"Oversized"},
+                // filter:{subCategory:'tshirt', gender:"Men"}
+            },
+
+            
             {
                 img : "https://www.beyoung.in/api/catalog/homepage-3-10/T-shirt-section/new/oversized.jpg",
                 name:"Oversized T-Shirts",

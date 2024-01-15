@@ -1,17 +1,19 @@
 .sections{
     font-weight: bold;
-    font-size: 17px;
+    font-size: 27px;
+
 }
 
 .section_tag{
     display: flex;
-    gap: 52px;
     flex-wrap: wrap;
+    position: -webkit-sticky;
     position: sticky;
     top: 0px;
     background-color: white;
-    padding: 12px;
+    padding: 16px;
     z-index: 1;
+    justify-content: space-around;
 }
 
 .list ul li{
@@ -23,13 +25,11 @@
 .list ul{
     display: flex;
     gap: 29px;
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .list{
-    margin-left: 17%;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -61,10 +61,10 @@
         display: block;
         background-color: white;
         height: 40%;
-        width: 45%;
+        width: 60%;
         position: absolute;
-        top:77px;
-        left: 376px;
+        top:122px;
+        left: 165px;
         display: flex;
         flex-direction: column;
         align-items: baseline;

@@ -56,8 +56,6 @@ function ImageDetails() {
 
             let res = await api.json();
 
-            // console.log("etc", res);
-            // {res.status!=="fail" && setAddToCartDataLength(res?.data?.items?.length)};
             setMyData(res.data);
             setMyApi(res.data);
             setAddressData(res.data);
@@ -101,8 +99,7 @@ function ImageDetails() {
 
             setCartCount(res?.results);
             {res.status!=="fail" && setAddToCartDataLength(res?.data?.items?.length)};
-            // console.log("res etc",res.data.items.length);
-            // {res.status!=="fail" ? localStorage.setItem("data", JSON.stringify(res.data?.items)): alert("Data already exist")};
+           
         }
         catch(error){
             console.log(error);
@@ -188,7 +185,7 @@ function ImageDetails() {
                         </div>
 
                         <div className="quantity">
-                            <div style={{fontSize:"12px"}}>QTY:</div>
+                            <div style={{fontSize:"17px"}}>QTY:</div>
                             <select onChange={(e)=>setSelectChange(e.target.value)}>
                                 <option>1</option>
                                 <option>2</option>
@@ -213,8 +210,8 @@ function ImageDetails() {
                         <div className="delivery">
                             <div className="text">DELIVERY OPTIONS</div>
                             <div className="pincode">
-                                <div style={{fontSize:"10px"}}>Enter your Pincode to check the delivery time and free pick up options</div>
-                                <input type="text" placeholder="Enter Pincode" />
+                                <div style={{fontSize:"12px"}}>Enter your Pincode to check the delivery time and free pick up options</div>
+                                <input className="pincodeInputBox" type="text" placeholder="Enter Pincode" />
                                 <div className="logo">
                                     <img className="logoImage" src="https://www.beyoung.in/desktop/images/product-details-2/cod.jpg" />
                                     <p>Cash On Delivery</p>

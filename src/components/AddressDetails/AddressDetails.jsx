@@ -96,35 +96,35 @@ function AddressDetails(){
 
                     <div className="formDetails">
                         <div className="nameandlastname">
-                            <input style={{border: error.FirstName?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.FirstName} name="FirstName" type="text" placeholder="First Name*"/>
-                            <input style={{border: error.LastName?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.LastName} name="LastName" type="text" placeholder="Last Name*"/>
+                            <input className = "addressInputBox" style={{border: error.FirstName?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.FirstName} name="FirstName" type="text" placeholder="First Name*"/>
+                            <input className = "addressInputBox" style={{border: error.LastName?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.LastName} name="LastName" type="text" placeholder="Last Name*"/>
                         </div>
 
                         <div className="emailandphone">
-                            <input style={{border: error.Email?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Email} name="Email" type="Email" placeholder="Email*"/>
+                            <input className = "addressInputBox" style={{border: error.Email?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Email} name="Email" type="Email" placeholder="Email*"/>
                             <div className="countryCodeBox">
                                 <div className="countrybox">
                                     <div className="CountryCode"></div>
-                                    <input style={{border: error.Phone?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Phone} name="Phone" type="number" placeholder="Phone*"/>
+                                    <input className = "addressInputBox" style={{border: error.Phone?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Phone} name="Phone" type="number" placeholder="Phone*"/>
                                 </div>
                             </div>
                         </div>
 
                         <div className="pincodeandvillage">
                             <div >
-                                <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.PinCode} name="PinCode" type="number" placeholder="PIN CODE*"/>
+                                <input className = "addressInputBox" style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.PinCode} name="PinCode" type="number" placeholder="PIN CODE*"/>
                             </div>
-                            <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Town} name="Town" type="text" placeholder="TOWN/VILLAGE*"/>
+                            <input className = "addressInputBox" style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Town} name="Town" type="text" placeholder="TOWN/VILLAGE*"/>
                         </div>
                         {error.PinCode && <div className="errorMsg" style={{ color: 'red' }}>Pincode</div>}
 
                         <div className="cityandstate">
-                            <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.City} name="City" type="text" placeholder="City/District*"/>
-                            <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.State} name="State" type="text" placeholder="State*"/>
+                            <input className = "addressInputBox" style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.City} name="City" type="text" placeholder="City/District*"/>
+                            <input className = "addressInputBox" style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.State} name="State" type="text" placeholder="State*"/>
                         </div>
 
                         <div className="address">
-                            <input style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} className="addressInput" value={formData.Address} name="Address" type="text" placeholder="Address(House No. Building Street Area)*"/>
+                            <input className="addressInputBox destination" style={{border: error.PinCode?"1px solid red":"2px solid #ddd"}} onChange={handleChange} value={formData.Address} name="Address" type="text" placeholder="Address(House No. Building Street Area)*"/>
                         </div>
                     </div>
                 </div>

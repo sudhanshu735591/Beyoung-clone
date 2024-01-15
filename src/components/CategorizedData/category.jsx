@@ -233,12 +233,15 @@ function CategorizedSection(){
             <div className="allDetailsCatbox">
             {filterData ? <div className="allDetails">
                 <div className="filter">
-                    <div>FILTER</div>
+                    <div className="filterText">FILTER</div>
                     <div className="colorArrow">
                         <div>
                             <div>COLOR</div>
                         </div>
+                        <div>
                         <img onClick={onArrowClick} className="arrow" src="https://www.beyoung.in/desktop/images/category/arrow.svg"/>
+
+                        </div>
                     </div>
 
                     <div className="flexCircle">

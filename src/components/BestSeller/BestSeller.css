@@ -1,16 +1,15 @@
 .bestSellerBox{
-    width: 51%;
-    margin: 20px auto;
+    width: 74%;
+    margin: 37px 191px;
     display: flex;
     overflow: scroll;
     gap: 20px;
 }
 
 .bestImage{
-    height: 240px;
-    width: 200px;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    height: 301px;
+    width: 248px;
+    border-radius: 12px;
 }
 
 

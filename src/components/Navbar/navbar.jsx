@@ -42,10 +42,10 @@ function Navbar(){
             const mydataElement = document.getElementById('listData');
     
             if (mydataElement) {
-                if (window.scrollY >= 30.20000076293945) {
-                    mydataElement.style.top = '33px';
+                if (window.scrollY >= 40.20000076293945) {
+                    mydataElement.style.top = '45px';
                 } else {
-                    mydataElement.style.top = '76px';
+                    mydataElement.style.top = '130px';
                 }
             }
         } 
@@ -88,7 +88,7 @@ function Navbar(){
  
     return(
         <div className="section_tag">
-            <Hamburger/>
+            {/* <Hamburger/> */}
 
             <div className="list">
                 <span style={{cursor:"pointer"}} onClick={handleLogoClick} className="sections">BEYOUNG.</span>

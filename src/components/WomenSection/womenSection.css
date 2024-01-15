@@ -1,11 +1,14 @@
 .womenImage{
-    height: 200px;
-    width: 171px;
+    height: 304px;
+    width: 276px;
+    margin-top: 20px;
+    border-radius: 12px;
+    position: relative;
 }
 
 .slider{
     margin: auto;
-    width: 76%;
+    width: 100%;
 }
 
 
@@ -49,10 +52,16 @@
 }
 
 .womenTextData{
-    margin-top: -29px;
-    font-size: 12px;
+    font-size: 17px;
     margin-right: 60px;
     color: black;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    margin-left: 17px;
+    padding: 13px;
+    bottom: 56px;
+    left: -16px;
 }
 
 
@@ -88,4 +97,11 @@
         height: 200px;
         width: 142px;
     }
+}
+
+
+.imageSlider{
+    position: relative;
+    width: 74vw;
+    right: 6%;
 }

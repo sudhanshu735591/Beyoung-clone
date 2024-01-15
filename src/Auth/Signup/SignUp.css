@@ -40,3 +40,33 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.loginEmailBox{
+    width: 16vw;
+    height: 21px;
+    border: 2px solid grey;
+}
+
+.loginPasswordBox{
+    width:16vw;
+    height: 21px;
+    border: 2px solid grey;
+}
+
+.signUpInputBox{
+    width:16vw;
+    height: 21px;
+    border: 2px solid grey;
+}
+
+.signUpPasswordBox{
+    width:16vw;
+    height: 21px;
+    border: 2px solid grey;
+}
+
+.signUpEmailBox{
+    width:16vw;
+    height: 21px;
+    border: 2px solid grey;
+}
