@@ -21,7 +21,7 @@ function GenderSection(props) {
 
   const bottomImageWidth = 2540;
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function checkClicked() {
     navigate("/categorized");

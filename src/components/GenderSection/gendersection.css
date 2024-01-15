@@ -1,6 +1,5 @@
 .mensection{
     background: linear-gradient(90deg, rgba(248, 235, 39, 0.00) 0%, #F8EB27 48.11%, rgba(248, 235, 39, 0.00) 100%);
-    width: 72vw;
     color: #000;
     font-size: 19px;
     font-weight: 600;
@@ -10,10 +9,6 @@
 }
 
 .parentDiv{
-    /* display: flex;
-    flex-direction: column;
-    max-width: 85%;
-    margin: auto; */
     max-width: 1032px;
     margin: 0 auto;
 }
@@ -69,7 +64,7 @@
     display: flex;
     gap: 13px;
     overflow: hidden;
-    width: 76vw;
+    width: 1200px;
     margin: 20px;
     position: relative;
     right: 107px;
@@ -207,7 +202,7 @@
 .leftArrow{
     position: absolute;
     top: 45%;
-    right: 1215px;
+    right: 1264px;
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
     background-color: white;
@@ -350,6 +345,6 @@ a:-webkit-any-link {
 .genderSectionBoxDetails{
     position: relative;
     right: 7%;
-    width: 75vw;
+    width: 1200px;
     overflow: hidden;
 }

@@ -11,7 +11,7 @@
     position: sticky;
     top: 0px;
     background-color: white;
-    padding: 16px;
+    padding: 10px;
     z-index: 1;
     justify-content: space-around;
 }
@@ -19,7 +19,8 @@
 .list ul li{
     list-style-type: none;
     flex-direction: row;
-    font-weight:600;
+    font-weight:600;    /* border: 2px solid; */
+    padding: 4px 14px;
 }
 
 .list ul{

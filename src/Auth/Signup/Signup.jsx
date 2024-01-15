@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import UserContext from "../../ContextApi/UserContext";
+import { Button } from "@mui/material";
 
 const style = {
     position: 'absolute',
@@ -154,8 +155,8 @@ export default function SignUpPage({ showModal, onClose }) {
                                 
                                 <div className="loginSignUp">
                                     <div onClick={handleLoginText}>Login</div>
-                                    <div style={{color:"black", textDecoration:"none", cursor:"auto"}}>or</div>
-                                    <div onClick={handleSignText}> Signup</div>
+                                    {/* <div style={{color:"black", textDecoration:"none", cursor:"auto"}}>or</div> */}
+                                    {/* <div onClick={handleSignText}>Signup</div> */}
                                 </div>
 
                                 {
@@ -165,7 +166,7 @@ export default function SignUpPage({ showModal, onClose }) {
                                             <input className="signUpInputBox" required type="text" placeholder="Enter Username" value={username} onChange={(e)=>setUserName(e.target.value)}/>
                                             <input className="signUpPasswordBox" required type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                                             <input className="signUpEmailBox" required type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                                            <button className="SignupButton">Submit</button>
+                                            <button className="SignupButton">Sign-up</button>
                                         
                                             <p style={{color:setLoginMessage?"darkRed":"green", fontSize:"13px"}}>{error}</p>
                                         </div>
@@ -173,7 +174,14 @@ export default function SignUpPage({ showModal, onClose }) {
                                         <div className="SignupPage">
                                             <input className="loginEmailBox" required type="email" placeholder="Enter Email" value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)}/>
                                             <input className="loginPasswordBox" required type="password" placeholder="Enter Password" value={loginPassword} onChange={(e)=>setLoginPasswword(e.target.value)}/>
-                                            <button className="SignupButton">Submit</button>
+                                            <button className="SignupButton">Login</button>
+                                            <div style={{display:"flex", fontSize:"10px"}}>
+                                            <div style={{textDecoration:"underline"}}>You don't have account?? </div>
+                                            <div onClick={handleSignText} style={{color:"blue"}}> Signup</div>
+                                            </div>
+                                          
+
+                                            {/* <p>You don't have account <span onClick={handleSignText} style={{cursor:"pointer", color:"blue"}}>Sign-up</span></p> */}
                                             {/* <p>Forget Password</p> */}
                                             <p style={{color:"green", fontSize:"15px"}}>{loginMessage}</p>
                                         </div>
@@ -185,9 +193,6 @@ export default function SignUpPage({ showModal, onClose }) {
                 </Box>
             </Modal>: null
             }
-
-          
-            
         </div>
     );
 }
