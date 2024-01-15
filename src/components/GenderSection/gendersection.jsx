@@ -27,6 +27,7 @@ function GenderSection(props) {
     navigate("/categorized");
     setMenViewAllData(true);
   }
+  
 
 
   const scrollContainer = () => {
