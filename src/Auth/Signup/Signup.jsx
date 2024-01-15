@@ -35,11 +35,12 @@ export default function SignUpPage({ showModal, onClose }) {
 
     const {successMessage} = React.useContext(UserContext);
 
-
+    const [buttoninnerText, setButtonInnerText] = React.useState("Login");
     const {setToken} = React.useContext(UserContext);
 
-    let [text, setText] = React.useState("or Signup");
+    let [text, setText] = React.useState("Login");
 
+   
     const fetchApi = async()=>{
         try{
             
@@ -91,7 +92,7 @@ export default function SignUpPage({ showModal, onClose }) {
 
         let res = await data.json();
         if(res.message){
-            setLoginMessage("Wrong email or password !!");
+            {loginEmail && loginPassword && setLoginMessage("Wrong email or password !!")}
             setLoginEmail("");
             setLoginPasswword("");
         }
@@ -131,8 +132,14 @@ export default function SignUpPage({ showModal, onClose }) {
     } 
 
     const handleSignText = (e)=>{
+        console.log("text", e.target.innerText);
         setText(e.target.innerText);
     } 
+
+
+    function LoginText(){
+        setText("Login");
+    }
 
     return (
         <div>
@@ -154,9 +161,7 @@ export default function SignUpPage({ showModal, onClose }) {
                             <div className="loginContainer">
                                 
                                 <div className="loginSignUp">
-                                    <div onClick={handleLoginText}>Login</div>
-                                    {/* <div style={{color:"black", textDecoration:"none", cursor:"auto"}}>or</div> */}
-                                    {/* <div onClick={handleSignText}>Signup</div> */}
+                                    <div onClick={handleLoginText}>{text}</div>
                                 </div>
 
                                 {
@@ -167,6 +172,11 @@ export default function SignUpPage({ showModal, onClose }) {
                                             <input className="signUpPasswordBox" required type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                                             <input className="signUpEmailBox" required type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                                             <button className="SignupButton">Sign-up</button>
+
+                                            <div style={{display:"flex", fontSize:"12px"}}>
+                                                <p style={{textDecoration:"underline"}}>Already have an account !!</p>
+                                                <p onClick={LoginText} style={{marginLeft:"3px", color:"blue", cursor:"pointer"}}>Login</p>
+                                            </div>
                                         
                                             <p style={{color:setLoginMessage?"darkRed":"green", fontSize:"13px"}}>{error}</p>
                                         </div>
@@ -175,14 +185,14 @@ export default function SignUpPage({ showModal, onClose }) {
                                             <input className="loginEmailBox" required type="email" placeholder="Enter Email" value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)}/>
                                             <input className="loginPasswordBox" required type="password" placeholder="Enter Password" value={loginPassword} onChange={(e)=>setLoginPasswword(e.target.value)}/>
                                             <button className="SignupButton">Login</button>
-                                            <div style={{display:"flex", fontSize:"10px"}}>
-                                            <div style={{textDecoration:"underline"}}>You don't have account?? </div>
-                                            <div onClick={handleSignText} style={{color:"blue"}}> Signup</div>
+
+                                            <div style={{display:"flex", fontSize:"12px"}}>
+                                                <div style={{textDecoration:"underline"}}>
+                                                    <p>You don't have account? </p>
+                                                </div>
+                                                <div onClick={handleSignText} style={{color:"blue", cursor:"pointer", marginLeft:"4px"}}> Signup</div>
                                             </div>
                                           
-
-                                            {/* <p>You don't have account <span onClick={handleSignText} style={{cursor:"pointer", color:"blue"}}>Sign-up</span></p> */}
-                                            {/* <p>Forget Password</p> */}
                                             <p style={{color:"green", fontSize:"15px"}}>{loginMessage}</p>
                                         </div>
                                     </form>

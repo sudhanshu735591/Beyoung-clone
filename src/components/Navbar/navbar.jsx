@@ -43,7 +43,7 @@ function Navbar(){
     
             if (mydataElement) {
                 if (window.scrollY >= 40.20000076293945) {
-                    mydataElement.style.top = '45px';
+                    mydataElement.style.top = '40px';
                 } else {
                     mydataElement.style.top = '130px';
                 }
@@ -166,7 +166,7 @@ function Navbar(){
                     {
                         <div className="addtonumWishList" style={{background:!successMessage || !wishListDataLength ? "transparent":"yellow"}}>
                             {
-                                token && wishListDataLength?wishListDataLength: null
+                                token && wishListDataLength ? wishListDataLength: null
                             } 
                         </div>
                     }

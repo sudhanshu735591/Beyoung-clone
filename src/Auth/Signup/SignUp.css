@@ -21,11 +21,12 @@
 } */
 
 .SignupButton{
-    padding: 6px 104px;
+    padding: 7px 90px;
     background: blue;
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .loginSignUp{
@@ -33,7 +34,8 @@
     gap: 4px;
     justify-content: center;
     align-items: center;
-    color: blue;
+    text-transform: uppercase;
+    font-size: 15px;
 }
 
 .loginSignUp :hover{
