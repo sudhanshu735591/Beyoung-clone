@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 import SignUpPage from "../../Auth/Signup/Signup";
 import WomenDataObj from "../WomenDataObj/WomenDataObj";
 import Hamburger from "../Hamburger/hamburger";
+import ProductComingSoon from "../ProductComingSoon/ProductComingSoon";
 
 function Navbar(){
 
@@ -150,10 +151,36 @@ function Navbar(){
                         }
                     </li>
 
-                    <li>COMBOS</li>
-                    <li>BB K FAVORITES</li>
-                    <li>WINTER WEARS</li>
-                    <li>NEW ARRIVALS</li>
+                    <li className="men">COMBOS
+                        {
+                            <div className="listData">
+                                <ProductComingSoon/>
+                            </div>
+                        }
+                    </li>
+
+
+                    <li className="men">BB K FAVORITES
+                        {
+                            <div className="listData">
+                                <ProductComingSoon/>
+                            </div>
+                        }
+                    </li>
+                    <li className="men">WINTER WEARS
+                        {
+                            <div className="listData">
+                                <ProductComingSoon/>
+                            </div>
+                        }
+                    </li>
+                    <li className="men">NEW ARRIVALS
+                        {
+                            <div className="listData">
+                                <ProductComingSoon/>
+                            </div>
+                        }
+                    </li>
                 </ul>
             </div>
             

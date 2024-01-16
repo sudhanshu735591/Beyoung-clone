@@ -1,0 +1,7 @@
+.ComingSoon{
+    height: 50%;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

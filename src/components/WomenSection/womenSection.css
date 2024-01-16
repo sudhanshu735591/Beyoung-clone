@@ -31,7 +31,7 @@
 .womenSectionFlex{
     display: flex;
     overflow: scroll;
-    gap: 10px;
+    gap: 25px;
     overflow-y: hidden;
     a{
         text-decoration: none !important;
@@ -58,10 +58,12 @@
     z-index: 1;
     position: relative;
     display: flex;
-    margin-left: 17px;
-    padding: 13px;
-    bottom: 56px;
-    left: -16px;
+    padding: 8px;
+    bottom: 40px;
+    left: 10px;
+    border-left: 4px solid #ffdd00;
+    height: 2px;
+    align-items: center;
 }
 
 
