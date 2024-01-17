@@ -9,7 +9,6 @@ function Signup(){
 
     const {setSuccessMessage,successMessage} = useContext(UserContext);
     const {token, setToken} = useContext(UserContext);
-    console.log("token", token);
 
 
     function checkToken(){
@@ -27,11 +26,7 @@ function Signup(){
     }
 
     function Logout(){
-        // setToken("");
-
         setToken(localStorage.removeItem("Token"));
-        // console.log("local remove token is",{token});
-
         setSuccessMessage("");
     }
 

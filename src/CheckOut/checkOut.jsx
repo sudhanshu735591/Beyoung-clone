@@ -54,7 +54,6 @@ function CheckOut() {
 
             let res = await data.json();
             setdata(res.data?.items);
-            console.log("res.data?.items", res.data?.items);
             setAddToCartDataLength(res?.data?.items?.length);
         }
 
@@ -123,6 +122,7 @@ function CheckOut() {
 
         let res = await data.json();
         setWishListDataLength(res?.data?.items?.length);
+        localStorage.setItem("wishListLength", res?.data?.items?.length)
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
         setLoader(false);

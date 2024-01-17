@@ -18,6 +18,8 @@ function Navbar(){
 
     const {addToCartDataLength} = useContext(UserContext);
 
+    console.log("addToCartDataLength", addToCartDataLength);
+
     const {wishListDataLength} = useContext(UserContext);
 
     const[showModal, setShowModal] = useState(false);
@@ -201,9 +203,9 @@ function Navbar(){
 
                 <div className="addToWishList">
                     {
-                        <div className="addtonumWishList" style={{background:!localStorage.getItem("Token") || !wishListDataLength ? "transparent":"yellow"}}>
+                        <div className="addtonumWishList" style={{background:!localStorage.getItem("Token") || !localStorage.getItem("wishListLength") ? "transparent":"yellow"}}>
                             {
-                                localStorage.getItem("Token") && wishListDataLength ? wishListDataLength: null
+                                localStorage.getItem("Token") && localStorage.getItem("wishListLength") ? localStorage.getItem("wishListLength"): null
                             } 
                         </div>
                     }
@@ -212,8 +214,8 @@ function Navbar(){
                 <svg onClick={handleWishList} width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 8.06253C22 15.0874 12.0004 21 12.0004 21C12.0004 21 2 15 2 8.07677C2 5.25003 4.22222 3.00003 7 3.00003C9.77778 3.00003 12 6.37503 12 6.37503C12 6.37503 14.2222 3.00003 17 3.00003C19.7778 3.00003 22 5.25003 22 8.06253Z" stroke="black" stroke-width="1.5" stroke-linecap="round"></path></svg>
 
                 <div className="addToCart">
-                    {<div className="addToNumber" style={{background:!localStorage.getItem("Token") || !addToCartDataLength? "transparent":"yellow"}} >{
-                        localStorage.getItem("Token") && addToCartDataLength ? addToCartDataLength:<div></div>
+                    {<div className="addToNumber" style={{background:!localStorage.getItem("Token") || !localStorage.getItem("cartLength")? "transparent":"yellow"}} >{
+                        localStorage.getItem("Token") && localStorage.getItem("cartLength") ? localStorage.getItem("cartLength") :<div></div>
                     }
                 </div>}
 

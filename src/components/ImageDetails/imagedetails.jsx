@@ -16,21 +16,12 @@ function ImageDetails() {
     let [clickIndex, setClickIndex] = useState(null);
     let { id } = useParams();
     const [showModal, setShowModal] = useState(false);
-    const {successMessage} = useContext(UserContext);
     const {setCartCount} = useContext(UserContext);
     const {setClothSize, clothSize} = useContext(UserContext);
     const {setMyApi} = useContext(UserContext);
-    // const [selectChange, setSelectChange] = useState();
-
     const {selectChange,setSelectChange} = useContext(UserContext);
     const {setAddressData} = useContext(UserContext);
-
     const {setAddToCartDataLength} = useContext(UserContext);
-    
-
-
-
-
     const [loader, setLoader] = useState(false);
 
     const handleClose = ()=>{
@@ -71,12 +62,10 @@ function ImageDetails() {
         fetchApi();
         setClothSize("");
         setAddCart(true);
-    window.scrollTo(0, 0);
-
-        
+        window.scrollTo(0, 0);
     }, []);
 
-    const {token, setToken} = useContext(UserContext);
+    const {token} = useContext(UserContext);
 
     const addToCart = async()=>{
         try{
@@ -99,6 +88,7 @@ function ImageDetails() {
 
             setCartCount(res?.results);
             {res.status!=="fail" && setAddToCartDataLength(res?.data?.items?.length)};
+            localStorage.setItem("cartLength", res?.data?.items?.length)
            
         }
         catch(error){
