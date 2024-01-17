@@ -86,7 +86,6 @@ function FavoriteItems() {
             },
         })
         let res = await data.json();
-        console.log("delete", res);
         setWishListDataLength(res?.data?.items?.length);
 
         setWishData((prevWishData) => prevWishData.filter(item => item.products._id != id));
@@ -97,7 +96,7 @@ function FavoriteItems() {
 
     function wishListItem(val) {
 
-        if (!successMessage) {
+        if (!localStorage.getItem("Token")) {
             setShowModal(true);
         }
 
@@ -184,7 +183,7 @@ function FavoriteItems() {
 
                 {showModal && createPortal(<SignUpPage showModal={showModal} onClose={handleClose} />, document.body)}
 
-                {!showModal && setClickCart && createPortal(<BasicModal clickCart={clickCart} onClose={handleCloseModel} setClickId={clickId} size={size} />, document.body)}
+                {!showModal && setClickCart && createPortal(<BasicModal clickCart={clickCart} onClose={handleCloseModel} setClickId={clickId}/>, document.body)}
 
             </div>
 

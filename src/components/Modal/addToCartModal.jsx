@@ -19,7 +19,7 @@ const style = {
     p: 4,
 };
 
-export default function BasicModal({ clickCart, onClose, setClickId , size}) {
+export default function BasicModal({ clickCart, onClose, setClickId }) {
 
     const [selectNumber, setSelectNumber] = React.useState();
 
@@ -108,13 +108,11 @@ export default function BasicModal({ clickCart, onClose, setClickId , size}) {
                                 <div className='dropDown' style={{fontSize:"10px"}}>Size
                                     <select required className='optionValue' onChange={(e)=>setSelectSize(e.target.value)}>
                                         <option>Select</option>
-                                        {
-                                            size && size.map((val)=>{
-                                                return(
-                                                    <option>{val}</option>
-                                                )
-                                            })
-                                        }
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                        <option>XXL</option>
                                     </select>
                                 </div>
                             </div>

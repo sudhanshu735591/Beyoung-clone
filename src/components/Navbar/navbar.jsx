@@ -14,13 +14,17 @@ function Navbar(){
 
     let [search, setSearch] = useState(false);
 
-    const {successMessage} = useContext(UserContext);
-
-    const {token, setToken} = useContext(UserContext);
+    const { setToken } = useContext(UserContext);
 
     const {addToCartDataLength} = useContext(UserContext);
 
     const {wishListDataLength} = useContext(UserContext);
+
+    const[showModal, setShowModal] = useState(false);
+
+    const navigate = useNavigate();
+
+
 
 
     function checkToken(){
@@ -42,10 +46,6 @@ function Navbar(){
         navigate("/");
     }
 
-
-    const[showModal, setShowModal] = useState(false);
-
-    const navigate = useNavigate();
 
     const handleScroll = () => {
         try {
