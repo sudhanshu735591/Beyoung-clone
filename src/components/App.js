@@ -7,9 +7,14 @@ import CheckOut from "../CheckOut/checkOut";
 import FavoriteItems from "./FavoriteItems/FavoriteItems";
 import AddressDetails from "./AddressDetails/AddressDetails";
 import Payment from "./Payment/Payment";
+import { useContext } from "react";
+import UserContext from "../ContextApi/UserContext";
+
 
 
 function App() {
+const {token} = useContext(UserContext);
+
   return( 
     <div className="App">
       <Routes>

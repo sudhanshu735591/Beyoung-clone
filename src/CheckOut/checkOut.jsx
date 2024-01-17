@@ -125,7 +125,6 @@ function CheckOut() {
         setWishListDataLength(res?.data?.items?.length);
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
-        // {res?.data && localStorage.setItem("WishListData", JSON.stringify(res.data?.items))};
         setLoader(false);
     }
 

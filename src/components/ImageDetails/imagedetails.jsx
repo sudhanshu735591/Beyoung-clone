@@ -76,7 +76,7 @@ function ImageDetails() {
         
     }, []);
 
-    const {token} = useContext(UserContext);
+    const {token, setToken} = useContext(UserContext);
 
     const addToCart = async()=>{
         try{
@@ -111,7 +111,7 @@ function ImageDetails() {
             setAddCart(false);
         }
 
-        if(!successMessage){    
+        if(!localStorage.getItem("Token")){    
             setShowModal(true);
         }
         
@@ -130,7 +130,7 @@ function ImageDetails() {
     const navigate = useNavigate();
 
     function buyNowHandler(){
-        {successMessage ? navigate("/checkout") : setShowModal(true)};
+        {localStorage.getItem('Token') ? navigate("/checkout") : setShowModal(true)};
     }
     
 

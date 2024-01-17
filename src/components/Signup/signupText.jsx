@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SignUpPage from "../../Auth/Signup/Signup";
 import { createPortal } from "react-dom";
 import UserContext from "../../ContextApi/UserContext";
@@ -9,13 +9,29 @@ function Signup(){
 
     const {setSuccessMessage,successMessage} = useContext(UserContext);
     const {token, setToken} = useContext(UserContext);
+    console.log("token", token);
+
+
+    function checkToken(){
+        if(localStorage.getItem("Token")){
+            setToken(localStorage.getItem("Token"));
+        }
+    }
+
+    useEffect(()=>{
+        checkToken();
+    },[]);
 
     function handleCartClick(){
         setShowModal(true);
     }
 
     function Logout(){
-        setToken("");
+        // setToken("");
+
+        setToken(localStorage.removeItem("Token"));
+        // console.log("local remove token is",{token});
+
         setSuccessMessage("");
     }
 

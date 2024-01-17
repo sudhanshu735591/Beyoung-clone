@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import UserContext from "../../ContextApi/UserContext";
-import { Button } from "@mui/material";
 
 const style = {
     position: 'absolute',
@@ -35,7 +34,6 @@ export default function SignUpPage({ showModal, onClose }) {
 
     const {successMessage} = React.useContext(UserContext);
 
-    const [buttoninnerText, setButtonInnerText] = React.useState("Login");
     const {setToken} = React.useContext(UserContext);
 
     let [text, setText] = React.useState("Login");
@@ -97,7 +95,6 @@ export default function SignUpPage({ showModal, onClose }) {
             setLoginPasswword("");
         }
         else{
-            // setLoginSuccess("success");
             setLoginMessage("");
             setLoginEmail("");
             setLoginMessage("")
@@ -105,14 +102,22 @@ export default function SignUpPage({ showModal, onClose }) {
 
         if(res.status==="success"){
             setSuccessMessage(true);
-            console.log("successMessage", successMessage);
-            setToken(res.token);
+            localStorage.setItem("Token", res?.token);
+            setToken(localStorage.getItem("Token"));
         }
     }
 
     const handleLoginClick= (e)=>{
         e.preventDefault();
         fetchLogin();
+
+        // if(localStorage.getItem("Token")){
+        //     console.log("Yess");
+        //     setToken(localStorage.getItem("Token"))
+        // }
+        // else{
+        //     fetchLogin();
+        // }
     }
 
 
@@ -145,7 +150,6 @@ export default function SignUpPage({ showModal, onClose }) {
         <div>
             {
                 !successMessage?
-
                 <Modal
                 open={showModal}
                 onClose={handleClose}
