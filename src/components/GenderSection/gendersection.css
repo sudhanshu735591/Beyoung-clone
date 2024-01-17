@@ -221,13 +221,19 @@
 .BottomLeftArrow{
     position: relative;
     top: 171px;
-    height: 20px;
+    height: 27px;
     background: white;
     -webkit-transform: rotate(89deg);
     transform: rotate(89deg);
     cursor: pointer;
     z-index: 1;
-    left: 26px;
+    left: 39px;
+    min-width: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 3px 20px #070707;
+    color: #989090;
 }
 
 .BottomRightArrow{
@@ -236,10 +242,15 @@
     transform: rotate(269deg);
     cursor: pointer;
     position: absolute;
-    right: 3px;
+    right: 0px;
     top: 46%;
-    height: 20px;
-    width: 20px;
+    height: 27px;
+    width: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 3px 20px #070707;
+    color: #989090;
 }
 
 .largeImageData{
