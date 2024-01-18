@@ -55,9 +55,9 @@ function Navbar(){
     
             if (mydataElement) {
                 if (window.scrollY >= 40.20000076293945) {
-                    mydataElement.style.top = '40px';
+                    mydataElement.style.top = '20px';
                 } else {
-                    mydataElement.style.top = '130px';
+                    mydataElement.style.top = '120px';
                 }
             }
         } 

@@ -61,7 +61,7 @@ function PriceDetails(props){
                 <div>Total amount</div>
                 <div>₹{sum}</div>
             </div>
-            <Button className="checkOutButton" text="CHECKOUT SECURELY" />
+            <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
         </div>
     </div>
 

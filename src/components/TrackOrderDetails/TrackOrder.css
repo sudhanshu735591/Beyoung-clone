@@ -1,20 +1,109 @@
-.orderImage{
-    height: 223px;
-    width: 223px;
-    padding: 20px;
-    border-radius: 33px;
-    cursor: pointer;
-}
 
 .trackBox{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
-.textOrderDetails{
-    position: relative;
-    bottom: 20px;
+
+.detailsoftrackbox{
+    margin-top: 54px;
+}
+
+.shipment{
+    background: yellow;
+    width: 28%;
+    margin: auto;
+    padding: 7px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.trackingIdBox{
     display: flex;
-    left: 21px;
+    justify-content: center;
+}
+
+.childradioBoxandtext{
+    display: flex;
+    gap: 10px;
+}
+
+.SearchBy{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 92%;
+}
+
+.trackingIdBox{
+    background-color: #f1f1f1;
+    width: 60%;
+    margin: auto;
+    padding: 2% 6%;
+}
+
+.SearchByText{
+    font-weight: 600;
+    display: flex;
+
+}
+
+.parentSearchByText{
+    margin-top: 72px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.inputBoxtrack{
+    width: 415px;
+    padding: 9px;
+    border: 2px solid #e8e8e8;
+    border-radius: 6px;
+}
+
+.trackinputBoxText{
+    display: flex;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.trackinputBox{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 65%;
+}
+
+.buttonInTrackOrder{
+    background: #51cccc;
+    font-weight: 600;
+    color: white;
+    border: none;
+    padding: 9px 27px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.inputDetailsTrackBox{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ThanksText{
+    background: black;
+    color: white;
+    padding: 34px;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 59px;
+
+}
+
+
+.redHeart{
+    height: 21px;
 }
