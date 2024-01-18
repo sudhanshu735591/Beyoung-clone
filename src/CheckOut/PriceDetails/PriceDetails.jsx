@@ -7,14 +7,14 @@ function PriceDetails(props){
 
     let sum = 0;
     let item = 0;
-
     const {data, selectItem, setSelectChange,setGlobalPrice,checkOutHandler} = props;
-    
+       
     return(
         <div className="checkOutPrice_Text">
         <div style={{ borderBottom: "1px solid", display:"flex", fontSize:"12px", padding:"10px 0px" }}>
             <h3>PRICE DETAILS  ({item = data.reduce((acc, val) => acc + parseInt(val.quantity), 0)} items)</h3>
             {setSelectChange(item)}
+            {localStorage.setItem("setSelectChange", item)}
         </div>
 
         <div className="detailsandnumber">
@@ -26,6 +26,7 @@ function PriceDetails(props){
                     sum = data.reduce((acc, val) => acc + parseInt(val.product.price * selectItem),0)
 
                 }
+                {localStorage.setItem("sum", sum)}
                 
                 {
                     setGlobalPrice(sum)
@@ -60,7 +61,7 @@ function PriceDetails(props){
                 <div>Total amount</div>
                 <div>₹{sum}</div>
             </div>
-            <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
+            <Button className="checkOutButton" text="CHECKOUT SECURELY" />
         </div>
     </div>
 

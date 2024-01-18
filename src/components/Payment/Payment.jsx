@@ -41,8 +41,6 @@ function Payment(){
                 }
             });
 
-            console.log("mydata", data);
-
             let res = await data.json();
             setdata(res.data?.items);
         }

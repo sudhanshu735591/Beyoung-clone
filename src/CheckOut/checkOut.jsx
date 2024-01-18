@@ -9,7 +9,6 @@ import PriceDetails from "./PriceDetails/PriceDetails";
 
 function CheckOut() {
 
-    const { token } = useContext(UserContext);
     const {data, setdata} = useContext(UserContext);
     const {wishlistDataIter, setWishListDataIter} = useContext(UserContext);
     const {setWishListData} = useContext(UserContext);
@@ -46,7 +45,7 @@ function CheckOut() {
             let data = await fetch(" https://academics.newtonschool.co/api/v1/ecommerce/cart", {
                 method: "GET",
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    'Authorization': `Bearer ${localStorage.getItem("Token")}`,
                     'projectID': 'zx5u429ht9oj',
                     "Content-Type": "application/json",
                 }
@@ -54,6 +53,7 @@ function CheckOut() {
 
             let res = await data.json();
             setdata(res.data?.items);
+            localStorage.setItem("data", JSON.stringify(res.data?.items))
             setAddToCartDataLength(res?.data?.items?.length);
         }
 
@@ -72,7 +72,7 @@ function CheckOut() {
             let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${val}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    'Authorization': `Bearer ${localStorage.getItem("Token")}`,
                     'projectID': 'zx5u429ht9oj',
                     "Content-Type": "application/json",
                 }
@@ -81,6 +81,8 @@ function CheckOut() {
             let res = await data.json();
             setAddToCartDataLength(res?.data?.items?.length);
             setdata(res.data.items);
+            localStorage.setItem("data", JSON.stringify(res.data?.items))
+
         }
 
         catch (error) {
@@ -94,7 +96,7 @@ function CheckOut() {
             method: "PATCH",
 
             headers: {
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
                 'projectID': 'zx5u429ht9oj',
                 "Content-Type": "application/json",
             },
@@ -115,14 +117,14 @@ function CheckOut() {
             method: "GET",
 
             headers: {
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
                 'projectID': 'zx5u429ht9oj',
             },
         });
 
         let res = await data.json();
         setWishListDataLength(res?.data?.items?.length);
-        localStorage.setItem("wishListLength", res?.data?.items?.length)
+        res && localStorage.setItem("wishListLength", res?.data?.items?.length)
         setWishListDataIter(res.data?.items);
         setWishListData(res.data?.items);
         setLoader(false);
@@ -133,20 +135,18 @@ function CheckOut() {
         let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`,{
             method: "DELETE",
             headers: {  
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
                 'projectID': 'zx5u429ht9oj',
             },
         })
 
         let res = await data.json();
         setWishListDataLength(res?.data?.items?.length);
-
         wishListIter();
     }
 
 
     const navigate = useNavigate();
-
 
     function checkOutHandler(){
         navigate("/address");
@@ -226,8 +226,7 @@ function CheckOut() {
                     <PriceDetails data={data} selectItem = {selectItem}  setSelectChange = {setSelectChange} setGlobalPrice={setGlobalPrice} checkOutHandler={checkOutHandler}/>
                 </div>
 
-
-                {wishlistDataIter.length>0 &&<div className="wishListBox">
+                {wishlistDataIter.length>0 && <div className="wishListBox">
                 <div className="wishListParentText">Add from wishlist</div>
                     <div className="wishListDataIter">
                         {

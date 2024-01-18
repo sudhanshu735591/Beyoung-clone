@@ -1,50 +1,114 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import CheckOutNav from "../../CheckOut/CheckOutNavBar/CheckOutNav";
 import Button from "../button/button";
 
 import "./AddressDetails.css";
 import UserContext from "../../ContextApi/UserContext";
 import CheckOutBar from "../../CheckOut/CheckOutBar/CheckOutBar";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
+import OrderHistoryApi from "../APIDATA/OrderHistoryApi";
 
 function AddressDetails(){
 
-    const {selectChange} = useContext(UserContext);
-    const {globalPrice} = useContext(UserContext);
-
+    // const {selectChange} = useContext(UserContext);
+    // const {globalPrice} = useContext(UserContext);
     const navigate = useNavigate();
-
-
     const {formData, setFormData} = useContext(UserContext);
-
     const {error, setError} = useContext(UserContext);
 
+    useEffect(()=>{
+        const token = localStorage.getItem("Token");
+        console.log("token in adress---", token);
+    },[])
+
+   
+
+    async function placeOrder(id, quantity){
+        
+        console.log("id", id, "quantity", quantity);
+        try{
+            let data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/order",{
+            method:"POST",
+            headers: {
+                'projectID': 'zx5u429ht9oj',
+                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+                productId : id,
+                quantity : quantity,
+                addressType: "HOME",
+                address: {
+                  street: formData.Address,
+                  city: formData.City,
+                  state: formData.State,
+                  country: "India",
+                  zipCode: formData.PinCode
+                }
+            })
+        })
+
+        console.log("Data", data);
+        let res = await data.json();
+
+        if(res.status==="success"){
+            navigate("/payment");
+            alert("success");
+        }
+        console.log("Adddress", res);
+        }
+        catch(error){
+            console.log("error",error);
+        }
+    }
 
 
-    // const [formData, setFormData] = useState({
-    //     FirstName : "",
-    //     LastName : "",
-    //     Email:"",
-    //     Phone:"",
-    //     PinCode:"",
-    //     Town :"",
-    //     City:"",
-    //     State:"",
-    //     Address:"",
-    // })
 
-    // const [error, setError] = useState({
-    //     FirstName : "",
-    //     LastName : "",
-    //     Email:"",
-    //     Phone:"",
-    //     PinCode:"",
-    //     Town :"",
-    //     City:"",
-    //     State:"",
-    //     Address:"",
-    // });
+  function trackOrderDetails(){
+    const storedData = localStorage.getItem("data");
+    // placeOrder()
+    if(storedData && Array.isArray(JSON.parse(storedData))){
+        console.log(JSON.parse(storedData));
+        JSON.parse(storedData).map((val)=>{
+            placeOrder(val.product._id, val.quantity)
+        })
+    }
+  }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+   
+
+
+  
+
+    
     const handleChange = (e)=>{
         const {name, value} = e.target;
     
@@ -72,13 +136,12 @@ function AddressDetails(){
 
         if(Object.keys(newError).length>0){
             setError(newError);
-
         }
         
         else{
-            console.log("formData", formData);
-
-            navigate("/payment");
+            // navigate("/payment");
+            placeOrder();
+            
         }
     }
 
@@ -129,17 +192,13 @@ function AddressDetails(){
                     </div>
                 </div>
 
-
-
-
-
                 <div className="offerSection">
                     <div className="priceDetails">
-                        <div className="priceText">Price Details( {selectChange} items)</div>
+                        <div className="priceText">Price Details( {localStorage.getItem("setSelectChange")} items)</div>
                         <div className="MRPsection">
                             <div className="text_price">
                                 <div className="TotalMRPText">Total MRP (Inc. of Taxes)</div>
-                                <div className="Price">₹ {globalPrice}</div>
+                                <div className="Price">₹ {localStorage.getItem("sum")}</div>
                             </div>
 
                             <div className="beyoungDiscount">
@@ -154,7 +213,7 @@ function AddressDetails(){
 
                             <div className="cartTotalSection">
                                 <div className="cartTotal">Cart Total</div>
-                                <div className="Price">₹ {globalPrice}</div>
+                                <div className="Price">₹ {localStorage.getItem("sum")}</div>
                             </div>
                         </div>
                     </div>
@@ -163,7 +222,7 @@ function AddressDetails(){
                     <div className="totalAmount">
                         <div className="textPriceBox">
                             <div className="totalText">TOTAL AMOUNT</div>
-                            <div className="priceTotal">₹ {globalPrice}</div>
+                            <div className="priceTotal">₹ {localStorage.getItem("sum")}</div>
                         </div>
 
                         <div className="SavedBox">
@@ -171,7 +230,7 @@ function AddressDetails(){
                         </div>
 
                         <div className="CheckoutBoxSecurely">
-                            <Button text ="CHECKOUT SECURELY" className="checkOutSecurelyButton"/>
+                            <Button text ="CHECKOUT SECURELY" onClick = {trackOrderDetails}  className="checkOutSecurelyButton"/>
                         </div>
                     </div>
                 </div>
