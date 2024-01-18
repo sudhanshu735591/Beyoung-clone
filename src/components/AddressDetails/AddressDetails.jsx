@@ -16,65 +16,11 @@ function AddressDetails(){
     const {formData, setFormData} = useContext(UserContext);
     const {error, setError} = useContext(UserContext);
 
-    useEffect(()=>{
-        const token = localStorage.getItem("Token");
-        console.log("token in adress---", token);
-    },[])
-
-   
-
-    async function placeOrder(id, quantity){
-        
-        console.log("id", id, "quantity", quantity);
-        try{
-            let data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/order",{
-            method:"POST",
-            headers: {
-                'projectID': 'zx5u429ht9oj',
-                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
-                "Content-Type": "application/json",
-            },
-
-            body: JSON.stringify({
-                productId : id,
-                quantity : quantity,
-                addressType: "HOME",
-                address: {
-                  street: formData.Address,
-                  city: formData.City,
-                  state: formData.State,
-                  country: "India",
-                  zipCode: formData.PinCode
-                }
-            })
-        })
-
-        console.log("Data", data);
-        let res = await data.json();
-
-        if(res.status==="success"){
-            navigate("/payment");
-            alert("success");
-        }
-        console.log("Adddress", res);
-        }
-        catch(error){
-            console.log("error",error);
-        }
-    }
 
 
 
-  function trackOrderDetails(){
-    const storedData = localStorage.getItem("data");
-    // placeOrder()
-    if(storedData && Array.isArray(JSON.parse(storedData))){
-        console.log(JSON.parse(storedData));
-        JSON.parse(storedData).map((val)=>{
-            placeOrder(val.product._id, val.quantity)
-        })
-    }
-  }
+
+
 
 
 
@@ -139,8 +85,8 @@ function AddressDetails(){
         }
         
         else{
-            // navigate("/payment");
-            placeOrder();
+            navigate("/payment");
+            // placeOrder();
             
         }
     }
@@ -230,7 +176,7 @@ function AddressDetails(){
                         </div>
 
                         <div className="CheckoutBoxSecurely">
-                            <Button text ="CHECKOUT SECURELY" onClick = {trackOrderDetails}  className="checkOutSecurelyButton"/>
+                            <Button text ="CHECKOUT SECURELY"  className="checkOutSecurelyButton"/>
                         </div>
                     </div>
                 </div>

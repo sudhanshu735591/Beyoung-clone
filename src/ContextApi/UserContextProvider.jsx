@@ -39,6 +39,8 @@ const UserContextProvider = ({children})=>{
 
     const [data, setdata] = useState();
 
+    const [productId, setProductId] = useState();
+
     const [formData, setFormData] = useState({
         FirstName : "",
         LastName : "",
@@ -89,7 +91,8 @@ const UserContextProvider = ({children})=>{
             wishListDataLength, setWishListDataLength,
             data, setdata,
             formData, setFormData,
-            error, setError
+            error, setError,
+            productId, setProductId
         } }>
             
         {children}

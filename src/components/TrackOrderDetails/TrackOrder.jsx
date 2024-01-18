@@ -8,11 +8,6 @@ import Footer from "../Footer/footer";
 
 function TrackOrderDetails() {
 
-
-
-
-
-
     return (
         <>
             <Topbanner />
@@ -37,10 +32,6 @@ function TrackOrderDetails() {
                                     </div>
                                 </div>
 
-                               
-
-
-
                                 <div className="trackinputBox">
                                     <div className="trackinputBoxText">Enter Details</div>
                                     <div className="inputDetailsTrackBox">
@@ -56,7 +47,7 @@ function TrackOrderDetails() {
                         <div className="childThanksText"><span><img className="redHeart" src="https://www.beyoung.in/desktop/images/customer-shipment-track/heart-svgrepo-com.svg"/></span> Thank you for shopping at Beyoung, keep loving! <span><img className="redHeart" src="https://www.beyoung.in/desktop/images/customer-shipment-track/heart-svgrepo-com.svg"/></span>  </div>
                     </div>
                 </div>
-                    <Footer/>
+                <Footer/>
             </div>
         </>
     )

@@ -34,10 +34,9 @@ function Signup(){
         setShowModal(false);
     }
 
-
     return(
         <div>
-            {!successMessage && !token ? <div style={{cursor:"pointer", fontSize:"10px"}} onClick={handleCartClick}> LOGIN | SIGN UP </div>:<div style={{cursor:"pointer"}} onClick={Logout} className="logout">LOGOUT</div>}
+            {!localStorage.getItem("Token") && !token ? <div style={{cursor:"pointer", fontSize:"14px" , fontWeight:"400"}} onClick={handleCartClick}> LOGIN | SIGN UP </div>:<div style={{cursor:"pointer" , fontWeight:"400"}}  className="logout"><span>MY ACCOUNT | </span><span onClick={Logout}>LOGOUT</span></div>}
             {showModal && createPortal(<SignUpPage showModal = {showModal} onClose = {handleClose}/>,  document.body)}
         </div>
     )

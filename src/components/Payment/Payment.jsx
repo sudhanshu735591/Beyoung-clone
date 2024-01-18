@@ -7,7 +7,7 @@ import DebitCard from "./DebitCart/DebitCart";
 import Upi from "./UPI/Upi";
 import WalletOffer from "./Wallets Offers/WalletsOffer";
 import PriceDetails from "../../CheckOut/PriceDetails/PriceDetails";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import UserContext from "../../ContextApi/UserContext";
 
 
@@ -21,13 +21,72 @@ function Payment(){
     const navigate = useNavigate();
     const {formData} = useContext(UserContext);
 
-    function checkOutHandler(){
-        navigate("/address");
-    }
+    const {setProductId} = useContext(UserContext);
+
+    // function checkOutHandler(){
+    //     navigate("/address");
+    // }
 
     function onHandleClick(e){
         setText(e.target.innerText);
     }
+
+
+
+    async function placeOrder(id, quantity){
+        
+        console.log("id", id, "quantity", quantity);
+        try{
+            let data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/order",{
+            method:"POST",
+            headers: {
+                'projectID': 'zx5u429ht9oj',
+                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+                productId : id,
+                quantity : quantity,
+                addressType: "HOME",
+                address: {
+                  street: formData.Address,
+                  city: formData.City,
+                  state: formData.State,
+                  country: "India",
+                  zipCode: formData.PinCode
+                }
+            })
+        })
+
+        console.log("Data", data);
+        let res = await data.json();
+
+        if(res.status==="success"){
+            navigate("/ordersuccess");
+            alert("success");
+        }
+        console.log("Adddress", res.data._id);
+        setProductId(res?.data?._id);
+        }
+        catch(error){
+            console.log("error",error);
+        }
+    }
+
+
+
+
+    function trackOrderDetails(){
+        const storedData = localStorage.getItem("data");
+        // placeOrder()
+        if(storedData && Array.isArray(JSON.parse(storedData))){
+            console.log(JSON.parse(storedData));
+            JSON.parse(storedData).map((val)=>{
+                placeOrder(val.product._id, val.quantity)
+            })
+        }
+      }
 
 
     const fetchCheckOut = async () => {
@@ -52,6 +111,7 @@ function Payment(){
 
     useEffect(() => {
         fetchCheckOut();
+        console.log("dtat", data);
     }, [])
 
 
@@ -143,7 +203,7 @@ function Payment(){
 
 
                         <div className="addressSection">
-                           {data && <PriceDetails data={data} selectItem = {selectItem}  setSelectChange = {setSelectChange} setGlobalPrice={setGlobalPrice} checkOutHandler={checkOutHandler}/>}
+                           {data && <PriceDetails data={data} selectItem = {selectItem}  setSelectChange = {setSelectChange} setGlobalPrice={setGlobalPrice} checkOutHandler={trackOrderDetails}/>}
                         </div>
                     </div>
                 </div>

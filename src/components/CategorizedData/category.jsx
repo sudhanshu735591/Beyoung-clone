@@ -320,7 +320,7 @@ function CategorizedSection() {
                                             return (
                                                 <div className="imageSection">
                                                     <Link to={`/imageDetails/${val._id}`}>
-                                                        <img className="fetchedImageData" src={val.displayImage} />
+                                                        <img className="fetchedImageData" src={val.displayImage}/>
                                                     </Link>
                                                     <i class="fa-regular fa-heart"></i>
 

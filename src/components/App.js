@@ -11,6 +11,7 @@ import { useContext } from "react";
 import UserContext from "../ContextApi/UserContext";
 import TrackOrderDetails from "./TrackOrderDetails/TrackOrder";
 import OrderHistoryApi from "./APIDATA/OrderHistoryApi";
+import OrderSuccess from "./PaymentSuccess/PaymentSuccess";
 
 
 
@@ -28,7 +29,9 @@ const {token} = useContext(UserContext);
         <Route path="/address" element= {<AddressDetails/>}/>
         <Route path="/payment" element= {<Payment/>}/>
         <Route path="/TrackOrder" element= {<TrackOrderDetails/>}/>
-        {/* <Route path = "OrderHistoryApi" element = {<OrderHistoryApi/>}/> */}
+        <Route path="/TrackOrder" element= {<TrackOrderDetails/>}/>
+        <Route path="/ordersuccess" element= {<OrderSuccess/>}/>
+
 
       </Routes>
     </div>

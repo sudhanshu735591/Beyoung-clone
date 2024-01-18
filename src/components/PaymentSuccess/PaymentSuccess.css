@@ -1,0 +1,244 @@
+.top-section{
+    background: #F5F5F5;
+    box-shadow: 0.922414px 1.84483px 1.84483px rgba(0,0,0,0.12);
+    border-radius: 0px 0px 35.0517px 35.0517px;
+    width: 75%;
+    margin: 0px auto;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.pageImagePay{
+    width: 60%;
+}
+
+
+.desktop-wap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 16.6034px;
+    width: 40%;
+    margin: 40px auto;
+    padding: 10px 0px;
+}
+
+.MobileWap{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.order-details-section{
+    border: 1.06238px solid #707070;
+    filter: drop-shadow(1.06238px 2.12475px 2.12475px rgba(0,0,0,0.12));
+    border-radius: 18.0604px;
+    width: 70%;
+    margin: 50px auto;
+}
+
+.orderdetails-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19.1228px;
+    line-height: 23px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #272727;
+    padding: 12px 0px;
+    margin: auto;
+}
+
+.user-detail-success {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.details-success-sec{
+    width: 45%;
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+
+p.heading span:first-child {
+    width: 50%;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15.5px;
+    line-height: 22px;
+    color: #272727;
+}
+
+
+.details-border {
+    border: 1.06238px solid rgba(112,112,112,0.5490196078);
+    display: block;
+}
+
+
+.Product-summury{
+    border: 1.06238px solid #707070;
+    filter: drop-shadow(1.06238px 2.12475px 2.12475px rgba(0,0,0,0.12));
+    border-radius: 18.0604px;
+    width: 70%;
+    margin: 50px auto;
+}
+
+.summery-text{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19.1228px;
+    line-height: 23px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #272727;
+    padding: 12px 0px;
+}
+
+.summery{
+    height: 150px;
+    overflow: hidden;
+}
+
+.product-success-details-main{
+    width: 50%;
+    margin: auto;
+}
+
+.product-success-details{
+    margin: 20px auto;
+    /* border-bottom: 1px solid rgba(112,112,112,0.4); */
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.product-all-details{
+    display: flex;
+    justify-content: space-between;
+}
+
+.productnameText {
+    text-align: left;
+    border-right: 1px solid #B9B9B9;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15.5px;
+    line-height: 22px;
+    color: #272727;
+    width: 31%;
+}
+
+
+.productdisctext{
+    text-align: right;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #272727;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0px 20px;
+}
+
+.paymentSuccessViewMore{
+    background: #272727;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    width: 12%;
+    cursor: pointer;
+}
+
+.keep-shopping{
+    text-align: center;
+    height: 55px;
+    background: #FEEB00;
+    border: 1px solid #D9D9D9;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    width: 75%;
+}
+
+.keepShoppingP{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #272727;
+}
+
+.user-rating-desktop {
+    background: #FFFFFF;
+    border: 1px solid #F5F5F5;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.12);
+    border-radius: 8px;
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px 0px;
+    width: 75%;
+}
+
+.user-rating-desktop p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.user-rating-desktop span {
+    width: 35%;
+    display: block;
+    margin: auto;
+}
+
+.rating-2 {
+    display: block;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    text-align: center;
+    padding: 15px 0px;
+}
+
+
+.rating-2 .star {
+    display: none;
+}
+
+.rating-2 label {
+    color: lightgray;
+    display: inline-block;
+    font-size: 25pt;
+    margin: 0 0px;
+    transition: transform 0.15s ease;
+}
+
+.radio10 label {
+    color: #000000;
+}
+
+.user-rating-desktop .rating-2 .star:checked~label {
+    color: #000000;
+}
