@@ -114,6 +114,7 @@ function Navbar(){
                                         return(
                                             <div>
                                                 <h4>{key}</h4>
+                                                {console.log("key is", key)}
                                                 {
                                                     MenData[key].list.map((val)=>{
                                                         return(

@@ -9,6 +9,8 @@ import BasicModal from "../Modal/addToCartModal";
 import { createPortal } from "react-dom";
 import SignUpPage from "../../Auth/Signup/Signup";
 import Footer from "../Footer/footer";
+import { Link } from "react-router-dom";
+
 
 function FavoriteItems() {
 
@@ -28,9 +30,43 @@ function FavoriteItems() {
 
     const {setWishListDataLength} = useContext(UserContext);
 
+    const [orderData, setOrderData] = useState();
+
+    const [getUlText, setGetUlText] = useState("Order");
+
     function Logout(){
         setToken("");
         setSuccessMessage("");
+    }
+
+
+    const orderList = async ()=>{
+        const data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/order",{
+            method:"GET",
+
+            headers: {
+                "projectID": "zx5u429ht9oj",
+                "Authorization":`Bearer ${localStorage.getItem("Token")}`,
+                "Content-Type": "application/json",
+            }
+        })
+
+        const res = await data.json();
+        console.log("order", res?.data);
+        setOrderData(res?.data);
+    }
+
+
+    function orderClickHandler(e){
+        setGetUlText(e.target.innerText);
+        console.log("e.target.innerText",e.target.innerText);
+        if(e.target.innerText==="Order"){
+            orderList();
+        }
+        else if(e.target.innerText==="Wishlist"){
+            console.log("yes");
+            wishListIter();
+        }
     }
 
 
@@ -72,9 +108,9 @@ function FavoriteItems() {
         
     }
 
-    useEffect(()=>{
-        wishListIter();
-    },[])
+    // useEffect(()=>{
+    //     wishListIter();
+    // },[])
 
 
     const deleteWishList = async (id) => {
@@ -140,13 +176,13 @@ function FavoriteItems() {
 
                     <div className="liContentWishList">
                         <div className="liContent">
-                            <ul className="wishListUl">
-                                <li className="wishListtext ll">Order</li>
-                                <li className="wishListtext ll">Address</li>
-                                <li className="wishListtext ll">Profile</li>
-                                <li className="wishListtext ll Wishlist">Wishlist</li>
-                                <li className="wishListtext ll">Coupons</li>
-                                <li className="wishListtext ll">Tickets</li>
+                            <ul className="wishListUl" style={{cursor:"pointer"}}>
+                                <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Order"?"600":"normal"}} className="wishListtext ll">Order</li>
+                                <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Address"?"600":"normal"}} className="wishListtext ll">Address</li>
+                                <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Profile"?"600":"normal"}} className="wishListtext ll">Profile</li>
+                                <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Wishlist"?"600":"normal"}} className="wishListtext ll">Wishlist</li>
+                                <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Coupons"?"600":"normal"}} className="wishListtext ll">Coupons</li>
+                                <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Tickets"?"600":"normal"}} className="wishListtext ll">Tickets</li>
                                 <div className="wishListLogOut">
                                     <Button onClick={Logout} text="LOGOUT" className="wishListLogOutButton" />
                                 </div>
@@ -156,7 +192,7 @@ function FavoriteItems() {
                 </div>
 
                 {
-                    wishData && wishData.length ? wishData.map((val) => {
+                    getUlText==="Wishlist" && wishData && wishData.length ? wishData.map((val) => {
                         return (
                             <div className="imageWishListCategory">
                                 <div className="imageDatawishList">
@@ -176,9 +212,72 @@ function FavoriteItems() {
                             </div>
                         )
                     }) :
-                        <div>
-                            <img className="NoDataImage" src="https://www.beyoung.in/images/common/EMPTY-WISHLIST-PAGE.jpg" />
-                        </div>
+                    getUlText==="Order" && orderData ? <div className="parentorderDataBox">
+                      {
+                        orderData.map((val)=>{
+                            console.log("val---->", val);
+                            return(
+                                <div className="my-order">
+                                    <ul style={{listStyle:"none"}}>
+                                        <li className="order-data-main">
+                                            <div className="order-title">
+                                                <span>{val.createdAt.split("T")[0]}</span>
+                                            </div>  
+                                            
+                                            <a className="order-box">
+                                                <div className="order-id-order-check">
+                                                    <span className="order-id">
+                                                        Order 
+                                                        <b>#{val.order._id}</b>
+                                                    </span>
+
+                                                    <Link to="">
+                                                        <img style={{height:"25px"}} src="https://www.beyoung.in/images/common/chevron-right.png"/>
+                                                    </Link>
+                                                </div>
+                                            </a>
+
+                                            <div className="order-product-section">
+                                                <Link to="">
+                                                    <figure >
+                                                        <img className="favImageFig" src={val.order.items[0].product.displayImage}/>
+                                                    </figure>
+                                                </Link>
+
+                                                <div className="order-content">
+                                                    <Link to ="">
+                                                        <p className="order-product-name">
+                                                            {val.order.items[0].product.name}
+                                                        </p>
+                                                    </Link>
+
+                                                    <div className="order-product-details">
+                                                    <p>Color: Teal Blue</p> 
+                                                    <p>Size: M </p>
+                                                    </div>
+
+                                                    <p className="order-qty">
+                                                        "Qty:" 4
+                                                    </p>
+                                                    <section class="product-order-review"></section>
+                                                </div>
+                                            </div>
+
+                                            <div className="product-status-and-help">
+                                                <Button text = "Order Placed" className  = "product-status-button"/>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            )
+                        })
+                      }
+                    </div>                   
+                   :  
+                    <div>
+                        <img className="NoDataImage" src="https://www.beyoung.in/images/common/EMPTY-WISHLIST-PAGE.jpg" />
+                    </div>
                 }
 
                 {showModal && createPortal(<SignUpPage showModal={showModal} onClose={handleClose} />, document.body)}
@@ -193,3 +292,21 @@ function FavoriteItems() {
 }
 
 export default FavoriteItems;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

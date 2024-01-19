@@ -16,44 +16,6 @@ function AddressDetails(){
     const {formData, setFormData} = useContext(UserContext);
     const {error, setError} = useContext(UserContext);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-   
-
-
-  
-
     
     const handleChange = (e)=>{
         const {name, value} = e.target;

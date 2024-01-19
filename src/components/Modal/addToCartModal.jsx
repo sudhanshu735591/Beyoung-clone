@@ -36,7 +36,7 @@ export default function BasicModal({ clickCart, onClose, setClickId }) {
             let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${setClickId._id}`,{
                 method:"PATCH",
                 headers:{
-                    "Authorization":`Bearer ${token}`,
+                    "Authorization":`Bearer ${localStorage.getItem("Token")}`,
                     "projectID":"zx5u42 9ht9oj",
                     "Content-Type": "application/json",
                 },

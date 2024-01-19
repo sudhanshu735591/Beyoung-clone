@@ -11,6 +11,7 @@
     margin: 36px 20%;
     gap: 48px;
     width: 55%;
+    
 }
 
 .nameLogo{
@@ -115,6 +116,148 @@
     height: auto;
 }
 
-.Wishlist{
+
+
+
+
+.order-title {
+    background: #fff;
+    padding: 0px 0px;
+    text-align: center;
+    line-height: normal;
+    position: relative;
+    margin-top: 30px;
+}
+
+.order-title:before {
+    content: "";
+    border-bottom: 1px solid #746f6f;
+    display: block;
+    width: 46vw;
+}
+
+
+.order-title span {
+    position: inherit;
+    bottom: 10px;
+    background: #fff;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    color: #746f6f;
+}
+
+.order-data-main{
+    padding: 27px;
+    width: 100%;
+    border-radius: 42px;
+}
+
+
+.order-box {
+    border: none;
+    padding: 23px 40px 0px 40px;
+    border-radius: 16px;
+}
+
+.order-id-order-check{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.order-id{
+    text-transform: capitalize;
+}
+
+
+.order-product-section {
+    border: none;
+    margin-bottom: 20px;
+    padding: 0px;
+    display: flex;
+    gap: 23px;
+}
+
+
+.favImageFig{
+    width: 120px;
+    height: auto;
+}
+
+
+.order-product-name{
+    padding: 0 0 15px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 17px;
+    color: #070707;
+}
+
+.order-product-details{
+    display: flex;
+    color: #746f6f;
+    flex-wrap: wrap;
+    padding-right: 117px;
+    gap: 30px;
+}
+
+
+.order-product-details p {
+    width: 40%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 13px;
+    color: #746f6f;
+}
+
+
+.order-qty{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 13px;
+    color: #746f6f;
+    margin-top: 20px;
+    display: flex;
+}
+
+
+.product-order-review{
+    width: 100%;
+    display: flex;
+    margin: 20px 0px;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-end;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+
+.product-status-and-help{
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.product-status-button{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    margin: 0px 20px;
+    border-radius: 4px;
+    width: 200px;
+    justify-content: center;
+    background-color: red;
+    color: rgb(255, 255, 255);
+    border: none;
     font-weight: 600;
 }
