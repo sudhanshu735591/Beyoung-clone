@@ -129,8 +129,6 @@ function FavoriteItems() {
         
     }
 
-    // {getUlText==="Wishlist"?console.log("hello") , wishListIter() :console.log("not found")}
-    // {getUlText === "Wishlist" ? (console.log("hello"), wishListIter()) : console.log("not found")}
     useEffect(()=>{
         if(getUlText === "Wishlist"){
             wishListIter();
