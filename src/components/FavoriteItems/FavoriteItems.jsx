@@ -15,9 +15,11 @@ import SingleOrderData from "../SingleOrderData/SingleOrderData";
 
 function FavoriteItems() {
 
-    const { setToken, token } = useContext(UserContext);
+    const { token } = useContext(UserContext);
 
     const [wishData, setWishData] = useState([]);
+
+    const [flag, setFlag] = useState(true);
 
     const { setSuccessMessage, successMessage } = useContext(UserContext);
 
@@ -65,20 +67,20 @@ function FavoriteItems() {
     }
 
     useEffect(()=>{
-        orderList();
-
+        wishListIter();
     },[])
 
 
     function orderClickHandler(e){
         setGetUlText(e.target.innerText);
-        console.log("e.target.innerText",e.target.innerText);
         if(e.target.innerText==="Order"){
             orderList();
+            setFlag(false);
+
         }
         else if(e.target.innerText==="Wishlist"){
-            console.log("yes");
             wishListIter();
+            setFlag(true);
         }
     }
 
@@ -111,12 +113,13 @@ function FavoriteItems() {
             method: "GET",
 
             headers: {
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
                 'projectID': 'zx5u429ht9oj',
             },
         });
 
         let res = await data.json();
+        console.log("rrr", res);
         setWishData(res?.data?.items);
         
     }
@@ -179,7 +182,6 @@ function FavoriteItems() {
         });
 
         let res = await data.json();
-        console.log("setSingleHandlerData", res.data);
         setSingleHandlerData(res?.data);
     }
 
@@ -218,7 +220,7 @@ function FavoriteItems() {
                                 <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Order"?"600":"normal"}} className="wishListtext ll">Order</li>
                                 <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Address"?"600":"normal"}} className="wishListtext ll">Address</li>
                                 <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Profile"?"600":"normal"}} className="wishListtext ll">Profile</li>
-                                <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Wishlist"?"600":"normal"}} className="wishListtext ll">Wishlist</li>
+                                <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Wishlist" || flag ?"600":"normal"}} className="wishListtext ll">Wishlist</li>
                                 <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Coupons"?"600":"normal"}} className="wishListtext ll">Coupons</li>
                                 <li onClick={orderClickHandler} style={{fontWeight:getUlText==="Tickets"?"600":"normal"}} className="wishListtext ll">Tickets</li>
                                 <div className="wishListLogOut">
@@ -230,7 +232,7 @@ function FavoriteItems() {
                 </div>
 
                 {
-                    getUlText==="Wishlist" && wishData && wishData.length ? wishData.map((val) => {
+                    getUlText==="Wishlist" || wishData && wishData.length ? wishData.map((val) => {
                         return (
                             <div className="imageWishListCategory">
                                 <div className="imageDatawishList">
@@ -268,9 +270,7 @@ function FavoriteItems() {
                                                         <b>#{val.order._id}</b>
                                                     </span>
 
-                                                    {/* <NavLink to={`/singleOrderData/${val.order._id}`}> */}
-                                                        <img onClick={()=>arrowClickHandler(val.order._id)}  style={{height:"25px"}} src="https://www.beyoung.in/images/common/chevron-right.png"/>
-                                                    {/* </NavLink> */}
+                                                    <img onClick={()=>arrowClickHandler(val.order._id)}  style={{height:"25px"}} src="https://www.beyoung.in/images/common/chevron-right.png"/>
                                                 </div>
                                             </a>
 
@@ -393,39 +393,8 @@ function FavoriteItems() {
                                 <span className="showGmailId">Gmail: xyz@gmail.com</span>
                             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            
-
-
-
-
-
-
-
                         </div>
                     </div>    
-                    
-                    
-
-
-
-
-
                    :  
                     <div>
                         <img className="NoDataImage" src="https://www.beyoung.in/images/common/EMPTY-WISHLIST-PAGE.jpg" />

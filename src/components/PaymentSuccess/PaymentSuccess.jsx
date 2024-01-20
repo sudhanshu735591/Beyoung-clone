@@ -5,17 +5,36 @@ import Trackorder from "../Trackorder/trackorder";
 import Button from "../button/button";
 import "./PaymentSuccess.css";
 import Footer from "../Footer/footer";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+
 import UserContext from "../../ContextApi/UserContext";
 
 function OrderSuccess(){
 
     const {formData} = useContext(UserContext);
-    // const {data, setdata} = useContext(UserContext);
-    console.log("form",formData);
 
     const {productId} = useContext(UserContext);
-    console.log("productId",productId);
+
+    const clearCart = async ()=>{
+        const data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/cart",{
+            method:"DELETE",
+            headers:{
+                "Authorization":`Bearer ${localStorage.getItem("Token")}`,
+                "projectID":"zx5u429ht9oj",
+                "Content-Type": "application/json",
+            },
+        })
+        const res = await res?.data;
+        console.log("response", res);
+        localStorage.setItem("cartLength",0);
+        localStorage.setItem("wishListLength",0);
+
+    }
+
+    useEffect(()=>{
+        clearCart();
+    },[])
+
 
 
 

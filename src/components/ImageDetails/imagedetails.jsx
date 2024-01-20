@@ -65,14 +65,14 @@ function ImageDetails() {
         window.scrollTo(0, 0);
     }, []);
 
-    const {token} = useContext(UserContext);
+    // const {token} = useContext(UserContext);
 
     const addToCart = async()=>{
         try{
             let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${id}`,{
                 method:"PATCH",
                 headers:{
-                    "Authorization":`Bearer ${token}`,
+                    "Authorization":`Bearer ${localStorage.getItem("Token")}`,
                     "projectID":"zx5u42 9ht9oj",
                     "Content-Type": "application/json",
                 },
@@ -106,6 +106,7 @@ function ImageDetails() {
         }
         
         else{
+            console.log("selectChange",selectChange);
            {clothSize && selectChange && addToCart() && alert("Data added Successfully")}
         }
     }
@@ -177,6 +178,7 @@ function ImageDetails() {
                         <div className="quantity">
                             <div style={{fontSize:"17px"}}>QTY:</div>
                             <select onChange={(e)=>setSelectChange(e.target.value)}>
+                                <option>Select</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>

@@ -81,7 +81,9 @@ function CheckOut() {
             let res = await data.json();
             setAddToCartDataLength(res?.data?.items?.length);
             setdata(res.data.items);
-            localStorage.setItem("data", JSON.stringify(res.data?.items))
+            localStorage.setItem("data", JSON.stringify(res.data?.items));
+            localStorage.setItem("cartLength", res?.data?.items?.length);
+
 
         }
 
