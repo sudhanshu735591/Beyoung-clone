@@ -12,6 +12,7 @@ function AddressDetails(){
 
     // const {selectChange} = useContext(UserContext);
     // const {globalPrice} = useContext(UserContext);
+    
     const navigate = useNavigate();
     const {formData, setFormData} = useContext(UserContext);
     const {error, setError} = useContext(UserContext);
@@ -48,10 +49,13 @@ function AddressDetails(){
         
         else{
             navigate("/payment");
-            // placeOrder();
-            
         }
     }
+
+
+    // function checkOutSecurely(){
+    //     setFormData({});
+    // }
 
 
     return(

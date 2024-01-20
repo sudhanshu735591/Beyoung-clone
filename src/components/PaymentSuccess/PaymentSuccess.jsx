@@ -14,6 +14,9 @@ function OrderSuccess(){
     const {formData} = useContext(UserContext);
 
     const {productId} = useContext(UserContext);
+    
+    localStorage.setItem("cartLength",0);
+    localStorage.setItem("wishListLength",0);
 
     const clearCart = async ()=>{
         const data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/cart",{
@@ -26,8 +29,7 @@ function OrderSuccess(){
         })
         const res = await res?.data;
         console.log("response", res);
-        localStorage.setItem("cartLength",0);
-        localStorage.setItem("wishListLength",0);
+      
 
     }
 

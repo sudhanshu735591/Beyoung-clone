@@ -28,6 +28,7 @@ function Signup(){
     function Logout(){
         setToken(localStorage.removeItem("Token"));
         setSuccessMessage("");
+        
     }
 
     const handleClose = ()=>{

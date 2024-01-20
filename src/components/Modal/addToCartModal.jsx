@@ -49,9 +49,10 @@ export default function BasicModal({ clickCart, onClose, setClickId }) {
     
             let res = await data?.json();
 
-            console.log("response", selectSize, "selectNumber", selectNumber);
+            console.log("response", res.data.items.length);
 
             {res.status!=="fail" ? localStorage.setItem("data", JSON.stringify(res.data?.items)): alert("Data already exist")};
+            localStorage.setItem("cartLength", res.data.items.length);
         }
 
         catch(error){

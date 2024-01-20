@@ -139,6 +139,7 @@ function FavoriteItems() {
         })
         let res = await data.json();
         setWishListDataLength(res?.data?.items?.length);
+        {res && localStorage.setItem("wishListLength",res?.data?.items?.length)}
 
         setWishData((prevWishData) => prevWishData.filter(item => item.products._id != id));
         wishListIter();
@@ -318,7 +319,6 @@ function FavoriteItems() {
                             <div className="singleOrderTextBoxandImage">
                                 <div className="singleOrderInnerBox">
                                     <figure>
-                                        {/* singleHandlerData.items[0].product.displayImage */}
                                         <img style={{height:"145px"}} src={singleHandlerData.items[0].product.displayImage}/>
                                     </figure>
 
