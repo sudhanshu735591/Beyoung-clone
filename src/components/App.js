@@ -12,6 +12,7 @@ import UserContext from "../ContextApi/UserContext";
 import TrackOrderDetails from "./TrackOrderDetails/TrackOrder";
 import OrderHistoryApi from "./APIDATA/OrderHistoryApi";
 import OrderSuccess from "./PaymentSuccess/PaymentSuccess";
+import SingleOrderData from "./SingleOrderData/SingleOrderData";
 
 
 
@@ -31,8 +32,7 @@ const {token} = useContext(UserContext);
         <Route path="/TrackOrder" element= {<TrackOrderDetails/>}/>
         <Route path="/TrackOrder" element= {<TrackOrderDetails/>}/>
         <Route path="/ordersuccess" element= {<OrderSuccess/>}/>
-
-
+        <Route path="/singleOrderData/:id" element= {<SingleOrderData/>}/>
       </Routes>
     </div>
   );

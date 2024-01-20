@@ -7,10 +7,11 @@
 }
 
 .account_navigation{
+
     display: flex;
     margin: 36px 20%;
-    gap: 48px;
     width: 55%;
+    gap: 21px;
     
 }
 
@@ -157,10 +158,9 @@
     border-radius: 42px;
 }
 
-
 .order-box {
     border: none;
-    padding: 23px 40px 0px 40px;
+    padding: 25px 0px 0px 30px;
     border-radius: 16px;
 }
 
@@ -200,7 +200,7 @@
     color: #070707;
 }
 
-.order-product-details{
+.order-product-details-single-product{
     display: flex;
     color: #746f6f;
     flex-wrap: wrap;
@@ -209,7 +209,12 @@
 }
 
 
-.order-product-details p {
+.order-product-details{
+    display: flex;
+}
+
+
+.order-product-details-single-product p {
     width: 40%;
     font-style: normal;
     font-weight: 400;
@@ -260,4 +265,241 @@
     color: rgb(255, 255, 255);
     border: none;
     font-weight: 600;
+}
+
+
+.order-details-box {
+    margin-left: 120px;
+    width: 100%;
+}
+
+.top-title {
+    border-bottom: 1px solid #afaeb7;
+    padding: 0px 0px 10px;
+    display: flex;
+    gap: 14px;
+}
+
+
+.inner-box {
+    display: flex;
+}
+
+.details-text {
+    width: 100%;
+}
+
+.product-name {
+    padding: 0 0 15px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 17px;
+    color: #070707;
+}
+
+
+.order-product-details-single-product {
+    display: flex;
+    color: #746f6f;
+    flex-wrap: wrap;
+}
+
+
+.order-product-details span {
+    width: 40%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 13px;
+    color: #746f6f;
+}
+
+.product-qty {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 39px;
+    color: #746f6f;
+    display: flex;
+}
+
+.product-price-status {
+    display: flex;
+    margin-top: 10px;
+}
+
+
+.product-price-status span {
+    width: 50%;
+}
+
+.product-status {
+    text-align: right;
+}
+
+
+.singleOrderInnerBox{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-price-status-singleOrder{
+    display: flex;
+    gap: 39px;
+    justify-content: space-between;
+}
+
+.product-price{
+    font-weight: 600;
+}
+
+
+.order-info-product-status {
+    display: flex;
+    text-transform: capitalize;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+    border-top: 1px solid #afaeb7;
+    border-bottom: 1px solid #afaeb7;
+}
+
+
+.order-status-main {
+    padding: 10px 50px;
+    background: red!important;
+    color: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.orderStatusMainImage{
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    color: rgb(255,255,255);
+}
+
+
+.order-info-total-price-single-order{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+    border-bottom: 1px solid #afaeb7;
+    align-items: center;
+}
+
+
+.total-price-order-single span{
+    display: block;
+    font-weight: 600;
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+
+.order-price-data-single-order{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+}
+
+.order-price-data-single-order-span{
+    display: block;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+.shipping-user-details{
+    padding: 20px 0px;
+    border-bottom: 1px solid #afaeb7;
+}
+
+.title {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #000;
+    font-weight: 600;
+    display: flex;
+}
+
+
+.shipping-details .text {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    align-items: center;
+}
+
+
+.shipping-user-name{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    align-items: center;
+}
+
+
+.strongName{
+    font-size: 13px;
+    color: #383838;
+    font-weight: 600;
+}
+
+
+.payment-method-single-order{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    border-bottom: 1px solid #afaeb7;
+}
+
+.payment-method-span{
+    padding-bottom: 5px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    display: flex;
+}
+
+.payment-method-span2{
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+}
+
+
+.payment-image{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.contact-number-details-single-order{
+    padding: 20px 0px;
+}
+
+.contact-number-details-single-order-span1{
+    font-weight: 600;
+    display: block;
+    font-size: 15px;
+    display: flex;
+}
+
+.showPhoneNumber{
+    color: rgb(56, 56, 56);
+    display: block;
+    font-size: 13px;
+    display: flex;
+}
+
+.showGmailId{
+    color: rgb(56, 56, 56);
+    display: block;
+    font-size: 13px;
+    display: flex;
+
 }

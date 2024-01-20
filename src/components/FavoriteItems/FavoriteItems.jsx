@@ -9,7 +9,8 @@ import BasicModal from "../Modal/addToCartModal";
 import { createPortal } from "react-dom";
 import SignUpPage from "../../Auth/Signup/Signup";
 import Footer from "../Footer/footer";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import SingleOrderData from "../SingleOrderData/SingleOrderData";
 
 
 function FavoriteItems() {
@@ -26,16 +27,22 @@ function FavoriteItems() {
 
     const [clickId, setClickId] = useState("");
 
-    const [size, setSize] = useState();
+    const [ setSize] = useState();
 
     const {setWishListDataLength} = useContext(UserContext);
 
     const [orderData, setOrderData] = useState();
 
-    const [getUlText, setGetUlText] = useState("Order");
+    const [getUlText, setGetUlText] = useState();
+
+    const [singleHandlerData, setSingleHandlerData] = useState();
+
+ 
+
 
     function Logout(){
-        setToken("");
+        // setToken("");
+        localStorage.removeItem("Token");
         setSuccessMessage("");
     }
 
@@ -52,9 +59,12 @@ function FavoriteItems() {
         })
 
         const res = await data.json();
-        console.log("order", res?.data);
         setOrderData(res?.data);
     }
+
+    useEffect(()=>{
+        orderList();
+    },[])
 
 
     function orderClickHandler(e){
@@ -156,6 +166,31 @@ function FavoriteItems() {
     }
 
 
+    const fetchSingleOrderData = async (id) => {
+        let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/order/${id}`, {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
+                'projectID': 'zx5u429ht9oj'
+            }
+        });
+
+        let res = await data.json();
+        console.log("setSingleHandlerData", res.data);
+        setSingleHandlerData(res?.data);
+    }
+
+
+
+
+
+    function arrowClickHandler(id){
+        console.log("iddddd", id);
+        fetchSingleOrderData(id);
+        setGetUlText("clicked")
+    }
+
+
     return (
         <div>
             <Topbanner />
@@ -215,7 +250,6 @@ function FavoriteItems() {
                     getUlText==="Order" && orderData ? <div className="parentorderDataBox">
                       {
                         orderData.map((val)=>{
-                            console.log("val---->", val);
                             return(
                                 <div className="my-order">
                                     <ul style={{listStyle:"none"}}>
@@ -231,25 +265,21 @@ function FavoriteItems() {
                                                         <b>#{val.order._id}</b>
                                                     </span>
 
-                                                    <Link to="">
-                                                        <img style={{height:"25px"}} src="https://www.beyoung.in/images/common/chevron-right.png"/>
-                                                    </Link>
+                                                    {/* <NavLink to={`/singleOrderData/${val.order._id}`}> */}
+                                                        <img onClick={()=>arrowClickHandler(val.order._id)}  style={{height:"25px"}} src="https://www.beyoung.in/images/common/chevron-right.png"/>
+                                                    {/* </NavLink> */}
                                                 </div>
                                             </a>
 
                                             <div className="order-product-section">
-                                                <Link to="">
                                                     <figure >
                                                         <img className="favImageFig" src={val.order.items[0].product.displayImage}/>
                                                     </figure>
-                                                </Link>
 
                                                 <div className="order-content">
-                                                    <Link to ="">
                                                         <p className="order-product-name">
                                                             {val.order.items[0].product.name}
                                                         </p>
-                                                    </Link>
 
                                                     <div className="order-product-details">
                                                     <p>Color: Teal Blue</p> 
@@ -273,7 +303,125 @@ function FavoriteItems() {
                             )
                         })
                       }
-                    </div>                   
+                    </div>  : getUlText==="clicked" &&  singleHandlerData ? 
+                    <div className="order-details-box">
+                        <div className="order-left-box">
+                            <div className="top-title">
+                                <p>Order</p>
+                                <strong>#{singleHandlerData._id}</strong>
+                            </div>
+
+
+                            <div className="singleOrderTextBoxandImage">
+                                <div className="singleOrderInnerBox">
+                                    <figure>
+                                        <img style={{height:"145px"}} src="https://www.beyoung.in/api/cache/catalog/products/new_full_sleeves_14_10_2022/teal_blue_oversized_full_sleeves_t-shirt_for_men_base_20_12_2023_1000x1332.jpg"/>
+                                    </figure>
+
+
+                                    <div className="single-order-details-text">
+                                        <p className="product-name">{singleHandlerData.items[0].product.name}</p>
+                                        <p className="order-product-details-single-product">
+                                            <span>Color: {singleHandlerData.items[0].product.color}</span>
+                                            <span>Size: {singleHandlerData.items[0].product.size[0]} </span>
+                                        </p>
+
+                                        {console.log("singleHandlerData.items[0].product.quantity",singleHandlerData.items[0].quantity)}
+                                        <p className="product-qty">Qty: {singleHandlerData.items[0].quantity}</p>
+
+                                        <div className="product-price-status-singleOrder">
+                                            <span className="product-price">Rs. {singleHandlerData.items[0].product.price} </span>
+
+                                            <span className="product-status">Order Placed</span>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+
+                            <div className="order-info-product-status">
+                                <div className="cancelled">
+                                    <div className="order-status-main">
+                                        <img className="orderStatusMainImage" src="https://www.beyoung.in/images/common/deliver.png"/>
+                                        <span>Order Placed</span>
+                                    </div>
+                                </div>
+
+                                <div class="order-date"> <p>18-Jan 2024 10:04 PM</p> </div>
+                            </div>
+
+                            <div className="order-info-total-price-single-order">
+                                <div className="total-price-order-single">
+                                    <span>Total Order Price</span>
+                                </div>
+
+                                <div className="order-price-data-single-order">
+                                    <span className="order-price-data-single-order-span">₹ {singleHandlerData.totalPrice} </span>
+                                </div>
+                            </div>
+
+                            <div className="shipping-user-details">
+                                <div class="title"> Shipping Details</div>
+                                <div className="shipping-user-name">
+                                    <strong className="strongName">XYZ</strong>
+                                </div>
+                                {/* singleHandlerData.shipmentDetails.address.state */}
+                                <p style={{display:"flex"}}>{singleHandlerData.shipmentDetails.address.city}, Locality :- {singleHandlerData.shipmentDetails.address.street}, {singleHandlerData.shipmentDetails.address.zipCode}, {singleHandlerData.shipmentDetails.address.city}, {singleHandlerData.shipmentDetails.address.state}</p>
+                            </div>
+
+
+
+                            <div className="payment-method-single-order">
+                                <span className="payment-method-span">Payment Method</span>
+                                <span className="payment-method-span2">
+                                    <img className="payment-image" src="https://www.beyoung.in/images/common/wallet.png"/>
+                                    COD
+                                </span>
+                            </div>
+
+
+
+
+                            <div className="contact-number-details-single-order">
+                                <span className="contact-number-details-single-order-span1">Contact Number</span>
+                                <span className="showPhoneNumber">Phone: +91 9876543210</span>
+                                <span className="showGmailId">Gmail: xyz@gmail.com</span>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+
+
+
+
+
+
+
+                        </div>
+                    </div>    
+                    
+                    
+
+
+
+
+
                    :  
                     <div>
                         <img className="NoDataImage" src="https://www.beyoung.in/images/common/EMPTY-WISHLIST-PAGE.jpg" />
