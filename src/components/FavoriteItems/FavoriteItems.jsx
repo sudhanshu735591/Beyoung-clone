@@ -64,6 +64,8 @@ function FavoriteItems() {
 
     useEffect(()=>{
         orderList();
+        window.scrollTo(0, 0);
+
     },[])
 
 
@@ -315,7 +317,8 @@ function FavoriteItems() {
                             <div className="singleOrderTextBoxandImage">
                                 <div className="singleOrderInnerBox">
                                     <figure>
-                                        <img style={{height:"145px"}} src="https://www.beyoung.in/api/cache/catalog/products/new_full_sleeves_14_10_2022/teal_blue_oversized_full_sleeves_t-shirt_for_men_base_20_12_2023_1000x1332.jpg"/>
+                                        {/* singleHandlerData.items[0].product.displayImage */}
+                                        <img style={{height:"145px"}} src={singleHandlerData.items[0].product.displayImage}/>
                                     </figure>
 
 
