@@ -35,9 +35,12 @@ function FavoriteItems() {
 
     const [orderData, setOrderData] = useState();
 
-    const [getUlText, setGetUlText] = useState();
+    const [getUlText, setGetUlText] = useState("Wishlist");
 
     const [singleHandlerData, setSingleHandlerData] = useState();
+
+    
+
 
 
     window.scrollTo(0, 0);
@@ -45,13 +48,13 @@ function FavoriteItems() {
 
 
     function Logout(){
-        // setToken("");
+        setToken("");
         localStorage.removeItem("Token");
         setSuccessMessage("");
     }
 
 
-    const orderList = async ()=>{
+    const orderList = async (e)=>{
         const data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/order",{
             method:"GET",
 
@@ -65,13 +68,16 @@ function FavoriteItems() {
         const res = await data.json();
         setOrderData(res?.data);
     }
+    
 
-    useEffect(()=>{
-        wishListIter();
-    },[])
+        // useEffect(()=>{
+        //     wishListIter();
+        // },[])
 
 
     function orderClickHandler(e){
+        e.preventDefault();
+
         setGetUlText(e.target.innerText);
         if(e.target.innerText==="Order"){
             orderList();
@@ -111,7 +117,6 @@ function FavoriteItems() {
     const wishListIter = async () => {
         const data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist`, {
             method: "GET",
-
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem("Token")}`,
                 'projectID': 'zx5u429ht9oj',
@@ -124,9 +129,13 @@ function FavoriteItems() {
         
     }
 
-    // useEffect(()=>{
-    //     wishListIter();
-    // },[])
+    // {getUlText==="Wishlist"?console.log("hello") , wishListIter() :console.log("not found")}
+    // {getUlText === "Wishlist" ? (console.log("hello"), wishListIter()) : console.log("not found")}
+    useEffect(()=>{
+        if(getUlText === "Wishlist"){
+            wishListIter();
+        }
+    },[])
 
 
     const deleteWishList = async (id) => {
@@ -233,7 +242,7 @@ function FavoriteItems() {
                 </div>
 
                 {
-                    getUlText==="Wishlist" || wishData && wishData.length ? wishData.map((val) => {
+                    getUlText==="Wishlist" &&  wishData && wishData.length ? wishData.map((val) => {
                         return (
                             <div className="imageWishListCategory">
                                 <div className="imageDatawishList">
@@ -383,9 +392,6 @@ function FavoriteItems() {
                                     COD
                                 </span>
                             </div>
-
-
-
 
                             <div className="contact-number-details-single-order">
                                 <span className="contact-number-details-single-order-span1">Contact Number</span>
