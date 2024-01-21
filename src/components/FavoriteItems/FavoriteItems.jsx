@@ -9,50 +9,28 @@ import BasicModal from "../Modal/addToCartModal";
 import { createPortal } from "react-dom";
 import SignUpPage from "../../Auth/Signup/Signup";
 import Footer from "../Footer/footer";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import SingleOrderData from "../SingleOrderData/SingleOrderData";
 
 
 function FavoriteItems() {
-
     const { token } = useContext(UserContext);
-
     const [wishData, setWishData] = useState([]);
-
     const [flag, setFlag] = useState(true);
-
-    const { setSuccessMessage, successMessage } = useContext(UserContext);
-
+    const { setSuccessMessage } = useContext(UserContext);
     const [clickCart, setClickCart] = useState(false);
-
     const [showModal, setShowModal] = useState(false);
-
     const [clickId, setClickId] = useState("");
-
     const [ setSize] = useState();
-
     const {setWishListDataLength} = useContext(UserContext);
-
     const [orderData, setOrderData] = useState();
-
     const [getUlText, setGetUlText] = useState("Wishlist");
-
     const [singleHandlerData, setSingleHandlerData] = useState();
-
-    
-
-
-
     window.scrollTo(0, 0);
-
-
 
     function Logout(){
         setToken("");
         localStorage.removeItem("Token");
         setSuccessMessage("");
     }
-
 
     const orderList = async (e)=>{
         const data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/order",{
@@ -68,12 +46,6 @@ function FavoriteItems() {
         const res = await data.json();
         setOrderData(res?.data);
     }
-    
-
-        // useEffect(()=>{
-        //     wishListIter();
-        // },[])
-
 
     function orderClickHandler(e){
         e.preventDefault();
@@ -89,9 +61,6 @@ function FavoriteItems() {
             setFlag(true);
         }
     }
-
-
-    
 
     const fetchApi = async () => {
         try {
@@ -112,7 +81,6 @@ function FavoriteItems() {
             console.log("error is", error);
         }
     }
-
 
     const wishListIter = async () => {
         const data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist`, {
@@ -135,7 +103,6 @@ function FavoriteItems() {
         }
     },[])
 
-
     const deleteWishList = async (id) => {
         let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/wishlist/${id}`, {
             method: "DELETE",
@@ -152,8 +119,6 @@ function FavoriteItems() {
         wishListIter();
     }
 
-
-
     function wishListItem(val) {
 
         if (!localStorage.getItem("Token")) {
@@ -168,17 +133,13 @@ function FavoriteItems() {
         fetchApi();
     }
 
-
-
     function handleClose() {
         setShowModal(false);
     }
 
-
     function handleCloseModel() {
         setClickCart(false);
     }
-
 
     const fetchSingleOrderData = async (id) => {
         let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/order/${id}`, {
@@ -193,23 +154,17 @@ function FavoriteItems() {
         setSingleHandlerData(res?.data);
     }
 
-
-
-
-
     function arrowClickHandler(id){
         console.log("iddddd", id);
         fetchSingleOrderData(id);
         setGetUlText("clicked")
     }
 
-
     return (
         <div>
             <Topbanner />
             <Trackorder />
             <Navbar />
-
             <div className="account_navigation">
                 <div>
                     <div className="my-account-profile">
@@ -322,7 +277,6 @@ function FavoriteItems() {
                                 <strong>#{singleHandlerData._id}</strong>
                             </div>
 
-
                             <div className="singleOrderTextBoxandImage">
                                 <div className="singleOrderInnerBox">
                                     <figure>
@@ -381,8 +335,6 @@ function FavoriteItems() {
                                 <p style={{display:"flex"}}>{singleHandlerData.shipmentDetails.address.city}, Locality :- {singleHandlerData.shipmentDetails.address.street}, {singleHandlerData.shipmentDetails.address.zipCode}, {singleHandlerData.shipmentDetails.address.city}, {singleHandlerData.shipmentDetails.address.state}</p>
                             </div>
 
-
-
                             <div className="payment-method-single-order">
                                 <span className="payment-method-span">Payment Method</span>
                                 <span className="payment-method-span2">
@@ -408,30 +360,10 @@ function FavoriteItems() {
                 {showModal && createPortal(<SignUpPage showModal={showModal} onClose={handleClose} />, document.body)}
 
                 {!showModal && setClickCart && createPortal(<BasicModal clickCart={clickCart} onClose={handleCloseModel} setClickId={clickId}/>, document.body)}
-
             </div>
-
             <Footer />
         </div>
     )
 }
 
 export default FavoriteItems;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
