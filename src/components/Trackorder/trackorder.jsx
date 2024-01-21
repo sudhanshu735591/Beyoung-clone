@@ -1,16 +1,30 @@
 import { useNavigate } from "react-router-dom";
 import Signup from "../Signup/signupText";
 import "./trackorder.css"
+import { createPortal } from "react-dom";
+import SignUpPage from "../../Auth/Signup/Signup";
+import { useState } from "react";
 
 function Trackorder() {
+
+    const [showModal, setShowModal] = useState(false);
 
     const navigate = useNavigate();
 
     function orderDetails(){
-        navigate("/TrackOrder");
+        if (!localStorage.getItem("Token")) {
+            setShowModal(true);
+        }
+        else{
+            setShowModal(false);
+            navigate("/TrackOrder");
+        }
     }
 
-   
+
+    function handleClose() {
+        setShowModal(false);
+    }
 
     return (
         <div className="login">
@@ -24,7 +38,10 @@ function Trackorder() {
                     <Signup />
                 </div>
             </div>
+            {showModal && createPortal(<SignUpPage showModal={showModal} onClose={handleClose} />, document.body)}
+
         </div>
+        
     )
 }
 

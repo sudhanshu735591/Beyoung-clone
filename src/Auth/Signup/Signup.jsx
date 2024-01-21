@@ -111,13 +111,6 @@ export default function SignUpPage({ showModal, onClose }) {
         e.preventDefault();
         fetchLogin();
 
-        // if(localStorage.getItem("Token")){
-        //     console.log("Yess");
-        //     setToken(localStorage.getItem("Token"))
-        // }
-        // else{
-        //     fetchLogin();
-        // }
     }
 
 

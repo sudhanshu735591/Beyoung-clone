@@ -23,10 +23,7 @@ export default function BasicModal({ clickCart, onClose, setClickId }) {
 
     const [selectNumber, setSelectNumber] = React.useState();
 
-    const {token} = React.useContext(UserContext);
-
     const [selectSize, setSelectSize] = React.useState();
-
 
     let [flag, setFlag] = React.useState(false);
 
@@ -49,8 +46,6 @@ export default function BasicModal({ clickCart, onClose, setClickId }) {
     
             let res = await data?.json();
 
-            console.log("response", res.data.items.length);
-
             {res.status!=="fail" ? localStorage.setItem("data", JSON.stringify(res.data?.items)): alert("Data already exist")};
             localStorage.setItem("cartLength", res.data.items.length);
         }
@@ -68,6 +63,7 @@ export default function BasicModal({ clickCart, onClose, setClickId }) {
         else{
             setFlag(false);
             addToCart();
+            onClose();
         }
     }
 

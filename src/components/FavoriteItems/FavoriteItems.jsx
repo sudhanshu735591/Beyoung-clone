@@ -291,7 +291,6 @@ function FavoriteItems() {
                                             <span>Size: {singleHandlerData.items[0].product.size[0]} </span>
                                         </p>
 
-                                        {console.log("singleHandlerData.items[0].product.quantity",singleHandlerData.items[0].quantity)}
                                         <p className="product-qty">Qty: {singleHandlerData.items[0].quantity}</p>
 
                                         <div className="product-price-status-singleOrder">
@@ -331,7 +330,7 @@ function FavoriteItems() {
                                 <div className="shipping-user-name">
                                     <strong className="strongName">XYZ</strong>
                                 </div>
-                                {/* singleHandlerData.shipmentDetails.address.state */}
+
                                 <p style={{display:"flex"}}>{singleHandlerData.shipmentDetails.address.city}, Locality :- {singleHandlerData.shipmentDetails.address.street}, {singleHandlerData.shipmentDetails.address.zipCode}, {singleHandlerData.shipmentDetails.address.city}, {singleHandlerData.shipmentDetails.address.state}</p>
                             </div>
 
