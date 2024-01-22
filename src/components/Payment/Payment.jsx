@@ -9,6 +9,7 @@ import WalletOffer from "./Wallets Offers/WalletsOffer";
 import PriceDetails from "../../CheckOut/PriceDetails/PriceDetails";
 import { json, useNavigate } from "react-router-dom";
 import UserContext from "../../ContextApi/UserContext";
+import Swal from "sweetalert2";
 
 
 function Payment(){
@@ -64,9 +65,13 @@ function Payment(){
 
         if(res.status==="success"){
             navigate("/ordersuccess");
-            alert("success");
+            // alert("success");
+            Swal.fire({
+                title: "Thanks for shopping with us!",
+                text: "Stay connected with us for more shopping!",
+                icon: "success"
+              });
         }
-        console.log("Adddress", res.data._id);
         setProductId(res?.data?._id);
         }
         catch(error){
