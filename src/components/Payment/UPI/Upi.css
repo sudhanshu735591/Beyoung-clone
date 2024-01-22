@@ -14,8 +14,11 @@
     color: grey;
 }
 
-.upiInput{
-    padding: 10px 73px;
+.UpiInput{
+    border: 2px solid rgb(225, 204, 204);
+    padding: 8px;
+    width: 295px;
+    border-radius: 10px;
 }
 
 .upiText{
