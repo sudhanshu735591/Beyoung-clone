@@ -59,6 +59,8 @@ export default function SignUpPage({ showModal, onClose }) {
         })
 
             let res = await data.json();
+            console.log("res", res);
+            
 
             if(res.message){
                 setError(res.message);
@@ -89,6 +91,7 @@ export default function SignUpPage({ showModal, onClose }) {
         })
 
         let res = await data.json();
+        console.log("know",res.data.name);
         if(res.message){
             {loginEmail && loginPassword && setLoginMessage("Wrong email or password !!")}
             setLoginEmail("");
@@ -104,6 +107,7 @@ export default function SignUpPage({ showModal, onClose }) {
             setSuccessMessage(true);
             localStorage.setItem("Token", res?.token);
             setToken(localStorage.getItem("Token"));
+            {localStorage.setItem("username", res.data.name)}
         }
     }
 
@@ -133,6 +137,11 @@ export default function SignUpPage({ showModal, onClose }) {
         console.log("text", e.target.innerText);
         setText(e.target.innerText);
     } 
+
+    function handleUserName(){
+        {username && localStorage.setItem("username", username)}
+
+    }
 
 
     function LoginText(){
@@ -168,7 +177,7 @@ export default function SignUpPage({ showModal, onClose }) {
                                             <input className="signUpInputBox" required type="text" placeholder="Enter Username" value={username} onChange={(e)=>setUserName(e.target.value)}/>
                                             <input className="signUpPasswordBox" required type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                                             <input className="signUpEmailBox" required type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                                            <button className="SignupButton">Sign-up</button>
+                                            <button onClick={handleUserName} className="SignupButton">Sign-up</button>
 
                                             <div style={{display:"flex", fontSize:"12px"}}>
                                                 <p style={{textDecoration:"underline"}}>Already have an account !!</p>

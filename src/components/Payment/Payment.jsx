@@ -24,10 +24,6 @@ function Payment(){
 
     const {setProductId} = useContext(UserContext);
 
-    // function checkOutHandler(){
-    //     navigate("/address");
-    // }
-
     function onHandleClick(e){
         setText(e.target.innerText);
     }
@@ -60,7 +56,6 @@ function Payment(){
             })
         })
 
-        console.log("Data", data);
         let res = await data.json();
 
         if(res.status==="success"){

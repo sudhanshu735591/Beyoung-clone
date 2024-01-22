@@ -169,10 +169,10 @@ function FavoriteItems() {
                 <div>
                     <div className="my-account-profile">
                         <div className="nameLogo">
-                            <div style={{ marginBottom: "20px" }}>ss</div>
+                            <div style={{ marginBottom: "20px" }}>{localStorage.getItem("username").slice(0,1)}</div>
                         </div>
                         <div className="nameSection">
-                            <div>SUDHANSHU SHEKHAR</div>
+                            <div style={{textTransform:"uppercase"}}>{localStorage.getItem("username")}</div>
                         </div>
                         <div className="favoriteYoungster">#Beyoungster</div>
                     </div>
