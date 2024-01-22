@@ -9,7 +9,7 @@ import Footer from "../Footer/footer";
 import SignUp from "../../Auth/Signup/Signup";
 import { createPortal } from "react-dom";
 import UserContext from "../../ContextApi/UserContext";
-
+import Swal from "sweetalert2";
 function ImageDetails() {
     const [myData, setMyData] = useState({});
     const [addCart, setAddCart] = useState(true);
@@ -107,7 +107,14 @@ function ImageDetails() {
         
         else{
             console.log("selectChange",selectChange);
-           {clothSize && selectChange && addToCart() && alert("Data added Successfully")}
+           {clothSize && selectChange && addToCart() && 
+            Swal.fire({
+                title: "Congratulations !",
+                text: "Your data added successfully !",
+                icon: "success"
+              });
+        
+        }
         }
     }
 
