@@ -46,7 +46,8 @@
 
 .cvv{
     padding: 13px 10px;
-    border-radius: 6px;     
+    border-radius: 6px;
+    width: 34px;   
 }
 
 .cardmmyy{
@@ -55,8 +56,9 @@
 }
 
 .debitCardNum{
-    padding: 9px 80px;
     border-radius: 6px;
+    width: 268px;
+    padding: 8px;
 }
 
 input::-webkit-outer-spin-button,
