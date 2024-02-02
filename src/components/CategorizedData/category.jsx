@@ -8,12 +8,9 @@ import UserContext from "../../ContextApi/UserContext";
 import Footer from "../Footer/footer";
 import SignUp from "../../Auth/Signup/Signup";
 import { createPortal } from "react-dom";
-import ProductComingSoon from "../ProductComingSoon/ProductComingSoon";
-
 
 
 function CategorizedSection() {
-
     const [myData, setMyData] = useState([]);
     const [duplicateData, setDuplicateData] = useState([]);
     const [show, setShow] = useState(true);
@@ -26,15 +23,17 @@ function CategorizedSection() {
     const [sortFlag, setSortFlag] = useState(false);
     const [loader, setLoader] = useState(false);
     const { token } = useContext(UserContext);
-    const { setWishListData } = useContext(UserContext);
+    const {wishListData, setWishListData } = useContext(UserContext);
     const [showModal, setShowModal] = useState(false);
     const { successMessage } = useContext(UserContext);
-    const [faHeart, setFaHeart] = useState("fa-regular fa-heart");
-    const [sizeText, setSizeText] = useState("");
+    const [faHeart] = useState("fa-regular fa-heart");
+    const [sizeText, setSizeText ] = useState("");
     const [categoryCloth, setCategoryCloth] = useState("");
     const [colorArr, setColorArr] = useState([]);
     const [filterData, setFilterData] = useState();
     const letters = new Set();
+
+    const [selectedHeart, setSelectedHeart]= useState([])
 
     function onArrowClick() {
         show ? setShow(false) : setShow(true);
@@ -69,7 +68,6 @@ function CategorizedSection() {
     }
 
     useEffect(() => {
-
         if (isChecked) {
             const sortedData = [...filterData].sort((a, b) => {
                 return a.price - b.price;
@@ -81,7 +79,6 @@ function CategorizedSection() {
         else {
             setFilterData(duplicateData);
         }
-
 
     }, [isChecked]);
 
@@ -141,7 +138,6 @@ function CategorizedSection() {
             }
         });
 
-
         let res = await data.json();
         setMyData(res?.data);
     }
@@ -155,7 +151,6 @@ function CategorizedSection() {
 
 
     useEffect(() => {
-
         if (menViewAllData) {
             menViewAllDataFunc();
             setMenViewAllData(false);
@@ -200,7 +195,9 @@ function CategorizedSection() {
 
         let res = await data.json();
         setWishListData(res.data?.items);
+        console.log("res.data?.items", res.data?.items?.length);
         setLoader(false);
+        localStorage.setItem("wishListLength", res.data?.items?.length)
     }
 
     const handleClose = () => {
@@ -210,15 +207,16 @@ function CategorizedSection() {
 
     const handleCheckHeart = (e, val) => {
         e.preventDefault();
-        if (!successMessage) {
+        if (!localStorage.getItem("Token")) {
             setShowModal(true);
         }
         else {
             handleHeartClick(val);
+
+            setSelectedHeart([...selectedHeart, val._id]);
         }
+
     }
-
-
 
 
     return (
@@ -246,12 +244,15 @@ function CategorizedSection() {
                         </div>
 
                         <div className="flexCircle">
-
-
                             {
                                 letters ? colorArr.map((val) => {
                                     return (
-                                        <div onClick={() => checkColor(val)} style={{ backgroundColor: val, display: show ? "block" : "none" }} className="circleData"></div>
+                                        <div onClick={() => checkColor(val)} style={{ backgroundColor: val,
+
+                                            border: `2px solid ${selectedCircle === val ? 'green' : 'transparent'}`,
+
+                                            
+                                            display: show ? "block" : "none" }} className="circleData"></div>
                                     )
                                 }) : <img src="https://www.beyoung.in/beyoung-loader.gif" />
                             }
@@ -263,11 +264,11 @@ function CategorizedSection() {
                         </div>
 
                         <div onClick={changeSizeText} className="sizeDetails" style={{ display: showSize ? "block" : "none", cursor: "pointer" }}>
-                            <p>S</p>
-                            <p>M</p>
-                            <p>L</p>
-                            <p>XL</p>
-                            <p>XXL</p>
+                            <p style={{backgroundColor:sizeText==="S"?"#f2f2f2":null}}>S</p>
+                            <p style={{backgroundColor:sizeText==="M"?"#f2f2f2":null}}>M</p>
+                            <p style={{backgroundColor:sizeText==="L"?"#f2f2f2":null}}>L</p>
+                            <p style={{backgroundColor:sizeText==="XL"?"#f2f2f2":null}}>XL</p>
+                            <p style={{backgroundColor:sizeText==="XXL"?"#f2f2f2":null}}>XXL</p>
                         </div>
 
                         <div className="sizeSection">
@@ -294,14 +295,33 @@ function CategorizedSection() {
                             <div style={{ textTransform: "uppercase" }}>{categoryCloth}</div>
                             <div className="fetchedImage">
                                 {
-                                    selectedCircle ? filterData && filterData.map((val) => {
+                                    selectedCircle ? filterData && filterData.map((val, index) => {
+                                        
                                         if (val.color === selectedCircle) {
+
                                             return (
                                                 <div className="imageSection">
                                                     <Link to={`/imageDetails/${val._id}`}>
                                                         <img className="fetchedImageData" src={loader ? "https://www.beyoung.in/beyoung-loader.gif" : val.displayImage} />
                                                     </Link>
-                                                    <i class="fa-regular fa-heart"></i>
+
+
+                                                    <i onClick={(e) => handleCheckHeart(e, val, index)} class="fa-regular fa-heart"></i>
+
+                                                    {wishListData && wishListData.map((value)=>{
+                                                        if(val._id===value.products._id){
+                                                            return(
+                                                                <i class="fa-solid fa-heart" style={{color:"#f00000", background:"none"}}></i>
+                                                            )
+                                                        }
+                                                    })}
+
+                                                    
+
+                                                   
+
+
+
 
                                                     <p className="typeText">{
                                                         val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` : val.brand
@@ -314,15 +334,23 @@ function CategorizedSection() {
                                         }
                                     }) :
 
-
-                                    changeSizeSelect ? filterData && filterData.map((val) => {
+                                    changeSizeSelect ? filterData && filterData.map((val, index) => {
                                         if (val.size === changeSizeSelect) {
                                             return (
                                                 <div className="imageSection">
                                                     <Link to={`/imageDetails/${val._id}`}>
                                                         <img className="fetchedImageData" src={val.displayImage}/>
                                                     </Link>
-                                                    <i class="fa-regular fa-heart"></i>
+                                                    
+                                                    <i onClick={(e) => handleCheckHeart(e, val, index)} class="fa-regular fa-heart"></i>
+
+                                                    {wishListData && wishListData.map((value)=>{
+                                                        if(val._id===value.products._id){
+                                                            return(
+                                                                <i class="fa-solid fa-heart" style={{color:"#f00000", background:"none"}}></i>
+                                                            )
+                                                        }
+                                                    })}
 
                                                     <p className="typeText">{
                                                         val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` : val.brand
@@ -335,12 +363,23 @@ function CategorizedSection() {
                                         }
                                     }) :
 
-                                    isChecked ? filterData && filterData.map((val) => {
+                                    isChecked ? filterData && filterData.map((val, index) => {
                                         return (
                                             <div className="imageSection">
                                                 <Link to={`/imageDetails/${val._id}`}>
                                                     <img className="fetchedImageData" src={val.displayImage} />
-                                                    <i class="fa-regular fa-heart"></i>
+                                                    <i onClick={(e) => handleCheckHeart(e, val, index)} class="fa-regular fa-heart"></i>
+
+                                                    {wishListData && wishListData.map((value)=>{
+                                                        if(val._id===value.products._id){
+                                                            return(
+                                                                <i class="fa-solid fa-heart" style={{color:"#f00000", background:"none"}}></i>
+                                                            )
+                                                        }
+                                                    })}
+
+
+
                                                 </Link>
                                                 <p className="typeText" style={{ textTransform: "capitalize" }}>{
                                                     val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` : val.brand
@@ -358,6 +397,16 @@ function CategorizedSection() {
                                                     <img className="fetchedImageData" src={loader ? "https://www.beyoung.in/beyoung-loader.gif" : val.displayImage} />
                                                 </Link>
                                                 <i onClick={(e) => handleCheckHeart(e, val, index)} class={faHeart}></i>
+
+                                                {wishListData && wishListData.map((value)=>{
+                                                        if(val._id===value.products._id){
+                                                            return(
+                                                                <i class="fa-solid fa-heart" style={{color:"#f00000", background:"none"}}></i>
+                                                            )
+                                                        }
+                                                    })}
+
+
                                                 <p className="typeText" style={{ textTransform: "capitalize" }}>{
                                                     val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` : val.brand
                                                 }</p>
@@ -367,13 +416,20 @@ function CategorizedSection() {
                                         )
                                     }) :
 
-
-                                    filterData && filterData.map((val) => {
+                                    filterData && wishListData && filterData.map((val, index) => {
                                         return (
                                             <div className="imageSection">
                                                 <Link to={`/imageDetails/${val._id}`}>
                                                     <img className="fetchedImageData" src={val.displayImage} />
-                                                    <i class="fa-regular fa-heart"></i>
+                                                    <i onClick={(e) => handleCheckHeart(e, val, index)} class="fa-regular fa-heart"></i>
+
+                                                    {wishListData && wishListData.map((value)=>{
+                                                        if(val._id===value.products._id){
+                                                            return(
+                                                                <i class="fa-solid fa-heart" style={{color:"#f00000", background:"none"}}></i>
+                                                            )
+                                                        }
+                                                    })}
                                                 </Link>
                                                 <p className="typeText" style={{ textTransform: "capitalize" }}>{
                                                     val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` : val.brand

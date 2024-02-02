@@ -65,8 +65,6 @@ function ImageDetails() {
         window.scrollTo(0, 0);
     }, []);
 
-    // const {token} = useContext(UserContext);
-
     const addToCart = async()=>{
         try{
             let data = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${id}`,{
@@ -106,22 +104,19 @@ function ImageDetails() {
         }
         
         else{
-            console.log("selectChange",selectChange);
            {clothSize && selectChange && addToCart() && 
             Swal.fire({
                 title: "Congratulations !",
                 text: "Your data added successfully !",
                 icon: "success"
               });
-        
-        }
+            }
         }
     }
 
     const [imageDetails, setImageDetails] = useState("");
 
     function handleImageData(val){
-        console.log("image data is", val);
         setImageDetails(val);
     }
 

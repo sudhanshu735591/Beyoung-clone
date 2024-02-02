@@ -38,9 +38,6 @@ function OrderSuccess(){
     },[])
 
 
-
-
-
     const navigate = useNavigate();
 
     function handleShopping(){

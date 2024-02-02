@@ -15,9 +15,7 @@ import OrderSuccess from "./PaymentSuccess/PaymentSuccess";
 import SingleOrderData from "./SingleOrderData/SingleOrderData";
 
 
-
 function App() {
-const {token} = useContext(UserContext);
 
   return( 
     <div className="App">

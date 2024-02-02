@@ -235,3 +235,8 @@
     margin: 50px auto;
     border-radius: 13px;
 }
+
+
+.selectedHeart {
+    color: #f60909; /* or any other color you want */
+  }
