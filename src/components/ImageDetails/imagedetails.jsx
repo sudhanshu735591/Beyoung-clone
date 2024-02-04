@@ -80,7 +80,6 @@ function ImageDetails() {
                     "Content-Type": "application/json",
                 },
 
-
                 body:JSON.stringify({
                     "quantity" : `${selectChange}`,
                     "size" : `${clothSize}`
@@ -91,7 +90,7 @@ function ImageDetails() {
 
             setCartCount(res?.results);
             {res.status!=="fail" && setAddToCartDataLength(res?.data?.items?.length)};
-            localStorage.setItem("cartLength", res?.data?.items?.length)
+            localStorage.setItem("cartLength", res?.data?.items?.length);
            
         }
         catch(error){
@@ -109,7 +108,7 @@ function ImageDetails() {
         }
         
         else{
-           {clothSize && selectChange && addToCart() && 
+            {clothSize && selectChange && addToCart() && 
             Swal.fire({
                 title: "Congratulations !",
                 text: "Your data added successfully !",
