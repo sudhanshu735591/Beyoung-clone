@@ -98,6 +98,7 @@
     gap: 6px;
     flex-wrap: wrap;
     width: 193px;
+    cursor: pointer;
 }
 
 .sizeSection{

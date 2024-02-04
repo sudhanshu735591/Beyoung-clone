@@ -33,6 +33,11 @@ function ImageDetails() {
         setClickIndex(index);
     }
 
+
+    function goToCart(){
+        navigate("/checkout");
+    }
+
     const fetchApi = async () => {
         try {
             setLoader(true);
@@ -197,7 +202,10 @@ function ImageDetails() {
                         {!selectChange && !addCart && <p style={{color:"red", paddingRight:"160px"}}>Please select a size</p>}
 
                         <div className="button">
-                            <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
+                            {localStorage.getItem("data").includes(id)?
+                                <Button onClick={goToCart} text="Go to Cart" className="cart" />:
+                                <Button onClick = {addToCartHandler} text="Add to Cart" className="cart" />
+                            }
                             <Button onClick={buyNowHandler} text="BUY NOW" className="cart buy" />
                         </div>
 
