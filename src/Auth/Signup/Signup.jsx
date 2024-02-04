@@ -91,7 +91,6 @@ export default function SignUpPage({ showModal, onClose }) {
         })
 
         let res = await data.json();
-        console.log("know",res.data.name);
         if(res.message){
             {loginEmail && loginPassword && setLoginMessage("Wrong email or password !!")}
             setLoginEmail("");

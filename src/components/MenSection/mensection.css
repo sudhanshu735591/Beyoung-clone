@@ -24,18 +24,21 @@
     .viewall {
         display: flex;
         position: relative;
-        left: 86%;
         bottom: 20px;
     }
 
     .demand {
         position: absolute;
-        right: 56%;
         bottom: 3px;
+        
     }
 
     .bestSellerBox {
-        margin: 15px auto;
+        width: 88%;
+        margin: auto;
+        display: flex;
+        overflow: scroll;
+        gap: 20px;
     }
 }
 

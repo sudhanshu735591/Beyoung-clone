@@ -25,7 +25,6 @@ function CategorizedSection() {
     const { token } = useContext(UserContext);
     const {wishListData, setWishListData } = useContext(UserContext);
     const [showModal, setShowModal] = useState(false);
-    const { successMessage } = useContext(UserContext);
     const [faHeart] = useState("fa-regular fa-heart");
     const [sizeText, setSizeText ] = useState("");
     const [categoryCloth, setCategoryCloth] = useState("");
@@ -239,7 +238,6 @@ function CategorizedSection() {
                             </div>
                             <div>
                                 <img onClick={onArrowClick} className="arrow" src="https://www.beyoung.in/desktop/images/category/arrow.svg" />
-
                             </div>
                         </div>
 
@@ -315,13 +313,6 @@ function CategorizedSection() {
                                                             )
                                                         }
                                                     })}
-
-                                                    
-
-                                                   
-
-
-
 
                                                     <p className="typeText">{
                                                         val.brand.length > 10 ? `${val.brand.slice(0, 10)}....` : val.brand
@@ -417,6 +408,8 @@ function CategorizedSection() {
                                     }) :
 
                                     filterData && wishListData && filterData.map((val, index) => {
+                                        console.log("wishListData and", wishListData);
+
                                         return (
                                             <div className="imageSection">
                                                 <Link to={`/imageDetails/${val._id}`}>

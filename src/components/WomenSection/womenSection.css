@@ -74,6 +74,10 @@
         width: 100%;
     }
 
+    /* .womenSectionFlex{
+        width: 39%;
+    } */
+
     .bestImage {
         height: 182px;
         width: 140px;
@@ -99,11 +103,34 @@
         height: 200px;
         width: 142px;
     }
+        
+    /* .imageSlider{
+        position: relative;
+        width: 553px;
+        right: 6%;
+        border: 2px solid;
+        overflow: scroll;
+    } */
+
+    .womenTextData {
+        font-size: 7px;
+        margin-right: 60px;
+        color: black;
+        z-index: 1;
+        position: relative;
+        display: flex;
+        padding: 8px;
+        bottom: 40px;
+        left: 10px;
+        border-left: 4px solid #ffdd00;
+        bottom: 26px;
+    }
 }
 
 
 .imageSlider{
     position: relative;
-    width: 1200px;
+    width: 115%;
     right: 6%;
+    overflow: scroll;
 }
