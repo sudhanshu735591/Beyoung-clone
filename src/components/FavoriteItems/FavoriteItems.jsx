@@ -217,7 +217,7 @@ function FavoriteItems() {
                     }) :
                     getUlText==="Order" && orderData ? <div className="parentorderDataBox">
                       {
-                        orderData.map((val)=>{
+                        orderData.reverse().map((val)=>{
                             return(
                                 <div className="my-order">
                                     <ul style={{listStyle:"none"}}>
@@ -253,7 +253,7 @@ function FavoriteItems() {
                                                     </div>
 
                                                     <p className="order-qty">
-                                                        "Qty:" 4
+                                                        "Qty:" 1
                                                     </p>
                                                     <section class="product-order-review"></section>
                                                 </div>
