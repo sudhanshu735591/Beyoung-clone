@@ -31,6 +31,7 @@ function CategorizedSection() {
     const [colorArr, setColorArr] = useState([]);
     const [filterData, setFilterData] = useState();
     const letters = new Set();
+    const [sizeFlag, setSizeFlag] = useState(false)
 
     const [selectedHeart, setSelectedHeart]= useState([])
 
@@ -274,7 +275,7 @@ function CategorizedSection() {
                             <img onClick={sortedArrowClick} className="arrow" src="https://www.beyoung.in/desktop/images/category/arrow.svg" />
                         </div>
 
-                        <div className="sizeDetails" style={{ display: showSize ? "block" : "none", cursor: "pointer" }}>
+                        <div className="sizeDetails">
                             <div style={{ display: sortFlag ? "none" : "block" }} className="priceSectionData">
                                 <div className="PriceSection">
                                     <input onChange={lowToHigh} checked={isChecked} id="lowToHigh" type="checkbox" />

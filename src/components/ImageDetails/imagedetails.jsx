@@ -197,7 +197,7 @@ function ImageDetails() {
                                 <option>10</option>
                             </select>
                         </div>
-
+  
                         {!selectChange && !addCart && <p style={{color:"red", paddingRight:"160px"}}>Please select a size</p>}
 
                         <div className="button">

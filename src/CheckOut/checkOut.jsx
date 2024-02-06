@@ -8,7 +8,7 @@ import CheckOutBar from "./CheckOutBar/CheckOutBar";
 import PriceDetails from "./PriceDetails/PriceDetails";
 
 function CheckOut() {
-
+ 
     const {data, setdata} = useContext(UserContext);
     const {wishlistDataIter, setWishListDataIter} = useContext(UserContext);
     const {setWishListData} = useContext(UserContext);
@@ -83,8 +83,6 @@ function CheckOut() {
             setdata(res.data.items);
             localStorage.setItem("data", JSON.stringify(res.data?.items));
             localStorage.setItem("cartLength", res?.data?.items?.length);
-
-
         }
 
         catch (error) {
