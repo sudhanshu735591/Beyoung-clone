@@ -10,6 +10,7 @@ import SignUp from "../../Auth/Signup/Signup";
 import { createPortal } from "react-dom";
 import UserContext from "../../ContextApi/UserContext";
 import Swal from "sweetalert2";
+
 function ImageDetails() {
     const [myData, setMyData] = useState({});
     const [addCart, setAddCart] = useState(true);
@@ -59,7 +60,7 @@ function ImageDetails() {
         }
 
         catch (error) {
-            console.log("error is", error);
+            console.error("error is", error);
         }
     }
 
@@ -129,7 +130,7 @@ function ImageDetails() {
     function buyNowHandler(){
         {localStorage.getItem('Token') ? navigate("/checkout") : setShowModal(true)};
     }
-    
+
 
     return (
         <div>

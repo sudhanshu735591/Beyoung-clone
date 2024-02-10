@@ -10,6 +10,7 @@ import SignUp from "../../Auth/Signup/Signup";
 import { createPortal } from "react-dom";
 
 
+
 function CategorizedSection() {
     const [myData, setMyData] = useState([]);
     const [duplicateData, setDuplicateData] = useState([]);
@@ -31,8 +32,6 @@ function CategorizedSection() {
     const [colorArr, setColorArr] = useState([]);
     const [filterData, setFilterData] = useState();
     const letters = new Set();
-    const [sizeFlag, setSizeFlag] = useState(false)
-
     const [selectedHeart, setSelectedHeart]= useState([])
 
     function onArrowClick() {

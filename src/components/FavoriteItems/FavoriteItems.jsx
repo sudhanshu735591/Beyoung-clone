@@ -25,6 +25,7 @@ function FavoriteItems() {
     const [getUlText, setGetUlText] = useState("Wishlist");
     const [singleHandlerData, setSingleHandlerData] = useState();
     window.scrollTo(0, 0);
+    
 
     function Logout(){
         setToken("");

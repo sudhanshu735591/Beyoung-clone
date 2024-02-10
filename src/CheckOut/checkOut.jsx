@@ -18,6 +18,7 @@ function CheckOut() {
     const [loader, setLoader] = useState(false);
     const {setAddToCartDataLength} = useContext(UserContext);
     const {setWishListDataLength} = useContext(UserContext);
+    const {wishListFlag} = useContext(UserContext);
 
     let sum = 0;
 
@@ -126,6 +127,9 @@ function CheckOut() {
         setWishListDataLength(res?.data?.items?.length);
         res && localStorage.setItem("wishListLength", res?.data?.items?.length)
         setWishListDataIter(res.data?.items);
+        console.log("wishListFlag", wishListFlag);
+        {wishListFlag && setWishListDataIter("")}
+
         setWishListData(res.data?.items);
         setLoader(false);
     }

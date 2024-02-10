@@ -1,6 +1,11 @@
 // import "./checkout.css"
 
+import { useContext } from "react";
 import Button from "../../components/button/button";
+import UserContext from "../../ContextApi/UserContext";
+
+
+
 
 
 function PriceDetails(props){
@@ -8,6 +13,27 @@ function PriceDetails(props){
     let sum = 0;
     let item = 0;
     const {data, selectItem, setSelectChange,setGlobalPrice,checkOutHandler} = props;
+    // const { setWishListDataIter} = useContext(UserContext);
+    // const {setWishListFlag} = useContext(UserContext);
+
+    const {setdata} = useContext(UserContext)
+    
+
+    const removeWishListData = async()=>{
+        const data = await fetch("https://academics.newtonschool.co/api/v1/ecommerce/cart",{
+            method: 'DELETE',
+            headers:{
+                'Authorization': `Bearer ${localStorage.getItem("Token")}`,
+                'projectID': 'zx5u429ht9oj',
+            }
+        })
+    
+        const res = await data.json();
+        console.log("response", res);
+        localStorage.setItem("cartLength",res?.data?.items?.length)
+        setdata("");
+    }
+
        
     return(
         <div className="checkOutPrice_Text">
@@ -62,6 +88,7 @@ function PriceDetails(props){
                 <div>₹{sum}</div>
             </div>
             <Button onClick={checkOutHandler} className="checkOutButton" text="CHECKOUT SECURELY" />
+            <Button className="checkOutButton" onClick = {removeWishListData} text = "Clear Cart"/>
         </div>
     </div>
 
