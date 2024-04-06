@@ -1,0 +1,65 @@
+.eodijeoidj{
+    background-color: white;
+    height: 600px;
+    width: 450px;
+    border-radius: 10px;
+
+    padding: 20px;
+    z-index: 4;
+}
+
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ekjnekfn{
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+.edkjenjdk{
+    border: 2px solid;
+    width: 40%;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+
+.edjned{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    
+}
+
+.edkjendke{
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+
+
+.edkekdedkjed{
+    width: 100%;
+    background: black;
+    color: white;
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.edkje{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 10px;
+    background: linear-gradient(101.41deg, rgb(214, 228, 226) 7.43%, rgb(255, 214, 184) 49.31%, rgb(255, 195, 169) 92.06%);
+}

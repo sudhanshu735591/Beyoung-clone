@@ -1,0 +1,54 @@
+.ednedje{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modalContent{
+    
+    background-color: white;
+    
+    height: 400px;
+    width: 450px;
+    border-radius: 10px;
+
+    padding: 20px;
+}
+
+.kedned{
+    text-align: start;
+    padding: 10px;
+}
+
+.edjejd{
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kedned{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.ejnedj{
+    margin-top: 70px;
+    cursor: pointer;
+}

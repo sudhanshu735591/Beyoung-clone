@@ -1,0 +1,89 @@
+.efirofro{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    gap: 7%;
+}
+
+.wmkoode{
+    height: 700px;
+    width: 500px;
+}
+
+.eiueie{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.eded{
+    border-top: 0.5px solid;
+    border-bottom: 0.5px solid;
+    padding: 20px;  
+}
+
+.edoieod{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.edkmekd{
+    color: #585c5f;
+}
+
+.jednedn{
+    text-align: start;
+    display: flex;
+    gap: 20px;
+}
+
+.wdkn3{
+    background-color: black;
+    color: white;
+    font-weight: 100;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    border-radius: 6px;
+}
+
+.diedi{
+    height: 200px;
+    width: 200px;
+    margin-top: 20px;
+}
+
+
+
+.djend{
+    text-align: start;
+}
+
+.eidend{
+    border: 2px solid;
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+
+.swal2-popup {
+    background:none;
+}
+
+@media (max-width:621px){
+    .efirofro{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eiueie{
+        margin: auto;
+    }
+}

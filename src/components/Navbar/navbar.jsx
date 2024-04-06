@@ -24,9 +24,6 @@ function Navbar(){
 
     const navigate = useNavigate();
 
-
-
-
     function checkToken(){
         {localStorage.getItem("Token") && setToken(localStorage.getItem("Token"))};
     }
@@ -66,8 +63,6 @@ function Navbar(){
     }
     
     window.addEventListener('scroll', handleScroll);
-
-
 
     function handleCartClick(){
         

@@ -448,18 +448,3 @@ function CategorizedSection() {
 
 
 export default CategorizedSection;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

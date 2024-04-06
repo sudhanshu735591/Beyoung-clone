@@ -13,6 +13,7 @@ import TrackOrderDetails from "./TrackOrderDetails/TrackOrder";
 import OrderHistoryApi from "./APIDATA/OrderHistoryApi";
 import OrderSuccess from "./PaymentSuccess/PaymentSuccess";
 import SingleOrderData from "./SingleOrderData/SingleOrderData";
+import InterviewAsk from "./InterviewAsk/interview";
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
   return( 
     <div className="App">
       <Routes>
-        <Route path = "/" element = {<Home/>}/>
+        <Route path="/" element={<InterviewAsk/>}/>
+        {/* <Route path = "/" element = {<Home/>}/> */}
         <Route path = "/imageDetails/:id" element = {<ImageDetails/>}/>
         <Route path = "/categorized" element = {<CategorizedSection/>}/>
         <Route path="/checkout" element = {<CheckOut/>}/>
