@@ -37,10 +37,10 @@
 }
 
 
-.top{
+.top {
     display: flex;
     /* justify-content: space-between; */
-    gap: 24%;
+    gap: 36%;
     align-items: center;
 }
 
@@ -60,6 +60,13 @@
         width: fit-content;
         margin: auto;
         height: auto;
+    }
+
+
+    .ejnedj {
+        margin-top: 70px;
+        cursor: pointer;
+        padding: 30px;
     }
 
 
