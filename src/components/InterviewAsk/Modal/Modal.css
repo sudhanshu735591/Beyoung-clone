@@ -58,6 +58,12 @@
     .modalContent{
         width: fit-content;
         margin: auto;
-        
+        height: auto;
+    }
+
+
+
+    .ednedje{
+        width: fit-content;
     }
 }

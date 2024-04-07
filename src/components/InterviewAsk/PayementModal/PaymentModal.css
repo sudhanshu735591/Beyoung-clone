@@ -80,7 +80,7 @@
     .eodijeoidj{
         width: fit-content;
         margin: auto;
-        height: fit-content;
+        height: inherit;
         overflow: scroll;
     
     }
