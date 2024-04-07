@@ -41,7 +41,7 @@ function InterviewAsk(){
             </div>
 
             <div className="eiueie">
-                <h2>Subaru OEM Thermostat WRX 2002-2014 / STI 2004-2020 | 21200AA072</h2>
+                <div className="ekjnejkn">Subaru OEM Thermostat WRX 2002-2014 / STI 2004-2020 | 21200AA072</div>
 
                 <div className="eded">
                     <div className="edoieod">

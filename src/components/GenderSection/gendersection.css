@@ -318,8 +318,8 @@
     .flex {
         display: flex;
         overflow: scroll;
-        width: 90vw;
-        height: 22vh;
+        /* width: 90vw; */
+        /* height: 22vh; */
     }
 
 

@@ -20,13 +20,14 @@
 .eded{
     border-top: 0.5px solid;
     border-bottom: 0.5px solid;
-    padding: 20px;  
+    padding: 19px 0px;
 }
 
 .edoieod{
     display: flex;
     flex-direction: column;
     text-align: start;
+    gap: 7px;
 }
 
 .edkmekd{
@@ -84,20 +85,24 @@
     }
 
     .eiueie{
-        width: fit-content;
-        padding: 30px;
+        width: 100%;
+        /* width: fit-content; */
+        padding: 12px;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 12%;
     }
 
-    
+
+    .wmkoode{
+        height: 330px;
+        width: 334px;
+    }
+
+}
 
 
-  
-
-
-
-
+.ekjnejkn{
+    text-align: left;
+    --color-title: #222222;
+    font-weight: 500;
+    font-size: 22px;
 }

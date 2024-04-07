@@ -12,13 +12,6 @@
 
 
 
-
-.top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .edkekd{
     display: flex;
     flex-direction: column;
@@ -87,5 +80,19 @@
 
     .ekjnkenf{
         flex-wrap: wrap;
+    }
+
+    .edkekd{
+        width: 70%;
+    }
+
+    .ekjenk {
+       
+        width: 68%;
+    }
+
+
+    .ekjnen {
+        width: 73%;
     }
 }

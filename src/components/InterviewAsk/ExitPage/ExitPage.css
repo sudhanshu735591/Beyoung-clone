@@ -21,3 +21,30 @@
     margin-top: 40px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:621px){
+    .edkjeodoed {
+        background-color: black;
+        padding: 12px;
+        margin-top: 159px;
+        color: white;
+        font-weight: bold;
+        border-radius: 20px;
+        width: 78%;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
