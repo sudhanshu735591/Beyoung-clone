@@ -42,8 +42,8 @@ function ExitPage(props){
 
 
 
-            <div onClick={handleContinue} className="eoiojdoi3ej">
-                <h3 className="eidjeodj">No, continue</h3>
+            <div  className="emeemrf">
+                <div onClick={handleContinue} className="eidjeodj">No, continue</div>
             </div></>:
             (
                 <>

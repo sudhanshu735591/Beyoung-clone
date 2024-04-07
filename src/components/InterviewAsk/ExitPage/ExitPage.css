@@ -1,6 +1,7 @@
 .ekjnekdn{
     margin-top: 50px;
     text-align: left;
+    width: 66vw;
 }
 
 
@@ -20,9 +21,15 @@
     text-align: center;
     margin-top: 40px;
     cursor: pointer;
+    width: 31vw;
 }
 
 
+
+
+.emeemrf{
+   width: 65vw;
+}
 
 
 
@@ -49,14 +56,6 @@
     }
 
         
-    .eoiojdoi3ej{
-        margin-left: 23%;
-    }
+ 
 }
 
-
-.eoiojdoi3ej{
-    display: flex;
-    justify-content: center;
-    width: 30vw;
-}
