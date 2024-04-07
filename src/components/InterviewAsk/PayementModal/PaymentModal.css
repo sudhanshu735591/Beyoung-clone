@@ -87,13 +87,12 @@
     .eodijeoidj {
         width: 62%;
         margin: auto;
-        height: 75%;
+        height: 51%;
         overflow: scroll;
         display: flex;
         flex-direction: column;
         align-items: baseline;
         overflow-x: hidden;
-        margin-right: 20%;
     }
 
     .ekjnekfn{
