@@ -81,6 +81,12 @@
         padding: 13px;
 
     }
+
+    .top {
+        display: flex;
+        gap: 23%;
+        align-items: center;
+    }
 }
 
 
