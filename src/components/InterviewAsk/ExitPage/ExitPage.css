@@ -47,11 +47,16 @@
         font-size: 20px;
         cursor: pointer;
     }
+
+        
+    .eoiojdoi3ej{
+        margin-left: 23%;
+    }
 }
 
 
 .eoiojdoi3ej{
     display: flex;
     justify-content: center;
-    width: 60vw;
+    width: 30vw;
 }

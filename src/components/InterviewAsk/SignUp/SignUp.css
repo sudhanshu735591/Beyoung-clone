@@ -67,3 +67,42 @@ p{
     color: white;
     background: black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:621px){
+
+
+.eodijjhdbhedeoidj{
+    height: 600px;
+    width: 65vw;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+
+.eknejnk {
+    padding: 15px 24vw;
+    margin-top: 64px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+    background: darkgrey;
+    cursor: no-drop;
+}
+
+}
