@@ -29,9 +29,9 @@
     text-align: start;
     gap: 7px;
 }
-
-.edkmekd{
+.edkmekd {
     color: #585c5f;
+    text-decoration: line-through;
 }
 
 .jednedn{
@@ -43,7 +43,7 @@
 .wdkn3{
     background-color: black;
     color: white;
-    font-weight: 100;
+    font-weight: 400;
     font-size: 20px;
     display: flex;
     justify-content: center;

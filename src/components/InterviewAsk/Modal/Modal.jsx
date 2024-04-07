@@ -29,7 +29,7 @@ function Modal(props){
 
 
                 <div>
-                    <h1>{hTag}</h1>
+                    <h1 className="edjujeudi">{hTag}</h1>
                 </div>
 
 
@@ -46,7 +46,7 @@ function Modal(props){
 
 
                 <div className="ejnedj" onClick={PaymentPage}>
-                    <h2>Learn More & Apply</h2>
+                    <h2 style={{fontWeight:"500"}}>Learn More & Apply</h2>
                 </div>
             </div></>:<>{<PayementModal handleCrossInPayment={handleCross}/>}</>}
         </div>
