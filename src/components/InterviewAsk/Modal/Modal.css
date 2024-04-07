@@ -52,3 +52,12 @@
     margin-top: 70px;
     cursor: pointer;
 }
+
+
+@media (max-width:621px){
+    .modalContent{
+        width: fit-content;
+        margin: auto;
+        
+    }
+}
