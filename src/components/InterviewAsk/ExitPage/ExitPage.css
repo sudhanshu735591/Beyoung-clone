@@ -43,8 +43,15 @@
         color: white;
         font-weight: bold;
         border-radius: 20px;
-        width: 78%;
+        width: 62vw;
         font-size: 20px;
         cursor: pointer;
     }
+}
+
+
+.eoiojdoi3ej{
+    display: flex;
+    justify-content: center;
+    width: 60vw;
 }
