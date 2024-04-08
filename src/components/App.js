@@ -21,8 +21,8 @@ function App() {
   return( 
     <div className="App">
       <Routes>
-        <Route path="/" element={<InterviewAsk/>}/>
-        {/* <Route path = "/" element = {<Home/>}/> */}
+        {/* <Route path="/" element={<InterviewAsk/>}/> */}
+        <Route path = "/" element = {<Home/>}/>
         <Route path = "/imageDetails/:id" element = {<ImageDetails/>}/>
         <Route path = "/categorized" element = {<CategorizedSection/>}/>
         <Route path="/checkout" element = {<CheckOut/>}/>
